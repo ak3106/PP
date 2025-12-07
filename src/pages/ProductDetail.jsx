@@ -3,6 +3,7 @@
     import { ShoppingCart, Star, CheckCircle, Clock, Truck, ArrowLeft, Image, Tag, Minus, Plus } from 'lucide-react';
     import Button from '../components/UI/Button';
     import { PRODUCTS } from '../data/dummyProducts'; // Import E-commerce products
+import { useCart } from '../context/CartContext';
 
     /**
      * Displays the full details of a single product, allows options selection, and adds to cart.
@@ -10,11 +11,13 @@
      * @param {function} props.dispatchCart - Function to dispatch cart actions (from App.jsx).
      * @returns {JSX.Element}
      */
-    const ProductDetail = ({ dispatchCart }) => {
+    const ProductDetail = () => {
         const { id } = useParams();
         const navigate = useNavigate();
 
+        const { dispatchCart } = useCart(); 
         // Find the specific product based on the URL ID
+
         const product = PRODUCTS.find(p => p.id === id);
 
         // --- State for User Selections ---

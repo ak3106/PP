@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-// FIX: Removed 'Google' from lucide-react import list
-import { Mail, Lock, User, ArrowRight, CheckCircle } from 'lucide-react';
+import { Mail, Lock, User, ArrowRight, CheckCircle, Phone } from 'lucide-react';
 import Button from '../components/UI/Button';
 import Input from '../components/UI/Input';
 
@@ -25,6 +24,7 @@ const GoogleIcon = ({ className = "w-5 h-5 mr-2" }) => (
 const Register = ({ onRegister }) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState(''); // State for Phone Number
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
@@ -34,7 +34,7 @@ const Register = ({ onRegister }) => {
         e.preventDefault();
         setError('');
         
-        if (!email || !password || !confirmPassword) {
+        if (!email || !password || !confirmPassword || !phoneNumber) {
             setError('All fields are required.');
             return;
         }
@@ -48,6 +48,12 @@ const Register = ({ onRegister }) => {
             setError('Password must be at least 6 characters long.');
             return;
         }
+        
+        if (!phoneNumber.match(/^\d{10}$/)) {
+             setError('Phone number must be 10 digits.');
+             return;
+        }
+
 
         setIsLoading(true);
 
@@ -58,8 +64,18 @@ const Register = ({ onRegister }) => {
             setIsLoading(false);
             
             if (email.includes('@') && password.length >= 6) {
-                 // Assume registration is successful for now
-                onRegister({ email: email }); 
+                 // 1. Create user data object
+                const userData = { 
+                    email: email,
+                    phoneNumber: phoneNumber, // Include phone number
+                    name: email.split('@')[0]
+                };
+                
+                 // 2. Persist full user data to localStorage
+                localStorage.setItem('pragya_user', JSON.stringify(userData));
+
+                 // 3. Update global state
+                onRegister(userData); 
                 localStorage.removeItem('redirect_after_login');
                 navigate(redirectPath); // Redirect to checkout or home
             } else {
@@ -90,6 +106,15 @@ const Register = ({ onRegister }) => {
                         required
                     />
                     
+                    <Input
+                        label="Phone Number"
+                        type="tel" // Use tel for better mobile keyboard input
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        placeholder="10 digit number"
+                        required
+                    />
+
                     <Input
                         label="Password (min 6 chars)"
                         type="password"

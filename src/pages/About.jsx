@@ -240,7 +240,7 @@ import {
   DollarSign,
   Globe,
 } from "lucide-react";
-import { motion, useInView } from "framer-motion";
+import {motion, useInView } from "framer-motion";
 import Button from "../components/UI/Button";
 
 // --- Timeline Data ---
@@ -564,7 +564,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Sticky Rail */}
           <div className="hidden md:block md:col-span-1">
-            <div className="sticky top-32 h-96 relative">
+            <div className="sticky top-32 h-96">
 
               {/* Background Line */}
               <div className="absolute left-1/2 -translate-x-1/2 w-1 bg-gray-200 h-full rounded-full"></div>

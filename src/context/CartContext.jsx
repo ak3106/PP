@@ -1,41 +1,57 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
+import React, { createContext, useContext, useReducer, useEffect, useMemo } from "react";
 
 const CartContext = createContext();
 
+// --- Reducer Logic: Synchronized with application actions ---
 const cartReducer = (state, action) => {
   switch (action.type) {
-
-    case "ADD_TO_CART":
-      const existingItem = state.find(
-        item => item.id === action.payload.id
+    case "ADD_ITEM": {
+      const { product, selectedSize, selectedType, quantity } = action.payload;
+      // Create a unique ID combining product ID, size, and type
+      const itemId = `${product.id}-${selectedSize}-${selectedType}`;
+      const existingItemIndex = state.findIndex(
+        (item) => item.itemId === itemId
       );
+      
+      // Use the correct price field from the product object
+      const itemPrice = product.salePrice || product.price || 0;
 
-      if (existingItem) {
-        return state.map(item =>
-          item.id === action.payload.id
-            ? { ...item, qty: item.qty + 1 }
+      if (existingItemIndex !== -1) {
+        // If item exists, update quantity
+        return state.map((item, index) =>
+          index === existingItemIndex
+            ? { ...item, quantity: item.quantity + quantity }
             : item
         );
+      } else {
+        // Add new item with rich data structure
+        return [
+          ...state,
+          {
+            itemId,
+            product, // Store the entire product object
+            quantity,
+            selectedSize,
+            selectedType,
+            price: itemPrice,
+          },
+        ];
       }
+    }
 
-      return [...state, { ...action.payload, qty: 1 }];
+    case "REMOVE_ITEM":
+      // Action payload expects { itemId }
+      return state.filter((item) => item.itemId !== action.payload.itemId);
 
-    case "REMOVE_FROM_CART":
-      return state.filter(item => item.id !== action.payload);
-
-    case "INCREASE_QTY":
-      return state.map(item =>
-        item.id === action.payload
-          ? { ...item, qty: item.qty + 1 }
-          : item
-      );
-
-    case "DECREASE_QTY":
-      return state.map(item =>
-        item.id === action.payload && item.qty > 1
-          ? { ...item, qty: item.qty - 1 }
-          : item
-      );
+    case "UPDATE_QUANTITY":
+      // Action payload expects { itemId, quantity }
+      return state
+        .map((item) =>
+          item.itemId === action.payload.itemId
+            ? { ...item, quantity: action.payload.quantity }
+            : item
+        )
+        .filter((item) => item.quantity > 0);
 
     case "CLEAR_CART":
       return [];
@@ -46,17 +62,25 @@ const cartReducer = (state, action) => {
 };
 
 export const CartProvider = ({ children }) => {
+  // Load initial state from localStorage (or default to empty array)
   const [cart, dispatchCart] = useReducer(
     cartReducer,
-    JSON.parse(localStorage.getItem("cart")) || []
+    JSON.parse(localStorage.getItem("pragya_cart")) || []
   );
 
+  // Synchronize cart state to localStorage on every change
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("pragya_cart", JSON.stringify(cart));
   }, [cart]);
+  
+  // Calculate item count (useful for Navbar)
+  const cartItemCount = useMemo(
+    () => cart.reduce((acc, item) => acc + item.quantity, 0),
+    [cart]
+  );
 
   return (
-    <CartContext.Provider value={{ cart, dispatchCart }}>
+    <CartContext.Provider value={{ cart, dispatchCart, cartItemCount }}>
       {children}
     </CartContext.Provider>
   );

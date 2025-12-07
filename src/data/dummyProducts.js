@@ -23,7 +23,7 @@ export const PRODUCTS = [
         gallery: ["interstellar1.jpg", "interstellar2.jpg", "interstellar3.jpg"],
 
         options: {
-            size: ["12x18", "18x24", "24x36"],
+            size: ["A4","12x18", "A3"],
             paperType: ["Glossy", "Matte"]
         },
 
@@ -65,7 +65,7 @@ export const PRODUCTS = [
         gallery: ["naruto1.jpg", "naruto2.jpg", "naruto3.jpg"],
 
         options: {
-            size: ["12x18", "18x24", "24x36"],
+            size: ["A4","12x18", "A3"],
             paperType: ["Matte", "Glossy"]
         },
 
@@ -107,8 +107,8 @@ export const PRODUCTS = [
         gallery: ["cr7_1.jpg", "cr7_2.jpg", "cr7_3.jpg"],
 
         options: {
-            size: ["18x24", "24x36"],
-            paperType: ["Glossy"]
+            size: ["A4","12x18", "A3"],
+            paperType: ["Glossy", "Matte"]
         },
 
         customizable: false,
@@ -149,7 +149,7 @@ export const PRODUCTS = [
         gallery: ["st1.jpg", "st2.jpg", "st3.jpg"],
 
         options: {
-            size: ["12x18", "18x24"],
+            size: ["A4","12x18", "A3"],
             paperType: ["Matte", "Glossy"]
         },
 
@@ -191,7 +191,7 @@ export const PRODUCTS = [
         gallery: ["spidey1.jpg", "spidey2.jpg", "spidey3.jpg"],
 
         options: {
-            size: ["12x18", "18x24", "24x36"],
+            size: ["A4","12x18", "A3"],
             paperType: ["Glossy", "Matte"]
         },
 

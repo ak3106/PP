@@ -1,24 +1,25 @@
-import React, { useState, useReducer, useEffect, useMemo } from "react";
+import React, { useState, useReducer, useEffect, useMemo, lazy } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 // Correctly import ECOMMERCE data for safe use in context/state setup
 import { PRODUCTS } from "./data/dummyProducts";
+import { useCart } from "./context/CartContext";
 
 // --- Import Layout Components ---
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// --- Import Pages ---
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import ProductDetail from "./pages/ProductDetail";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
-import Services from "./pages/Services";
-import Portfolio from "./pages/Portfolio";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Contact from "./pages/Contact";
-import About from "./pages/About";
+// --- DYNAMICALLY Import Pages (Code Splitting) ---
+const Home = lazy(() => import('./pages/Home'));
+const Products = lazy(() => import('./pages/Products'));
+const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+const Cart = lazy(() => import('./pages/Cart'));
+const Checkout = lazy(() => import('./pages/Checkout'));
+const Services = lazy(() => import('./pages/Services'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const Login = lazy(() => import('./pages/Login'));
+const Register = lazy(() => import('./pages/Register'));
+const Contact = lazy(() => import('./pages/Contact'));
+const About = lazy(() => import('./pages/About'));
 
 // --- Cart Reducer Logic ---
 const cartReducer = (state, action) => {

@@ -1,5 +1,5 @@
 import React, { useState, useReducer, useEffect, useMemo, lazy } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";  // ✅ Changed here
 // Correctly import ECOMMERCE data for safe use in context/state setup
 import { PRODUCTS } from "./data/dummyProducts";
 import { useCart } from "./context/CartContext";
@@ -26,24 +26,20 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM": {
       const { product, selectedSize, selectedType, quantity } = action.payload;
-      // Create a unique ID combining product ID, size, and type
       const itemId = `${product.id}-${selectedSize}-${selectedType}`;
       const existingItemIndex = state.findIndex(
         (item) => item.itemId === itemId
       );
 
-      // Ensure the item price is present for calculations later in the cart
       const itemPrice = product.salePrice || product.price || 0;
 
       if (existingItemIndex !== -1) {
-        // If item exists, update quantity
         return state.map((item, index) =>
           index === existingItemIndex
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       } else {
-        // Add new item
         return [
           ...state,
           {
@@ -74,16 +70,13 @@ const cartReducer = (state, action) => {
   }
 };
 
-// --- App Component (Main Entry) ---
+// --- App Component ---
 const App = () => {
-  // 1. Auth State (Simulated for Phase 1)
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
 
-  // 2. Cart State
   const [cart, dispatchCart] = useReducer(cartReducer, []);
 
-  // 3. Simulated Auth Handlers
   useEffect(() => {
     setTimeout(() => {
       const storedUser = JSON.parse(localStorage.getItem("pragya_user"));
@@ -128,7 +121,7 @@ const App = () => {
   }
 
   return (
-    <HashRouter>
+    <BrowserRouter>   {/* ✅ Replaced HashRouter */}
       <Navbar
         cartItemCount={cartItemCount}
         user={user}
@@ -173,7 +166,7 @@ const App = () => {
       </main>
 
       <Footer />
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 

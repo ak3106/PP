@@ -38,16 +38,16 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* 1. Hero Section - Modern & Animated */}
-      <section className="relative text-gray-800 pt-24 pb-32 overflow-hidden shadow-2xl">
+      <section className="relative text-gray-800 pt-24 pb-32 overflow-hidden shadow-2xl bg-[#2C4E34]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight mb-4 animate-fadeInUp">
+            <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight mb-4 animate-fadeInUp text-cream">
               Pragya Print:{" "}
-              <span className="text-yellow-400 block sm:inline">
+              <span className="text-[#FFA800] block sm:inline">
                 30 Years of Print Excellence.
               </span>
             </h1>
-            <p className="text-xl text-primary mb-10 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
               Your trusted local press is now online. Customize and order
               posters, letterheads, and merchandise or find our essential local
               services.
@@ -55,14 +55,14 @@ const Home = () => {
             <div className="flex justify-center space-x-4">
               <Button
                 onClick={() => navigate("/products")}
-                className="bg-yellow-400 text-indigo-900 hover:bg-yellow-500 transition-colors px-8 py-3 text-lg hover:shadow-2xl"
+                className="bg-[#FFA800] hover:bg-yellow-500 transition-colors px-8 py-3 text-lg hover:shadow-2xl"
               >
                 Shop E-Commerce
               </Button>
               <Button
                 onClick={() => navigate("/services")}
                 variant="outline"
-                className="bg-red-500 border-white text-gray-800 hover:text-red-600 px-8 py-3 text-lg"
+                className=" border-white text-white hover:bg-white hover:text-gray-800 px-8 py-3 text-lg"
               >
                 Local Services
               </Button>
@@ -71,40 +71,40 @@ const Home = () => {
         </div>
         {/* Abstract Background Animation */}
         <div className="absolute inset-0 opacity-10">
-          <div className="w-96 h-96 bg-indigo-500 rounded-full absolute -top-10 -left-10 animate-spin-slow"></div>
-          <div className="w-48 h-48 bg-indigo-400 rounded-full absolute bottom-0 right-0 animate-pulse-slow"></div>
+          <div className="w-96 h-96 bg-green-600 rounded-full absolute -top-10 -left-10 animate-spin-slow"></div>
+          <div className="w-48 h-48 bg-green-600 rounded-full absolute bottom-0 right-0 animate-pulse-slow"></div>
         </div>
       </section>
 
       <section
-  className="
+        className="
     py-8 
-    bg-gray-50 
+    bg-cream
     px-8 
     min-h-[110vh]        /* default: phones*/
     sm:min-h-[110vh]     /* small tablets  */
     md:min-h-[120vh]     /* medium screens */
     lg:min-h-[90vh]      /* large desktops */
   "
->
-  <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
-    <h2 className="text-3xl sm:text-5xl md:text-9xl font-bold text-gray-900 mb-8 uppercase tracking-tighter">
-      OUR PRODUCTS
-    </h2>
+      >
+        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
+          <h2 className="text-3xl sm:text-5xl md:text-9xl font-bold text-gray-900 mb-8 uppercase tracking-tighter">
+            OUR PRODUCTS
+          </h2>
 
-    <div className="absolute left-0 top-[65%] w-full flex justify-center">
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-        {featuredCategories.map((cat) => (
-          <CategoryCard
-            key={cat.name}
-            category={cat}
-            navigate={navigate}
-          />
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+          <div className="absolute left-0 top-[65%] w-full flex justify-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+              {featuredCategories.map((cat) => (
+                <CategoryCard
+                  key={cat.name}
+                  category={cat}
+                  navigate={navigate}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 3. Featured Products Section (E-Commerce) */}
       <section className="py-16">
@@ -135,12 +135,12 @@ const Home = () => {
       </section>
 
       {/* 4. Local Services Highlight */}
-      <section className="bg-indigo-50 py-16">
+      <section className="bg-gray-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-indigo-800 mb-4">
+          <h2 className="text-4xl font-bold text-primary mb-4">
             Trusted Local Services
           </h2>
-          <p className="text-xl text-indigo-600 mb-10">
+          <p className="text-xl text-gray-900 mb-10">
             The reliable printing services our community has depended on for
             decades.
           </p>
@@ -150,9 +150,9 @@ const Home = () => {
               return (
                 <div
                   key={service.title}
-                  className="bg-white p-8 rounded-3xl shadow-xl transform hover:scale-[1.03] transition duration-300 border border-indigo-100"
+                  className="bg-white p-8 rounded-3xl shadow-xl transform hover:scale-[1.03] transition duration-300 border border-accent"
                 >
-                  <Icon className="w-10 h-10 mx-auto text-indigo-600 mb-4 animate-bounce-slow" />
+                  <Icon className="w-10 h-10 mx-auto text-accent mb-4 animate-bounce-slow" />
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {service.title}
                   </h3>
@@ -164,7 +164,7 @@ const Home = () => {
           <div className="mt-10">
             <Button
               onClick={() => navigate("/services")}
-              className="px-8 py-3 text-lg"
+              className="px-8 py-3 text-lg bg-primary hover:bg-green-800"
             >
               See All Local Services
             </Button>

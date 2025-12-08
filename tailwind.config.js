@@ -2,16 +2,17 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",  // 👈 Important
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
-      fontFamily: {
-        customFont: ['"metropolitan"', ""],
-        captain: ['"cap"', ""],
-        // Add more custom font families as needed
+      colors: {
+        cream: "#F6EEE3",
+        primary: "#990808",
+        accent: "#F44027",
+        highlight: "#EDC537",
       },
     },
   },
   plugins: [],
-}
+};

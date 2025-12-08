@@ -30,7 +30,7 @@ const Navbar = ({ user, onLogout }) => {
     { name: "Products", path: "/products", icon: ShoppingCart },
     { name: "Services", path: "/services", icon: Printer },
     { name: "Portfolio", path: "/portfolio", icon: Image },
-    { name: "About", path: "/about", icon: Users },
+    { name: "About Us", path: "/about", icon: Users },
     { name: "Contact", path: "/contact", icon: Phone },
   ];
 
@@ -61,8 +61,11 @@ const Navbar = ({ user, onLogout }) => {
             {/* Brand */}
             <NavLink to="/" className="flex items-center">
               <img src={logo} alt="Pragya Print Logo" className="h-12" />
-              <span className="text-xl ml-1 font-bold hidden sm:inline">
-                PragyaPrint
+              <span className="text-xl ml-2  font-medium hidden sm:inline">
+                Pragya
+                <span className="text-xl font-bold hidden sm:inline">
+                  Print
+                </span>
               </span>
             </NavLink>
 
@@ -146,6 +149,37 @@ const Navbar = ({ user, onLogout }) => {
           </div>
         </div>
       </header>
+
+      {/* ✅ MOBILE NAV MENU (THIS WAS MISSING) */}
+      <div
+        className={`md:hidden fixed top-20 left-0 w-full bg-white shadow-xl z-40 transition-all duration-300 ${
+          isOpen
+            ? "max-h-[500px] opacity-100"
+            : "max-h-0 opacity-0 overflow-hidden"
+        }`}
+      >
+        {navItems.map(({ name, path, icon: Icon }) => (
+          <NavLink
+            key={path}
+            to={path}
+            onClick={() => setIsOpen(false)}
+            className="flex items-center px-6 py-4 border-b text-gray-800 hover:bg-indigo-50"
+          >
+            <Icon className="w-5 h-5 mr-3" /> {name}
+          </NavLink>
+        ))}
+
+        {!user && (
+          <NavLink
+            to="/login"
+            onClick={() => setIsOpen(false)}
+            className="block px-6 py-4 font-semibold text-indigo-600"
+          >
+            <User className="inline w-5 h-5 mr-2" />
+            Login / Register
+          </NavLink>
+        )}
+      </div>
 
       {/* ✅ SEARCH MODAL */}
       {showSearch && (

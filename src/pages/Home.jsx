@@ -36,18 +36,18 @@ const Home = () => {
   const highlightedServices = LOCAL_SERVICES.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       {/* 1. Hero Section - Modern & Animated */}
-      <section className="relative bg-indigo-700 text-white pt-24 pb-32 overflow-hidden shadow-2xl">
+      <section className="relative text-gray-800 pt-24 pb-32 overflow-hidden shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight mb-4 animate-fadeInUp">
               Pragya Print:{" "}
-              <span className="text-yellow-300 block sm:inline">
+              <span className="text-yellow-400 block sm:inline">
                 30 Years of Print Excellence.
               </span>
             </h1>
-            <p className="text-xl text-indigo-100 mb-10 max-w-3xl mx-auto">
+            <p className="text-xl text-primary mb-10 max-w-3xl mx-auto">
               Your trusted local press is now online. Customize and order
               posters, letterheads, and merchandise or find our essential local
               services.
@@ -55,14 +55,14 @@ const Home = () => {
             <div className="flex justify-center space-x-4">
               <Button
                 onClick={() => navigate("/products")}
-                className="bg-yellow-400 text-indigo-900 hover:bg-yellow-300 transition-colors px-8 py-3 text-lg hover:shadow-2xl"
+                className="bg-yellow-400 text-indigo-900 hover:bg-yellow-500 transition-colors px-8 py-3 text-lg hover:shadow-2xl"
               >
                 Shop E-Commerce
               </Button>
               <Button
                 onClick={() => navigate("/services")}
                 variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-3 text-lg"
+                className="bg-red-500 border-white text-gray-800 hover:text-red-600 px-8 py-3 text-lg"
               >
                 Local Services
               </Button>

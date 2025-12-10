@@ -23,7 +23,7 @@ const Button = ({
 
     case 'outline':
       baseStyle +=
-        ' bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white';
+        ' bg-transparent border-2 border-primary text-primary hover:bg-primary';
       break;
 
     case 'danger':

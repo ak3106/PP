@@ -1,26 +1,56 @@
-import { ArrowRight } from 'lucide-react';
-import React from 'react';
-// CORRECT: The Link component should be imported from 'react-router-dom'
-import { Link } from 'react-router-dom'; 
+import React from "react";
+import * as LucideIcons from "lucide-react";
+import { useNavigate } from "react-router";
 
-const ServiceCard = ({ icon: Icon, title, description, delay = 0 }) => (
-    // Using Tailwind transition utilities for the animation on hover
-    <div 
-      className="bg-white p-6 md:p-8 rounded-2xl shadow-xl border-t-4 border-indigo-100 transition-all duration-500 
-                transform hover:scale-[1.03] hover:shadow-2xl hover:border-red-600 cursor-pointer 
-                flex flex-col items-start h-full"
-      style={{ transitionDelay: `${delay * 0.1}s` }} // Optional staggered effect
+/**
+ * Displays a dedicated card for SERVICES.
+ * @param {object} props.service - The service object (name, icon, description, image)
+ */
+const ServiceCard = ({ service }) => {
+  const navigate = useNavigate();
+
+  // Pick the right icon based on the string
+  const IconComponent = LucideIcons[service.icon] || LucideIcons.Layers;
+
+  const handleNavigation = () => {
+    navigate(`/services?type=${service.name}`);
+  };
+
+  return (
+    <div
+      onClick={handleNavigation}
+      className="border border-primary rounded-2xl shadow-lg p-4 
+                 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 
+                 cursor-pointer flex flex-col items-center text-center group backdrop-blur-[2px]"
     >
-      <div className="flex items-start space-x-4 mb-4">
-        {/* The Icon prop is correctly used here */}
-        <Icon className="w-8 h-8 md:w-10 md:h-10 text-red-600 bg-red-50 p-1.5 md:p-2 rounded-xl flex-shrink-0" />
-        <h3 className="text-xl font-bold text-gray-900 leading-snug">{title}</h3>
+      {/* Icon */}
+      <div className="p-4 rounded-full bg-accent/10 mb-4 
+                      transition-transform duration-300 group-hover:scale-110">
+        
       </div>
-      <p className="text-gray-600 text-base mt-2 flex-grow">{description}</p>
-      <Link to="/services" className="mt-4 flex items-center text-indigo-600 font-semibold hover:text-red-600 transition">
-        Explore <ArrowRight className="w-4 h-4 ml-1" />
-      </Link>
+
+      {/* Optional image */}
+      {service.image && (
+        <img
+          className="w-full h-64 object-cover rounded-xl mb-3"
+          src={service.image}
+          alt={service.name}
+        />
+      )}
+
+      {/* Service name */}
+      <h3 className="text-lg sm:text-xl font-bold uppercase text-gray-900 group-hover:text-primary">
+        {service.name}
+      </h3>
+
+      {/* Optional description */}
+      {service.description && (
+        <p className="text-sm text-gray-600 mt-2 hidden md:block">
+          {service.description}
+        </p>
+      )}
     </div>
-);
+  );
+};
 
 export default ServiceCard;

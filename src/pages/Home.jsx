@@ -11,8 +11,14 @@ import {
 } from "lucide-react";
 import Button from "../components/UI/Button";
 import ProductCard from "../components/ProductCard";
+import ServiceCard from "../components/ServiceCard";
 import CategoryCard from "../components/CategoryCard";
-import { PRODUCTS, CATEGORIES, LOCAL_SERVICES } from "../data/dummyProducts";
+import {
+  PRODUCTS,
+  CATEGORIES,
+  LOCAL_SERVICES,
+  SERVICES,
+} from "../data/dummyProducts";
 
 // Helper function to dynamically get the Lucide icon for services
 const getServiceIcon = (iconName) => {
@@ -32,6 +38,7 @@ const Home = () => {
   const featuredProducts = PRODUCTS.slice(0, 4);
   // Use the first 6 categories
   const featuredCategories = CATEGORIES.slice(0, 6);
+  const featuredServices = SERVICES.slice(0, 6);
   // Use the first 3 services for the highlight
   const highlightedServices = LOCAL_SERVICES.slice(0, 3);
 
@@ -62,13 +69,14 @@ const Home = () => {
               <Button
                 onClick={() => navigate("/services")}
                 variant="outline"
-                className=" border-white text-white hover:bg-white hover:text-gray-800 px-8 py-3 text-lg"
+                className=" border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 text-lg"
               >
                 Local Services
               </Button>
             </div>
           </div>
         </div>
+
         {/* Abstract Background Animation */}
         <div className="absolute inset-0 opacity-10">
           <div className="w-96 h-96 bg-green-600 rounded-full absolute -top-10 -left-10 animate-spin-slow"></div>
@@ -76,6 +84,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* OUR PRODUCTS */}
       <section
         className="
     py-8 
@@ -99,6 +108,7 @@ const Home = () => {
                   key={cat.name}
                   category={cat}
                   navigate={navigate}
+                  
                 />
               ))}
             </div>
@@ -130,6 +140,37 @@ const Home = () => {
                 navigate={navigate}
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OUR SERVICES */}
+      <section
+        className="
+    py-8 
+    bg-cream
+    px-8 
+    min-h-[110vh]        /* default: phones*/
+    sm:min-h-[110vh]     /* small tablets  */
+    md:min-h-[120vh]     /* medium screens */
+    lg:min-h-[90vh]      /* large desktops */
+  "
+      >
+        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
+          <h2 className="text-3xl sm:text-5xl md:text-9xl text-right font-bold text-gray-900 mb-8 uppercase tracking-tighter">
+            OUR Services
+          </h2>
+
+          <div className="absolute left-0 top-[65%] w-full flex justify-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+              {featuredServices.map((service) => (
+                <ServiceCard
+                  key={service.name}
+                  service={service}
+                  navigate={navigate}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

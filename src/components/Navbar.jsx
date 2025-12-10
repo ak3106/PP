@@ -64,7 +64,7 @@ const Navbar = ({ user, onLogout }) => {
               <span className="text-xl ml-2  font-medium hidden sm:inline">
                 Pragya
                 <span className="text-xl font-bold hidden sm:inline">
-                  Print
+                  print
                 </span>
               </span>
             </NavLink>

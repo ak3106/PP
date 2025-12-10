@@ -241,10 +241,10 @@ const CategoryHubView = ({ navigate }) => {
 
   return (
     <div className="py-10">
-      <h1 className="text-5xl font-extrabold text-gray-900 mb-3 animate-fadeInDown">
+      <h1 className="text-5xl font-extrabold text-primary mb-3 animate-fadeInDown">
         Ready-Made Products
       </h1>
-      <p className="text-xl text-indigo-600 mb-12 animate-fadeInDown delay-100 max-w-3xl">
+      <p className="text-xl text-gray-900 mb-12 animate-fadeInDown delay-100 max-w-3xl">
         Browse our curated collections of posters, stickers, and merchandise.
         Click a category to shop!
       </p>
@@ -292,11 +292,11 @@ const CategoryHubView = ({ navigate }) => {
         </div>
       </div>
 
-      <div className="text-center mt-16 p-8 bg-indigo-50 rounded-xl">
-        <p className="text-lg text-indigo-800 font-semibold">
+      <div className=" flex flex-col justify-center items-center text-center mt-16 p-8 bg-gray-100 rounded-xl">
+        <p className="text-lg text-gray-900 font-semibold">
           Need help with custom design or bulk services?
         </p>
-        <Button onClick={() => navigate("/services")} className="mt-4">
+        <Button onClick={() => navigate("/services")} className="mt-4 w-[18vw]">
           Explore Custom Services
         </Button>
       </div>

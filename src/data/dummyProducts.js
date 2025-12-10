@@ -1,3 +1,10 @@
+import business from "../assets/business.jpeg"
+import wedding from "../assets/wedding.jpeg"
+import adv from "../assets/advertising.jpeg"
+import school from "../assets/school.jpeg"
+import gift from "../assets/goft.jpeg"
+
+
 // --- Products Data ---
 export const PRODUCTS = [
     {
@@ -19,7 +26,7 @@ export const PRODUCTS = [
         slug: "interstellar-minimalist-poster",
 
         images: ["interstellar1.jpg", "interstellar2.jpg"],
-        thumbnail: "https://www.posterized.in/cdn/shop/files/INTER_W_3_15304fbc-a7d7-4148-8e7a-50e2829734e3.jpg?v=1736617824&width=823",
+        thumbnail: "",
         gallery: ["interstellar1.jpg", "interstellar2.jpg", "interstellar3.jpg"],
 
         options: {
@@ -61,7 +68,7 @@ export const PRODUCTS = [
         slug: "naruto-sage-mode-poster",
 
         images: ["naruto1.jpg", "naruto2.jpg"],
-        thumbnail: "https://www.posterized.in/cdn/shop/files/DESIER.jpg?v=1736618550&width=823",
+        thumbnail: "",
         gallery: ["naruto1.jpg", "naruto2.jpg", "naruto3.jpg"],
 
         options: {
@@ -103,7 +110,7 @@ export const PRODUCTS = [
         slug: "cristiano-ronaldo-celebration-poster",
 
         images: ["cr7_1.jpg", "cr7_2.jpg"],
-        thumbnail: "https://www.posterized.in/cdn/shop/files/ronaldowall.jpg?v=1736616909&width=823",
+        thumbnail: "",
         gallery: ["cr7_1.jpg", "cr7_2.jpg", "cr7_3.jpg"],
 
         options: {
@@ -145,7 +152,7 @@ export const PRODUCTS = [
         slug: "stranger-things-retro-poster",
 
         images: ["st1.jpg", "st2.jpg"],
-        thumbnail: "https://www.posterized.in/cdn/shop/files/StrangerThings62.jpg?v=1736618451&width=823",
+        thumbnail: "",
         gallery: ["st1.jpg", "st2.jpg", "st3.jpg"],
 
         options: {
@@ -187,7 +194,7 @@ export const PRODUCTS = [
         slug: "spider-man-multiverse-poster",
 
         images: ["spidey1.jpg", "spidey2.jpg"],
-        thumbnail: "https://www.posterized.in/cdn/shop/files/16_f15bb85f-87c7-45c4-a678-0ca280847972.jpg?v=1736617254&width=823",
+        thumbnail: "",
         gallery: ["spidey1.jpg", "spidey2.jpg", "spidey3.jpg"],
 
         options: {
@@ -210,11 +217,6 @@ export const PRODUCTS = [
         status: "active",
         isFeatured: true
     }
-
-
-
-
-
 ];
 
 // --- Categories Data (for filtering/home page) ---
@@ -223,10 +225,44 @@ export const CATEGORIES = [
     { name: 'Photo Prints', icon: 'Image', description: 'Personalized photos, polaroids, and canvas prints.', image: "https://thumbs.dreamstime.com/b/polaroid-prints-textured-wall-collection-each-capturing-unique-scenes-pinned-to-off-white-arrangement-creates-visually-401186269.jpg" },
     { name: 'Spiral Books', icon: 'Briefcase', description: 'Letterheads, envelopes, business cards, and brochures.', image: "https://lemonadeindia.com/cdn/shop/files/personalized-spiral-notebook-zodiac-signsstationerylemonade-379758_1024x1024.jpg?v=1760007996" },
 
-    { name: 'Stickers', icon: 'Star', description: 'Vinyl, paper, and custom die-cut stickers.', image: "https://i.pinimg.com/736x/57/ac/9c/57ac9c020929545e9c1d3c648ffb6e3f.jpg" },
+    { name: 'Stickers', icon: 'Star', description: 'Vinyl, paper, and custom die-cut stickers.', image: " https://i.pinimg.com/736x/57/ac/9c/57ac9c020929545e9c1d3c648ffb6e3f.jpg" },
     { name: 'Wall banners', icon: 'Heart', description: 'Wedding, birthday, and special occasion invitations.', image: "https://dbdzm869oupei.cloudfront.net/img/quadres/large/79603.jpg" },
 ];
 
+//
+
+export const SERVICES = [
+    { 
+        name: "Business Stationery", 
+        icon: "Layers", 
+        description: "Letterheads, envelopes, visiting cards, brochures, and corporate branding essentials.",
+        image: business
+    },
+    { 
+        name: "Event Essentials", 
+        icon: "Image", 
+        description: "Polaroids, photo prints, canvas frames, and event-friendly personalized gifts.",
+        image: wedding
+    },
+    { 
+        name: "Advertising", 
+        icon: "Briefcase", 
+        description: "Large-format banners, posters, standees, and promotional marketing materials.",
+        image: adv
+    },
+    { 
+        name: "School Stationery", 
+        icon: "Star", 
+        description: "Notebooks, labels, covers, custom stickers, and school branding products.",
+        image: school
+    },
+    { 
+        name: "Gift Items", 
+        icon: "Heart", 
+        description: "Customized gifts like mugs, frames, keychains, notebooks, and decorative prints.",
+        image: gift
+    },
+];
 // --- Local Services Data (Offline Shop Offerings) ---
 export const LOCAL_SERVICES = [
     { title: 'High-Speed Photocopying', description: 'Fast, crisp, black & white and color photocopying service. Bulk discounts available.', icon: 'Printer' },

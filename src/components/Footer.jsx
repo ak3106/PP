@@ -22,7 +22,6 @@ import logo from "../assets/logo pragya print.png";
  */
 const Footer = ({ navigate }) => {
   const navLinks = [
-    { name: "Home", path: "/", icon: HomeIcon },
     { name: "Products", path: "/products", icon: ShoppingCart },
     { name: "Services", path: "/services", icon: Printer },
     { name: "Portfolio", path: "/portfolio", icon: Image },

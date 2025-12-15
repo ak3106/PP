@@ -188,7 +188,7 @@ const CategoryHubView = ({ navigate, handleCategoryChange }) => {
   return (
     <div className="py-10">
       {/* Header */}
-      <h1 className="text-5xl font-extrabold text-gray-900 mb-3">
+      <h1 className="text-4xl leading-10 font-extrabold text-gray-900 mb-3 lg:text-5xl">
         Custom Printing Solutions
       </h1>
 

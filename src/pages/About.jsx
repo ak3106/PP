@@ -425,7 +425,7 @@ const About = () => {
       >
         <motion.p
           variants={fadeUp}
-          className="text-sm font-semibold uppercase tracking-[0.25em] text-indigo-600 mb-3"
+          className="text-sm font-semibold uppercase tracking-[0.25em] text-primary mb-3"
         >
           Our Legacy. Our Promise.
         </motion.p>
@@ -441,7 +441,7 @@ const About = () => {
         <motion.p
           variants={fadeUp}
           transition={{ delay: 0.2 }}
-          className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto text-justify"
+          className="text-md px-6 text-gray-600 max-w-3xl mx-auto text-justify lg:text-lg"
         >
           Family-run Pragya Printing Press, established on 7 December 1994, has
           been delivering trusted printing solutions for over three decades.

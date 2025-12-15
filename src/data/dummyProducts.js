@@ -220,7 +220,9 @@ export const PRODUCTS = [
 
 
 
-export const LOCAL_SERVICES = [];
+export const LOCAL_SERVICES = [
+    
+];
 
 // --- Categories Data (for filtering/home page) ---
 export const CATEGORIES = [

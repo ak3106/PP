@@ -77,10 +77,10 @@ const Contact = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <header className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-3">
+        <h1 className="text-4xl font-extrabold text-primary mb-3">
           Get In Touch
         </h1>
-        <p className="text-xl text-indigo-600 max-w-3xl mx-auto">
+        <p className="text-xl text-gray-900 max-w-3xl mx-auto">
           We're here for your e-commerce orders and local custom printing needs.
         </p>
       </header>
@@ -89,7 +89,7 @@ const Contact = () => {
         {/* Column 1: Contact Form */}
         <div className="lg:col-span-2 bg-white p-8 rounded-3xl shadow-2xl border border-gray-100">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-            <MessageSquareText className="w-6 h-6 mr-3 text-indigo-600" /> Send
+            <MessageSquareText className="w-6 h-6 mr-3 text-green-950" /> Send
             Us a Message
           </h2>
 
@@ -163,13 +163,13 @@ const Contact = () => {
         {/* Column 2: Shop Details & Contact Info */}
         <div className="lg:col-span-1 space-y-8">
           {/* General Contact Info */}
-          <div className="bg-indigo-50 p-6 rounded-3xl shadow-xl border border-indigo-100">
-            <h3 className="text-2xl font-bold text-indigo-800 mb-4">
+          <div className="bg-gray-50 p-6 rounded-3xl shadow-xl border border-accent">
+            <h3 className="text-2xl font-bold text-primary mb-4">
               Quick Contacts
             </h3>
             <div className="space-y-3">
               <div className="flex items-start text-gray-700">
-                <Mail className="w-5 h-5 mr-3 mt-1 text-indigo-600 flex-shrink-0" />
+                <Mail className="w-5 h-5 mr-3 mt-1 text-gray-900 flex-shrink-0" />
                 <div>
                   <span className="font-semibold block">Email:</span>
                   {/* FIX: Use mailto: protocol */}
@@ -177,7 +177,7 @@ const Contact = () => {
                     href={`mailto:${shopDetails.email}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm hover:text-indigo-700 font-semibold"
+                    className="text-sm hover:text-indigo-950 font-semibold"
                   >
                     {shopDetails.email}
                   </a>
@@ -187,27 +187,27 @@ const Contact = () => {
                     href={`https://mail.google.com/mail/?view=cm&fs=1&to=${shopDetails.email}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block mt-2 text-xs text-indigo-600 underline"
+                    className="block mt-2 text-xs text-primary underline"
                   >
                     Open in Gmail
                   </a>
                 </div>
               </div>
               <div className="flex items-start text-gray-700">
-                <Phone className="w-5 h-5 mr-3 mt-1 text-indigo-600 flex-shrink-0" />
+                <Phone className="w-5 h-5 mr-3 mt-1 text-gray-900 flex-shrink-0" />
                 <div>
                   <span className="font-semibold block">Phone/WhatsApp:</span>
                   {/* FIX: Ensure phone link uses tel: protocol */}
                   <a
                     href={`tel:${shopDetails.phone}`}
-                    className="text-sm hover:text-indigo-700 font-semibold"
+                    className="text-sm hover:text-indigo-950 font-semibold"
                   >
                     {shopDetails.phone}
                   </a>
                 </div>
               </div>
               <div className="flex items-start text-gray-700">
-                <Clock className="w-5 h-5 mr-3 mt-1 text-indigo-600 flex-shrink-0" />
+                <Clock className="w-5 h-5 mr-3 mt-1 text-gray-900 flex-shrink-0" />
                 <div>
                   <span className="font-semibold block">Hours:</span>
                   <p className="text-sm">{shopDetails.hours}</p>

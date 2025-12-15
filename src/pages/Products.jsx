@@ -296,7 +296,7 @@ const CategoryHubView = ({ navigate }) => {
         <p className="text-lg text-gray-900 font-semibold">
           Need help with custom design or bulk services?
         </p>
-        <Button onClick={() => navigate("/services")} className="mt-4 w-[18vw]">
+        <Button onClick={() => navigate("/services")} className="mt-4">
           Explore Custom Services
         </Button>
       </div>

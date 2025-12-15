@@ -85,13 +85,13 @@ const Home = () => {
       </section>
 
       {/* OUR PRODUCTS */}
-      <section className="py-8 bg-cream px-8 min-h-[115vh] sm:min-h-[55vh] md:min-h-[120vh] lg:min-h-[90vh]">
+      <section className="py-8 bg-cream px-8 min-h-[120vh] md:min-h-[90vh]">
         <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
           <h2 className="text-5xl sm:text-5xl md:text-9xl font-bold text-gray-900 mb-8 uppercase tracking-tighter">
             OUR PRODUCTS
           </h2>
 
-          <div className="absolute left-0 top-[85%] w-full flex justify-center">
+          <div className="absolute left-0 top-[85%] w-full flex justify-center lg:top-[70%]">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
               {featuredCategories.map((cat) => (
                 <CategoryCard
@@ -109,7 +109,7 @@ const Home = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-10 border-b pb-3">
-            <h2 className="text-3xl font-bold text-gray-800">
+            <h2 className="text-3xl font-bold text-gray-800 md:text-4xl">
               Must-Have Products
             </h2>
             <Button
@@ -136,21 +136,20 @@ const Home = () => {
       {/* OUR SERVICES */}
       <section
         className="
-    py-8 
+    py-8
     bg-cream
     px-8 
-    min-h-[110vh]        /* default: phones*/
-    sm:min-h-[110vh]     /* small tablets  */
-    md:min-h-[120vh]     /* medium screens */
+    min-h-[145vh]        /* default: phones*/
+    md:min-h-[106vh]     /* medium screens */
     lg:min-h-[90vh]      /* large desktops */
   "
       >
         <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
-          <h2 className="text-3xl sm:text-5xl md:text-9xl text-right font-bold text-gray-900 mb-8 uppercase tracking-tighter">
+          <h2 className="text-5xl md:text-9xl text-right font-bold text-gray-900 mb-8 uppercase tracking-tighter">
             OUR Services
           </h2>
 
-          <div className="absolute left-0 top-[65%] w-full flex justify-center">
+          <div className="absolute left-0 top-[75%] w-full flex justify-center">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
               {featuredServices.map((service) => (
                 <ServiceCard
@@ -162,45 +161,18 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section>  
 
       {/* 4. Local Services Highlight */}
-      <section className="bg-gray-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-primary mb-4">
-            Trusted Local Services
-          </h2>
-          <p className="text-xl text-gray-900 mb-10">
-            The reliable printing services our community has depended on for
-            decades.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {highlightedServices.map((service) => {
-              const Icon = getServiceIcon(service.icon);
-              return (
-                <div
-                  key={service.title}
-                  className="bg-white p-8 rounded-3xl shadow-xl transform hover:scale-[1.03] transition duration-300 border border-accent"
-                >
-                  <Icon className="w-10 h-10 mx-auto text-accent mb-4 animate-bounce-slow" />
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
-                </div>
-              );
-            })}
-          </div>
-          <div className="mt-10">
+          <div className="pl-8 flex lg:justify-end pr-10">
             <Button
               onClick={() => navigate("/services")}
-              className="px-8 py-3 text-lg bg-primary hover:bg-green-800"
+              className="text-xs bg-primary hover:bg-green-800"
             >
               See All Local Services
             </Button>
           </div>
-        </div>
-      </section>
+
 
       {/* 5. Portfolio/Quality Teaser */}
       <section className="py-16">

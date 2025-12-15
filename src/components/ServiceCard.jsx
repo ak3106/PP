@@ -24,7 +24,7 @@ const ServiceCard = ({ service }) => {
                  cursor-pointer flex flex-col items-center text-center group backdrop-blur-[2px]"
     >
       {/* Icon */}
-      <div className="p-4 rounded-full bg-accent/10 mb-4 
+      <div className="p-4 rounded-full mb-4 
                       transition-transform duration-300 group-hover:scale-110">
         
       </div>

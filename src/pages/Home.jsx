@@ -139,8 +139,8 @@ const Home = () => {
     py-8
     bg-cream
     px-8 
-    min-h-[145vh]        /* default: phones*/
-    md:min-h-[106vh]     /* medium screens */
+    min-h-[162vh]        /* default: phones*/
+    md:min-h-[145vh]     /* medium screens */
     lg:min-h-[90vh]      /* large desktops */
   "
       >

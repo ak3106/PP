@@ -8,6 +8,8 @@ import {
   Star,
   Heart,
   CheckCircle,
+  ArrowLeft,
+  ArrowRight,
 } from "lucide-react";
 import Button from "../components/UI/Button";
 import ProductCard from "../components/ProductCard";
@@ -165,12 +167,13 @@ const Home = () => {
 
       {/* 4. Local Services Highlight */}
           <div className="pl-8 flex lg:justify-end pr-10">
-            <Button
+          <ArrowRight className="w-4 h-4 md:w-7 md:h-7"/>
+            <a
               onClick={() => navigate("/services")}
-              className="text-xs bg-primary hover:bg-green-800"
+              className="text-xs hover:text-primary md:text-lg underline"
             >
               See All Local Services
-            </Button>
+            </a>
           </div>
 
 

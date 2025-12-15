@@ -13,7 +13,7 @@ const ServiceCard = ({ service }) => {
   const IconComponent = LucideIcons[service.icon] || LucideIcons.Layers;
 
   const handleNavigation = () => {
-    navigate(`/services?type=${service.name}`);
+    navigate(`/services?category=${service.name}`);
   };
 
   return (

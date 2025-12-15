@@ -85,30 +85,19 @@ const Home = () => {
       </section>
 
       {/* OUR PRODUCTS */}
-      <section
-        className="
-    py-8 
-    bg-cream
-    px-8 
-    min-h-[110vh]        /* default: phones*/
-    sm:min-h-[110vh]     /* small tablets  */
-    md:min-h-[120vh]     /* medium screens */
-    lg:min-h-[90vh]      /* large desktops */
-  "
-      >
+      <section className="py-8 bg-cream px-8 min-h-[115vh] sm:min-h-[55vh] md:min-h-[120vh] lg:min-h-[90vh]">
         <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
-          <h2 className="text-3xl sm:text-5xl md:text-9xl font-bold text-gray-900 mb-8 uppercase tracking-tighter">
+          <h2 className="text-5xl sm:text-5xl md:text-9xl font-bold text-gray-900 mb-8 uppercase tracking-tighter">
             OUR PRODUCTS
           </h2>
 
-          <div className="absolute left-0 top-[65%] w-full flex justify-center">
+          <div className="absolute left-0 top-[85%] w-full flex justify-center">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
               {featuredCategories.map((cat) => (
                 <CategoryCard
                   key={cat.name}
                   category={cat}
                   navigate={navigate}
-                  
                 />
               ))}
             </div>

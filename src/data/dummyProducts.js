@@ -3,8 +3,7 @@ import wedding from "../assets/wedding.jpeg"
 import adv from "../assets/advertising.jpeg"
 import school from "../assets/school.jpeg"
 import gift from "../assets/goft.jpeg"
-
-
+    
 // --- Products Data ---
 export const PRODUCTS = [
     {
@@ -219,6 +218,10 @@ export const PRODUCTS = [
     }
 ];
 
+
+
+export const LOCAL_SERVICES = [];
+
 // --- Categories Data (for filtering/home page) ---
 export const CATEGORIES = [
     { name: 'Posters', icon: 'Layers', description: 'Large format prints for display and marketing.', image: "https://images.squarespace-cdn.com/content/v1/66e5ff131ebccd7304d16f90/e8a5362a-d713-4c4c-8cc1-b9d1e1f2525e/s2k+copy111.png?format=500w" },
@@ -264,10 +267,3 @@ export const SERVICES = [
     },
 ];
 // --- Local Services Data (Offline Shop Offerings) ---
-export const LOCAL_SERVICES = [
-    { title: 'High-Speed Photocopying', description: 'Fast, crisp, black & white and color photocopying service. Bulk discounts available.', icon: 'Printer' },
-    { title: 'Academic / Exam Papers', description: 'Reliable, confidential, and quick printing of exam papers and academic materials.', icon: 'Users' },
-    { title: 'Shaadi Patrika & Invites', description: 'Custom design and high-quality printing for marriage invitations and ceremonial cards.', icon: 'Heart' },
-    { title: 'Bulk Print Orders', description: 'Handling large-volume printing of flyers, brochures, and documents for businesses.', icon: 'Truck' },
-    { title: 'Lamination & Binding', description: 'Professional finishing services including thermal lamination and spiral/hard binding.', icon: 'Package' },
-];

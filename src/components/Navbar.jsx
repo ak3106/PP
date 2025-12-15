@@ -26,7 +26,6 @@ const Navbar = ({ user, onLogout }) => {
   const navigate = useNavigate();
 
   const navItems = [
-    { name: "Home", path: "/", icon: HomeIcon },
     { name: "Products", path: "/products", icon: ShoppingCart },
     { name: "Services", path: "/services", icon: Printer },
     { name: "Portfolio", path: "/portfolio", icon: Image },
@@ -70,7 +69,7 @@ const Navbar = ({ user, onLogout }) => {
             </NavLink>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex space-x-6">
+            <nav className="hidden lg:flex space-x-6">
               {navItems.map(({ name, path, icon: Icon }) => (
                 <NavLink
                   key={path}
@@ -142,7 +141,7 @@ const Navbar = ({ user, onLogout }) => {
               )}
 
               {/* Mobile Menu */}
-              <button className="md:hidden p-2" onClick={mobileToggle}>
+              <button className="lg:hidden p-2" onClick={mobileToggle}>
                 {isOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
@@ -152,7 +151,7 @@ const Navbar = ({ user, onLogout }) => {
 
       {/* ✅ MOBILE NAV MENU (THIS WAS MISSING) */}
       <div
-        className={`md:hidden fixed top-20 left-0 w-full bg-white shadow-xl z-40 transition-all duration-300 ${
+        className={`lg:hidden fixed top-20 left-0 w-full bg-white shadow-xl z-40 transition-all duration-300 ${
           isOpen
             ? "max-h-[500px] opacity-100"
             : "max-h-0 opacity-0 overflow-hidden"

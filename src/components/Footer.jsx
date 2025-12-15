@@ -1,5 +1,16 @@
 import React from "react";
-import { Mail, Phone, MapPin, Globe } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Globe,
+  Users,
+  Printer,
+  ShoppingCart,
+  HomeIcon,
+  Icon,
+  Image,
+} from "lucide-react";
 import logo from "../assets/logo pragya print.png";
 
 /**
@@ -11,18 +22,18 @@ import logo from "../assets/logo pragya print.png";
  */
 const Footer = ({ navigate }) => {
   const navLinks = [
-    { name: "Home", path: "home" },
-    { name: "Products", path: "products" },
-    { name: "Services", path: "services" },
-    { name: "Portfolio", path: "portfolio" },
-    { name: "About Us", path: "about" },
-    { name: "Contact", path: "contact" },
+    { name: "Home", path: "/", icon: HomeIcon },
+    { name: "Products", path: "/products", icon: ShoppingCart },
+    { name: "Services", path: "/services", icon: Printer },
+    { name: "Portfolio", path: "/portfolio", icon: Image },
+    { name: "About", path: "/about", icon: Users },
+    { name: "Contact", path: "/contact", icon: Phone },
   ];
 
   return (
-    <footer className="bg-gray-900 text-white mt-12 border-t border-indigo-700/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+    <footer className="bg-gray-900 text-white mt-12 border-t border-indigo-700/50 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 py-12 ">
+        <div className="flex gap-10 flex-col lg:flex-row lg:gap-24">
           {/* Column 1: Branding & Mission */}
           <div>
             <div className="flex items-center gap-2">
@@ -32,7 +43,7 @@ const Footer = ({ navigate }) => {
               </h3>
             </div>
 
-            <p className=" mt-2 text-sm text-gray-400 leading-relaxed">
+            <p className=" mt-2 text-sm text-gray-400 leading-relaxed" >
               30 years of local trust meeting modern e-commerce. Your partner
               for quality printing, from polaroids to professional stationery.
             </p>
@@ -40,9 +51,10 @@ const Footer = ({ navigate }) => {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-indigo-300">
+            <h4 className="text-lg font-semibold mb-4 text-indigo-300 ">
               Quick Links
             </h4>
+
             <ul className="space-y-3 text-sm">
               {navLinks.map((link) => (
                 <li key={link.path}>
@@ -50,7 +62,7 @@ const Footer = ({ navigate }) => {
                     onClick={() => navigate(link.path)}
                     className="text-gray-400 hover:text-indigo-300 transition-colors duration-150 cursor-pointer flex items-center"
                   >
-                    <Globe className="w-4 h-4 mr-2" />
+                    <link.icon className="w-4 h-4 mr-2" />
                     {link.name}
                   </a>
                 </li>
@@ -59,7 +71,7 @@ const Footer = ({ navigate }) => {
           </div>
 
           {/* Column 3: Contact Details */}
-          <div>
+          <div className="flex flex-col">
             <h4 className="text-lg font-semibold mb-4 text-indigo-300">
               Get In Touch
             </h4>
@@ -67,10 +79,11 @@ const Footer = ({ navigate }) => {
               <li className="flex items-center">
                 <Mail className="w-4 h-4 mr-3 text-indigo-400" />
                 <a
+
                   href={`mailto:${"pragyaprintingpress@yahoo.com"}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm hover:text-indigo-700 font-semibold"
+                  className="text-sm hover:text-indigo-700 font-semibold "
                 >
                   {"pragyaprintingpress@yahoo.com"}
                 </a>
@@ -95,11 +108,11 @@ const Footer = ({ navigate }) => {
           </div>
 
           {/* Column 4: Social & Newsletter Placeholder */}
-          <div>
+          <div className="">
             <h4 className="text-lg font-semibold mb-4 text-indigo-300">
               Connect
             </h4>
-            {/* Dummy Social Icons */}
+            
             <div className="flex space-x-4 text-gray-400">
               <a
                 href="https://www.facebook.com/pragyaaprinting.press"

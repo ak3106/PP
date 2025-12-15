@@ -58,120 +58,120 @@ const LucideIcons = {
  * Renders the filtered list of products for a specific E-commerce category (e.g., /products?category=Posters).
  * This view allows searching and filtering within the selected category.
  */
-const ProductListingView = ({
-  selectedCategory,
-  searchTerm,
-  setSearchTerm,
-  filteredProducts,
-  handleCategoryChange,
-  CATEGORIES,
-  navigate,
-  isFilterOpen, // <-- Correct prop access
-  setIsFilterOpen, // <-- Correct prop access
-  dispatchCart,
-}) => {
-  return (
-    <>
-      <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 animate-fadeInDown">
-        {selectedCategory} Store
-      </h1>
-      <p className="text-xl text-indigo-600 mb-8 animate-fadeInDown delay-100">
-        Pick your favorite design, add to cart, and checkout!
-      </p>
+  const ProductListingView = ({
+    selectedCategory,
+    searchTerm,
+    setSearchTerm,
+    filteredProducts,
+    handleCategoryChange,
+    CATEGORIES,
+    navigate,
+    isFilterOpen, // <-- Correct prop access
+    setIsFilterOpen, // <-- Correct prop access
+    dispatchCart,
+  }) => {
+    return (
+      <>
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 animate-fadeInDown">
+          {selectedCategory} Store
+        </h1>
+        <p className="text-xl text-indigo-600 mb-8 animate-fadeInDown delay-100">
+          Pick your favorite design, add to cart, and checkout!
+        </p>
 
-      {/* Sticky Filter Bar (Desktop) / Mobile Toggle */}
-      <div className=" top-20 z-40 bg-white py-4 mb-8 rounded-xl shadow-lg border border-gray-100 flex items-center justify-between transition-all duration-300">
-        <div className="flex-grow flex items-center space-x-4 px-4">
-          <Search className="w-5 h-5 text-gray-400 flex-shrink-0 hidden sm:block" />
-          <Input
-            type="text"
-            placeholder={`Search within ${selectedCategory}...`}
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="!border-none !p-2 !shadow-none focus:ring-0 w-full"
-          />
+        {/* Sticky Filter Bar (Desktop) / Mobile Toggle */}
+        <div className=" top-20 z-40 bg-white py-4 mb-8 rounded-xl shadow-lg border border-gray-100 flex items-center justify-between transition-all duration-300">
+          <div className="flex-grow flex items-center space-x-4 px-4">
+            <Search className="w-5 h-5 text-gray-400 flex-shrink-0 hidden sm:block" />
+            <Input
+              type="text"
+              placeholder={`Search within ${selectedCategory}...`}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="!border-none !p-2 !shadow-none focus:ring-0 w-full"
+            />
+          </div>
+
+          {/* Mobile Filter Button */}
+          <Button
+            variant="outline"
+            className="md:hidden px-4 py-2 mr-4 flex items-center text-sm"
+            onClick={() => setIsFilterOpen(true)}
+          >
+            <Filter className="w-5 h-5 mr-2" /> Filters
+          </Button>
         </div>
 
-        {/* Mobile Filter Button */}
-        <Button
-          variant="outline"
-          className="md:hidden px-4 py-2 mr-4 flex items-center text-sm"
-          onClick={() => setIsFilterOpen(true)}
-        >
-          <Filter className="w-5 h-5 mr-2" /> Filters
-        </Button>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="flex">
-        {/* Desktop Filter Sidebar (Category Navigation) */}
-        <aside className="hidden md:block w-64 mr-8 flex-shrink-0 sticky top-40 h-fit p-6 bg-gray-50 rounded-2xl shadow-xl animate-fadeInLeft">
-          <h3 className="text-xl font-bold text-gray-800 mb-4 border-b pb-2 flex items-center">
-            <Filter className="w-5 h-5 mr-2" /> Categories
-          </h3>
-          <div className="space-y-2">
-            {/* Link back to the main Hub */}
-            <div
-              onClick={() => handleCategoryChange(null)}
-              className={`flex justify-between items-center p-2 rounded-lg cursor-pointer transition duration-150 
-                              ${selectedCategory === null ? "bg-indigo-600 text-white font-semibold" : "text-gray-700 hover:bg-gray-200"}`}
-            >
-              <span>&larr; Back to Hub</span>
-            </div>
-            {/* Category list for quick switching */}
-            {CATEGORIES.map((cat) => (
+        {/* Main Content Area */}
+        <div className="flex">
+          {/* Desktop Filter Sidebar (Category Navigation) */}
+          <aside className="hidden md:block w-64 mr-8 flex-shrink-0 sticky top-40 h-fit p-6 bg-gray-50 rounded-2xl shadow-xl animate-fadeInLeft">
+            <h3 className="text-xl font-bold text-gray-800 mb-4 border-b pb-2 flex items-center">
+              <Filter className="w-5 h-5 mr-2" /> Categories
+            </h3>
+            <div className="space-y-2">
+              {/* Link back to the main Hub */}
               <div
-                key={cat.name}
-                onClick={() => handleCategoryChange(cat.name)}
+                onClick={() => handleCategoryChange(null)}
                 className={`flex justify-between items-center p-2 rounded-lg cursor-pointer transition duration-150 
-                                  ${
-                                    selectedCategory === cat.name
-                                      ? "bg-indigo-600 text-white font-semibold"
-                                      : "text-gray-700 hover:bg-gray-200"
-                                  }`}
+                                ${selectedCategory === null ? "bg-indigo-600 text-white font-semibold" : "text-gray-700 hover:bg-gray-200"}`}
               >
-                <span>{cat.name}</span>
-                <ArrowRight
-                  className={`w-4 h-4 transition ${selectedCategory === cat.name ? "rotate-0" : "rotate-45 opacity-0"}`}
-                />
+                <span>&larr; Back to Hub</span>
               </div>
-            ))}
-          </div>
-        </aside>
-
-        {/* Products Grid */}
-        <div className="flex-grow">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-6">
-            {filteredProducts.length} results in{" "}
-            <span className="text-indigo-600">{selectedCategory}</span>
-          </h2>
-
-          {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {filteredProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  dispatchCart={dispatchCart}
-                />
+              {/* Category list for quick switching */}
+              {CATEGORIES.map((cat) => (
+                <div
+                  key={cat.name}
+                  onClick={() => handleCategoryChange(cat.name)}
+                  className={`flex justify-between items-center p-2 rounded-lg cursor-pointer transition duration-150 
+                                    ${
+                                      selectedCategory === cat.name
+                                        ? "bg-indigo-600 text-white font-semibold"
+                                        : "text-gray-700 hover:bg-gray-200"
+                                    }`}
+                >
+                  <span>{cat.name}</span>
+                  <ArrowRight
+                    className={`w-4 h-4 transition ${selectedCategory === cat.name ? "rotate-0" : "rotate-45 opacity-0"}`}
+                  />
+                </div>
               ))}
             </div>
-          ) : (
-            <div className="text-center py-20 bg-gray-50 rounded-2xl border-4 border-dashed border-gray-300 animate-pulse-slow">
-              <ShoppingCart className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-2xl text-gray-600 font-semibold">
-                    No Products Yet in {selectedCategory}
-              </h3>
-              <p className="text-gray-500 mt-2">
-                Try clearing the search term or view another category.
-              </p>
-              <Button onClick={() => navigate("/products")} className="mt-6">
-                Back to Category Hub
-              </Button>
-            </div>
-          )}
+          </aside>
+
+          {/* Products Grid */}
+          <div className="flex-grow">
+            <h2 className="text-2xl font-semibold text-gray-700 mb-6">
+              {filteredProducts.length} results in{" "}
+              <span className="text-indigo-600">{selectedCategory}</span>
+            </h2>
+
+            {filteredProducts.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                {filteredProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    dispatchCart={dispatchCart}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-20 bg-gray-50 rounded-2xl border-4 border-dashed border-gray-300 animate-pulse-slow">
+                <ShoppingCart className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-2xl text-gray-600 font-semibold">
+                      No Products Yet in {selectedCategory}
+                </h3>
+                <p className="text-gray-500 mt-2">
+                  Try clearing the search term or view another category.
+                </p>
+                <Button onClick={() => navigate("/products")} className="mt-6">
+                  Back to Category Hub
+                </Button>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
 
       {/* Mobile Filter Drawer */}
       <div

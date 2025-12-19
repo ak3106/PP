@@ -160,7 +160,7 @@ const ProductCard = ({ product }) => {
   const DEFAULT_TYPE = defaultOptions.paperType?.includes('Glossy') ? 'Glossy' : defaultOptions.paperType?.[0] || 'Glossy';
   
   // Helper function to display price
-  const displayPrice = product.salePrice || product.price;
+  const displayPrice = product.pricing.salePrice;
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
@@ -189,11 +189,11 @@ const ProductCard = ({ product }) => {
   
   // --- UI Component Render ---
   return (
-    <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden relative group border border-gray-100">
+    <div className="min-h-[80vh] bg-highlight rounded-md shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden relative group border border-gray-50">
       {/* SALE BADGE */}
-      {product.discount > 0 && (
+      {product.pricing.discountPercentage > 0 && (
         <div className="absolute top-3 left-3 z-10 bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-          {product.discount}% OFF
+          {product.pricing.discountPercentage}% OFF
         </div>
       )}
 
@@ -212,7 +212,7 @@ const ProductCard = ({ product }) => {
         <img
           src={product.thumbnail || product.images?.[0]}
           alt={product.name}
-          className="w-full h-55 object-cover group-hover:scale-105 transition duration-500"
+          className="w-full h-[60vh] object-cover group-hover:scale-[1.03] transition duration-300"
         />
       </div>
 
@@ -220,67 +220,69 @@ const ProductCard = ({ product }) => {
       <div className="p-3 relative flex flex-col h-full">
         {/* NAME */}
         <h3
-          className="text-lg font-bold tracking-tighter leading-6 text-gray-800 cursor-pointer"
+          className="text-md font-[montserrat] tracking-tight text-center leading-6 text-gray-900 cursor-pointer"
           onClick={() => navigate(`/product/${product.id}`)}
         >
           {product.name}
         </h3>
 
+            
         {/* DEFAULT SIZE INDICATOR */}
-        <div className="flex items-center gap-1 mt-1 text-sm text-indigo-600 font-semibold">
-            <Layers className="w-4 h-4" />
+        <div className="flex items-center gap-1 mt-1 text-sm text-primary font-semibold">
+            <Layers className="w-3 h-3" />
           <span>{DEFAULT_SIZE}</span>
         </div>
 
         
         {/* PRICE & RATING */}
-        <div className="flex justify-between items-center mt-3">
+        <div className="flex justify-between items-center">
           <div>
-            {product.salePrice ? (
+            {product.pricing.salePrice ? (
               <div className="flex items-center gap-2">
-                <span className="text-gray-800 font-bold text-xl">
+                <span className="text-gray-900 font-bold text-lg">
                   ₹{displayPrice}
                 </span>
                 <span className="line-through text-gray-400 text-sm">
-                  ₹{product.price}
+                  ₹{product.pricing.basePrice}
                 </span>
               </div>
             ) : (
               <span className="text-indigo-600 font-bold text-xl">
-                ₹{product.price}
+                ₹{product.pricing.basePrice}
               </span>
             )}
           </div>
           <div className="flex items-center gap-1 text-yellow-600">
-            <Star className="w-4 h-4" />
+            <Star className="w-3 h-3" />
             <span className="text-sm font-medium">{product.rating}</span>
           </div>
         </div>
         
         {/* STOCK STATUS */}
-        <p
-          className={`mt-2 text-sm font-semibold ${
-            product.stockStatus === "In Stock"
+{/*         <p
+          className={`sticky bottom-2 mt-2 text-sm font-semibold ${
+            product.inventory.stockStatus === "In Stock"
               ? "text-green-700"
               : "text-red-500"
           }`}
         >
-          {product.stockStatus}
-        </p>
+          {product.inventory.stockStatus}
+        </p> */}
 
         {/* ADD TO CART BUTTON */}
-        <Button
+        <button
           onClick={handleAddToCart}
-          className="w-full mt-auto flex items-center justify-center gap-2 sticky bottom-2 py-2"
+          className="w-full mt-auto flex items-center justify-center gap-2 sticky bottom-2 py-2 bg-highlight text-gray-900 border border-gray-500 hover:bg-gray-900 hover:text-highlight transition duration-300"
           disabled={isAdding}
         >
           {isAdding ? (
             <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
           ) : (
-            <ShoppingCart className="w-6 h-6 mr-3" />
+            <ShoppingCart className="w-5 h-5 mr-2" />
           )}
           {isAdding ? "Adding..." : "Add to Cart"}
-        </Button>
+        </button>
+
       </div>
     </div>
   );

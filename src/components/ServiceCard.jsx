@@ -19,12 +19,12 @@ const ServiceCard = ({ service }) => {
   return (
     <div
       onClick={handleNavigation}
-      className="border border-primary rounded-2xl shadow-lg p-4 
+      className="border border-primary rounded-2xl shadow-lg p-2 
                  hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 
                  cursor-pointer flex flex-col items-center text-center group backdrop-blur-[2px]"
     >
       {/* Icon */}
-      <div className="p-4 rounded-full mb-4 
+      <div className="hidden md:block p-4 rounded-full mb-4 
                       transition-transform duration-300 group-hover:scale-110">
         
       </div>
@@ -32,7 +32,7 @@ const ServiceCard = ({ service }) => {
       {/* Optional image */}
       {service.image && (
         <img
-          className="w-full h-64 object-cover rounded-xl mb-3"
+          className="w-full h-44 md:h-64 object-cover rounded-xl mb-3"
           src={service.image}
           alt={service.name}
         />

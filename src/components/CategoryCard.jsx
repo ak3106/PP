@@ -30,14 +30,14 @@ const CategoryCard = ({ category }) => {
                  hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 
                  cursor-pointer flex flex-col items-center text-center group backdrop-blur-[2px]"
     >
-      <div className="p-4 rounded-full mb-4 transition-transform duration-300 group-hover:scale-110 ">
+      <div className="hidden md:block md:p-4 md:rounded-full md:mb-4 transition-transform duration-300 group-hover:scale-110 ">
         {/* Optional icon */}
         {/* <IconComponent className="w-8 h-8 text-indigo-800" /> */}
       </div>
 
       {/* Dynamic image */}
       <img
-        className="w-full h-full object-cover rounded-xl"
+        className="w-full h-full object-cover rounded"
         src={category.image}
         alt={category.name}
       />

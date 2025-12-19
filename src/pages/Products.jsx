@@ -75,7 +75,7 @@ const LucideIcons = {
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 animate-fadeInDown">
           {selectedCategory} Store
         </h1>
-        <p className="text-xl text-indigo-600 mb-8 animate-fadeInDown delay-100">
+        <p className="text-xl text-primary mb-8 animate-fadeInDown delay-100">
           Pick your favorite design, add to cart, and checkout!
         </p>
 
@@ -94,7 +94,7 @@ const LucideIcons = {
 
           {/* Mobile Filter Button */}
           <Button
-            variant="outline"
+            variant="outline" 
             className="md:hidden px-4 py-2 mr-4 flex items-center text-sm"
             onClick={() => setIsFilterOpen(true)}
           >
@@ -105,45 +105,13 @@ const LucideIcons = {
         {/* Main Content Area */}
         <div className="flex">
           {/* Desktop Filter Sidebar (Category Navigation) */}
-          <aside className="hidden md:block w-64 mr-8 flex-shrink-0 sticky top-40 h-fit p-6 bg-gray-50 rounded-2xl shadow-xl animate-fadeInLeft">
-            <h3 className="text-xl font-bold text-gray-800 mb-4 border-b pb-2 flex items-center">
-              <Filter className="w-5 h-5 mr-2" /> Categories
-            </h3>
-            <div className="space-y-2">
-              {/* Link back to the main Hub */}
-              <div
-                onClick={() => handleCategoryChange(null)}
-                className={`flex justify-between items-center p-2 rounded-lg cursor-pointer transition duration-150 
-                                ${selectedCategory === null ? "bg-indigo-600 text-white font-semibold" : "text-gray-700 hover:bg-gray-200"}`}
-              >
-                <span>&larr; Back to Hub</span>
-              </div>
-              {/* Category list for quick switching */}
-              {CATEGORIES.map((cat) => (
-                <div
-                  key={cat.name}
-                  onClick={() => handleCategoryChange(cat.name)}
-                  className={`flex justify-between items-center p-2 rounded-lg cursor-pointer transition duration-150 
-                                    ${
-                                      selectedCategory === cat.name
-                                        ? "bg-indigo-600 text-white font-semibold"
-                                        : "text-gray-700 hover:bg-gray-200"
-                                    }`}
-                >
-                  <span>{cat.name}</span>
-                  <ArrowRight
-                    className={`w-4 h-4 transition ${selectedCategory === cat.name ? "rotate-0" : "rotate-45 opacity-0"}`}
-                  />
-                </div>
-              ))}
-            </div>
-          </aside>
+
 
           {/* Products Grid */}
           <div className="flex-grow">
             <h2 className="text-2xl font-semibold text-gray-700 mb-6">
               {filteredProducts.length} results in{" "}
-              <span className="text-indigo-600">{selectedCategory}</span>
+              <span className="text-primary">{selectedCategory}</span>
             </h2>
 
             {filteredProducts.length > 0 ? (

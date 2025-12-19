@@ -242,6 +242,7 @@ import {
 } from "lucide-react";
 import {motion, useInView } from "framer-motion";
 import Button from "../components/UI/Button";
+import owner from "../assets/owner.png"
 
 // --- Timeline Data ---
 const TIMELINE_EVENTS = [
@@ -425,7 +426,7 @@ const About = () => {
       >
         <motion.p
           variants={fadeUp}
-          className="text-sm font-semibold uppercase tracking-[0.25em] text-primary mb-3"
+          className="text-sm font-semibold uppercase tracking-[0.25em] text-accent mb-3"
         >
           Our Legacy. Our Promise.
         </motion.p>
@@ -433,7 +434,7 @@ const About = () => {
         <motion.h1
           variants={fadeUp}
           transition={{ delay: 0.1 }}
-          className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4"
+          className="text-4xl sm:text-5xl font-extrabold text-primary mb-4"
         >
           30 Years of Print Excellence
         </motion.h1>
@@ -458,7 +459,7 @@ const About = () => {
           initial="hidden"
           animate={valuesInView ? "visible" : "hidden"}
           transition={{ duration: 0.6 }}
-          className="text-3xl font-bold text-gray-800 text-center mb-10"
+          className="text-3xl font-bold text-primary text-center mb-10"
         >
           The Pragya Print Hybrid Advantage
         </motion.h2>
@@ -495,7 +496,7 @@ const About = () => {
                 whileHover={{ y: -6, scale: 1.03 }}
                 className="p-6 bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-indigo-100/70"
               >
-                <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 mb-4 shadow-sm">
+                <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-indigo-50 text-accent mb-4 shadow-sm">
                   <Icon className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -516,7 +517,7 @@ const About = () => {
           initial="hidden"
           animate={founderInView ? "visible" : "hidden"}
           transition={{ duration: 0.6 }}
-          className="text-3xl font-bold text-gray-800 text-center mb-10"
+          className="text-3xl font-bold text-primary text-center mb-10"
         >
           Meet the Founder
         </motion.h2>
@@ -529,9 +530,9 @@ const About = () => {
           className="max-w-6xl mx-auto bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-2xl border border-yellow-200 text-center"
         >
           <motion.img
-            src="https://placehold.co/100x100/fcd34d/44403c?text=Owner"
+            src= {owner}
             alt="Owner"
-            className="w-24 h-24 rounded-full mx-auto mb-4 object-cover ring-4 ring-yellow-500 shadow-md"
+            className="w-28 h-28 rounded-full mx-auto mb-4 object-cover object-top ring-2 ring-yellow-500 shadow-md"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={founderInView ? { opacity: 1, scale: 1 } : {}}
           />
@@ -539,11 +540,11 @@ const About = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-1">
             Mr. Bhushan Sharma
           </h3>
-          <p className="text-indigo-600 font-semibold mb-4">
+          <p className="text-accent font-semibold mb-4">
             Founder & Director
           </p>
 
-          <p className="text-gray-700 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-gray-700 leading-relaxed max-w-2xl mx-auto text-justify">
             Bhushan started Pragya with a single vision: to bring reliable,
             high-quality printing to the community. His dedication to
             craftsmanship still guides every part of our hybrid business today.

@@ -137,155 +137,136 @@
 //   );
 // };
 
-// export default ProductCard;
 import React, { useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
-import { ShoppingCart, Star, Minus, Plus, Tag, Layers } from "lucide-react";
-import Button from '../components/UI/Button';
+import { useNavigate } from "react-router-dom";
+import { ShoppingCart, Star, Layers } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
-  const navigate = useNavigate();
-  const { dispatchCart } = useCart(); 
+  const navigate = useNavigate();
+  const { dispatchCart } = useCart();
 
-  const [quantity, setQuantity] = useState(1);
-  const [isAdding, setIsAdding] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const [isAdding, setIsAdding] = useState(false);
 
-  // --- FIXED DEFAULT OPTIONS FOR QUICK ADD ---
-  // Assume A4 and Glossy are the standard quick-add options for posters/prints.
-  // Fallback to the product's first defined option if available, otherwise use hardcoded standards.
-  const defaultOptions = product.options || {};
-  
-  const DEFAULT_SIZE = defaultOptions.size?.includes('A4') ? 'A4' : defaultOptions.size?.[0] || 'A4';
-  const DEFAULT_TYPE = defaultOptions.paperType?.includes('Glossy') ? 'Glossy' : defaultOptions.paperType?.[0] || 'Glossy';
-  
-  // Helper function to display price
-  const displayPrice = product.pricing.salePrice;
+  // Default quick-add options
+  const defaultOptions = product.options || {};
+  const DEFAULT_SIZE = defaultOptions.size?.includes("A4")
+    ? "A4"
+    : defaultOptions.size?.[0] || "A4";
+  const DEFAULT_TYPE = defaultOptions.paperType?.includes("Glossy")
+    ? "Glossy"
+    : defaultOptions.paperType?.[0] || "Glossy";
 
-  const handleAddToCart = (e) => {
-    e.stopPropagation();
-    if (quantity < 1 || isAdding) return;
+  const displayPrice = product.pricing.salePrice;
 
-    setIsAdding(true);
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+    if (quantity < 1 || isAdding) return;
 
-    dispatchCart({
-      type: "ADD_ITEM",
-      payload: {
-        product,
-        // FIX: Pass the defined DEFAULT_SIZE and DEFAULT_TYPE
-        selectedSize: DEFAULT_SIZE,
-        selectedType: DEFAULT_TYPE,
-        quantity: 1, // Always add 1 for quick add from card
-      },
-    });
+    setIsAdding(true);
 
-    // Simulate network delay for animation feedback
-    setTimeout(() => {
-      setIsAdding(false);
-      alert(`Added 1x ${product.name} (${DEFAULT_SIZE}) to cart!`);
-      setQuantity(1); // Reset quantity after successful add
-    }, 800);
-  };
-  
-  // --- UI Component Render ---
-  return (
-    <div className="min-h-[80vh] bg-highlight rounded-md shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden relative group border border-gray-50">
-      {/* SALE BADGE */}
-      {product.pricing.discountPercentage > 0 && (
-        <div className="absolute top-3 left-3 z-10 bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-          {product.pricing.discountPercentage}% OFF
-        </div>
-      )}
+    dispatchCart({
+      type: "ADD_ITEM",
+      payload: {
+        product,
+        selectedSize: DEFAULT_SIZE,
+        selectedType: DEFAULT_TYPE,
+        quantity: 1,
+      },
+    });
 
-      {/* FEATURED BADGE */}
-      {product.isFeatured && (
-        <div className="absolute top-3 right-3 z-10 bg-gray-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-          Featured
-        </div>
-      )}
+    setTimeout(() => {
+      setIsAdding(false);
+      alert(`Added 1x ${product.name} (${DEFAULT_SIZE}) to cart!`);
+      setQuantity(1);
+    }, 800);
+  };
 
-      {/* PRODUCT IMAGE */}
-      <div
-        className="cursor-pointer relative"
-        onClick={() => navigate(`/product/${product.id}`)}
-      >
-        <img
-          src={product.thumbnail || product.images?.[0]}
-          alt={product.name}
-          className="w-full h-[60vh] object-cover group-hover:scale-[1.03] transition duration-300"
-        />
-      </div>
+  return (
+    <div className="max-h-[50vh] lg:max-h-[80vh] bg-highlight rounded-md hover:shadow-xl transition duration-300 overflow-hidden relative group border border-gray-50">
+      {/* SALE BADGE */}
+      {product.pricing.discountPercentage > 0 && (
+        <div className="absolute top-3 left-3 z-10 bg-red-700 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
+          {product.pricing.discountPercentage}% OFF
+        </div>
+      )}
 
-      {/* PRODUCT INFO */}
-      <div className="p-3 relative flex flex-col h-full">
-        {/* NAME */}
-        <h3
-          className="text-md font-[montserrat] tracking-tight text-center leading-6 text-gray-900 cursor-pointer"
-          onClick={() => navigate(`/product/${product.id}`)}
-        >
-          {product.name}
-        </h3>
+      {/* FEATURED BADGE */}
+      {product.isFeatured && (
+        <div className="hidden absolute top-3 right-3 z-10 bg-gray-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+          Featured
+        </div>
+      )}
 
-            
-        {/* DEFAULT SIZE INDICATOR */}
-        <div className="flex items-center gap-1 mt-1 text-sm text-primary font-semibold">
-            <Layers className="w-3 h-3" />
-          <span>{DEFAULT_SIZE}</span>
-        </div>
+      {/* PRODUCT IMAGE */}
+      <div
+        className="cursor-pointer relative"
+        onClick={() => navigate(`/product/${product.id}`)}
+      >
+        <img
+          src={product.thumbnail || product.images?.[0]}
+          alt={product.name}
+          className="w-full h-[33vh] lg:h-[65vh] object-cover group-hover:scale-[1.03] transition duration-300"
+        />
+      </div>
 
-        
-        {/* PRICE & RATING */}
-        <div className="flex justify-between items-center">
-          <div>
-            {product.pricing.salePrice ? (
-              <div className="flex items-center gap-2">
-                <span className="text-gray-900 font-bold text-lg">
-                  ₹{displayPrice}
-                </span>
-                <span className="line-through text-gray-400 text-sm">
-                  ₹{product.pricing.basePrice}
-                </span>
-              </div>
-            ) : (
-              <span className="text-indigo-600 font-bold text-xl">
-                ₹{product.pricing.basePrice}
-              </span>
-            )}
-          </div>
-          <div className="flex items-center gap-1 text-yellow-600">
-            <Star className="w-3 h-3" />
-            <span className="text-sm font-medium">{product.rating}</span>
-          </div>
-        </div>
-        
-        {/* STOCK STATUS */}
-{/*         <p
-          className={`sticky bottom-2 mt-2 text-sm font-semibold ${
-            product.inventory.stockStatus === "In Stock"
-              ? "text-green-700"
-              : "text-red-500"
-          }`}
-        >
-          {product.inventory.stockStatus}
-        </p> */}
+      {/* PRODUCT INFO */}
+      <div className="p-1 lg:p-3 relative flex flex-col h-full">
+        {/* NAME */}
+        <h3
+          className="text-sm lg:text-md font-[montserrat] tracking-tight text-center leading-5 lg:leading-6 text-gray-900 cursor-pointer"
+          onClick={() => navigate(`/product/${product.id}`)}
+        >
+          {product.name}
+        </h3>
 
-        {/* ADD TO CART BUTTON */}
-        <button
-          onClick={handleAddToCart}
-          className="w-full mt-auto flex items-center justify-center gap-2 sticky bottom-2 py-2 bg-highlight text-gray-900 border border-gray-500 hover:bg-gray-900 hover:text-highlight transition duration-300"
-          disabled={isAdding}
-        >
-          {isAdding ? (
-            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-          ) : (
-            <ShoppingCart className="w-5 h-5 mr-2" />
-          )}
-          {isAdding ? "Adding..." : "Add to Cart"}
-        </button>
+        {/* DEFAULT SIZE INDICATOR */}
+        <div className="flex items-center gap-1 mt-1 text-xs lg:text-sm text-primary font-semibold">
+          <Layers className="w-3 h-3" />
+          <span>{DEFAULT_SIZE}</span>
+        </div>
 
-      </div>
-    </div>
-  );
+        {/* PRICE & RATING */}
+        <div className="flex justify-between items-center mt-1 mb-1 lg:mt-2">
+          <div>
+            {product.pricing.salePrice ? (
+              <div className="flex items-center gap-2">
+                <span className="text-gray-900 font-bold text-md lg:text-lg">
+                  ₹{displayPrice}
+                </span>
+                <span className="line-through text-gray-400 text-sm">
+                  ₹{product.pricing.basePrice}
+                </span>
+              </div>
+            ) : (
+              <span className="text-indigo-600 font-bold text-xl">
+                ₹{product.pricing.basePrice}
+              </span>
+            )}
+          </div>
+          <div className="flex items-center gap-1 text-yellow-600">
+            <Star className="w-2 h-2 lg:w-3 lg:h-3" />
+            <span className="text-xs lg:text-sm font-medium">{product.rating}</span>
+          </div>
+        </div>
+
+        {/* ADD TO CART BUTTON */}
+        <button
+          onClick={handleAddToCart}
+          className=" w-full mt-auto flex items-center justify-center gap-2 sticky bottom-2 py-1 bg-highlight text-gray-900 border border-gray-500 hover:bg-gray-900 hover:text-highlight transition duration-300"
+          disabled={isAdding}
+        >
+          {isAdding ? (
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+          ) : (
+            <ShoppingCart className="w-4 h-4 mr-1 lg:mr-2 lg:h-5 lg:w-5" />
+          )}
+          {isAdding ? "Adding..." : "Add to Cart"}
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default ProductCard;

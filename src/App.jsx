@@ -1,114 +1,98 @@
 import React, { useState, useReducer, useEffect, useMemo, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";  // ✅ Changed here
-// Correctly import ECOMMERCE data for safe use in context/state setup
-import { PRODUCTS } from "./data/dummyProducts";
-import { useCart } from "./context/CartContext";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "./firebase";
 
-// --- Import Layout Components ---
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
-
-
-// --- DYNAMICALLY Import Pages (Code Splitting) ---
-const Home = lazy(() => import('./pages/Home'));
-const Products = lazy(() => import('./pages/Products'));
-const ProductDetail = lazy(() => import('./pages/ProductDetail'));
-const Cart = lazy(() => import('./pages/Cart'));
-const Checkout = lazy(() => import('./pages/Checkout'));
-const Services = lazy(() => import('./pages/Services'));
-const Portfolio = lazy(() => import('./pages/Portfolio'));
-const Login = lazy(() => import('./pages/Login'));
-const Register = lazy(() => import('./pages/Register'));
-const Contact = lazy(() => import('./pages/Contact'));
-const About = lazy(() => import('./pages/About'));
-
-// --- Cart Reducer Logic ---
+// --- Cart Reducer ---
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM": {
       const { product, selectedSize, selectedType, quantity } = action.payload;
       const itemId = `${product.id}-${selectedSize}-${selectedType}`;
-      const existingItemIndex = state.findIndex(
-        (item) => item.itemId === itemId
-      );
+      const existingIndex = state.findIndex(i => i.itemId === itemId);
+      const price = product.salePrice || product.price || 0;
 
-      const itemPrice = product.salePrice || product.price || 0;
-
-      if (existingItemIndex !== -1) {
-        return state.map((item, index) =>
-          index === existingItemIndex
+      if (existingIndex !== -1) {
+        return state.map((item, i) =>
+          i === existingIndex
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
-      } else {
-        return [
-          ...state,
-          {
-            itemId,
-            product,
-            quantity,
-            selectedSize,
-            selectedType,
-            price: itemPrice,
-          },
-        ];
       }
+
+      return [
+        ...state,
+        { itemId, product, quantity, selectedSize, selectedType, price }
+      ];
     }
+
     case "REMOVE_ITEM":
-      return state.filter((item) => item.itemId !== action.payload.itemId);
+      return state.filter(item => item.itemId !== action.payload.itemId);
+
     case "UPDATE_QUANTITY":
       return state
-        .map((item) =>
+        .map(item =>
           item.itemId === action.payload.itemId
             ? { ...item, quantity: action.payload.quantity }
             : item
         )
-        .filter((item) => item.quantity > 0);
+        .filter(item => item.quantity > 0);
+
     case "CLEAR_CART":
       return [];
+
     default:
       return state;
   }
 };
 
-// --- App Component ---
+// --- Layout Components ---
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import Signup from "./pages/Signup";
+
+// --- Lazy Pages ---
+const Home = lazy(() => import("./pages/Home"));
+const Products = lazy(() => import("./pages/Products"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const Cart = lazy(() => import("./pages/Cart"));
+const Checkout = lazy(() => import("./pages/Checkout"));
+const Services = lazy(() => import("./pages/Services"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const Login = lazy(() => import("./pages/Login"));
+const Register = lazy(() => import("./pages/Signup"));
+const Contact = lazy(() => import("./pages/Contact"));
+const About = lazy(() => import("./pages/About"));
+const PhoneLogin = lazy(() => import("./pages/PhoneLogin"));
+
 const App = () => {
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
-
   const [cart, dispatchCart] = useReducer(cartReducer, []);
 
+  // --- Firebase Auth Listener ---
   useEffect(() => {
-    setTimeout(() => {
-      const storedUser = JSON.parse(localStorage.getItem("pragya_user"));
-      if (storedUser) {
-        setUser(storedUser);
-      }
+    const unsub = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser || null);
       setAuthLoading(false);
-    }, 500);
+    });
+
+    return () => unsub();
   }, []);
 
-  const handleLogin = (userData) => {
-    const newUser = {
-      id: "u1",
-      name: userData.email.split("@")[0],
-      email: userData.email,
-    };
-    setUser(newUser);
-    localStorage.setItem("pragya_user", JSON.stringify(newUser));
+  // --- Logout Handler ---
+  const handleLogout = async () => {
+    await signOut(auth);
   };
 
-  const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem("pragya_user");
-  };
-
+  // --- Cart Item Count ---
   const cartItemCount = useMemo(
     () => cart.reduce((acc, item) => acc + item.quantity, 0),
     [cart]
   );
 
+  // --- Splash Loader ---
   if (authLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-indigo-50">
@@ -123,8 +107,9 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>   
+    <BrowserRouter>
       <ScrollToTop />
+
       <Navbar
         cartItemCount={cartItemCount}
         user={user}
@@ -139,30 +124,14 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
-          <Route
-            path="/products"
-            element={<Products dispatchCart={dispatchCart} />}
-          />
-          <Route
-            path="/product/:id"
-            element={<ProductDetail dispatchCart={dispatchCart} />}
-          />
-          <Route
-            path="/cart"
-            element={<Cart cart={cart} dispatchCart={dispatchCart} />}
-          />
-          <Route
-            path="/checkout"
-            element={
-              <Checkout cart={cart} user={user} dispatchCart={dispatchCart} />
-            }
-          />
+          <Route path="/products" element={<Products dispatchCart={dispatchCart} />} />
+          <Route path="/product/:id" element={<ProductDetail dispatchCart={dispatchCart} />} />
+          <Route path="/cart" element={<Cart cart={cart} dispatchCart={dispatchCart} />} />
+          <Route path="/checkout" element={<Checkout cart={cart} user={user} dispatchCart={dispatchCart} />} />
 
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route
-            path="/register"
-            element={<Register onRegister={handleLogin} />}
-          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/phone-login" element={<PhoneLogin />} />
 
           <Route path="*" element={<Home />} />
         </Routes>

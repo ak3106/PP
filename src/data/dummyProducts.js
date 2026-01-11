@@ -244,7 +244,7 @@ import superman from "../assets/postermockup/superman.webp"
 import thor from "../assets/postermockup/thor.webp"
 import toystory from "../assets/postermockup/toystory.webp"
 import weeknd from "../assets/postermockup/weeknd.webp"
-import virat from "../assets/postermockup/virat.webp"
+import virat from "../assets/postermockup/spiral.png"
 import hanuman from "../assets/postermockup/hanuman.webp"
 
 
@@ -376,6 +376,7 @@ export const PRODUCTS = [
             "iron man poster",
             "iron man wall art",
             "marvel poster",
+            "MCU",
             "marvel wall art",
             "iron man artwork",
             "superhero poster",
@@ -1945,7 +1946,7 @@ export const PRODUCTS = [
         category: "Posters",
       
         collections: {
-          franchise: "Series",
+          franchise: "Game of Thrones",
           series: "Game of Thrones",
           platform: "HBO",
           themeArc: "The War for the Iron Throne"
@@ -4471,7 +4472,7 @@ export const PRODUCTS = [
         category: "Posters",
       
         collections: {
-          franchise: "TV Series",
+          franchise: "Series",
           series: "Friends",
           genre: "Sitcom",
           era: "90s Classics",
@@ -4888,7 +4889,7 @@ export const PRODUCTS = [
            COLLECTIONS & CLASSIFICATION
         =============================== */
         collections: {
-          franchise: "Interstellar",
+          franchise: "Movies",
           studio: "Sci-Fi Cinema",
           genre: "Science Fiction",
           style: "Minimal",
@@ -5309,7 +5310,7 @@ export const PRODUCTS = [
            COLLECTIONS & SORTING
         =============================== */
         collections: {
-          franchise: "Pirates of the Caribbean",
+          franchise: "Movies",
           universe: "Disney Adventure",
           genre: "Adventure",
           series: "The Curse of the Black Pearl",
@@ -5520,7 +5521,7 @@ export const PRODUCTS = [
            COLLECTIONS & FILTERING
         =============================== */
         collections: {
-          franchise: "Fast & Furious",
+          franchise: "Movies",
           universe: "Fast Saga",
           genre: "Action",
           series: "Fast & Furious 7",
@@ -5732,7 +5733,7 @@ export const PRODUCTS = [
            COLLECTIONS & FILTERING
         =============================== */
         collections: {
-          franchise: "Toy Story",
+          franchise: "Movies",
           universe: "Pixar",
           genre: "Animation",
           series: "Toy Story 3",

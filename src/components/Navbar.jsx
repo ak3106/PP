@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo pragya print.png";
 import { useCart } from "../context/CartContext";
+// import { signOut } from "firebase/auth";
+// import { auth } from "../firebase";
 
 import {
   Home as HomeIcon,
@@ -51,6 +53,10 @@ const Navbar = ({ user, onLogout }) => {
     setShowSearch(false);
     setSearchText("");
   };
+
+  // const logout = async () => {
+  //   await signOut(auth);
+  // };
 
   return (
     <>
@@ -121,7 +127,7 @@ const Navbar = ({ user, onLogout }) => {
                   className="hidden md:flex items-center bg-primary text-white px-4 py-2 rounded-lg"
                 >
                   <User className="w-4 h-4 mr-2" />
-                  Login
+                  Login/Signup
                 </NavLink>
               ) : (
                 <div className="relative group hidden md:block">
@@ -175,7 +181,7 @@ const Navbar = ({ user, onLogout }) => {
             className="block px-6 py-4 font-semibold text-accent"
           >
             <User className="inline w-5 h-5 mr-2" />
-            Login / Register
+            Login / Signup
           </NavLink>
         )}
       </div>

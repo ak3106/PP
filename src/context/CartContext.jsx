@@ -14,7 +14,7 @@ const cartReducer = (state, action) => {
       );
       
       // Use the correct price field from the product object
-      const itemPrice = product.salePrice || product.price || 0;
+      const itemPrice = product.pricing.salePrice || product.pricing.basePrice || 0;
 
       if (existingItemIndex !== -1) {
         // If item exists, update quantity

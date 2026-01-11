@@ -184,7 +184,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="max-h-[50vh] lg:max-h-[80vh] bg-highlight rounded-md hover:shadow-xl transition duration-300 overflow-hidden relative group border border-gray-50">
+    <div className="min-h-[50vh] lg:min-h-[80vh] bg-highlight rounded-md hover:shadow-xl transition duration-300 overflow-hidden relative group border border-gray-50">
       {/* SALE BADGE */}
       {product.pricing.discountPercentage > 0 && (
         <div className="absolute top-3 left-3 z-10 bg-red-700 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
@@ -207,7 +207,7 @@ const ProductCard = ({ product }) => {
         <img
           src={product.thumbnail || product.images?.[0]}
           alt={product.name}
-          className="w-full h-[33vh] lg:h-[65vh] object-cover group-hover:scale-[1.03] transition duration-300"
+          className="w-full h-[33vh] lg:h-[60vh] object-cover group-hover:scale-[1.03] transition duration-300"
         />
       </div>
 
@@ -215,8 +215,8 @@ const ProductCard = ({ product }) => {
       <div className="p-1 lg:p-3 relative flex flex-col h-full">
         {/* NAME */}
         <h3
-          className="text-sm lg:text-md font-[montserrat] tracking-tight text-center leading-5 lg:leading-6 text-gray-900 cursor-pointer"
-          onClick={() => navigate(`/product/${product.id}`)}
+          className="text-xs lg:text-[0.9rem] font-[montserrat] tracking-tight text-center leading-5 lg:leading-6 text-gray-900 cursor-pointer"
+          onClick={() => navigate(`/product/${product.id}`)}    
         >
           {product.name}
         </h3>
@@ -228,11 +228,11 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* PRICE & RATING */}
-        <div className="flex justify-between items-center mt-1 mb-1 lg:mt-2">
+        <div className="flex justify-between items-center">
           <div>
             {product.pricing.salePrice ? (
               <div className="flex items-center gap-2">
-                <span className="text-gray-900 font-bold text-md lg:text-lg">
+                <span className="text-gray-900 font-bold text-sm lg:text-lg">
                   ₹{displayPrice}
                 </span>
                 <span className="line-through text-gray-400 text-sm">
@@ -254,7 +254,7 @@ const ProductCard = ({ product }) => {
         {/* ADD TO CART BUTTON */}
         <button
           onClick={handleAddToCart}
-          className=" w-full mt-auto flex items-center justify-center gap-2 sticky bottom-2 py-1 bg-highlight text-gray-900 border border-gray-500 hover:bg-gray-900 hover:text-highlight transition duration-300"
+          className=" w-full mt-auto flex items-center justify-center gap-2 sticky bottom-2 py-1 lg:py-2 bg-highlight text-gray-900 border border-gray-500 hover:bg-gray-900 hover:text-highlight transition duration-300"
           disabled={isAdding}
         >
           {isAdding ? (

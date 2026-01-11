@@ -61,7 +61,7 @@ const Footer = ({ navigate }) => {
                     onClick={() => navigate(link.path)}
                     className="text-gray-400 hover:text-indigo-300 transition-colors duration-150 cursor-pointer flex items-center"
                   >
-                    <link.icon className="w-4 h-4 mr-2" />
+                    <link.icon className="w-4 h-4 mr-2 text-indigo-400" />
                     {link.name}
                   </a>
                 </li>
@@ -93,14 +93,13 @@ const Footer = ({ navigate }) => {
                   href={`tel:${"91+9425083910"}`}
                   className="text-sm hover:text-indigo-700 font-semibold"
                 >
-                  {"91+9425083910"}
+                  {"+918269754932"}
                 </a>
               </li>
               <li className="flex items-start">
                 <MapPin className="w-4 h-4 mr-3 mt-1 text-indigo-400 flex-shrink-0" />
                 <span>
-                  A.B. Road, Traffic Point, Bus stand, Shajapur, Agra - Mumbai
-                  Hwy, Laxmi Nagar, Shajapur, Madhya Pradesh 465001
+                  A.B. Road, Traffic Point, Bus stand, Shajapur, Madhya Pradesh 465001
                 </span>
               </li>
             </ul>

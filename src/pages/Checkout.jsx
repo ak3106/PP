@@ -195,7 +195,7 @@ const Checkout = ({ user }) => {
                     
                     {/* Payment Method Section (Always Visible) */}
                     <div className="bg-white p-6 rounded-3xl shadow-xl border border-gray-100">
-                        <h2 className="text-2xl font-bold text-indigo-700 mb-6 flex items-center">
+                        <h2 className="text-2xl font-bold text-primary mb-6 flex items-center">
                             <DollarSign className="w-6 h-6 mr-3" /> 1. Payment Method
                         </h2>
                         
@@ -234,7 +234,6 @@ const Checkout = ({ user }) => {
                                      <span className='ml-4 text-sm text-green-600 font-bold'>+ FREE Shipping</span>
                                 )}
                             </label>
-
                             {/* Option 3: Online Payment (Disabled in Phase 1) */}
                             <div className="flex items-center p-4 rounded-xl border-2 border-dashed bg-gray-100 opacity-60 cursor-not-allowed">
                                 <input type="radio" disabled className="h-5 w-5 border-gray-300" />
@@ -248,7 +247,7 @@ const Checkout = ({ user }) => {
 
                     {/* Shipping Address Section (Conditional Visibility/Requirement based on Payment) */}
                     <div className="bg-white p-6 rounded-3xl shadow-xl border border-gray-100">
-                        <h2 className="text-2xl font-bold text-indigo-700 mb-6 flex items-center">
+                        <h2 className="text-2xl font-bold text-primary mb-6 flex items-center">
                             <Truck className="w-6 h-6 mr-3" /> 2. Delivery Information {isDelivery && <span className='text-sm text-red-500 ml-2'>(Required)</span>}
                         </h2>
                         

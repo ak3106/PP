@@ -71,7 +71,7 @@ const Cart = () => {
   return (
     <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 min-h-[80vh]'>
       <h1 className='text-4xl font-extrabold text-gray-900 mb-8 border-b pb-2 flex items-center'>
-        <ShoppingCart className='w-8 h-8 mr-3 text-indigo-600' /> Your Shopping Cart
+        <ShoppingCart className='w-8 h-8 mr-3 text-primary' /> Your Shopping Cart
       </h1>
 
       {/* Global Notification/Toast */}
@@ -86,11 +86,11 @@ const Cart = () => {
       )}
 
       {cart.length === 0 ? (
-        <div className='text-center py-20 bg-gray-50 rounded-2xl shadow-lg border-4 border-dashed border-gray-300'>
+        <div className='flex flex-col items-center py-20 bg-gray-50 rounded-2xl shadow-lg border-4 border-dashed border-gray-300'>
           <ShoppingCart className='w-16 h-16 text-gray-400 mx-auto mb-4' />
           <h2 className='text-2xl text-gray-600 font-semibold'>Your cart is empty!</h2>
           <p className='text-gray-500 mt-2'>Time to fill it with awesome prints.</p>
-          <Button onClick={() => navigate('/products')} className='mt-6'>
+          <Button onClick={() => navigate('/products')} className='mt-6 bg-accent'>
             <ArrowLeft className='w-4 h-4 mr-2' /> Start Shopping
           </Button>
         </div>
@@ -101,7 +101,7 @@ const Cart = () => {
             {cart.map(item => (
               <div
                 key={item.itemId}
-                className='flex flex-col sm:flex-row items-center bg-white p-4 rounded-2xl shadow-xl border border-gray-100 transition duration-300 hover:shadow-2xl'
+                className='flex flex-col sm:flex-row items-center bg-white p-4 rounded-2xl shadow-lg border border-gray-100 transition duration-300 hover:shadow-xl'
               >
                 {/* Item Image */}
                 <div className='w-24 h-24 flex-shrink-0 overflow-hidden rounded-xl mr-4 mb-4 sm:mb-0 border border-gray-200'>
@@ -116,10 +116,10 @@ const Cart = () => {
                 <div className='flex-grow text-center sm:text-left'>
                   <h3 className='text-lg font-bold text-gray-900 mb-1'>{item.product.name}</h3>
                   <p className='text-sm text-gray-500 mb-2'>
-                    <span className='font-semibold text-indigo-500'>Size: {item.selectedSize}</span> | 
-                    <span className='font-semibold text-indigo-500'> Type: {item.selectedType}</span>
+                    <span className='font-semibold text-primary'>Size: {item.selectedSize}</span> | 
+                    <span className='font-semibold text-primary'> Type: {item.selectedType}</span>
                   </p>
-                  <p className='text-xl font-bold text-indigo-600'>
+                  <p className='text-xl font-bold text-gray-900'>
                     {formatCurrency(item.price * item.quantity)}
                   </p>
                 </div>
@@ -145,31 +145,31 @@ const Cart = () => {
                   </div>
 
                   {/* Remove Button */}
-                  <Button
+                  <button
                     variant='danger'
                     onClick={() => removeItem(item.itemId)}
-                    className='p-3 ml-4'
-                  >
+                    className='p-2 ml-4 bg-[#e74c3c] rounded-xl hover:bg-[#c0392b] transition duration-200 text-white'
+                  > 
                     <Trash2 className='w-5 h-5' />
-                  </Button>
+                  </button>
                 </div>
               </div>
             ))}
 
             <div className='p-4 bg-gray-100 rounded-xl text-gray-600 flex items-center shadow-inner'>
-              <Package className='w-5 h-5 mr-3 flex-shrink-0 text-indigo-600' />
+              <Package className='w-5 h-5 mr-3 flex-shrink-0 text-primary' />
               Shipping is estimated. Final cost confirmed upon entering address in checkout.
             </div>
           </div>
 
           {/* Order Summary Card */}
-          <div className='lg:col-span-1 sticky top-24 h-fit bg-indigo-50 p-6 rounded-3xl shadow-2xl border border-indigo-100 animate-fadeInRight'>
-            <h2 className='text-2xl font-bold text-indigo-800 mb-4 border-b border-indigo-200 pb-3'>
+          <div className='lg:col-span-1 sticky top-24 h-fit p-6 rounded-3xl bg-[#EEF2FF] shadow-2xl border animate-fadeInRight'>
+            <h2 className='text-2xl font-bold text-gray-900 mb-4 border-b border-indigo-200 pb-3'>
               Order Summary
             </h2>
 
             {/* Summary Details */}
-            <div className='space-y-3 text-gray-700 text-md mb-6'>
+            <div className='space-y-3 text-gray-900 text-md mb-6'>
               <div className='flex justify-between'>
                 <span>Subtotal ({cart.length} unique items)</span>
                 <span className='font-semibold'>{formatCurrency(SUB_TOTAL)}</span>
@@ -183,20 +183,20 @@ const Cart = () => {
                 <span className='font-semibold'>{formatCurrency(TAX_AMOUNT)}</span>
               </div>
 
-              <div className='flex justify-between pt-3 border-t border-indigo-200 text-xl font-extrabold text-indigo-900'>
+              <div className='flex justify-between pt-3 border-t border-indigo-200 text-xl font-extrabold text-primary  '>
                 <span>Grand Total</span>
                 <span>{formatCurrency(GRAND_TOTAL)}</span>
               </div>
             </div>
 
             {/* Checkout Button */}
-            <Button
+            <button
               onClick={proceedToCheckout}
-              className='w-full py-3 text-lg mt-4 flex items-center justify-center'
+              className='w-full py-3 text-lg mt-4 flex items-center justify-center hover:bg-[#f39c12] rounded-lg bg-accent transition duration-300'
               disabled={cart.length === 0}
             >
               <CheckCircle className='w-5 h-5 mr-2' /> Proceed to Checkout
-            </Button>
+            </button>
 
             {/* Local Pickup Note */}
             <div className='mt-6 text-xs text-gray-500 flex items-center justify-center border-t border-indigo-200 pt-4'>

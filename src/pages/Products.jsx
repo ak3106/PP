@@ -4,7 +4,6 @@ import {
   Search,
   ShoppingCart,
   Filter,
-  X,
   Clock,
   CheckCircle,
 } from "lucide-react";
@@ -15,8 +14,8 @@ import ProductCard from "../components/ProductCard";
 import CategoryCard from "../components/CategoryCard";
 import * as LucideIcons from "lucide-react";
 
-import { PRODUCTS, CATEGORIES as CATEGORIES } from "../data/dummyProducts";
-
+import { CATEGORIES } from "../data/dummyProducts";
+import useProducts from "../hooks/useProducts";
 
 // ---------------- LISTING VIEW ----------------
 const ProductListingView = ({
@@ -43,7 +42,7 @@ const ProductListingView = ({
       </p>
 
       {/* Search + Filter Bar */}
-      <div className="top-20 bg-white py-2 mb-8 rounded-xl shadow-lg border flex items-center justify-between">
+      <div className="bg-white py-2 mb-8 rounded-xl shadow-lg border flex items-center justify-between">
         <div className="flex-grow flex items-center space-x-4 px-4">
           <Search className="w-5 h-5 text-gray-400 hidden sm:block" />
           <Input
@@ -66,7 +65,7 @@ const ProductListingView = ({
         )}
       </div>
 
-      {/* Inline Filter Chips */}
+      {/* Filter Chips */}
       {isFilterOpen && franchiseList.length > 0 && (
         <div className="mb-6 flex flex-wrap gap-3">
           {franchiseList.map((fr) => (
@@ -98,44 +97,38 @@ const ProductListingView = ({
       )}
 
       {/* Products Grid */}
-      <div className="flex-grow">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-6">
-          {filteredProducts.length} results in{" "}
-          <span className="text-primary">{selectedCategory}</span>
-        </h2>
+      <h2 className="text-2xl font-semibold text-gray-700 mb-6">
+        {filteredProducts.length} results in{" "}
+        <span className="text-primary">{selectedCategory}</span>
+      </h2>
 
-        {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                dispatchCart={dispatchCart}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-20 bg-gray-50 rounded-2xl border-4 border-dashed border-gray-300">
-            <ShoppingCart className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-2xl text-gray-600 font-semibold">
-              No Products Yet in {selectedCategory}
-            </h3>
-            <Button onClick={() => navigate("/products")} className="mt-6">
-              Back to Category Hub
-            </Button>
-          </div>
-        )}
-      </div>
+      {filteredProducts.length > 0 ? (
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {filteredProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              dispatchCart={dispatchCart}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-20 bg-gray-50 rounded-2xl border-4 border-dashed border-gray-300">
+          <ShoppingCart className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-2xl text-gray-600 font-semibold">
+            No Products Found
+          </h3>
+          <Button onClick={() => navigate("/products")} className="mt-6">
+            Back to Category Hub
+          </Button>
+        </div>
+      )}
     </>
   );
 };
 
-
-// ---------------- CATEGORY HUB VIEW ----------------
+// ---------------- CATEGORY HUB ----------------
 const CategoryHubView = ({ navigate }) => {
-
-  const primaryCategories = CATEGORIES;
-
   const futureCategories = [
     { name: "Gifts & More", icon: "Shirt" },
     { name: "Business Essentials", icon: "Megaphone" },
@@ -150,10 +143,8 @@ const CategoryHubView = ({ navigate }) => {
 
       <p className="text-xl text-gray-900 mb-12 max-w-3xl">
         Browse our curated collections of posters, stickers, and merchandise.
-        Click a category to shop!
       </p>
 
-      {/* Primary Categories */}
       <div className="mb-16">
         <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center">
           <CheckCircle className="w-6 h-6 mr-3 text-green-500" />
@@ -161,17 +152,16 @@ const CategoryHubView = ({ navigate }) => {
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-          {primaryCategories.map((cat) => (
+          {CATEGORIES.map((cat) => (
             <CategoryCard key={cat.name} category={cat} />
           ))}
         </div>
       </div>
 
-      {/* Coming Soon */}
       <div>
         <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center">
           <Clock className="w-6 h-6 mr-3 text-yellow-500" />
-          Exciting New Product Lines
+          Coming Soon
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -185,9 +175,7 @@ const CategoryHubView = ({ navigate }) => {
                 <div className="p-4 bg-yellow-100 rounded-full mb-4 mx-auto w-fit">
                   <Icon className="w-8 h-8 text-yellow-600" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">
-                  {cat.name}
-                </h3>
+                <h3 className="text-lg font-bold">{cat.name}</h3>
                 <p className="text-sm text-yellow-600 font-semibold">
                   Coming Soon!
                 </p>
@@ -196,60 +184,44 @@ const CategoryHubView = ({ navigate }) => {
           })}
         </div>
       </div>
-
-      <div className="text-center mt-16 p-8 bg-gray-100 rounded-xl">
-        <p className="text-lg text-gray-900 font-semibold">
-          Need custom printing or bulk orders?
-        </p>
-        <Button onClick={() => navigate("/services")} className="mt-4">
-          Explore Custom Services
-        </Button>
-      </div>
     </div>
   );
 };
 
-
-// ---------------- MAIN PRODUCTS COMPONENT ----------------
+// ---------------- MAIN PRODUCTS ----------------
 const Products = ({ dispatchCart }) => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const { products, loading, error } = useProducts();
 
-  const initialCategory = searchParams.get("category") || null;
-  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const selectedCategory = searchParams.get("category");
   const [searchTerm, setSearchTerm] = useState("");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState(null);
 
-
   useEffect(() => {
-    const urlCategory = searchParams.get("category") || null;
-    setSelectedCategory(urlCategory);
     setSearchTerm("");
     setSelectedFilter(null);
-  }, [searchParams]);
+  }, [selectedCategory]);
 
-
-  // Build Franchise Filter List
+  // Franchise list from Firestore
   const franchiseList = useMemo(() => {
     if (!selectedCategory) return [];
-
     return [
       ...new Set(
-        PRODUCTS
+        products
           .filter((p) => p.category === selectedCategory)
           .map((p) => p.collections?.franchise)
           .filter(Boolean)
       ),
     ];
-  }, [selectedCategory]);
+  }, [products, selectedCategory]);
 
-
-  // Filtering Logic
+  // Filtering logic
   const filteredProducts = useMemo(() => {
-    if (!selectedCategory) return [];
+    if (!selectedCategory) return []; 
 
-    let result = PRODUCTS.filter(
+    let result = products.filter( 
       (p) => p.category === selectedCategory
     );
 
@@ -258,7 +230,7 @@ const Products = ({ dispatchCart }) => {
       result = result.filter(
         (p) =>
           p.name.toLowerCase().includes(s) ||
-          p.description.toLowerCase().includes(s)
+          p.description?.toLowerCase().includes(s)
       );
     }
 
@@ -268,9 +240,16 @@ const Products = ({ dispatchCart }) => {
       );
     }
 
-    return result.sort((a, b) => b.rating - a.rating);
-  }, [selectedCategory, searchTerm, selectedFilter]);
+    return result;
+  }, [products, selectedCategory, searchTerm, selectedFilter]);
 
+  if (loading) {
+    return <div className="text-center py-20">Loading products…</div>;
+  }
+
+  if (error) {
+    return <div className="text-center py-20 text-red-500">Failed to load products</div>;
+  }
 
   return (
     <div className="max-w-8xl mx-auto px-10 py-10">

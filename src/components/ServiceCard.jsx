@@ -6,30 +6,20 @@ import { useNavigate } from "react-router";
  * Displays a dedicated card for SERVICES.
  * @param {object} props.service - The service object (name, icon, description, image)
  */
-const ServiceCard = ({ service }) => {
-  const navigate = useNavigate();
-
-  // Pick the right icon based on the string
+const ServiceCard = ({ service, onSelect }) => {
   const IconComponent = LucideIcons[service.icon] || LucideIcons.Layers;
-
-  const handleNavigation = () => {
-    navigate(`/services?category=${service.name}`);
-  };
 
   return (
     <div
-      onClick={handleNavigation}
-      className="border border-primary rounded-2xl shadow-lg p-2 
+      onClick={() => onSelect(service.id)}
+      className="border border-indigo-100 rounded-2xl shadow-lg p-2 
                  hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 
-                 cursor-pointer flex flex-col items-center text-center group backdrop-blur-[2px]"
+                 cursor-pointer flex flex-col items-center text-center group bg-white backdrop-blur-[2px]"
     >
-      {/* Icon */}
-      <div className="hidden md:block p-4 rounded-full mb-4 
-                      transition-transform duration-300 group-hover:scale-110">
-        
+      <div className="hidden md:block p-4 rounded-full mb-4 transition-transform duration-300 group-hover:scale-110">
+        <IconComponent className="w-8 h-8 text-indigo-600" />
       </div>
 
-      {/* Optional image */}
       {service.image && (
         <img
           className="w-full h-44 md:h-64 object-cover rounded-xl mb-3"
@@ -38,12 +28,10 @@ const ServiceCard = ({ service }) => {
         />
       )}
 
-      {/* Service name */}
-      <h3 className="text-lg sm:text-xl font-bold uppercase text-gray-900 group-hover:text-primary">
+      <h3 className="text-lg sm:text-xl font-bold uppercase text-gray-900 group-hover:text-indigo-600">
         {service.name}
       </h3>
 
-      {/* Optional description */}
       {service.description && (
         <p className="text-sm text-gray-600 mt-2 hidden md:block">
           {service.description}
@@ -52,5 +40,6 @@ const ServiceCard = ({ service }) => {
     </div>
   );
 };
+
 
 export default ServiceCard;

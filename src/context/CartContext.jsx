@@ -5,53 +5,60 @@ const CartContext = createContext();
 // --- Reducer Logic: Synchronized with application actions ---
 const cartReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_ITEM": {
-      const { product, selectedSize, selectedType, quantity } = action.payload;
-      // Create a unique ID combining product ID, size, and type
-      const itemId = `${product.id}-${selectedSize}-${selectedType}`;
-      const existingItemIndex = state.findIndex(
-        (item) => item.itemId === itemId
-      );
-      
-      // Use the correct price field from the product object
-      const itemPrice = product.pricing.salePrice || product.pricing.basePrice || 0;
 
-      if (existingItemIndex !== -1) {
-        // If item exists, update quantity
-        return state.map((item, index) =>
-          index === existingItemIndex
+    case "ADD_ITEM": {
+      const {
+        productId,
+        name,
+        variantId,
+        variantLabel,
+        price,
+        quantity,
+        thumbnail,
+      } = action.payload;
+
+      const cartItemId = `${productId}_${variantId}`;
+
+      const existing = state.find(
+        item => item.cartItemId === cartItemId
+      );
+
+      if (existing) {
+        return state.map(item =>
+          item.cartItemId === cartItemId
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
-      } else {
-        // Add new item with rich data structure
-        return [
-          ...state,
-          {
-            itemId,
-            product, // Store the entire product object
-            quantity,
-            selectedSize,
-            selectedType,
-            price: itemPrice,
-          },
-        ];
       }
+
+      return [
+        ...state,
+        {
+          cartItemId,
+          productId,
+          name,
+          variantId,
+          variantLabel,
+          price,
+          quantity,
+          thumbnail,
+        },
+      ];
     }
 
     case "REMOVE_ITEM":
-      // Action payload expects { itemId }
-      return state.filter((item) => item.itemId !== action.payload.itemId);
-
+      return state.filter(
+        item => item.cartItemId !== action.payload.cartItemId
+      );
+    
     case "UPDATE_QUANTITY":
-      // Action payload expects { itemId, quantity }
       return state
-        .map((item) =>
-          item.itemId === action.payload.itemId
+        .map(item =>
+          item.cartItemId === action.payload.cartItemId
             ? { ...item, quantity: action.payload.quantity }
             : item
         )
-        .filter((item) => item.quantity > 0);
+        .filter(item => item.quantity > 0);
 
     case "CLEAR_CART":
       return [];
@@ -60,6 +67,7 @@ const cartReducer = (state, action) => {
       return state;
   }
 };
+
 
 export const CartProvider = ({ children }) => {
   // Load initial state from localStorage (or default to empty array)

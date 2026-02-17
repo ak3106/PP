@@ -341,7 +341,7 @@ const Checkout = ({ user }) => {
                         <div className="border-b border-indigo-200 pb-4 mb-4 space-y-2 max-h-48 overflow-y-auto">
                             {cart.map(item => (
                                 <div key={item.itemId} className="flex justify-between text-sm text-gray-700">
-                                    <span className='truncate pr-2'>{item.quantity}x {item.product.name} ({item.selectedSize})</span>
+                                    <span className='truncate pr-2'>{item.quantity}x {item.name} ({item.selectedSize})</span>
                                     <span>{formatCurrency(item.price * item.quantity)}</span>
                                 </div>
                             ))}

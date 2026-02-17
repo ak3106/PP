@@ -7,14 +7,23 @@ import { auth } from "./firebase";
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM": {
-      const { product, selectedSize, selectedType, quantity } = action.payload;
-      const itemId = `${product.id}-${selectedSize}-${selectedType}`;
-      const existingIndex = state.findIndex(i => i.itemId === itemId);
-      const price = product.salePrice || product.price || 0;
+      const {
+        productId,
+        name,
+        variantId,
+        variantLabel,
+        price,
+        quantity,
+        thumbnail,
+      } = action.payload;
 
-      if (existingIndex !== -1) {
-        return state.map((item, i) =>
-          i === existingIndex
+      const cartItemId = `${productId}_${variantId}`;
+
+      const existing = state.find((item) => item.cartItemId === cartItemId);
+
+      if (existing) {
+        return state.map((item) =>
+          item.cartItemId === cartItemId
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
@@ -22,21 +31,32 @@ const cartReducer = (state, action) => {
 
       return [
         ...state,
-        { itemId, product, quantity, selectedSize, selectedType, price }
+        {
+          cartItemId,
+          productId,
+          name,
+          variantId,
+          variantLabel,
+          price,
+          quantity,
+          thumbnail,
+        },
       ];
     }
 
     case "REMOVE_ITEM":
-      return state.filter(item => item.itemId !== action.payload.itemId);
+      return state.filter(
+        (item) => item.cartItemId !== action.payload.cartItemId
+      );
 
     case "UPDATE_QUANTITY":
       return state
-        .map(item =>
-          item.itemId === action.payload.itemId
+        .map((item) =>
+          item.cartItemId === action.payload.cartItemId
             ? { ...item, quantity: action.payload.quantity }
             : item
         )
-        .filter(item => item.quantity > 0);
+        .filter((item) => item.quantity > 0);
 
     case "CLEAR_CART":
       return [];
@@ -51,6 +71,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Signup from "./pages/Signup";
+import CustomPoster from "./pages/CustomPoster";
+import SpiralDetail from "./pages/SpiralDetail";
+// import TestCloudinary from "./admin/TestCloudinary";
+// import AddProduct from "./admin/AddProduct";
+// import SeedRunner from "./SeedRunner";
 
 // --- Lazy Pages ---
 const Home = lazy(() => import("./pages/Home"));
@@ -120,18 +145,44 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/:serviceId" element={<Services />} />
+          <Route
+            path="/services/:serviceId/:subCategoryId"
+            element={<Services />}
+          />
+
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
-          <Route path="/products" element={<Products dispatchCart={dispatchCart} />} />
-          <Route path="/product/:id" element={<ProductDetail dispatchCart={dispatchCart} />} />
-          <Route path="/cart" element={<Cart cart={cart} dispatchCart={dispatchCart} />} />
-          <Route path="/checkout" element={<Checkout cart={cart} user={user} dispatchCart={dispatchCart} />} />
+          <Route
+            path="/products"
+            element={<Products dispatchCart={dispatchCart} />}
+          />
+          <Route
+            path="/products/:id"
+            element={<ProductDetail dispatchCart={dispatchCart} />}
+          />
+          <Route path="/spirals/:id" element={<SpiralDetail />} />
+
+          <Route
+            path="/cart"
+            element={<Cart cart={cart} dispatchCart={dispatchCart} />}
+          />
+          <Route
+            path="/checkout"
+            element={
+              <Checkout cart={cart} user={user} dispatchCart={dispatchCart} />
+            }
+          />
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/phone-login" element={<PhoneLogin />} />
+          {/* <Route path="/test-cloudinary" element={<TestCloudinary />} /> */}
+          {/* <Route path="/add-product" element={<AddProduct />} /> */}
+          {/* <Route path="/seed-products" element={<SeedRunner />} /> */}
+          <Route path="/custom/poster" element={<CustomPoster />} />
 
           <Route path="*" element={<Home />} />
         </Routes>

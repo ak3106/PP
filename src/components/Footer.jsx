@@ -30,7 +30,7 @@ const Footer = ({ navigate }) => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white mt-12 border-t border-indigo-700/50 ">
+    <footer className="bg-zinc-900 text-white mt-12 border-t border-indigo-700/50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 py-12 ">
         <div className="flex gap-10 flex-col lg:flex-row lg:gap-24">
           {/* Column 1: Branding & Mission */}

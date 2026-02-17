@@ -136,8 +136,7 @@
 //     </div>
 //   );
 // };
-
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart, Star, Layers } from "lucide-react";
 import { useCart } from "../context/CartContext";
@@ -146,121 +145,180 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const { dispatchCart } = useCart();
 
-  const [quantity, setQuantity] = useState(1);
   const [isAdding, setIsAdding] = useState(false);
 
-  // Default quick-add options
-  const defaultOptions = product.options || {};
-  const DEFAULT_SIZE = defaultOptions.size?.includes("A4")
-    ? "A4"
-    : defaultOptions.size?.[0] || "A4";
-  const DEFAULT_TYPE = defaultOptions.paperType?.includes("Glossy")
-    ? "Glossy"
-    : defaultOptions.paperType?.[0] || "Glossy";
+  // --------------------------------------------------
+  // ROUTE LOGIC
+  // --------------------------------------------------
+  const detailRoute = useMemo(() => {
+    if (product.category === "Spiral Books") {
+      return `/spirals/${product.id}`;
+    }
+    return `/products/${product.id}`;
+  }, [product]);
 
-  const displayPrice = product.pricing.salePrice;
+  // --------------------------------------------------
+  // PRICING ENGINE
+  // --------------------------------------------------
+  // DEFAULT VARIANT OPTIONS
+  // DEFAULT SIZE BASED ON PRODUCT TYPE
+  const defaultSize =
+    product.productType === "spiral_book"
+      ? "A5"
+      : product.options?.size?.includes("A4")
+        ? "A4"
+        : (product.options?.size?.[0] ?? null);
 
+  const defaultPages =
+    defaultSize && product.options?.pageMap?.[defaultSize]?.[0];
+
+  const defaultRuling = product.options?.rulingType?.[0] ?? null;
+
+  // DEFAULT VARIANT
+  const defaultVariant = useMemo(() => {
+    if (!product.variants) return null;
+
+    return product.variants.find(
+      (v) =>
+        v.size === defaultSize &&
+        v.pages === defaultPages &&
+        (v.rulingType ? v.rulingType === defaultRuling : true)
+    );
+  }, [product, defaultSize, defaultPages, defaultRuling]);
+
+  // PRICING ENGINE
+  const priceData = useMemo(() => {
+    if (defaultVariant?.price) {
+      return {
+        current: defaultVariant.price,
+        original: product.pricing?.basePrice ?? defaultVariant.price,
+        discount: product.pricing?.discountPercentage ?? 0,
+        currency: product.pricing?.currency ?? "INR",
+      };
+    }
+
+    const base = product.pricing?.basePrice ?? 0;
+    const sale = product.pricing?.salePrice ?? base;
+
+    return {
+      current: sale,
+      original: base,
+      discount:
+        product.pricing?.discountPercentage ??
+        (base > sale ? Math.round(((base - sale) / base) * 100) : 0),
+      currency: product.pricing?.currency ?? "INR",
+    };
+  }, [product, defaultVariant]);
+
+  // --------------------------------------------------
+  // QUICK ADD TO CART
+  // --------------------------------------------------
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    if (quantity < 1 || isAdding) return;
+    if (!defaultVariant || isAdding) return;
 
     setIsAdding(true);
 
     dispatchCart({
       type: "ADD_ITEM",
       payload: {
-        product,
-        selectedSize: DEFAULT_SIZE,
-        selectedType: DEFAULT_TYPE,
+        productId: product.id,
+        name: product.name,
+        variantId: defaultVariant.variantId,
+        size: defaultSize,
+        pages: defaultPages,
+        rulingType: defaultRuling,
+        price: defaultVariant.price,
         quantity: 1,
+        thumbnail: product.media?.thumbnail,
       },
     });
 
     setTimeout(() => {
       setIsAdding(false);
-      alert(`Added 1x ${product.name} (${DEFAULT_SIZE}) to cart!`);
-      setQuantity(1);
-    }, 800);
+    }, 600);
   };
 
+  // --------------------------------------------------
+  // RENDER
+  // --------------------------------------------------
   return (
-    <div className="min-h-[50vh] lg:min-h-[80vh] bg-highlight rounded-md hover:shadow-xl transition duration-300 overflow-hidden relative group border border-gray-50">
+    <div
+      className="min-h-[50vh] lg:min-h-[80vh] bg-highlight rounded-md 
+    hover:shadow-xl transition duration-300 
+    overflow-hidden relative group border border-gray-50 
+    flex flex-col justify-between"
+    >
       {/* SALE BADGE */}
-      {product.pricing.discountPercentage > 0 && (
-        <div className="absolute top-3 left-3 z-10 bg-red-700 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
+      {/* {product.discount > 0 && (
+        <div className="absolute top-3 left-3 z-10 bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
           {product.pricing.discountPercentage}% OFF
+        </div>
+      )} */}
+
+      {priceData.discount > 0 && (
+        <div className="absolute top-3 left-3 z-10 bg-red-700 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
+          {priceData.discount}% OFF
         </div>
       )}
 
-      {/* FEATURED BADGE */}
       {product.isFeatured && (
-        <div className="hidden absolute top-3 right-3 z-10 bg-gray-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+        <div className="absolute top-3 right-3 z-10 bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
           Featured
         </div>
       )}
-
       {/* PRODUCT IMAGE */}
       <div
         className="cursor-pointer relative"
-        onClick={() => navigate(`/product/${product.id}`)}
+        onClick={() => navigate(detailRoute)}
       >
         <img
-          src={product.thumbnail || product.images?.[0]}
+          src={
+            product.media?.thumbnail ||
+            product.media?.images?.[0] ||
+            "/fallback.jpg"
+          }
           alt={product.name}
-          className="w-full h-[33vh] lg:h-[60vh] object-cover group-hover:scale-[1.03] transition duration-300"
+          className="w-full h-[33vh] lg:h-[60vh] object-cover 
+     group-hover:scale-[1.03] transition duration-300"
         />
       </div>
 
       {/* PRODUCT INFO */}
-      <div className="p-1 lg:p-3 relative flex flex-col h-full">
+      <div className="p-2 lg:p-3 flex flex-col gap-2">
         {/* NAME */}
         <h3
-          className="text-xs lg:text-[0.9rem] font-[montserrat] tracking-tight text-center leading-5 lg:leading-6 text-gray-900 cursor-pointer"
-          onClick={() => navigate(`/product/${product.id}`)}    
+          className="text-xs lg:text-[0.9rem] font-semibold text-center 
+     text-gray-900 cursor-pointer"
+          onClick={() => navigate(detailRoute)}
         >
           {product.name}
         </h3>
 
-        {/* DEFAULT SIZE INDICATOR */}
-        <div className="flex items-center gap-1 mt-1 text-xs lg:text-sm text-primary font-semibold">
-          <Layers className="w-3 h-3" />
-          <span>{DEFAULT_SIZE}</span>
-        </div>
+        {/* PRICE + RATING */}
+        <div className="flex items-center gap-2">
+          <span className="text-gray-900 font-bold text-sm lg:text-lg">
+            ₹{priceData.current}
+          </span>
 
-        {/* PRICE & RATING */}
-        <div className="flex justify-between items-center">
-          <div>
-            {product.pricing.salePrice ? (
-              <div className="flex items-center gap-2">
-                <span className="text-gray-900 font-bold text-sm lg:text-lg">
-                  ₹{displayPrice}
-                </span>
-                <span className="line-through text-gray-400 text-sm">
-                  ₹{product.pricing.basePrice}
-                </span>
-              </div>
-            ) : (
-              <span className="text-indigo-600 font-bold text-xl">
-                ₹{product.pricing.basePrice}
-              </span>
-            )}
-          </div>
-          <div className="flex items-center gap-1 text-yellow-600">
-            <Star className="w-2 h-2 lg:w-3 lg:h-3" />
-            <span className="text-xs lg:text-sm font-medium">{product.rating}</span>
-          </div>
+          {priceData.original > priceData.current && (
+            <span className="line-through text-gray-400 text-sm">
+              ₹{priceData.original}
+            </span>
+          )}
         </div>
 
         {/* ADD TO CART BUTTON */}
         <button
           onClick={handleAddToCart}
-          className=" w-full mt-auto flex items-center justify-center gap-2 sticky bottom-2 py-1 lg:py-2 bg-highlight text-gray-900 border border-gray-500 hover:bg-gray-900 hover:text-highlight transition duration-300"
           disabled={isAdding}
+          className="w-full py-2 flex items-center justify-center gap-2 
+     bg-highlight border border-gray-500 font-bold  hover:bg-gray-900 hover:text-highlight transition"
         >
           {isAdding ? (
-            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
           ) : (
-            <ShoppingCart className="w-4 h-4 mr-1 lg:mr-2 lg:h-5 lg:w-5" />
+            <ShoppingCart className="w-4 h-4" />
           )}
           {isAdding ? "Adding..." : "Add to Cart"}
         </button>

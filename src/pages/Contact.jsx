@@ -41,7 +41,7 @@ const Contact = () => {
     // Using the number provided by the user
     phone: "+919425083910",
     email: "pragyaprintingpress@yahoo.com",
-    hours: "Mon - Sat: 9:00 AM - 7:30 PM",
+    hours: "Mon - Sat: 10:00 AM - 10:00 PM",
     // Using a reliable embed format based on the known coordinates (23.4187738, 76.2750312)
     googleMapsLink:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2836.5781309854497!2d76.27303038661644!3d23.4187738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396350a13a6cf99f%3A0x60482b21760ac104!2sPragya%20Printing%20Press!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",

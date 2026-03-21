@@ -1,6 +1,6 @@
 import React from "react";
 import * as LucideIcons from "lucide-react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 /**
  * Displays a card linking to a specific product category.
@@ -20,8 +20,10 @@ const CategoryCard = ({ category }) => {
   // 2. Define the navigation handler
   // Navigates to the products page with the category name as a query parameter
   const handleNavigation = () => {
-      navigate(`/products?category=${category.name}`);
+      navigate(`/products/${category.slug}`);
+    
   };
+
   return (
     <div
 

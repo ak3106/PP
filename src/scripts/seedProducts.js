@@ -1,7 +1,7 @@
 // // src/scripts/seedProducts.js
 // import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore";
 // import { db } from "../firebase";
-// import { SPIRALS } from "../data/dummyProducts";
+// import { POSTERS } from "../data/dummyProducts";
 
 // /**
 //  * ONE-TIME PRODUCT SEEDER
@@ -9,9 +9,9 @@
 //  */
 // export const seedProducts = async () => {
 //   try {
-//     const productsRef = collection(db, "spirals");
+//     const productsRef = collection(db, "products");
 
-//     for (const product of SPIRALS) {
+//     for (const product of POSTERS) {
 //       const productRef = doc(productsRef, product.id);
 
 //       await setDoc(productRef, {

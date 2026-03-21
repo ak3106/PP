@@ -73,6 +73,10 @@ import ScrollToTop from "./components/ScrollToTop";
 import Signup from "./pages/Signup";
 import CustomPoster from "./pages/CustomPoster";
 import SpiralDetail from "./pages/SpiralDetail";
+import NotebookDetail from "./pages/NotebookDetail";
+// import PostersCollections from "./pages/PostersCollections";
+// import SpiralCollections from "./pages/SpiralCollections";
+import CollectionsPage from "./pages/CollectionPage";
 // import TestCloudinary from "./admin/TestCloudinary";
 // import AddProduct from "./admin/AddProduct";
 // import SeedRunner from "./SeedRunner";
@@ -155,15 +159,35 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
+          {/* PRODUCTS HUB */}
+          {/* <Route path="/products" element={<Products />} />
+
+          <Route path="/products/posters" element={<PostersCollections />} />
+          <Route path="/products/posters/:collection" element={<Products />} />
+
+          <Route path="/products/spirals" element={<SpiralCollections />} />
+          <Route path="/products/spirals/:collection" element={<Products />} /> */}
+          <Route path="/products" element={<Products />} />
+
+          <Route path="/products/:categorySlug" element={<CollectionsPage />} />
+
           <Route
-            path="/products"
-            element={<Products dispatchCart={dispatchCart} />}
+            path="/products/:categorySlug/:collection"
+            element={<Products />}
+          />
+
+          <Route
+            path="/products/posters/:collection/:id"
+            element={<ProductDetail />}
           />
           <Route
-            path="/products/:id"
-            element={<ProductDetail dispatchCart={dispatchCart} />}
+            path="/products/journals/:collection/:id"
+            element={<SpiralDetail />}
           />
-          <Route path="/spirals/:id" element={<SpiralDetail />} />
+          <Route
+            path="/products/notebooks/:collection/:id"
+            element={<NotebookDetail />}
+          />
 
           <Route
             path="/cart"

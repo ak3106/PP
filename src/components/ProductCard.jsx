@@ -151,10 +151,13 @@ const ProductCard = ({ product }) => {
   // ROUTE LOGIC
   // --------------------------------------------------
   const detailRoute = useMemo(() => {
-    if (product.category === "Spiral Books") {
-      return `/spirals/${product.id}`;
+    if (product.category === "Journals") {
+      return `/products/journals/:collection/${product.id}`;
     }
-    return `/products/${product.id}`;
+    else if (product.category === "Notebooks") {
+      return `/products/notebooks/:collection/${product.id}`;
+    }
+    return `/products/posters/:collection/${product.id}`;
   }, [product]);
 
   // --------------------------------------------------
@@ -163,7 +166,7 @@ const ProductCard = ({ product }) => {
   // DEFAULT VARIANT OPTIONS
   // DEFAULT SIZE BASED ON PRODUCT TYPE
   const defaultSize =
-    product.productType === "spiral_book"
+    product.productType === "diary_journal"
       ? "A5"
       : product.options?.size?.includes("A4")
         ? "A4"

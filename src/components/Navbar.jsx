@@ -61,8 +61,8 @@ const Navbar = ({ user, onLogout }) => {
   return (
     <>
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-lg shadow-md">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center h-20">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <div className="flex justify-between items-center">
             {/* Brand */}
             <NavLink to="/" className="flex items-center">
               <img src={logo} alt="Pragya Print Logo" className="h-12" />

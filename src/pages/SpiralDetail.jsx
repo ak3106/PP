@@ -22,7 +22,7 @@ const SpiralDetail = () => {
 
   const { products, loading } = useProducts();
 
-  const spiral = useMemo(
+  const journal = useMemo(
     () => products.find((p) => p.id === id),
     [products, id]
   );
@@ -38,45 +38,45 @@ const SpiralDetail = () => {
   // INITIALIZE DEFAULTS
   // --------------------------------------------------
   useEffect(() => {
-    if (!spiral) return;
+    if (!journal) return;
 
-    const defaultSize = spiral.options?.size?.[0] ?? null;
+    const defaultSize = journal.options?.size?.[0] ?? null;
     const defaultPages =
-      spiral.options?.pageMap?.[defaultSize]?.[0] ?? null;
+      journal.options?.pageMap?.[defaultSize]?.[0] ?? null;
     const defaultRuling =
-      spiral.options?.rulingType?.[0] ?? null;
+      journal.options?.rulingType?.[0] ?? null;
 
     setSelectedSize(defaultSize);
     setSelectedPages(defaultPages);
     setSelectedRuling(defaultRuling);
-    setMainImage(spiral.media?.thumbnail ?? "");
-  }, [spiral]);
+    setMainImage(journal.media?.thumbnail ?? "");
+  }, [journal]);
 
   // --------------------------------------------------
   // RESET PAGES WHEN SIZE CHANGES
   // --------------------------------------------------
   useEffect(() => {
-    if (!spiral || !selectedSize) return;
+    if (!journal || !selectedSize) return;
 
     const firstPage =
-      spiral.options?.pageMap?.[selectedSize]?.[0] ?? null;
+    journal.options?.pageMap?.[selectedSize]?.[0] ?? null;
 
     setSelectedPages(firstPage);
-  }, [selectedSize, spiral]);
+  }, [selectedSize, journal]);
 
   // --------------------------------------------------
   // VARIANT RESOLUTION
   // --------------------------------------------------
   const selectedVariant = useMemo(() => {
-    if (!spiral) return null;
+    if (!journal) return null;
 
-    return spiral.variants.find(
+    return journal.variants.find(
       (v) =>
         v.size === selectedSize &&
         v.pages === selectedPages &&
         (v.rulingType ? v.rulingType === selectedRuling : true)
     );
-  }, [spiral, selectedSize, selectedPages, selectedRuling]);
+  }, [journal, selectedSize, selectedPages, selectedRuling]);
 
   const finalPrice = selectedVariant?.price ?? 0;
 
@@ -87,14 +87,14 @@ const SpiralDetail = () => {
   // MEDIA ORDER (THUMBNAIL → BACK → IMAGES)
   // --------------------------------------------------
   const mediaGallery = useMemo(() => {
-    if (!spiral?.media) return [];
+    if (!journal?.media) return [];
 
     return [
-      spiral.media.thumbnail,
-      spiral.media.back,
-      ...(spiral.media.images || []),
+      journal.media.thumbnail,
+      journal.media.back,
+      ...(journal.media.images || []),
     ].filter(Boolean);
-  }, [spiral]);
+  }, [journal]);
 
   // --------------------------------------------------
   // ADD TO CART
@@ -107,15 +107,15 @@ const SpiralDetail = () => {
     dispatchCart({
       type: "ADD_ITEM",
       payload: {
-        productId: spiral.id,
-        name: spiral.name,
+        productId: journal.id,
+        name: journal.name,
         variantId: selectedVariant.variantId,
         size: selectedSize,
         pages: selectedPages,
         rulingType: selectedRuling,
         price: selectedVariant.price,
         quantity,
-        thumbnail: spiral.media?.thumbnail,
+        thumbnail: journal.media?.thumbnail,
       },
     });
 
@@ -137,7 +137,7 @@ const SpiralDetail = () => {
       </div>
     );
 
-  if (!spiral)
+  if (!journal)
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-bold text-red-600 mb-4">
@@ -175,7 +175,7 @@ const SpiralDetail = () => {
           <div className="rounded-2xl overflow-hidden shadow-lg mb-4">
             <img
               src={mainImage}
-              alt={spiral.name}
+              alt={journal.name}
               className="w-full h-full object-cover"
             />
           </div>
@@ -199,11 +199,11 @@ const SpiralDetail = () => {
         {/* DETAILS */}
         <div>
           <p className="text-sm font-semibold text-primary uppercase">
-            {spiral.category}
+            {journal.category}
           </p>
 
           <h1 className="text-4xl font-extrabold mb-3">
-            {spiral.name}
+            {journal.name}
           </h1>
 
           {/* Rating */}
@@ -212,14 +212,14 @@ const SpiralDetail = () => {
               <Star
                 key={i}
                 className={`w-5 h-5 ${
-                  i < Math.floor(spiral.rating)
+                  i < Math.floor(journal.rating)
                     ? "fill-yellow-500"
                     : "text-gray-300"
                 }`}
               />
             ))}
             <span className="ml-2 text-gray-600 text-sm">
-              ({spiral.reviewsCount} reviews)
+              ({journal.reviewsCount} reviews)
             </span>
           </div>
 
@@ -229,7 +229,7 @@ const SpiralDetail = () => {
           </div>
 
           <p className="text-gray-700 mb-8">
-            {spiral.description}
+            {journal.description}
           </p>
 
           {/* SIZE */}
@@ -238,7 +238,7 @@ const SpiralDetail = () => {
               <Tag className="w-4 h-4 mr-2" /> Size:
             </h3>
             <div className="flex gap-3 flex-wrap">
-              {spiral.options?.size?.map((size) => (
+              {journal.options?.size?.map((size) => (
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
@@ -261,7 +261,7 @@ const SpiralDetail = () => {
                 Pages:
               </h3>
               <div className="flex gap-3 flex-wrap">
-                {spiral.options?.pageMap?.[
+                {journal.options?.pageMap?.[
                   selectedSize
                 ]?.map((pages) => (
                   <button
@@ -286,7 +286,7 @@ const SpiralDetail = () => {
               Ruling:
             </h3>
             <div className="flex gap-3 flex-wrap">
-              {spiral.options?.rulingType?.map((type) => (
+              {journal.options?.rulingType?.map((type) => (
                 <button
                   key={type}
                   onClick={() => setSelectedRuling(type)}
@@ -344,16 +344,16 @@ const SpiralDetail = () => {
           <div className="mt-8 space-y-2 text-sm text-gray-600">
             <div className="flex items-center">
               <Clock className="w-4 h-4 mr-2" />
-              Production: {spiral.productionTime}
+              Production: {journal.productionTime}
             </div>
             <div className="flex items-center">
               <Truck className="w-4 h-4 mr-2" />
               Shipping Class:{" "}
-              {spiral.shipping.shippingClass}
+              {journal.shipping.shippingClass}
             </div>
             <div className="flex items-center">
               <CheckCircle className="w-4 h-4 mr-2" />
-              Stock: {spiral.inventory.stockStatus}
+              Stock: {journal.inventory.stockStatus}
             </div>
           </div>
         </div>

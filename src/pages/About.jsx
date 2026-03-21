@@ -368,7 +368,7 @@ const About = () => {
         <div
           className={`p-6 md:p-8 rounded-3xl shadow-xl border transition-all duration-500 ${
             isActive
-              ? "bg-white border-indigo-600 shadow-2xl"
+              ? "bg-white border-gray-600 shadow-2xl"
               : "bg-gray-50 border-gray-200 opacity-70 hover:opacity-100"
           }`}
         >
@@ -376,19 +376,19 @@ const About = () => {
             <div
               className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-md ring-2 ${
                 isActive
-                  ? "bg-indigo-600 ring-indigo-300"
+                  ? "bg-primary ring-green-800"
                   : "bg-indigo-50 ring-indigo-100"
               }`}
             >
               <Icon
                 className={`w-7 h-7 ${
-                  isActive ? "text-white" : "text-indigo-500"
+                  isActive ? "text-white" : "text-primary"
                 }`}
               />
             </div>
             <h3
               className={`text-2xl font-extrabold tracking-tight ${
-                isActive ? "text-indigo-900" : "text-gray-700"
+                isActive ? "text-gray-900" : "text-gray-700"
               }`}
             >
               {event.year}
@@ -572,7 +572,7 @@ const About = () => {
 
               {/* Progress Line */}
               <motion.div
-                className="absolute left-1/2 -translate-x-1/2 w-1 bg-indigo-600 rounded-full"
+                className="absolute left-1/2 -translate-x-1/2 w-1 bg-primary rounded-full"
                 animate={{
                   height: `${(activeEventIndex / (TIMELINE_EVENTS.length - 1)) * 90}%`,
                 }}
@@ -592,7 +592,7 @@ const About = () => {
                     className={`w-8 h-8 rounded-full border-4 flex items-center justify-center transition-all 
                     ${
                       activeEventIndex >= index
-                        ? "bg-indigo-600 border-indigo-200 scale-125"
+                        ? "bg-primary border-green-800 scale-125"
                         : "bg-white border-gray-300"
                     }`}
                   >
@@ -608,7 +608,7 @@ const About = () => {
                   <span
                     className={`mt-2 font-bold ${
                       activeEventIndex >= index
-                        ? "text-indigo-800"
+                        ? "text-primary"
                         : "text-gray-500"
                     }`}
                   >
@@ -639,7 +639,7 @@ const About = () => {
           initial="hidden"
           animate={ctaInView ? "visible" : "hidden"}
           transition={{ duration: 0.6 }}
-          className="text-center p-10 bg-gradient-to-r from-gray-900 via-indigo-900 to-gray-900 rounded-3xl shadow-2xl text-white"
+          className="text-center p-10 bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 rounded-3xl shadow-2xl text-white"
         >
           <h2 className="text-3xl font-bold mb-4">
             Let’s Create Something Great Together

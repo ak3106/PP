@@ -12,12 +12,12 @@ const ServiceCard = ({ service, onSelect }) => {
   return (
     <div
       onClick={() => onSelect(service.id)}
-      className="border border-indigo-100 rounded-2xl shadow-lg p-2 
-                 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 
-                 cursor-pointer flex flex-col items-center text-center group bg-white backdrop-blur-[2px]"
+      className="border border-gray-200 rounded-2xl shadow-lg p-2 
+                 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 
+                 cursor-pointer flex flex-col items-center text-center group backdrop-blur-[2px]"
     >
-      <div className="hidden md:block p-4 rounded-full mb-4 transition-transform duration-300 group-hover:scale-110">
-        <IconComponent className="w-8 h-8 text-indigo-600" />
+      <div className="hidden md:block md:p-4 md:rounded-full md:mb-4 transition-transform duration-300 group-hover:scale-110 ">
+        {/* <IconComponent className="w-8 h-8 text-indigo-600" /> */}
       </div>
 
       {service.image && (

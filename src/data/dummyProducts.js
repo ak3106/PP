@@ -33,6 +33,7 @@ import gift from "../assets/goft.jpeg"
 // import virat from "../assets/postermockup/virat.webp"
 // import hanuman from "../assets/postermockup/hanuman.webp"
 import notebook from "../assets/notebooks.png"
+import journal from "../assets/journal.png"
 
 
 
@@ -307,6 +308,7 @@ export const PRODUCTS = [
     slug: "the-weeknd-blinding-lights-wall-poster",
     sku: "PST-MUS-WKD-001",
 
+    productType: "posters",
     category: "Posters",
 
     collections: {
@@ -3132,3973 +3134,6768 @@ export const PRODUCTS = [
 ];
 
 
-export const SPIRALS = [
+export const NOTEBOOKS = [
   {
-    id: "sb-hp-001",
-    name: "I Solemnly Swear Spiral Book",
-    slug: "i-solemnly-swear-spiral-book",
-    sku: "SB-HPSW-001",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
+    id: "nb-mat-001",
+    name: "Mathematics Study Notebook",
+    slug: "mathematics-study-notebook",
+    sku: "NB-MAT-001",
 
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
     collections: {
-      theme: "Harry Potter",
-      universe: "Wizarding World",
-      genre: "Fantasy",
-      collectionType: "Quote Series"
+      franchise: "Minimal",
     },
 
-    moods: [
-      "Mystical",
-      "Nostalgic",
-      "Aesthetic",
-      "Creative",
-      "Dark Academia"
-    ],
+    subjectTheme: "Mathematics",
+    designTheme: "Minimal Academic",
 
     brand: "pragyaprint",
-    series: "Movies Collection",
-    licenseType: "fan_art_inspired",
+    series: "Science Series",
 
-    shortDescription: "A vintage aesthetic spiral notebook inspired by the iconic wizard quote – perfect for journaling, college notes, and creative writing.",
+    shortDescription:
+      "A4 mathematics notebook with a clean academic design for problem solving and practice.",
 
-    description: "Bring a touch of wizard-inspired mystery to your everyday writing. This spiral-bound notebook features a parchment-style cover design inspired by magical lore. Crafted for students, writers, and fantasy lovers, it blends aesthetic design with practical usability. Whether you're journaling, taking lecture notes, sketching ideas, or gifting someone special, this spiral book adds personality to every page.",
+    description:
+      "An A4  notebook designed for mathematics students. The cover features calculator icons, geometric diagrams, formulas, and a modern academic layout, making it ideal for daily problem solving, rough work, and structured note-taking for school and competitive exams.",
 
     highlights: [
-      "Premium matte finish aesthetic cover",
-      "Durable metal spiral binding for easy flipping",
-      "Smooth 70 GSM pages for effortless writing",
-      "Multiple size & page options available",
-      "Perfect for journaling, college notes, gifting & creative writing"
+      "Subject-specific Mathematics cover design",
+      "Clean academic blue theme",
+      "Large A4 size for step-by-step solutions",
+      "Smooth pages for calculations and graphs",
+      "Strong  binding for durability"
+    ],
+
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      { variantId: "NB-MAT-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-MAT-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-MAT-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-MAT-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-MAT-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-MAT-400", pages: 400, price: 179, stock: 120 }
     ],
 
     pricing: {
-      basePrice: 199,
-      salePrice: 149,
+      basePrice: 149,
+      salePrice: 99,
       discountPercentage: 33.56,
       currency: "INR",
       isTaxable: true
     },
 
     specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
       orientation: "portrait"
     },
 
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]    
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-HPSW-001-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-HPSW-001-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-HPSW-001-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-HPSW-001-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-HPSW-001-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-HPSW-001-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-HPSW-001-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-HPSW-001-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-HPSW-001-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-HPSW-001-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
+    relatedCombos: ["pcm-combo-01"],
 
     inventory: {
-      totalStock: 140,
+      totalStock: 270,
       stockStatus: "in_stock",
-      lowStockThreshold: 20
+      lowStockThreshold: 30
     },
 
     media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172573/harry-potter-solemnly-swear-notebook-marauders-map_olaqnn.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594055/matematica--notebook-math-themed-stationery_fybt8o.webp",
+      back: "notebook-back.webp",
       images: [
-        "",
-        ""
+        "mathematics-notebook-inside.webp",
+        "mathematics-notebook-binding.webp"
       ]
     },
 
     tags: [
-      "spiral notebook",
-      "aesthetic notebook",
-      "fantasy notebook",
-      "movie inspired stationery",
-      "college notebook",
-      "quote notebook",
-      "gift notebook",
-      "dark academia stationery",
-      "wizard aesthetic",
-      "journaling notebook"
+      "mathematics notebook",
+      "math notebook",
+      "A4 notebook",
+      "student notebook",
+      "problem solving notebook"
     ],
 
     seo: {
-      metaTitle: "Wizard Quote Spiral Notebook | Aesthetic Fantasy Journal",
-      metaDescription: "Shop aesthetic wizard-inspired spiral notebooks in A5 & A4 sizes. Perfect for journaling, college notes, and gifting.",
+      metaTitle: "Mathematics A4 Study Notebook for Students",
+      metaDescription:
+        "High-quality A4 mathematics notebook designed for calculations, formulas, and problem solving.",
       keywords: [
-        "spiral notebook",
-        "fantasy notebook",
-        "aesthetic journal",
-        "movie inspired notebook",
-        "wizard notebook"
+        "math notebook",
+        "mathematics notebook",
+        "A4 notebook",
+        "student math notebook"
       ]
     },
 
-    productionTime: "2–3 business days",
+    productionTime: "1–2 business days",
 
     shipping: {
-      weight: 0.45,
+      weight: 0.55,
       dimensions: {
-        width: 15,
-        height: 21,
+        width: 21,
+        height: 29.7,
         depth: 2
       },
       shippingClass: "standard_box"
     },
 
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote: "Fan-art inspired design. All referenced quotes belong to their respective owners.",
+    rating: 4.7,
+    reviewsCount: 84,
+
     status: "active",
     visibility: "public",
-    isFeatured: true,
+    isFeatured: false,
     isNewArrival: true
   },
   {
-    id: "sb-mod-001",
-    name: "Be Gentle With Yourself Spiral Book",
-    slug: "be-gentle-with-yourself-spiral-book",
-    sku: "SB-MOD-BGYS-001",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
+    id: "nb-che-001",
+    name: "Chemistry Study Notebook",
+    slug: "chemistry-study-notebook",
+    sku: "NB-CHE-001",
 
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
     collections: {
-      theme: "Modern",
-      universe: "Self Care",
-      genre: "Minimal Art",
-      collectionType: "Modern"
+      franchise: "Minimal",
     },
 
-    moods: [
-      "Calm",
-      "Mindful",
-      "Aesthetic",
-      "Minimal",
-      "Soothing"
-    ],
-    series: "Modern Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A calming modern spiral notebook with a gentle reminder to slow down and be kind to yourself.",
-
-    description:
-      "Designed for moments of reflection and calm, this modern spiral notebook features abstract blue marble artwork paired with the reassuring message ‘Be Gentle With Yourself’. Perfect for journaling, mindfulness practices, creative writing, or daily notes, this notebook blends minimal design with emotional warmth — making it ideal for both personal use and thoughtful gifting.",
-
-    highlights: [
-      "Modern abstract blue marble artwork",
-      "Minimal typography with self-care message",
-      "Strong metal spiral binding",
-      "Smooth 70 GSM high-quality pages",
-      "Ideal for journaling, mindfulness & daily notes"
-    ],
-
-
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172558/be-gentle-with-yourself-blue-marble-spiral-notebook_c60fkm.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "",
-        ""
-      ]
-    },
-
-    tags: [
-      "modern spiral notebook",
-      "self care notebook",
-      "minimal notebook",
-      "aesthetic journal",
-      "mindfulness notebook",
-      "blue marble notebook",
-      "mental health stationery",
-      "daily journaling notebook"
-    ],
-
-    seo: {
-      metaTitle: "Be Gentle With Yourself Spiral Notebook | Modern Self Care Journal",
-      metaDescription:
-        "A modern spiral notebook with abstract blue marble art and a calming self-care message. Perfect for journaling, mindfulness, and daily notes.",
-      keywords: [
-        "modern spiral notebook",
-        "self care journal",
-        "minimal aesthetic notebook",
-        "mindfulness notebook",
-        "blue marble notebook"
-      ]
-    },
+    subjectTheme: "Chemistry",
+    designTheme: "Floral Science",
 
     brand: "pragyaprint",
+    series: "Science Series",
+
+    shortDescription:
+      "A4 chemistry notebook featuring a decorative science-themed cover for organized note-taking.",
+
+    description:
+      "An A4  notebook designed specifically for chemistry students. The cover combines laboratory illustrations, molecular structures, and subtle floral elements, making it both functional and visually appealing for daily study, practical notes, and exam preparation.",
+
+    highlights: [
+      "Subject-specific Chemistry cover design",
+      "Attractive science illustrations with floral accents",
+      "Large A4 size for formulas and reactions",
+      "Smooth pages for comfortable writing",
+      "Strong  binding for durability"
+    ],
+
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      { variantId: "NB-CHE-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-CHE-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-CHE-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-CHE-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-CHE-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-CHE-400", pages: 400, price: 179, stock: 120 }
+    ],
+
     pricing: {
-      basePrice: 199,
-      salePrice: 149,
+      basePrice: 149,
+      salePrice: 99,
       discountPercentage: 33.56,
       currency: "INR",
       isTaxable: true
     },
 
     specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
       orientation: "portrait"
     },
 
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-MOD-BGYS-001-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-MOD-BGYS-001-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-MOD-BGYS-001-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-MOD-BGYS-001-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-MOD-BGYS-001-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-MOD-BGYS-001-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-MOD-BGYS-001-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-MOD-BGYS-001-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-MOD-BGYS-001-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-MOD-BGYS-001-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
+    relatedCombos: ["pcm-combo-01"],
 
     inventory: {
-      totalStock: 140,
+      totalStock: 270,
       stockStatus: "in_stock",
-      lowStockThreshold: 20
+      lowStockThreshold: 30
     },
 
-    productionTime: "2–3 business days",
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594052/chemistry-themed--notebook-desk-layout_i9xczf.webp",
+      back: "notebook-back.webp",
+      images: [
+        "chemistry-notebook-inside.webp",
+        "chemistry-notebook-binding.webp"
+      ]
+    },
+
+    tags: [
+      "chemistry notebook",
+      "science notebook",
+      "A4 notebook",
+      "student notebook",
+      "lab notebook"
+    ],
+
+    seo: {
+      metaTitle: "Chemistry A4 Study Notebook for Students",
+      metaDescription:
+        "High-quality A4 chemistry notebook with science-themed cover. Ideal for school and college students.",
+      keywords: [
+        "chemistry notebook",
+        "A4 science notebook",
+        "student chemistry notebook",
+        "lab notebook"
+      ]
+    },
+
+    productionTime: "1–2 business days",
 
     shipping: {
-      weight: 0.45,
+      weight: 0.55,
       dimensions: {
-        width: 15,
-        height: 21,
+        width: 21,
+        height: 29.7,
         depth: 2
       },
       shippingClass: "standard_box"
     },
 
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
+    rating: 4.7,
+    reviewsCount: 84,
+
     status: "active",
     visibility: "public",
-    isFeatured: true,
+    isFeatured: false,
     isNewArrival: true
   },
   {
-    id: "sb-spt-001",
-    name: "Cristiano Ronaldo CR7 Spiral Book",
-    slug: "cristiano-ronaldo-cr7-spiral-book",
-    sku: "SB-SPT-CR7-001",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
+    id: "nb-phy-001",
+    name: "Physics Study Notebook",
+    slug: "physics-study-notebook",
+    sku: "NB-PHY-001",
 
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
     collections: {
-      theme: "Football",
-      universe: "Manchester United",
-      genre: "Sports",
-      collectionType: "Sports"
+      franchise: "Minimal",
     },
 
-    moods: [
-      "Bold",
-      "Energetic",
-      "Motivational",
-      "Powerful",
-      "Athletic"
-    ],
+    subjectTheme: "Physics",
+    designTheme: "Minimal",
 
-    
-    series: "Sports Collection",
-    licenseType: "fan_art_inspired",
+    brand: "pragyaprint",
+    series: "Science Series",
 
     shortDescription:
-      "A bold CR7-inspired spiral notebook featuring iconic red tones and athletic energy.",
+      "Durable A4 notebook designed for physics notes, formulas, and problem solving.",
 
     description:
-      "Celebrate the legacy of a football icon with this Cristiano Ronaldo inspired spiral notebook. Featuring a powerful red gradient design with a CR7 silhouette aesthetic, this notebook captures confidence, ambition, and winning energy. Perfect for students, athletes, fans, and dreamers who play to win — both on and off the field.",
+      "Stay organized and focused with this A4 physics notebook crafted for clear note-taking, derivations, and numerical problem practice. Ideal for school and college students preparing for exams and daily coursework.",
 
     highlights: [
-      "Bold CR7-inspired modern design",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Smooth 70 GSM pages",
-      "Perfect for students, athletes & football fans"
+      "Large A4 size for comfortable writing",
+      "Smooth high-quality pages",
+      "Strong  binding",
+      "Minimal distraction-free cover design",
+      "Perfect for school & college use"
     ],
 
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172558/cristiano-ronaldo-cr7-manchester-united-themed-spiral-notebook_tj9qjh.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "cr7-cover.webp",
-        "cr7-inner.webp"
-      ]
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
     },
 
-    tags: [
-      "cr7 notebook",
-      "ronaldo spiral notebook",
-      "football notebook",
-      "sports spiral book",
-      "athlete journal",
-      "motivational notebook",
-      "manchester united notebook",
-      "football fan gift"
+    variants: [
+      { variantId: "NB-PHY-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-PHY-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-PHY-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-PHY-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-PHY-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-PHY-400", pages: 400, price: 179, stock: 120 }
     ],
-    brand: "pragyaprint",
+
     pricing: {
-      basePrice: 199,
-      salePrice: 149,
+      basePrice: 149,
+      salePrice: 99,
       discountPercentage: 33.56,
       currency: "INR",
       isTaxable: true
     },
 
     specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
       orientation: "portrait"
     },
 
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-SPT-CR7-001-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-SPT-CR7-001-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-SPT-CR7-001-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-SPT-CR7-001-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-SPT-CR7-001-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-SPT-CR7-001-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-SPT-CR7-001-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-SPT-CR7-001-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-SPT-CR7-001-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-SPT-CR7-001-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
+    relatedCombos: ["pcm-combo-01"],
 
     inventory: {
-      totalStock: 140,
+      totalStock: 270,
       stockStatus: "in_stock",
-      lowStockThreshold: 20
+      lowStockThreshold: 30
     },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    seo: {
-      metaTitle: "Cristiano Ronaldo CR7 Spiral Notebook | Football Fan Journal",
-      metaDescription:
-        "CR7-inspired spiral notebook with bold red athletic design. Perfect for football fans, students, and sports lovers.",
-      keywords: [
-        "cr7 notebook",
-        "ronaldo spiral notebook",
-        "football notebook",
-        "sports journal",
-        "manchester united fan notebook"
-      ]
-    }
-  },
-  {
-    id: "sb-quo-001",
-    name: "Don't Give Up Motivational Spiral Book",
-    slug: "dont-give-up-motivational-spiral-book",
-    sku: "SB-QUO-DGU-001",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Motivation",
-      universe: "Inspirational Quotes",
-      genre: "Typography Art",
-      collectionType: "Quotes"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-QUO-DGU-001-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-QUO-DGU-001-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-QUO-DGU-001-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-QUO-DGU-001-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-QUO-DGU-001-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-QUO-DGU-001-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-QUO-DGU-001-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-QUO-DGU-001-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-QUO-DGU-001-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-QUO-DGU-001-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Motivational",
-      "Bold",
-      "Encouraging",
-      "Focused",
-      "Determined"
-    ],
-
-    series: "Quotes Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A bold motivational spiral notebook featuring a powerful 'Don't Give Up' typography design.",
-
-    description:
-      "Stay driven and inspired every day with this bold 'Don't Give Up' spiral notebook. Designed with striking typography and warm gradient tones, this notebook serves as a constant reminder to push forward. Ideal for students, entrepreneurs, creators, and dreamers who refuse to quit. Perfect for journaling goals, planning success, or daily notes.",
-
-    highlights: [
-      "Bold motivational typography cover",
-      "Eye-catching modern gradient design",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for goal setting & daily productivity"
-    ],
 
     media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172558/dont-give-up-motivational-spiral-notebook_if8n1e.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594057/physics-themed--notebook-on-desk_b8zfot.webp",
+      back: "notebook-back.webp",
       images: [
-        "dont-give-up-cover.webp",
-        "dont-give-up-inner.webp"
+        "physics-notebook-inside.webp",
+        "physics-notebook-binding.webp"
       ]
     },
 
     tags: [
-      "motivational notebook",
-      "dont give up notebook",
-      "inspirational spiral book",
-      "goal planner notebook",
-      "productivity journal",
-      "quote notebook",
-      "student motivational notebook",
-      "entrepreneur journal"
+      "physics notebook",
+      "student notebook",
+      "A4 notebook",
+      "science notebook",
+      "study notebook"
     ],
 
     seo: {
-      metaTitle: "Don't Give Up Spiral Notebook | Motivational Quote Journal",
+      metaTitle: "Physics A4 Study Notebook for Students",
       metaDescription:
-        "Bold motivational spiral notebook with 'Don't Give Up' typography design. Perfect for students, entrepreneurs, and daily goal setting.",
+        "High-quality A4 physics notebook designed for clear notes and problem solving.",
       keywords: [
-        "motivational notebook",
-        "dont give up journal",
-        "inspirational spiral notebook",
-        "quote notebook",
-        "goal setting journal"
+        "physics notebook",
+        "A4 notebook",
+        "science notebook",
+        "student notebook"
       ]
-    }
+    },
 
+    productionTime: "1–2 business days",
+
+    shipping: {
+      weight: 0.55,
+      dimensions: {
+        width: 21,
+        height: 29.7,
+        depth: 2
+      },
+      shippingClass: "standard_box"
+    },
+
+    rating: 4.7,
+    reviewsCount: 84,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: false,
+    isNewArrival: true
   },
   {
-    id: "sb-mod-002",
-    name: "Pressed Floral Aesthetic Spiral Book",
-    slug: "pressed-floral-aesthetic-spiral-book",
-    sku: "SB-MOD-FLR-002",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
+    id: "nb-gen-001",
+    name: "Abstract Doodle Study Notebook",
+    slug: "abstract-doodle-study-notebook",
+    sku: "NB-GEN-001",
 
-
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
     collections: {
-      theme: "Floral",
-      universe: "Botanical Art",
-      genre: "Minimal Aesthetic",
-      collectionType: "Modern"
+      franchise: "Minimal",
     },
+
+    subjectTheme: "General",
+    designTheme: "Abstract Doodle",
+
     brand: "pragyaprint",
+    series: "Creative Series",
+
+    shortDescription:
+      "A4 notebook with a vibrant abstract doodle cover for everyday writing and notes.",
+
+    description:
+      "A versatile A4  notebook featuring a modern abstract doodle design. Perfect for school, college, office work, journaling, rough notes, or creative writing. The neutral theme makes it suitable for any subject or purpose.",
+
+    highlights: [
+      "Modern abstract cover design",
+      "Suitable for all subjects",
+      "Large A4 size for comfortable writing",
+      "Smooth high-quality pages",
+      "Durable  binding"
+    ],
+
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      { variantId: "NB-GEN-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-GEN-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-GEN-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-GEN-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-GEN-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-GEN-400", pages: 400, price: 179, stock: 120 }
+    ],
+
     pricing: {
-      basePrice: 199,
-      salePrice: 149,
+      basePrice: 149,
+      salePrice: 99,
       discountPercentage: 33.56,
       currency: "INR",
       isTaxable: true
     },
 
     specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
       orientation: "portrait"
     },
 
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-MOD-FLR-002-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-MOD-FLR-002-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-MOD-FLR-002-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-MOD-FLR-002-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-MOD-FLR-002-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-MOD-FLR-002-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-MOD-FLR-002-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-MOD-FLR-002-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-MOD-FLR-002-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-MOD-FLR-002-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
+    relatedCombos: [],
 
     inventory: {
-      totalStock: 140,
+      totalStock: 270,
       stockStatus: "in_stock",
-      lowStockThreshold: 20
+      lowStockThreshold: 30
     },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Soft",
-      "Calm",
-      "Nature Inspired",
-      "Elegant",
-      "Aesthetic"
-    ],
-
-    series: "Modern Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A soft floral aesthetic spiral notebook featuring pressed botanical artwork on a textured background.",
-
-    description:
-      "Inspired by delicate pressed flowers and natural textures, this aesthetic spiral notebook blends simplicity with elegance. Featuring soft botanical elements on a neutral textured backdrop, it’s perfect for journaling, poetry, creative writing, or everyday notes. Ideal for nature lovers, minimalists, and anyone who appreciates subtle beauty in their stationery.",
-
-    highlights: [
-      "Pressed floral botanical artwork",
-      "Soft neutral textured background design",
-      "Premium matte finish cover",
-      "Durable metal spiral binding",
-      "Perfect for journaling, poetry & daily notes"
-    ],
 
     media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172560/floral-spiral-notebook-pressed-flowers-wooden-background_zczjke.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594051/abstract-doodle--notebook-desk-flatlay_udvrau.webp",
+      back: "notebook-back.webp",
       images: [
-        "pressed-floral-cover.webp",
-        "pressed-floral-inner.webp"
+        "abstract-notebook-inside.webp",
+        "abstract-notebook-binding.webp"
       ]
     },
 
     tags: [
-      "floral spiral notebook",
-      "botanical notebook",
-      "aesthetic journal",
-      "minimal spiral book",
-      "nature inspired notebook",
-      "cottagecore notebook",
-      "soft aesthetic stationery",
-      "floral gift notebook"
-    ],
-
-    seo: {
-      metaTitle: "Pressed Floral Spiral Notebook | Botanical Aesthetic Journal",
-      metaDescription:
-        "Elegant pressed floral spiral notebook with soft botanical artwork. Perfect for journaling, poetry, and nature lovers.",
-      keywords: [
-        "floral spiral notebook",
-        "botanical journal",
-        "aesthetic floral notebook",
-        "nature inspired notebook",
-        "minimal floral journal"
-      ]
-    }
-
-  },
-  {
-    id: "sb-spr-001",
-    name: "Hanuman Meditation Art Spiral Book",
-    slug: "hanuman-meditation-art-spiral-book",
-    sku: "SB-SPR-HNM-001",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Spiritual",
-      universe: "Hindu Art",
-      genre: "Devotional Illustration",
-      collectionType: "Spiritual"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-SPR-HNM-001-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-SPR-HNM-001-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-SPR-HNM-001-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-SPR-HNM-001-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-SPR-HNM-001-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-SPR-HNM-001-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-SPR-HNM-001-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-SPR-HNM-001-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-SPR-HNM-001-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-SPR-HNM-001-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Peaceful",
-      "Devotional",
-      "Powerful",
-      "Calm",
-      "Focused"
-    ],
-
-    series: "Spiritual Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A serene Hanuman meditation artwork spiral notebook inspired by devotion, strength, and inner peace.",
-
-    description:
-      "This Hanuman meditation spiral notebook blends spiritual symbolism with artistic elegance. Featuring a calm and powerful depiction of Lord Hanuman in a meditative pose, it represents strength, discipline, and devotion. Ideal for journaling, mantra writing, daily reflections, or spiritual practice, this notebook brings divine inspiration to your everyday thoughts.",
-
-    highlights: [
-      "Spiritual Hanuman meditation artwork",
-      "Calm and devotional aesthetic design",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for journaling, mantra writing & daily reflections"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172564/hanuman-meditation-art-notebook-on-wood_a0m1vn.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "hanuman-cover.webp",
-        "hanuman-inner.webp"
-      ]
-    },
-
-    tags: [
-      "hanuman notebook",
-      "spiritual spiral notebook",
-      "hindu art notebook",
-      "devotional journal",
-      "meditation notebook",
-      "indian culture stationery",
-      "religious spiral book",
-      "mantra journal"
-    ],
-
-    seo: {
-      metaTitle: "Hanuman Meditation Spiral Notebook | Spiritual Devotional Journal",
-      metaDescription:
-        "Spiritual Hanuman meditation spiral notebook inspired by devotion, strength, and inner peace. Perfect for journaling and spiritual practice.",
-      keywords: [
-        "hanuman notebook",
-        "spiritual journal",
-        "hindu art spiral notebook",
-        "meditation notebook",
-        "devotional journal"
-      ]
-    }
-
-  },
-  {
-    id: "sb-quo-002",
-    name: "Do More of What Makes You Happy Spiral Book",
-    slug: "do-more-of-what-makes-you-happy-spiral-book",
-    sku: "SB-QUO-HAP-002",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Positivity",
-      universe: "Happy Illustrations",
-      genre: "Hand Drawn Art",
-      collectionType: "Quotes"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-QUO-HAP-002-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-QUO-HAP-002-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-QUO-HAP-002-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-QUO-HAP-002-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-QUO-HAP-002-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-QUO-HAP-002-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-QUO-HAP-002-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-QUO-HAP-002-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-QUO-HAP-002-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-QUO-HAP-002-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Happy",
-      "Cheerful",
-      "Playful",
-      "Positive",
-      "Cute"
-    ],
-
-    series: "Quotes Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A cheerful illustrated spiral notebook with the uplifting message 'Do More of What Makes You Happy'.",
-
-    description:
-      "Bright, playful, and full of positivity — this illustrated spiral notebook spreads joy with its heartwarming message and colorful hand-drawn artwork. Perfect for journaling, school notes, creative writing, or daily reflections, it’s designed to remind you to choose happiness every single day. Ideal for kids, students, and anyone who loves cute aesthetic stationery.",
-
-    highlights: [
-      "Cute hand-drawn illustration design",
-      "Uplifting positive quote cover",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for journaling, school & daily notes"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172559/inspirational-notebook-do-more-of-what-makes-you-happy-illustration_jkk3mj.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "do-more-happy-cover.webp",
-        "do-more-happy-inner.webp"
-      ]
-    },
-
-    tags: [
-      "happy quote notebook",
-      "positive spiral notebook",
-      "cute illustration journal",
-      "kids spiral notebook",
-      "inspirational notebook",
-      "aesthetic stationery",
-      "school notebook",
-      "gift for girls notebook"
-    ],
-
-    seo: {
-      metaTitle: "Do More of What Makes You Happy Spiral Notebook | Cute Quote Journal",
-      metaDescription:
-        "Colorful illustrated spiral notebook with positive quote. Perfect for kids, students, journaling, and daily inspiration.",
-      keywords: [
-        "happy quote notebook",
-        "positive spiral notebook",
-        "cute journal",
-        "kids inspirational notebook",
-        "illustrated spiral book"
-      ]
-    }
-
-  },
-  {
-    id: "sb-quo-003",
-    name: "There Is a Seat Waiting Spiral Book",
-    slug: "there-is-a-seat-waiting-spiral-book",
-    sku: "SB-QUO-TSW-003",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Inspiration",
-      universe: "Life Journey",
-      genre: "Illustration Art",
-      collectionType: "Quotes"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-QUO-TSW-003-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-QUO-TSW-003-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-QUO-TSW-003-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-QUO-TSW-003-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-QUO-TSW-003-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-QUO-TSW-003-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-QUO-TSW-003-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-QUO-TSW-003-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-QUO-TSW-003-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-QUO-TSW-003-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Hopeful",
-      "Dreamy",
-      "Encouraging",
-      "Aspirational",
-      "Calm"
-    ],
-
-    series: "Quotes Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A hopeful illustrated spiral notebook featuring the quote 'There is a seat waiting for you at tables you haven't even seen.'",
-
-    description:
-      "This beautifully illustrated spiral notebook captures the spirit of hope and new beginnings. Featuring a charming yellow train artwork and an uplifting quote, it reminds you that opportunities are always ahead — even the ones you can't yet imagine. Perfect for journaling, planning goals, creative writing, or daily reflections. Designed for dreamers, students, and anyone building their future.",
-
-    highlights: [
-      "Inspirational quote cover design",
-      "Charming modern illustration artwork",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for journaling, planning & self-growth"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172559/inspirational-quote-notebook-yellow-train-illustration_c8seoz.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "seat-waiting-cover.webp",
-        "seat-waiting-inner.webp"
-      ]
-    },
-
-    tags: [
-      "inspirational quote notebook",
-      "hope journal",
-      "motivational spiral book",
-      "aesthetic illustration notebook",
-      "life journey journal",
-      "student motivation notebook",
-      "dream big notebook",
-      "positive quote journal"
-    ],
-
-    seo: {
-      metaTitle: "There Is a Seat Waiting Spiral Notebook | Inspirational Quote Journal",
-      metaDescription:
-        "Inspirational spiral notebook with hopeful quote and charming illustration. Perfect for journaling, goal setting, and daily motivation.",
-      keywords: [
-        "inspirational notebook",
-        "hope journal",
-        "quote spiral notebook",
-        "motivational journal",
-        "aesthetic illustrated notebook"
-      ]
-    }
-
-  },
-
-  {
-    id: "sb-spr-002",
-    name: "Shiva Parvati Mount Kailash Art Spiral Book",
-    slug: "shiva-parvati-mount-kailash-art-spiral-book",
-    sku: "SB-SPR-SPK-002",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Spiritual",
-      universe: "Hindu Mythology",
-      genre: "Mythological Art",
-      collectionType: "Spiritual"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-SPR-SPK-002-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-SPR-SPK-002-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-SPR-SPK-002-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-SPR-SPK-002-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-SPR-SPK-002-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-SPR-SPK-002-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-SPR-SPK-002-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-SPR-SPK-002-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-SPR-SPK-002-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-SPR-SPK-002-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Divine",
-      "Peaceful",
-      "Devotional",
-      "Serene",
-      "Sacred"
-    ],
-
-    series: "Spiritual Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A divine spiral notebook featuring artistic illustration of Lord Shiva and Goddess Parvati at Mount Kailash.",
-
-    description:
-      "Inspired by the serene presence of Lord Shiva and Goddess Parvati at Mount Kailash, this spiritual spiral notebook captures devotion, balance, and divine energy. The textured mythological artwork brings a timeless aesthetic to your daily writing. Perfect for journaling, spiritual reflections, mantra writing, or gifting during festivals and religious occasions.",
-
-    highlights: [
-      "Mythological Shiva-Parvati artwork",
-      "Sacred Mount Kailash inspired design",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Ideal for journaling, spiritual writing & gifting"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172561/lord-shiva-parvati-mount-kailash-art-notebook_ivtzxs.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "shiva-parvati-cover.webp",
-        "shiva-parvati-inner.webp"
-      ]
-    },
-
-    tags: [
-      "shiva parvati notebook",
-      "hindu mythology notebook",
-      "spiritual spiral notebook",
-      "devotional journal",
-      "kailash art notebook",
-      "religious stationery",
-      "indian culture notebook",
-      "festival gift notebook"
-    ],
-
-    seo: {
-      metaTitle: "Shiva Parvati Spiral Notebook | Spiritual Mount Kailash Art Journal",
-      metaDescription:
-        "Spiritual spiral notebook featuring Lord Shiva and Goddess Parvati at Mount Kailash. Perfect for journaling and devotional writing.",
-      keywords: [
-        "shiva parvati notebook",
-        "spiritual journal",
-        "hindu mythology spiral notebook",
-        "kailash art notebook",
-        "devotional notebook"
-      ]
-    }
-
-  },
-  {
-    id: "sb-urb-001",
-    name: "David Graffiti Pop Art Spiral Book",
-    slug: "david-graffiti-pop-art-spiral-book",
-    sku: "SB-URB-DAV-001",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Urban Art",
-      universe: "Pop Culture",
-      genre: "Graffiti Illustration",
-      collectionType: "Modern"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-URB-DAV-001-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-URB-DAV-001-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-URB-DAV-001-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-URB-DAV-001-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-URB-DAV-001-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-URB-DAV-001-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-URB-DAV-001-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-URB-DAV-001-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-URB-DAV-001-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-URB-DAV-001-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Bold",
-      "Edgy",
-      "Creative",
-      "Modern",
-      "Expressive"
-    ],
-
-    series: "Urban Collection",
-    licenseType: "fan_art_inspired",
-
-    shortDescription:
-      "A bold graffiti-inspired spiral notebook featuring a modern pop-art take on the iconic David sculpture.",
-
-    description:
-      "This urban pop-art spiral notebook reimagines the iconic David sculpture with graffiti elements and neon highlights. A fusion of classical art and modern street culture, this design speaks creativity, rebellion, and self-expression. Perfect for artists, designers, students, and anyone who loves bold aesthetic stationery with personality.",
-
-    highlights: [
-      "Modern graffiti pop-art design",
-      "Classic sculpture reimagined in urban style",
-      "Neon accent detailing for bold impact",
-      "Premium matte finish cover",
-      "Perfect for sketching, journaling & creative work"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172561/michelangelo-david-graffiti-art-spiral-notebook_gk1k4k.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "david-graffiti-cover.webp",
-        "david-graffiti-inner.webp"
-      ]
-    },
-
-    tags: [
-      "graffiti notebook",
-      "pop art spiral notebook",
-      "david sculpture notebook",
-      "urban art journal",
-      "modern aesthetic notebook",
-      "artist sketchbook",
-      "creative spiral book",
-      "gen z stationery"
-    ],
-
-    seo: {
-      metaTitle: "David Graffiti Spiral Notebook | Urban Pop Art Journal",
-      metaDescription:
-        "Bold graffiti-style spiral notebook featuring a modern pop-art take on the David sculpture. Perfect for artists and creative minds.",
-      keywords: [
-        "graffiti notebook",
-        "pop art journal",
-        "urban spiral notebook",
-        "modern art notebook",
-        "artist notebook"
-      ]
-    }
-
-  },
-  {
-    id: "sb-quo-004",
-    name: "Remember Who You Wanted To Be Spiral Book",
-    slug: "remember-who-you-wanted-to-be-spiral-book",
-    sku: "SB-QUO-RWY-004",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Motivation",
-      universe: "Self Growth",
-      genre: "Abstract Art",
-      collectionType: "Quotes"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-QUO-RWY-004-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-QUO-RWY-004-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-QUO-RWY-004-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-QUO-RWY-004-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-QUO-RWY-004-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-QUO-RWY-004-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-QUO-RWY-004-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-QUO-RWY-004-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-QUO-RWY-004-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-QUO-RWY-004-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Reflective",
-      "Motivational",
-      "Bold",
-      "Expressive",
-      "Thought Provoking"
-    ],
-
-    series: "Quotes Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "An abstract motivational spiral notebook featuring the powerful quote 'Remember Who You Wanted To Be.'",
-
-    description:
-      "This bold and artistic spiral notebook blends abstract spiral patterns with a powerful reminder to stay aligned with your dreams. 'Remember Who You Wanted To Be' speaks to ambition, growth, and personal evolution. Perfect for journaling goals, reflecting on progress, or planning your next big move. Designed for thinkers, creators, and dreamers who refuse to settle.",
-
-    highlights: [
-      "Bold motivational quote design",
-      "Abstract spiral art background",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for goal setting & personal growth journaling"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172561/motivational-spiral-notebook-remember-who-you-wanted-to-be_azzrxr.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "remember-who-cover.webp",
-        "remember-who-inner.webp"
-      ]
-    },
-
-    tags: [
-      "motivational notebook",
-      "self growth journal",
-      "abstract art notebook",
-      "goal planner spiral book",
-      "inspirational quote notebook",
-      "dream big journal",
-      "personal development notebook",
-      "reflective journal"
-    ],
-
-    seo: {
-      metaTitle: "Remember Who You Wanted To Be Spiral Notebook | Motivational Journal",
-      metaDescription:
-        "Abstract motivational spiral notebook with powerful self-growth quote. Perfect for journaling goals and personal development.",
-      keywords: [
-        "motivational spiral notebook",
-        "self growth journal",
-        "inspirational quote notebook",
-        "goal setting notebook",
-        "personal development journal"
-      ]
-    }
-
-  },
-  {
-    id: "sb-art-001",
-    name: "Love Me Like a Sailor Spiral Book",
-    slug: "love-me-like-a-sailor-spiral-book",
-    sku: "SB-ART-SLR-001",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Nautical",
-      universe: "Ocean Art",
-      genre: "Surreal Illustration",
-      collectionType: "Modern"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-ART-SLR-001-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-ART-SLR-001-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-ART-SLR-001-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-ART-SLR-001-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-ART-SLR-001-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-ART-SLR-001-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-ART-SLR-001-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-ART-SLR-001-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-ART-SLR-001-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-ART-SLR-001-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Dreamy",
-      "Moody",
-      "Artistic",
-      "Romantic",
-      "Mysterious"
-    ],
-
-    series: "Artistic Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A surreal ocean-themed spiral notebook featuring bold octopus tentacles and the poetic line 'Love Me Like a Sailor.'",
-
-    description:
-      "This artistic spiral notebook blends ocean waves with surreal octopus illustration and a poetic handwritten phrase. Moody, expressive, and visually striking, it captures themes of depth, emotion, and freedom. Perfect for journaling, poetry, sketching, or creative writing. Designed for ocean lovers, artists, and free-spirited thinkers.",
-
-    highlights: [
-      "Surreal nautical ocean artwork",
-      "Poetic handwritten quote design",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for journaling, poetry & creative writing"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172562/nautical-octopus-tentacles-love-me-like-a-sailor-notebook_uskv5s.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "sailor-cover.webp",
-        "sailor-inner.webp"
-      ]
-    },
-
-    tags: [
-      "nautical notebook",
-      "ocean spiral notebook",
-      "octopus art journal",
-      "surreal notebook",
-      "artistic spiral book",
-      "poetry journal",
-      "indie aesthetic notebook",
-      "creative writing notebook"
-    ],
-
-    seo: {
-      metaTitle: "Love Me Like a Sailor Spiral Notebook | Nautical Ocean Art Journal",
-      metaDescription:
-        "Surreal ocean-inspired spiral notebook with octopus illustration and poetic quote. Perfect for journaling and creative writing.",
-      keywords: [
-        "nautical spiral notebook",
-        "ocean art journal",
-        "octopus notebook",
-        "surreal spiral book",
-        "creative writing journal"
-      ]
-    }
-
-  },
-  {
-    id: "sb-mod-003",
-    name: "Orange Wavy Abstract Spiral Book",
-    slug: "orange-wavy-abstract-spiral-book",
-    sku: "SB-MOD-ORG-003",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Abstract",
-      universe: "Modern Design",
-      genre: "Minimal Pattern",
-      collectionType: "Modern"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-MOD-ORG-003-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-MOD-ORG-003-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-MOD-ORG-003-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-MOD-ORG-003-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-MOD-ORG-003-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-MOD-ORG-003-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-MOD-ORG-003-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-MOD-ORG-003-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-MOD-ORG-003-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-MOD-ORG-003-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Minimal",
-      "Modern",
-      "Vibrant",
-      "Creative",
-      "Trendy"
-    ],
-
-    series: "Modern Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A bold modern spiral notebook featuring a vibrant orange abstract wavy pattern design.",
-
-    description:
-      "This modern spiral notebook features a clean and vibrant orange abstract wave pattern that blends simplicity with bold style. Designed for minimal aesthetic lovers, it’s perfect for journaling, college notes, sketching ideas, or everyday planning. A trendy and versatile design that fits creative minds and modern workspaces.",
-
-    highlights: [
-      "Modern abstract wavy pattern design",
-      "Bold vibrant orange aesthetic",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for journaling, notes & creative planning"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172563/orange-abstract-wavy-pattern-spiral-notebook_iyjxm9.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "orange-wavy-cover.webp",
-        "orange-wavy-inner.webp"
-      ]
-    },
-
-    tags: [
-      "abstract spiral notebook",
-      "orange aesthetic notebook",
-      "minimal spiral book",
-      "modern pattern notebook",
-      "trendy stationery",
-      "college notebook aesthetic",
-      "clean design journal",
+      "general notebook",
+      "A4 notebook",
+      "abstract notebook",
+      "student notebook",
+      "plain study notebook",
       "creative notebook"
     ],
 
     seo: {
-      metaTitle: "Orange Abstract Spiral Notebook | Modern Minimal Journal",
+      metaTitle: "Abstract A4 Study Notebook for Students",
       metaDescription:
-        "Modern orange abstract spiral notebook with bold wavy pattern design. Perfect for journaling, college notes, and creative planning.",
+        "Stylish A4 notebook with abstract cover design. Perfect for school, college, and everyday use.",
       keywords: [
-        "abstract spiral notebook",
-        "modern notebook",
-        "orange aesthetic journal",
-        "minimal pattern notebook",
-        "trendy spiral book"
+        "abstract notebook",
+        "A4 notebook",
+        "student notebook",
+        "general notebook"
       ]
-    }
+    },
 
+    productionTime: "1–2 business days",
+
+    shipping: {
+      weight: 0.55,
+      dimensions: {
+        width: 21,
+        height: 29.7,
+        depth: 2
+      },
+      shippingClass: "standard_box"
+    },
+
+    rating: 4.7,
+    reviewsCount: 84,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: false,
+    isNewArrival: true
   },
   {
-    id: "sb-spr-003",
-    name: "Saraswati Mandala Art Spiral Book",
-    slug: "saraswati-mandala-art-spiral-book",
-    sku: "SB-SPR-SRS-003",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
+    id: "nb-mot-001",
+    name: "Evolve or Repeat Motivational Notebook",
+    slug: "evolve-or-repeat-motivational-notebook",
+    sku: "NB-MOT-001",
 
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
     collections: {
-      theme: "Spiritual",
-      universe: "Hindu Mythology",
-      genre: "Mandala Devotional Art",
-      collectionType: "Spiritual"
+      franchise: "Minimal",
     },
+
+    subjectTheme: "Motivational",
+    designTheme: "Modern Typography",
+
     brand: "pragyaprint",
+    series: "Modern Inspiration Series",
+
+    shortDescription:
+      "Eye-catching A4 notebook with bold motivational typography and modern minimal design.",
+
+    description:
+      "A premium A4  notebook featuring a striking modern cover with bold typography that inspires productivity and growth. Designed for students, creators, and professionals who want a stylish notebook that stands out while staying functional for everyday use.",
+
+    highlights: [
+      "Bold motivational quote cover",
+      "Minimal modern aesthetic",
+      "Eye-catching premium design",
+      "Large A4 size for comfortable writing",
+      "Strong  binding for durability"
+    ],
+
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      { variantId: "NB-MOT-001-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-MOT-001-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-MOT-001-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-MOT-001-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-MOT-001-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-MOT-001-400", pages: 400, price: 179, stock: 120 }
+    ],
+
     pricing: {
-      basePrice: 199,
-      salePrice: 149,
+      basePrice: 149,
+      salePrice: 99,
       discountPercentage: 33.56,
       currency: "INR",
       isTaxable: true
     },
 
     specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
       orientation: "portrait"
     },
 
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-SPR-SRS-003-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-SPR-SRS-003-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-SPR-SRS-003-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-SPR-SRS-003-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-SPR-SRS-003-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-SPR-SRS-003-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-SPR-SRS-003-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-SPR-SRS-003-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-SPR-SRS-003-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-SPR-SRS-003-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
+    relatedCombos: [],
 
     inventory: {
-      totalStock: 140,
+      totalStock: 270,
       stockStatus: "in_stock",
-      lowStockThreshold: 20
+      lowStockThreshold: 30
     },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Divine",
-      "Graceful",
-      "Peaceful",
-      "Sacred",
-      "Inspiring"
-    ],
-
-    series: "Spiritual Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A divine spiral notebook featuring Goddess Saraswati in detailed mandala-style devotional artwork.",
-
-    description:
-      "This elegant spiral notebook showcases Goddess Saraswati, symbol of knowledge, wisdom, music, and creativity. Designed with intricate mandala elements and sacred symbolism, it represents learning, purity, and artistic expression. Ideal for students, writers, artists, and spiritual seekers. Perfect for journaling, study notes, mantra writing, and devotional reflections.",
-
-    highlights: [
-      "Intricate Saraswati mandala artwork",
-      "Symbol of wisdom, learning & creativity",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for study, journaling & spiritual writing"
-    ],
 
     media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172564/saraswati-mandala-art-notebook-journal_hjaveh.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594052/evolve-or-repeat-green--notebook-flatlay_laq8vh.webp",
+      back: "notebook-back.webp",
       images: [
-        "saraswati-cover.webp",
-        "saraswati-inner.webp"
+        "evolve-repeat-notebook-inside.webp",
+        "evolve-repeat-notebook-binding.webp"
       ]
     },
 
     tags: [
-      "saraswati notebook",
-      "spiritual spiral notebook",
-      "goddess art journal",
-      "hindu mythology notebook",
-      "devotional journal",
-      "student study notebook",
-      "mandala art notebook",
-      "indian culture stationery"
+      "motivational notebook",
+      "modern notebook",
+      "typography notebook",
+      "A4 notebook",
+      "cool notebook",
+      "premium notebook"
     ],
 
     seo: {
-      metaTitle: "Saraswati Mandala Spiral Notebook | Spiritual Study Journal",
+      metaTitle: "Motivational A4 Notebook — Evolve or Repeat Design",
       metaDescription:
-        "Spiritual spiral notebook featuring Goddess Saraswati mandala artwork. Perfect for students, journaling, and devotional writing.",
+        "Premium A4 notebook with bold motivational typography. Stylish, modern, and perfect for everyday use.",
       keywords: [
-        "saraswati notebook",
-        "spiritual journal",
-        "hindu goddess spiral notebook",
-        "mandala art notebook",
-        "study notebook spiritual"
+        "motivational notebook",
+        "modern notebook",
+        "cool notebook",
+        "A4 notebook",
+        "typography notebook"
       ]
-    }
+    },
 
+    productionTime: "1–2 business days",
+
+    shipping: {
+      weight: 0.55,
+      dimensions: {
+        width: 21,
+        height: 29.7,
+        depth: 2
+      },
+      shippingClass: "standard_box"
+    },
+
+    rating: 4.7,
+    reviewsCount: 84,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
   },
   {
-    id: "sb-mov-001",
-    name: "Spider Hero Great Power Spiral Book",
-    slug: "spider-hero-great-power-spiral-book",
-    sku: "SB-MOV-SPD-001",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
+    id: "nb-fan-001",
+    name: "Wizard Castle Fantasy Notebook",
+    slug: "wizard-castle-fantasy-notebook",
+    sku: "NB-FAN-001",
 
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
     collections: {
-      theme: "Superhero",
-      universe: "Comic Inspired",
-      genre: "Minimal Pop Art",
-      collectionType: "Movies"
+      franchise: "Minimal",
     },
+
+    subjectTheme: "Fantasy",
+    designTheme: "Wizard World",
+
     brand: "pragyaprint",
+    series: "Pop Culture Fantasy Series",
+
+    shortDescription:
+      "A magical A4 notebook featuring a detailed wizard castle fantasy design.",
+
+    description:
+      "A premium A4  notebook with an enchanting fantasy-themed cover inspired by magical worlds, wizard schools, and mythical adventures. Perfect for fans of fantasy stories, creative writing, journaling, and everyday study with a touch of magic.",
+
+    highlights: [
+      "Highly detailed fantasy artwork",
+      "Wizard world inspired design",
+      "Eye-catching premium cover",
+      "Perfect for fans of magical themes",
+      "Large A4 size for comfortable writing",
+      "Durable  binding"
+    ],
+
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      { variantId: "NB-FAN-001-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-FAN-001-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-FAN-001-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-FAN-001-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-FAN-001-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-FAN-001-400", pages: 400, price: 179, stock: 120 }
+    ],
+
     pricing: {
-      basePrice: 199,
-      salePrice: 149,
+      basePrice: 149,
+      salePrice: 99,
       discountPercentage: 33.56,
       currency: "INR",
       isTaxable: true
     },
 
     specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
       orientation: "portrait"
     },
 
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-MOV-SPD-001-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-MOV-SPD-001-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-MOV-SPD-001-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-MOV-SPD-001-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-MOV-SPD-001-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-MOV-SPD-001-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-MOV-SPD-001-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-MOV-SPD-001-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-MOV-SPD-001-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-MOV-SPD-001-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
+    relatedCombos: [],
 
     inventory: {
-      totalStock: 140,
+      totalStock: 270,
       stockStatus: "in_stock",
-      lowStockThreshold: 20
+      lowStockThreshold: 30
     },
 
-    productionTime: "2–3 business days",
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594052/harry-potter-the-magic-is-real--notebook-hogwarts-illustrations_pan1hz.webp",
+      back: "notebook-back.webp",
+      images: [
+        "wizard-fantasy-notebook-inside.webp",
+        "wizard-fantasy-notebook-binding.webp"
+      ]
+    },
+
+    tags: [
+      "fantasy notebook",
+      "wizard notebook",
+      "magic notebook",
+      "A4 notebook",
+      "cool notebook",
+      "pop culture notebook",
+      "premium notebook"
+    ],
+
+    seo: {
+      metaTitle: "Fantasy Wizard A4 Notebook — Magical Design",
+      metaDescription:
+        "Premium A4 notebook with a stunning wizard fantasy design. Perfect for fans of magical worlds.",
+      keywords: [
+        "fantasy notebook",
+        "wizard notebook",
+        "magic notebook",
+        "A4 notebook",
+        "cool notebook"
+      ]
+    },
+
+    productionTime: "1–2 business days",
 
     shipping: {
-      weight: 0.45,
+      weight: 0.55,
       dimensions: {
-        width: 15,
-        height: 21,
+        width: 21,
+        height: 29.7,
         depth: 2
       },
       shippingClass: "standard_box"
     },
 
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
+    rating: 4.7,
+    reviewsCount: 84,
+
     status: "active",
     visibility: "public",
     isFeatured: true,
-    isNewArrival: true,
+    isNewArrival: true
+  },
+  {
+    id: "nb-pop-001",
+    name: "Victory Racer Cartoon Notebook",
+    slug: "victory-racer-cartoon-notebook",
+    sku: "NB-POP-001",
 
-    moods: [
-      "Bold",
-      "Heroic",
-      "Motivational",
-      "Powerful",
-      "Confident"
-    ],
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
+    collections: {
+      franchise: "Minimal",
+    },
 
-    series: "Movies Collection",
-    licenseType: "fan_art_inspired",
+    subjectTheme: "Pop Cartoon",
+    designTheme: "Racing Victory",
+
+    brand: "pragyaprint",
+    series: "Fun Pop Series",
 
     shortDescription:
-      "A bold red superhero-inspired spiral notebook featuring the iconic 'With Great Power Comes Great Responsibility' quote.",
+      "High-energy A4 notebook with a bold cartoon racer design and vibrant colors.",
 
     description:
-      "This superhero-inspired spiral notebook captures the essence of responsibility, courage, and strength. Designed with a powerful red minimalist aesthetic and bold emblem artwork, it’s perfect for fans, students, and dreamers who believe in using their power wisely. Ideal for journaling goals, study notes, or everyday writing with heroic energy.",
+      "A premium A4  notebook featuring a dynamic cartoon racing character celebrating victory. The explosive background and bold colors make this notebook perfect for kids, teens, gamers, and anyone who loves fun, energetic designs that instantly grab attention.",
 
     highlights: [
-      "Minimal superhero emblem design",
-      "Iconic motivational quote cover",
-      "Bold red modern aesthetic",
-      "Premium matte finish cover",
-      "Perfect for fans, students & daily journaling"
+      "Bright high-energy racing theme",
+      "Bold cartoon character design",
+      "Eye-catching vibrant cover",
+      "Perfect for kids, teens, and gamers",
+      "Large A4 size for comfortable writing",
+      "Strong  binding"
     ],
 
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      { variantId: "NB-POP-001-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-POP-001-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-POP-001-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-POP-001-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-POP-001-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-POP-001-400", pages: 400, price: 179, stock: 120 }
+    ],
+
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33.56,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
+      orientation: "portrait"
+    },
+
+    relatedCombos: [],
+
+    inventory: {
+      totalStock: 270,
+      stockStatus: "in_stock",
+      lowStockThreshold: 30
+    },
+
     media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172563/spider-man-red-spiral-notebook-great-power-quote_pqkr8x.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594053/kick-buttowski--notebook-desk-flatlay_c2ia7y.webp",
+      back: "notebook-back.webp",
       images: [
-        "spider-hero-cover.webp",
-        "spider-hero-inner.webp"
+        "victory-racer-notebook-inside.webp",
+        "victory-racer-notebook-binding.webp"
+      ]
+    },
+
+    tags: [
+      "cartoon notebook",
+      "racing notebook",
+      "fun notebook",
+      "kids notebook",
+      "A4 notebook",
+      "cool notebook",
+      "vibrant notebook"
+    ],
+
+    seo: {
+      metaTitle: "Cartoon Racing A4 Notebook — Fun Victory Design",
+      metaDescription:
+        "Vibrant A4 notebook with a bold cartoon racing design. Perfect for kids, teens, and fun-loving students.",
+      keywords: [
+        "cartoon notebook",
+        "kids notebook",
+        "racing notebook",
+        "A4 notebook",
+        "fun notebook"
+      ]
+    },
+
+    productionTime: "1–2 business days",
+
+    shipping: {
+      weight: 0.55,
+      dimensions: {
+        width: 21,
+        height: 29.7,
+        depth: 2
+      },
+      shippingClass: "standard_box"
+    },
+
+    rating: 4.7,
+    reviewsCount: 84,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "nb-shr-001",
+    name: "Action Heroes Comic Notebook",
+    slug: "action-heroes-comic-notebook",
+    sku: "NB-SHR-001",
+
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
+    collections: {
+      franchise: "Minimal",
+    },
+
+    subjectTheme: "Superhero",
+    designTheme: "Comic Action",
+
+    brand: "pragyaprint",
+    series: "Pop Culture Action Series",
+
+    shortDescription:
+      "Bold A4 notebook featuring a dynamic superhero comic-style design.",
+
+    description:
+      "A premium A4  notebook showcasing a powerful comic-inspired superhero design with vivid colors and action aesthetics. Perfect for fans of action stories, comics, gaming culture, and anyone who wants a notebook that makes a strong visual statement.",
+
+    highlights: [
+      "Dynamic comic-style artwork",
+      "High-impact action theme",
+      "Vibrant premium cover",
+      "Perfect for teens, fans, and gamers",
+      "Large A4 size for comfortable writing",
+      "Durable  binding"
+    ],
+
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      { variantId: "NB-SHR-001-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-SHR-001-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-SHR-001-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-SHR-001-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-SHR-001-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-SHR-001-400", pages: 400, price: 179, stock: 120 }
+    ],
+
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33.56,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
+      orientation: "portrait"
+    },
+
+    relatedCombos: [],
+
+    inventory: {
+      totalStock: 270,
+      stockStatus: "in_stock",
+      lowStockThreshold: 30
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594054/marvel-superhero--notebook-mockup_yxpjnj.webp",
+      back: "notebook-back.webp",
+      images: [
+        "superhero-comic-notebook-inside.webp",
+        "superhero-comic-notebook-binding.webp"
       ]
     },
 
     tags: [
       "superhero notebook",
-      "spider inspired notebook",
-      "motivational quote notebook",
-      "movie spiral notebook",
-      "comic fan journal",
-      "red aesthetic notebook",
-      "hero quote notebook",
-      "pop culture stationery"
+      "comic notebook",
+      "action notebook",
+      "A4 notebook",
+      "pop culture notebook",
+      "cool notebook",
+      "premium notebook"
     ],
 
     seo: {
-      metaTitle: "Superhero Great Power Spiral Notebook | Movie Inspired Journal",
+      metaTitle: "Superhero Comic A4 Notebook — Action Design",
       metaDescription:
-        "Bold red superhero-inspired spiral notebook featuring the iconic great power quote. Perfect for fans, students, and journaling.",
+        "Premium A4 notebook with bold comic-style superhero artwork. Perfect for fans of action and pop culture.",
       keywords: [
-        "superhero spiral notebook",
-        "great power quote notebook",
-        "movie inspired journal",
+        "superhero notebook",
         "comic notebook",
-        "fan art spiral book"
+        "action notebook",
+        "A4 notebook",
+        "cool notebook"
       ]
-    }
+    },
 
+    productionTime: "1–2 business days",
+
+    shipping: {
+      weight: 0.55,
+      dimensions: {
+        width: 21,
+        height: 29.7,
+        depth: 2
+      },
+      shippingClass: "standard_box"
+    },
+
+    rating: 4.7,
+    reviewsCount: 84,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
   },
   {
-    id: "sb-art-002",
-    name: "Sunrise Mountain Landscape Spiral Book",
-    slug: "sunrise-mountain-landscape-spiral-book",
-    sku: "SB-ART-MTN-002",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
+    id: "nb-edg-001",
+    name: "Comfort Zone Breaker Notebook",
+    slug: "comfort-zone-breaker-notebook",
+    sku: "NB-EDG-001",
 
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
     collections: {
-      theme: "Nature",
-      universe: "Landscape Art",
-      genre: "Illustration",
-      collectionType: "Modern"
+      franchise: "Minimal",
     },
+
+    subjectTheme: "Edgy Motivation",
+    designTheme: "Art Collage",
+
     brand: "pragyaprint",
+    series: "Bold Expression Series",
+
+    shortDescription:
+      "A striking A4 notebook with rebellious motivational typography and collage-style artwork.",
+
+    description:
+      "A premium A4  notebook featuring bold street-art-inspired collage visuals and a powerful motivational message. Designed for creative thinkers, artists, and students who want a notebook that reflects individuality and pushes beyond the ordinary.",
+
+    highlights: [
+      "Bold rebellious motivational quote",
+      "Modern collage-style artwork",
+      "Artistic indie aesthetic",
+      "Eye-catching premium design",
+      "Ideal for journaling and creative writing",
+      "Large A4 size for comfortable writing",
+      "Strong  binding"
+    ],
+
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      { variantId: "NB-EDG-001-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-EDG-001-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-EDG-001-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-EDG-001-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-EDG-001-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-EDG-001-400", pages: 400, price: 179, stock: 120 }
+    ],
+
     pricing: {
-      basePrice: 199,
-      salePrice: 149,
+      basePrice: 149,
+      salePrice: 99,
       discountPercentage: 33.56,
       currency: "INR",
       isTaxable: true
     },
 
     specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
       orientation: "portrait"
     },
 
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-ART-MTN-002-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-ART-MTN-002-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-ART-MTN-002-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-ART-MTN-002-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-ART-MTN-002-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-ART-MTN-002-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-ART-MTN-002-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-ART-MTN-002-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-ART-MTN-002-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-ART-MTN-002-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
+    relatedCombos: [],
 
     inventory: {
-      totalStock: 140,
+      totalStock: 270,
       stockStatus: "in_stock",
-      lowStockThreshold: 20
+      lowStockThreshold: 30
     },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Adventurous",
-      "Vibrant",
-      "Peaceful",
-      "Inspiring",
-      "Free"
-    ],
-
-    series: "Artistic Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A vibrant spiral notebook featuring a bold illustrated mountain landscape with radiant sunrise design.",
-
-    description:
-      "This artistic spiral notebook captures the beauty of a radiant sunrise over majestic mountains and lush valleys. Designed with bold colors and graphic illustration style, it symbolizes freedom, exploration, and fresh beginnings. Perfect for journaling, travel planning, sketching, or daily note-taking. A great choice for nature lovers and creative minds.",
-
-    highlights: [
-      "Bold mountain landscape artwork",
-      "Vibrant sunrise graphic design",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for journaling, travel notes & creative writing"
-    ],
 
     media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172564/spiral-notebook-mountain-landscape-art_gnmbfl.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594056/motivational-collage-notebook-comfort-zone-kill-you_p5gxbn.webp",
+      back: "notebook-back.webp",
       images: [
-        "mountain-landscape-cover.webp",
-        "mountain-landscape-inner.webp"
+        "comfort-zone-breaker-notebook-inside.webp",
+        "comfort-zone-breaker-notebook-binding.webp"
       ]
     },
 
     tags: [
-      "mountain notebook",
-      "nature spiral notebook",
-      "landscape art journal",
-      "travel notebook",
-      "sunrise aesthetic notebook",
-      "outdoor lover journal",
-      "adventure notebook",
-      "creative spiral book"
-    ],
-
-    seo: {
-      metaTitle: "Sunrise Mountain Spiral Notebook | Nature Landscape Art Journal",
-      metaDescription:
-        "Vibrant mountain landscape spiral notebook with bold sunrise design. Perfect for journaling, travel notes, and nature lovers.",
-      keywords: [
-        "mountain spiral notebook",
-        "nature journal",
-        "landscape art notebook",
-        "travel spiral notebook",
-        "sunrise aesthetic journal"
-      ]
-    }
-
-  },
-  {
-    id: "sb-nat-003",
-    name: "Tree Canopy Illustration Spiral Book",
-    slug: "tree-canopy-illustration-spiral-book",
-    sku: "SB-NAT-TRE-003",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Nature",
-      universe: "Botanical Art",
-      genre: "Illustration",
-      collectionType: "Modern"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-NAT-TRE-003-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-NAT-TRE-003-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-NAT-TRE-003-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-NAT-TRE-003-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-NAT-TRE-003-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-NAT-TRE-003-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-NAT-TRE-003-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-NAT-TRE-003-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-NAT-TRE-003-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-NAT-TRE-003-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Calm",
-      "Earthy",
-      "Peaceful",
-      "Organic",
-      "Mindful"
-    ],
-
-    series: "Nature Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "An elegant spiral notebook featuring a detailed tree canopy illustration inspired by nature and sustainability.",
-
-    description:
-      "This beautifully illustrated spiral notebook captures the peaceful view of tree canopies stretching toward the sky. With its organic lines and earthy green tones, it represents growth, grounding, and harmony with nature. Perfect for journaling, reflection, study notes, or eco-conscious creatives who love botanical art and mindful design.",
-
-    highlights: [
-      "Detailed botanical tree canopy artwork",
-      "Earthy green aesthetic design",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for journaling, reflection & study"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172564/spiral-notebook-tree-canopy-illustration-wooden-background_gupfkz.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "tree-canopy-cover.webp",
-        "tree-canopy-inner.webp"
-      ]
-    },
-
-    tags: [
-      "nature spiral notebook",
-      "botanical notebook",
-      "tree illustration journal",
-      "eco aesthetic notebook",
-      "green spiral book",
-      "earthy journal",
-      "mindful stationery",
-      "organic design notebook"
-    ],
-
-    seo: {
-      metaTitle: "Tree Canopy Spiral Notebook | Botanical Nature Art Journal",
-      metaDescription:
-        "Elegant spiral notebook featuring detailed tree canopy botanical artwork. Perfect for journaling, reflection, and nature lovers.",
-      keywords: [
-        "tree spiral notebook",
-        "botanical journal",
-        "nature art notebook",
-        "eco aesthetic notebook",
-        "green illustration journal"
-      ]
-    }
-
-  },
-  {
-    id: "sb-mot-004",
-    name: "You're Gonna Go Far Spiral Book",
-    slug: "youre-gonna-go-far-spiral-book",
-    sku: "SB-MOT-YGF-004",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Motivational",
-      universe: "Travel Aesthetic",
-      genre: "Landscape Photography",
-      collectionType: "Quotes"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-MOT-YGF-004-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-MOT-YGF-004-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-MOT-YGF-004-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-MOT-YGF-004-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-MOT-YGF-004-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-MOT-YGF-004-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-MOT-YGF-004-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-MOT-YGF-004-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-MOT-YGF-004-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-MOT-YGF-004-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Inspiring",
-      "Hopeful",
-      "Adventurous",
-      "Warm",
-      "Encouraging"
-    ],
-
-    series: "Motivational Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "An inspiring spiral notebook featuring a scenic countryside road with the uplifting message 'You're Gonna Go Far.'",
-
-    description:
-      "This motivational spiral notebook captures a winding countryside road symbolizing growth, journey, and endless possibilities. With warm earthy tones and a powerful uplifting message, it’s perfect for students, dreamers, graduates, and anyone chasing their goals. Ideal for journaling ambitions, planning future goals, or gifting someone who needs encouragement.",
-
-    highlights: [
-      "Inspirational quote cover design",
-      "Scenic countryside aesthetic",
-      "Warm earthy color palette",
-      "Premium matte finish cover",
-      "Perfect for journaling goals & gifting"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172565/spiral-notebook-youre-gonna-go-far-landscape-cover_pdqtij.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "youre-gonna-go-far-cover.webp",
-        "youre-gonna-go-far-inner.webp"
-      ]
-    },
-
-    tags: [
-      "motivational spiral notebook",
-      "inspirational quote notebook",
-      "travel aesthetic journal",
-      "goal planning notebook",
-      "graduation gift notebook",
-      "encouragement journal",
-      "landscape spiral book",
-      "student gift notebook"
-    ],
-
-    seo: {
-      metaTitle: "You're Gonna Go Far Spiral Notebook | Inspirational Travel Journal",
-      metaDescription:
-        "Motivational spiral notebook featuring scenic countryside road and uplifting quote. Perfect for students, goal setting, and gifting.",
-      keywords: [
-        "motivational spiral notebook",
-        "youre gonna go far notebook",
-        "travel aesthetic journal",
-        "goal planner notebook",
-        "inspirational gift notebook"
-      ]
-    }
-
-  },
-  {
-    id: "sb-trv-001",
-    name: "Travel Adventure Collage Spiral Book",
-    slug: "travel-adventure-collage-spiral-book",
-    sku: "SB-TRV-ADV-001",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Travel",
-      universe: "Adventure",
-      genre: "Collage Illustration",
-      collectionType: "Modern"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-TRV-ADV-001-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-TRV-ADV-001-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-TRV-ADV-001-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-TRV-ADV-001-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-TRV-ADV-001-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-TRV-ADV-001-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-TRV-ADV-001-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-TRV-ADV-001-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-TRV-ADV-001-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-TRV-ADV-001-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Adventurous",
-      "Wanderlust",
-      "Exciting",
-      "Youthful",
-      "Explorative"
-    ],
-
-    series: "Travel Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A vibrant travel-themed spiral notebook featuring passport stamps, city signboards, airplanes, and adventure-inspired artwork.",
-
-    description:
-      "This travel-inspired spiral notebook captures the excitement of exploring the world. Designed with collage-style illustrations including maps, passports, airplanes, signboards, and global destinations, it’s perfect for journaling trips, travel planning, bucket lists, and memory keeping. Ideal for wanderers, students, and adventure lovers.",
-
-    highlights: [
-      "Vibrant travel collage artwork",
-      "Adventure and wanderlust theme",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for travel journaling & planning"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172568/travel-themed-spiral-notebook-journal_k2cbii.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "travel-collage-cover.webp",
-        "travel-collage-inner.webp"
-      ]
-    },
-
-    tags: [
-      "travel spiral notebook",
-      "adventure journal",
-      "wanderlust notebook",
-      "travel planning notebook",
-      "vacation journal",
-      "student travel diary",
-      "explorer notebook",
-      "collage aesthetic journal"
-    ],
-
-    seo: {
-      metaTitle: "Travel Adventure Spiral Notebook | Wanderlust Journal",
-      metaDescription:
-        "Travel-themed spiral notebook with collage design featuring maps, passports, and adventure elements. Perfect for travel journaling and planning.",
-      keywords: [
-        "travel spiral notebook",
-        "wanderlust journal",
-        "adventure notebook",
-        "travel diary spiral book",
-        "travel planning notebook"
-      ]
-    }
-
-  },
-  {
-    id: "sb-mot-005",
-    name: "Trust The Flow Of Life Spiral Book",
-    slug: "trust-the-flow-of-life-spiral-book",
-    sku: "SB-MOT-TFL-005",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Motivational",
-      universe: "Self Growth",
-      genre: "Minimal Quote Design",
-      collectionType: "Quotes"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-MOT-TFL-005-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-MOT-TFL-005-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-MOT-TFL-005-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-MOT-TFL-005-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-MOT-TFL-005-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-MOT-TFL-005-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-MOT-TFL-005-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-MOT-TFL-005-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-MOT-TFL-005-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-MOT-TFL-005-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Calm",
-      "Positive",
-      "Mindful",
-      "Minimal",
-      "Encouraging"
-    ],
-
-    series: "Motivational Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A minimalist affirmation spiral notebook featuring the calming message 'Trust The Flow Of Life.'",
-
-    description:
-      "This modern spiral notebook features a clean and uplifting affirmation design that encourages patience, trust, and inner peace. With soft tones and minimal graphic elements, it’s perfect for journaling, daily reflections, goal setting, or mindfulness writing. Ideal for students, creatives, and anyone embracing personal growth.",
-
-    highlights: [
-      "Minimal affirmation quote design",
-      "Soft modern aesthetic",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for journaling & self-reflection"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172565/trust-the-flow-of-life-spiral-notebook-on-wooden-background_m8p0zy.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "trust-flow-cover.webp",
-        "trust-flow-inner.webp"
-      ]
-    },
-
-    tags: [
-      "motivational spiral notebook",
-      "affirmation journal",
-      "self growth notebook",
-      "mindfulness journal",
-      "minimal quote notebook",
-      "positive affirmation notebook",
-      "aesthetic spiral book",
-      "daily reflection journal"
-    ],
-
-    seo: {
-      metaTitle: "Trust The Flow Of Life Spiral Notebook | Minimal Affirmation Journal",
-      metaDescription:
-        "Minimal affirmation spiral notebook featuring 'Trust The Flow Of Life.' Perfect for journaling, mindfulness, and self-growth.",
-      keywords: [
-        "affirmation spiral notebook",
-        "trust the flow notebook",
-        "self growth journal",
-        "minimal quote notebook",
-        "mindfulness spiral book"
-      ]
-    }
-
-  },
-  {
-    id: "sb-vtg-001",
-    name: "Vintage Botanical Floral Spiral Book",
-    slug: "vintage-botanical-floral-spiral-book",
-    sku: "SB-VTG-BOT-001",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Vintage",
-      universe: "Botanical Art",
-      genre: "Classic Illustration",
-      collectionType: "Modern"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-VTG-BOT-001-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-VTG-BOT-001-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-VTG-BOT-001-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-VTG-BOT-001-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-VTG-BOT-001-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-VTG-BOT-001-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-VTG-BOT-001-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-VTG-BOT-001-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-VTG-BOT-001-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-VTG-BOT-001-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Elegant",
-      "Timeless",
-      "Earthy",
-      "Artistic",
-      "Scholarly"
-    ],
-
-    series: "Vintage Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A timeless spiral notebook featuring vintage botanical floral illustrations with a classic label frame design.",
-
-    description:
-      "This elegant spiral notebook showcases detailed vintage botanical artwork inspired by classic natural history prints. With muted earthy tones and an antique aesthetic, it brings a refined and scholarly charm to your everyday writing. Perfect for journaling, study notes, poetry writing, or creative reflection. Ideal for lovers of cottagecore, dark academia, and timeless design.",
-
-    highlights: [
-      "Vintage botanical floral illustration",
-      "Classic antique aesthetic design",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for journaling, poetry & study notes"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172566/vintage-botanical-floral-spiral-notebook-wood-background_gxupvl.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "vintage-botanical-cover.webp",
-        "vintage-botanical-inner.webp"
-      ]
-    },
-
-    tags: [
-      "vintage spiral notebook",
-      "botanical floral journal",
-      "cottagecore notebook",
-      "dark academia journal",
-      "antique aesthetic notebook",
-      "heritage art notebook",
-      "classic floral spiral book",
-      "poetry writing journal"
-    ],
-
-    seo: {
-      metaTitle: "Vintage Botanical Spiral Notebook | Antique Floral Journal",
-      metaDescription:
-        "Elegant vintage botanical spiral notebook with classic floral illustration. Perfect for journaling, poetry, and study.",
-      keywords: [
-        "vintage spiral notebook",
-        "botanical journal",
-        "antique floral notebook",
-        "cottagecore journal",
-        "dark academia spiral book"
-      ]
-    }
-
-  },
-  {
-    id: "sb-spr-004",
-    name: "God's Plan Inspirational Spiral Book",
-    slug: "gods-plan-inspirational-spiral-book",
-    sku: "SB-SPR-GDP-004",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Spiritual",
-      universe: "Faith & Inspiration",
-      genre: "Devotional Motivation",
-      collectionType: "Quotes"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-SPR-GDP-004-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-SPR-GDP-004-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-SPR-GDP-004-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-SPR-GDP-004-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-SPR-GDP-004-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-SPR-GDP-004-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-SPR-GDP-004-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-SPR-GDP-004-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-SPR-GDP-004-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-SPR-GDP-004-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Faithful",
-      "Powerful",
-      "Motivational",
-      "Strong",
-      "Devotional"
-    ],
-
-    series: "Spiritual Collection",
-    licenseType: "fan_art_inspired",
-
-    shortDescription:
-      "A powerful inspirational spiral notebook featuring a devotional faith-themed artwork with the message 'God's Plan Is Always Better Than Yours.'",
-
-    description:
-      "This inspirational spiral notebook blends faith, strength, and determination into one powerful design. Featuring devotional symbolism and a motivational message about trusting divine plans, it represents belief, resilience, and surrender to a higher purpose. Perfect for students, athletes, dreamers, and anyone drawing strength from faith. Ideal for journaling, goal setting, and daily reflection.",
-
-    highlights: [
-      "Faith-inspired motivational artwork",
-      "Powerful inspirational quote cover",
-      "Premium matte finish cover",
-      "Strong metal spiral binding",
-      "Perfect for journaling, prayer notes & goal planning"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172567/virat-kohli-hanuman-gods-plan-inspirational-notebook_uhijqa.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "gods-plan-cover.webp",
-        "gods-plan-inner.webp"
-      ]
-    },
-
-    tags: [
-      "faith spiral notebook",
-      "spiritual motivational journal",
-      "devotional notebook",
-      "god quote notebook",
-      "cricket inspiration notebook",
-      "hanuman inspired journal",
-      "belief journal",
-      "motivational spiral book"
-    ],
-
-    seo: {
-      metaTitle: "God's Plan Inspirational Spiral Notebook | Faith Journal",
-      metaDescription:
-        "Inspirational spiral notebook featuring faith-based artwork and powerful motivational quote. Perfect for journaling and spiritual reflection.",
-      keywords: [
-        "faith spiral notebook",
-        "god quote journal",
-        "spiritual motivational notebook",
-        "devotional spiral book",
-        "inspirational journal faith"
-      ]
-    }
-
-  },
-  {
-    id: "sb-adv-002",
-    name: "I Just Want To Explore Spiral Book",
-    slug: "i-just-want-to-explore-spiral-book",
-    sku: "SB-ADV-EXP-002",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Adventure",
-      universe: "Nature & Travel",
-      genre: "Outdoor Inspiration",
-      collectionType: "Quotes"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-ADV-EXP-002-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-ADV-EXP-002-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-ADV-EXP-002-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-ADV-EXP-002-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-ADV-EXP-002-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-ADV-EXP-002-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-ADV-EXP-002-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-ADV-EXP-002-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-ADV-EXP-002-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-ADV-EXP-002-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Adventurous",
-      "Free-Spirited",
-      "Wild",
-      "Dreamy",
-      "Motivational"
-    ],
-
-    series: "Adventure Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A bold adventure-themed spiral notebook featuring mountain scenery and the quote 'I Just Want To Explore.'",
-
-    description:
-      "This striking spiral notebook captures the spirit of exploration with a dramatic mountain landscape and vibrant wildflowers under a moody sky. The handwritten-style quote reflects freedom, curiosity, and the desire to see the world beyond limits. Perfect for travelers, hikers, dreamers, and anyone who craves adventure. Ideal for journaling travel plans, bucket lists, creative writing, or daily reflections.",
-
-    highlights: [
-      "Adventure-inspired mountain artwork",
-      "Bold handwritten motivational quote",
-      "Premium matte finish cover",
-      "Durable metal spiral binding",
-      "Perfect for travel journaling & goal planning"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172571/explore-nature-themed-spiral-notebook_h9okuo.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "explore-cover.webp",
-        "explore-inner.webp"
-      ]
-    },
-
-    tags: [
-      "adventure spiral notebook",
-      "explore journal",
-      "travel notebook",
-      "mountain aesthetic notebook",
-      "nature lover journal",
-      "wanderlust spiral book",
-      "outdoor inspiration notebook",
-      "exploration journal"
-    ],
-
-    seo: {
-      metaTitle: "I Just Want To Explore Spiral Notebook | Adventure Journal",
-      metaDescription:
-        "Adventure-themed spiral notebook featuring mountain landscape and motivational quote. Perfect for travel journaling and nature lovers.",
-      keywords: [
-        "adventure spiral notebook",
-        "explore journal",
-        "travel spiral book",
-        "mountain notebook",
-        "wanderlust journal"
-      ]
-    }
-
-  },
-  {
-    id: "sb-mot-003",
-    name: "Karma Mirror Spiral Book",
-    slug: "karma-mirror-spiral-book",
-    sku: "SB-MOT-KARMA-003",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Motivation",
-      universe: "Quotes & Attitude",
-      genre: "Bold Typography",
-      collectionType: "Statement"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-MOT-KARMA-003-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-MOT-KARMA-003-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-MOT-KARMA-003-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-MOT-KARMA-003-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-MOT-KARMA-003-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-MOT-KARMA-003-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-MOT-KARMA-003-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-MOT-KARMA-003-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-MOT-KARMA-003-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-MOT-KARMA-003-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Bold",
-      "Savage",
-      "Confident",
-      "Reflective",
-      "Empowering"
-    ],
-
-    series: "Attitude Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A bold teal spiral notebook featuring a powerful karma-inspired quote in modern typography.",
-
-    description:
-      "This striking spiral notebook features a bold mustard typography design on a calming teal background with the powerful statement 'Karma isn't a bitch; it's a mirror.' Designed for thinkers, leaders, and individuals who believe in accountability and growth. Perfect for journaling, goal-setting, self-reflection, or daily planning with confidence and clarity.",
-
-    highlights: [
-      "Minimal bold typography design",
-      "Strong motivational statement",
-      "Premium matte finish cover",
-      "Durable metal spiral binding",
-      "Ideal for journaling & self-reflection"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172572/karma-quote-teal-spiral-notebook_lo7ije.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "karma-cover.webp",
-        "karma-inner.webp"
-      ]
-    },
-
-    tags: [
-      "karma notebook",
-      "motivational spiral notebook",
-      "attitude journal",
-      "bold quote notebook",
-      "self reflection journal",
-      "empowerment notebook",
-      "minimal typography notebook",
-      "statement spiral book"
-    ],
-
-    seo: {
-      metaTitle: "Karma Mirror Spiral Notebook | Bold Motivational Journal",
-      metaDescription:
-        "Minimal bold spiral notebook featuring a powerful karma quote. Perfect for journaling, reflection, and daily inspiration.",
-      keywords: [
-        "karma spiral notebook",
-        "motivational journal",
-        "bold quote notebook",
-        "attitude spiral book",
-        "self reflection notebook"
-      ]
-    }
-
-  },
-  {
-    id: "sb-ret-004",
-    name: "Out Of Mind Retro Spiral Book",
-    slug: "out-of-mind-retro-spiral-book",
-    sku: "SB-RET-OUTMIND-004",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Retro",
-      universe: "Typography & Aesthetic",
-      genre: "Abstract Swirl",
-      collectionType: "Statement"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-RET-OUTMIND-004-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-RET-OUTMIND-004-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-RET-OUTMIND-004-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-RET-OUTMIND-004-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-RET-OUTMIND-004-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-RET-OUTMIND-004-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-RET-OUTMIND-004-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-RET-OUTMIND-004-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-RET-OUTMIND-004-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-RET-OUTMIND-004-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Trendy",
-      "Playful",
-      "Creative",
-      "Aesthetic",
-      "Bold"
-    ],
-
-    series: "Retro Wave Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A retro-inspired spiral notebook featuring abstract wavy patterns with bold 'Out Of Mind' typography.",
-
-    description:
-      "This stylish spiral notebook blends earthy retro tones with flowing abstract wave patterns and bold modern typography. The phrase 'Out Of Mind' captures a carefree, expressive vibe perfect for creatives and free thinkers. Ideal for journaling, doodling, creative writing, or daily planning. A must-have for lovers of vintage aesthetics and modern graphic design.",
-
-    highlights: [
-      "Retro abstract wavy design",
-      "Bold modern typography",
-      "Earth-tone aesthetic palette",
-      "Premium matte finish cover",
-      "Durable metal spiral binding"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172573/retro-wavy-out-of-mind-spiral-notebook_lgoqun.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "outofmind-cover.webp",
-        "outofmind-inner.webp"
-      ]
-    },
-
-    tags: [
-      "retro spiral notebook",
-      "abstract aesthetic notebook",
-      "out of mind journal",
-      "wavy pattern notebook",
-      "vintage style spiral book",
-      "earth tone notebook",
-      "creative writing journal",
-      "trendy aesthetic notebook"
-    ],
-
-    seo: {
-      metaTitle: "Out Of Mind Retro Spiral Notebook | Abstract Aesthetic Journal",
-      metaDescription:
-        "Retro-inspired spiral notebook with abstract wavy patterns and bold typography. Perfect for creative journaling and aesthetic lovers.",
-      keywords: [
-        "retro spiral notebook",
-        "abstract journal",
-        "aesthetic notebook",
-        "wavy design notebook",
-        "creative spiral book"
-      ]
-    }
-
-  },
-  {
-    id: "sb-bold-005",
-    name: "Blazing Flame Spiral Book",
-    slug: "blazing-flame-spiral-book",
-    sku: "SB-BOLD-FLAME-005",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Bold",
-      universe: "Graphic & Street",
-      genre: "Flame Art",
-      collectionType: "Minimal Graphic"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-BOLD-FLAME-005-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-BOLD-FLAME-005-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-BOLD-FLAME-005-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-BOLD-FLAME-005-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-BOLD-FLAME-005-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-BOLD-FLAME-005-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-BOLD-FLAME-005-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-BOLD-FLAME-005-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-BOLD-FLAME-005-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-BOLD-FLAME-005-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Intense",
-      "Fearless",
-      "Powerful",
-      "Edgy",
-      "Energetic"
-    ],
-
-    series: "Fire Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "A bold spiral notebook featuring striking red and yellow flame artwork on a deep black background.",
-
-    description:
-      "This eye-catching spiral notebook features a dramatic flame design rising against a black backdrop, symbolizing passion, power, and unstoppable energy. Designed for those who move with intensity and confidence. Perfect for journaling, sketching, planning, or capturing big ideas. A bold statement piece for students, creators, and anyone who brings heat to everything they do.",
-
-    highlights: [
-      "Striking flame graphic design",
-      "High-contrast black background",
-      "Bold street-style aesthetic",
-      "Premium matte finish cover",
-      "Durable metal spiral binding"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172575/spiral-notebook-flame-design-black-cover_crnjgt.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "flame-cover.webp",
-        "flame-inner.webp"
-      ]
-    },
-
-    tags: [
-      "flame spiral notebook",
-      "fire design journal",
+      "motivational notebook",
       "edgy notebook",
-      "street style spiral book",
-      "bold graphic notebook",
-      "aesthetic black notebook",
-      "creative journal",
-      "cool spiral notebook"
-    ],
-
-    seo: {
-      metaTitle: "Blazing Flame Spiral Notebook | Bold Fire Design Journal",
-      metaDescription:
-        "Bold spiral notebook featuring striking flame artwork on a black background. Perfect for journaling, sketching, and creative expression.",
-      keywords: [
-        "flame spiral notebook",
-        "fire design notebook",
-        "black aesthetic journal",
-        "bold graphic spiral book",
-        "edgy notebook design"
-      ]
-    }
-
-  },
-  {
-    id: "sb-bold-006",
-    name: "Stay Weird Spiral Notebook",
-    slug: "stay-weird-spiral-notebook",
-    sku: "SB-BOLD-WEIRD-006",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
-
-    collections: {
-      theme: "Typography",
-      universe: "Trendy & Youth",
-      genre: "Retro Bold Text",
-      collectionType: "Minimal Statement"
-    },
-    brand: "pragyaprint",
-    pricing: {
-      basePrice: 199,
-      salePrice: 149,
-      discountPercentage: 33.56,
-      currency: "INR",
-      isTaxable: true
-    },
-
-    specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
-      orientation: "portrait"
-    },
-
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-BOLD-WEIRD-006-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-BOLD-WEIRD-006-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-BOLD-WEIRD-006-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-BOLD-WEIRD-006-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-BOLD-WEIRD-006-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-BOLD-WEIRD-006-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-BOLD-WEIRD-006-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-BOLD-WEIRD-006-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-BOLD-WEIRD-006-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-BOLD-WEIRD-006-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
-
-    inventory: {
-      totalStock: 140,
-      stockStatus: "in_stock",
-      lowStockThreshold: 20
-    },
-
-    productionTime: "2–3 business days",
-
-    shipping: {
-      weight: 0.45,
-      dimensions: {
-        width: 15,
-        height: 21,
-        depth: 2
-      },
-      shippingClass: "standard_box"
-    },
-
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
-    status: "active",
-    visibility: "public",
-    isFeatured: true,
-    isNewArrival: true,
-
-    moods: [
-      "Confident",
-      "Playful",
-      "Rebellious",
-      "Authentic",
-      "Creative"
-    ],
-
-    series: "Bold Statement Collection",
-    licenseType: "original_design",
-
-    shortDescription:
-      "Minimal spiral notebook featuring bold red retro typography that says 'Stay Weird'.",
-
-    description:
-      "This bold spiral notebook features eye-catching retro-style red typography on a clean neutral background, celebrating individuality and self-expression. Designed for creators, dreamers, and unapologetically unique personalities. Perfect for journaling, sketching, note-taking, or planning your next big idea. A simple yet powerful statement piece that stands out effortlessly.",
-
-    highlights: [
-      "Bold retro typography design",
-      "Minimal clean aesthetic",
-      "High-contrast red statement text",
-      "Premium matte finish cover",
-      "Durable metal spiral binding"
-    ],
-
-    media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172574/stay-weird-spiral-notebook-mockup-wooden-background_tdwi42.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
-      images: [
-        "stay-weird-cover.webp",
-        "stay-weird-inner.webp"
-      ]
-    },
-
-    tags: [
-      "stay weird notebook",
-      "typography spiral notebook",
-      "minimal aesthetic journal",
-      "retro text notebook",
-      "gen z notebook",
-      "bold statement journal",
+      "art collage notebook",
       "creative notebook",
-      "quirky spiral book"
+      "A4 notebook",
+      "modern notebook",
+      "premium notebook"
     ],
 
     seo: {
-      metaTitle: "Stay Weird Spiral Notebook | Bold Retro Typography Journal",
+      metaTitle: "Edgy Motivational A4 Notebook — Comfort Zone Breaker",
       metaDescription:
-        "Minimal spiral notebook featuring bold red retro typography that says 'Stay Weird'. Perfect for journaling, sketching, and creative expression.",
+        "Bold A4 notebook with artistic collage design and powerful motivation. Perfect for creatives and students.",
       keywords: [
-        "stay weird notebook",
-        "retro typography notebook",
-        "minimal spiral journal",
-        "bold text notebook",
-        "aesthetic statement notebook"
+        "motivational notebook",
+        "art notebook",
+        "creative notebook",
+        "A4 notebook",
+        "cool notebook"
       ]
-    }
+    },
 
+    productionTime: "1–2 business days",
+
+    shipping: {
+      weight: 0.55,
+      dimensions: {
+        width: 21,
+        height: 29.7,
+        depth: 2
+      },
+      shippingClass: "standard_box"
+    },
+
+    rating: 4.7,
+    reviewsCount: 84,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
   },
   {
-    id: "sb-alt-007",
-    name: "Hellfire Tattoo Aesthetic Spiral Notebook",
-    slug: "hellfire-tattoo-aesthetic-spiral-notebook",
-    sku: "SB-ALT-HELLFIRE-007",
-    productType: "spiral_book",
-    category: "Spiral Books",
-    subCategory: "Single Spiral Books",
+    id: "nb-aes-001",
+    name: "Offline Cool Aesthetic Notebook",
+    slug: "offline-cool-aesthetic-notebook",
+    sku: "NB-AES-001",
 
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
     collections: {
-      theme: "Pop Culture Inspired",
-      universe: "Dark & Alternative",
-      genre: "Tattoo Illustration",
-      collectionType: "Fandom Aesthetic"
+      franchise: "Minimal",
     },
+
+    subjectTheme: "Aesthetic",
+    designTheme: "Minimal Attitude",
+
     brand: "pragyaprint",
+    series: "Gen-Z Aesthetic Series",
+
+    shortDescription:
+      "Minimal A4 notebook with bold aesthetic typography and modern attitude design.",
+
+    description:
+      "A premium A4  notebook featuring a clean minimal layout paired with bold, edgy typography. Designed for the Gen-Z aesthetic, this notebook makes a strong statement while remaining sleek and stylish — perfect for journaling, school, or everyday notes.",
+
+    highlights: [
+      "Minimal aesthetic design",
+      "Bold attitude typography",
+      "Clean modern layout",
+      "Highly relatable Gen-Z vibe",
+      "Large A4 size for comfortable writing",
+      "Strong  binding"
+    ],
+
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      { variantId: "NB-AES-001-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-AES-001-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-AES-001-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-AES-001-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-AES-001-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-AES-001-400", pages: 400, price: 179, stock: 120 }
+    ],
+
     pricing: {
-      basePrice: 199,
-      salePrice: 149,
+      basePrice: 149,
+      salePrice: 99,
       discountPercentage: 33.56,
       currency: "INR",
       isTaxable: true
     },
 
     specifications: {
-      pages: 120,
-      paperGSM: 70,
-      rulingType: "plain",
-      bindingType: "spiral",
-      coverFinish: "matte",
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
       orientation: "portrait"
     },
 
-    options: {
-      size: ["A5", "A4"],
-      pageMap: {
-        A5: [120, 160, 180, 200],
-        A4: [120, 160, 200, 240, 300, 400]
-      },
-      rulingType: ["Unruled", "Ruled", "Dated", "Dotted", "Grid"]
-    },
-
-    variants: [
-      { variantId: "SB-ALT-HELLFIRE-007-A5-120", size: "A5", pages: 120, price: 149, stock: 80 },
-      { variantId: "SB-ALT-HELLFIRE-007-A5-160", size: "A5", pages: 160, price: 169, stock: 80 },
-      { variantId: "SB-ALT-HELLFIRE-007-A5-180", size: "A5", pages: 180, price: 189, stock: 80 },
-      { variantId: "SB-ALT-HELLFIRE-007-A5-200", size: "A5", pages: 200, price: 199, stock: 80 },
-      { variantId: "SB-ALT-HELLFIRE-007-A4-120", size: "A4", pages: 120, price: 110, stock: 60 },
-      { variantId: "SB-ALT-HELLFIRE-007-A4-160", size: "A4", pages: 160, price: 120, stock: 60 },
-      { variantId: "SB-ALT-HELLFIRE-007-A4-200", size: "A4", pages: 200, price: 130, stock: 60 },
-      { variantId: "SB-ALT-HELLFIRE-007-A4-240", size: "A4", pages: 240, price: 140, stock: 60 },
-      { variantId: "SB-ALT-HELLFIRE-007-A4-300", size: "A4", pages: 300, price: 160, stock: 60 },
-      { variantId: "SB-ALT-HELLFIRE-007-A4-400", size: "A4", pages: 400, price: 199, stock: 60 }
-    ],
+    relatedCombos: [],
 
     inventory: {
-      totalStock: 140,
+      totalStock: 270,
       stockStatus: "in_stock",
-      lowStockThreshold: 20
+      lowStockThreshold: 30
     },
 
-    productionTime: "2–3 business days",
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594056/miles-morales-spiderman-notebook-social-media-flat-lay_ean5v5.webp",
+      back: "notebook-back.webp",
+      images: [
+        "offline-cool-aesthetic-notebook-inside.webp",
+        "offline-cool-aesthetic-notebook-binding.webp"
+      ]
+    },
+
+    tags: [
+      "aesthetic notebook",
+      "gen z notebook",
+      "minimal notebook",
+      "cool notebook",
+      "A4 notebook",
+      "modern notebook",
+      "premium notebook"
+    ],
+
+    seo: {
+      metaTitle: "Aesthetic A4 Notebook — Minimal Attitude Design",
+      metaDescription:
+        "Stylish A4 notebook with bold minimal aesthetic design. Perfect for modern students and creatives.",
+      keywords: [
+        "aesthetic notebook",
+        "minimal notebook",
+        "cool notebook",
+        "A4 notebook",
+        "modern notebook"
+      ]
+    },
+
+    productionTime: "1–2 business days",
 
     shipping: {
-      weight: 0.45,
+      weight: 0.55,
       dimensions: {
-        width: 15,
-        height: 21,
+        width: 21,
+        height: 29.7,
         depth: 2
       },
       shippingClass: "standard_box"
     },
 
-    rating: 4.8,
-    reviewsCount: 94,
-    copyrightNote:
-      "Original modern artwork. Designed for personal and creative use.",
+    rating: 4.7,
+    reviewsCount: 84,
+
     status: "active",
     visibility: "public",
     isFeatured: true,
-    isNewArrival: true,
+    isNewArrival: true
+  },
+  {
+    id: "nb-aes-002",
+    name: "Serial Chiller Aesthetic Notebook",
+    slug: "serial-chiller-aesthetic-notebook",
+    sku: "NB-AES-002",
 
-    moods: [
-      "Dark",
-      "Edgy",
-      "Rebellious",
-      "Mystical",
-      "Alternative"
-    ],
+    productType: "notebook",
+    category: "Notebooks",
+    subCategory: "Single",
+    collections: {
+      franchise: "Minimal",
+    },
 
-    series: "Alt Culture Collection",
-    licenseType: "fan_art_inspired",
+    subjectTheme: "Aesthetic",
+    designTheme: "Bold Typography",
+
+    brand: "pragyaprint",
+    series: "Gen-Z Aesthetic Series",
 
     shortDescription:
-      "Tattoo-style spiral notebook featuring bold red and black dark fantasy illustrations.",
+      "Minimal A4 notebook with bold typography and edgy aesthetic vibe.",
 
     description:
-      "This bold spiral notebook features a striking tattoo-inspired design filled with dark fantasy symbols, axes, swords, demons, and occult-style graphics in red, black, and gold tones. Perfect for fans of retro horror aesthetics, tabletop fantasy vibes, and alternative street culture. Ideal for journaling, sketching, campaign planning, or capturing creative chaos. A powerful statement piece for those who embrace the darker side of art and imagination.",
+      "A premium A4  notebook featuring a striking red background and bold typographic design. Clean, modern, and attention-grabbing, this notebook is perfect for students and creatives who want a stylish statement piece for everyday writing.",
 
     highlights: [
-      "Tattoo-style illustrated cover",
-      "Dark fantasy aesthetic design",
-      "High-contrast red, black & gold palette",
-      "Premium matte finish cover",
-      "Durable metal spiral binding"
+      "Bold high-contrast typography design",
+      "Clean minimal aesthetic",
+      "Eye-catching red cover",
+      "Unisex modern appeal",
+      "Perfect for school, college, or journaling",
+      "Large A4 size for comfortable writing",
+      "Durable  binding"
     ],
 
+    options: {
+      pages: [120, 160, 200, 240, 300, 400],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      { variantId: "NB-AES-002-120", pages: 120, price: 99, stock: 150 },
+      { variantId: "NB-AES-002-160", pages: 160, price: 109, stock: 150 },
+      { variantId: "NB-AES-002-200", pages: 200, price: 119, stock: 120 },
+      { variantId: "NB-AES-002-240", pages: 240, price: 139, stock: 120 },
+      { variantId: "NB-AES-002-300", pages: 300, price: 149, stock: 120 },
+      { variantId: "NB-AES-002-400", pages: 400, price: 179, stock: 120 }
+    ],
+
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33.56,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte",
+      orientation: "portrait"
+    },
+
+    relatedCombos: [],
+
+    inventory: {
+      totalStock: 270,
+      stockStatus: "in_stock",
+      lowStockThreshold: 30
+    },
+
     media: {
-      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1769172576/stranger-things-hellfire-club-tattoo-style-spiral-notebook_q1qzuq.webp",
-      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1770914541/PragyaPrint_deerpy.webp",
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594057/serial-chiller-red--notebook-desk-flatlay_gqtlhp.webp",
+      back: "notebook-back.webp",
       images: [
-        "hellfire-cover.webp",
-        "hellfire-inner.webp"
+        "serial-chiller-notebook-inside.webp",
+        "serial-chiller-notebook-binding.webp"
       ]
     },
 
     tags: [
-      "dark aesthetic notebook",
-      "tattoo style spiral notebook",
-      "fantasy journal",
-      "gothic notebook",
-      "alt culture journal",
-      "retro horror notebook",
-      "edgy spiral book",
-      "fan art inspired notebook"
+      "aesthetic notebook",
+      "typography notebook",
+      "minimal notebook",
+      "cool notebook",
+      "A4 notebook",
+      "modern notebook",
+      "premium notebook"
     ],
 
     seo: {
-      metaTitle: "Hellfire Tattoo Aesthetic Spiral Notebook | Dark Fantasy Journal",
+      metaTitle: "Aesthetic Typography A4 Notebook — Serial Chiller",
       metaDescription:
-        "Dark fantasy tattoo-style spiral notebook featuring bold red and black illustrations. Perfect for journaling, sketching, and alternative culture lovers.",
+        "Bold minimal A4 notebook with striking typography design. Stylish and eye-catching for everyday use.",
       keywords: [
-        "dark aesthetic notebook",
-        "tattoo style notebook",
-        "fantasy spiral journal",
-        "gothic notebook",
-        "alt culture journal"
+        "aesthetic notebook",
+        "typography notebook",
+        "minimal notebook",
+        "A4 notebook",
+        "cool notebook"
       ]
-    }
+    },
 
+    productionTime: "1–2 business days",
+
+    shipping: {
+      weight: 0.55,
+      dimensions: {
+        width: 21,
+        height: 29.7,
+        depth: 2
+      },
+      shippingClass: "standard_box"
+    },
+
+    rating: 4.7,
+    reviewsCount: 84,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
   },
+  {
+    id: "nb-combo-marvel-001",
+    name: "The Big Three Notebook Combo",
+    slug: "marvel-big-three-notebook-combo",
+    sku: "NB-COMBO-MARVEL-001",
 
+    productType: "notebook_combo",
+    category: "Notebooks",
+    subCategory: "Combo",
+    collections: {
+      franchise: "Minimal",
+    },
 
+    comboType: "Marvel",
+
+    includesNotebooks: [
+      "Thor Notebook",
+      "Iron Man Notebook",
+      "Captain America Notebook"
+    ],
+
+    quantityIncluded: 3,
+
+    subjectTheme: ["Superhero", "Action", "Pop Culture"],
+    targetAudience: ["Teens", "Fans", "Gamers", "Gift Buyers"],
+
+    brand: "pragyaprint",
+    series: "Pop Culture Action Series",
+
+    shortDescription:
+      "Power-packed superhero notebook combo featuring the iconic Big Three.",
+
+    description:
+      "This premium combo includes three action-packed A4  notebooks inspired by legendary superhero icons. Designed for fans of epic battles, heroism, and cinematic universes, this bundle delivers bold visuals and unmatched shelf appeal — perfect for school, college, or gifting.",
+
+    highlights: [
+      "Iconic superhero trio bundle",
+      "Highly eye-catching cinematic designs",
+      "Perfect gift for fans",
+      "Premium pop-culture collection",
+      "Great for school or personal use"
+    ],
+
+    pricing: {
+      basePrice: 299,
+      salePrice: 249,
+      discountPercentage: 16,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte"
+    },
+
+    options: {
+      pages: [100, 200, 300],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      {
+        variantId: "NB-COMBO-MARVEL-001-100",
+        pages: 100,
+        price: 249,
+        stock: 150
+      },
+      {
+        variantId: "NB-COMBO-MARVEL-001-200",
+        pages: 200,
+        price: 349,
+        stock: 150
+      },
+      {
+        variantId: "NB-COMBO-MARVEL-001-300",
+        pages: 300,
+        price: 449,
+        stock: 150
+      }
+    ],
+
+    inventory: {
+      totalStock: 120,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594003/marvel-avengers--notebooks-thor-captain-america-iron-man_fzkgkz.webp",
+      back: "notebook-back.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1771594002/iron-man--notebook-office-desk-setup_tapegs.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1771594002/thor-marvel--notebook-desk-setup_e2fjeq.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1771594002/captain-america-mjolnir--notebook-desk_msefrp.webp"
+      ]
+    },
+
+    tags: [
+      "marvel combo",
+      "superhero notebook set",
+      "big three combo",
+      "pop culture bundle",
+      "gift combo"
+    ],
+
+    seo: {
+      metaTitle: "Marvel Big Three Notebook Combo — Thor Iron Man Captain America",
+      metaDescription:
+        "Premium superhero notebook combo featuring the iconic Big Three. Perfect for fans, students, and gifting.",
+      keywords: [
+        "marvel notebook combo",
+        "superhero notebooks",
+        "avengers combo",
+        "gift notebook set",
+        "fan merchandise notebook"
+      ]
+    },
+
+    productionTime: "1–2 business days",
+
+    shipping: {
+      weight: 1.5,
+      dimensions: {
+        width: 21,
+        height: 29.7,
+        depth: 6
+      },
+      shippingClass: "standard_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 72,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "nb-combo-pcm-001",
+    name: "PCM Study Notebook Combo",
+    slug: "pcm-study-notebook-combo",
+    sku: "NB-COMBO-PCM-001",
+
+    productType: "notebook_combo",
+    category: "Notebooks",
+    subCategory: "Combo",
+    collections: {
+      franchise: "Minimal",
+    },
+
+    comboType: "PCM",
+
+    includesNotebooks: [
+      "Physics Study Notebook",
+      "Chemistry Study Notebook",
+      "Mathematics Study Notebook"
+    ],
+
+    quantityIncluded: 3,
+
+    subjectTheme: ["Physics", "Chemistry", "Mathematics"],
+    targetAudience: ["Science Students", "School", "Coaching"],
+
+    brand: "pragyaprint",
+    series: "Student Combo Series",
+
+    shortDescription:
+      "Complete PCM notebook combo designed for science students.",
+
+    description:
+      "This PCM combo pack includes Physics, Chemistry, and Mathematics notebooks, helping science students stay organized and focused. A cost-saving bundle perfect for school, coaching classes, and exam preparation.",
+
+    highlights: [
+      "Complete science subject bundle",
+      "Cost-saving combo pack",
+      "Organized subject-wise learning",
+      "Perfect for school & coaching use"
+    ],
+
+    pricing: {
+      basePrice: 299,
+      salePrice: 249,
+      discountPercentage: 16,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte"
+    },
+
+    options: {
+      pages: [100, 200, 300],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      {
+        variantId: "NB-COMBO-PCM-001-100",
+        pages: 100,
+        price: 249,
+        stock: 150
+      },
+      {
+        variantId: "NB-COMBO-PCM-001-200",
+        pages: 200,
+        price: 349,
+        stock: 150
+      },
+      {
+        variantId: "NB-COMBO-PCM-001-300",
+        pages: 300,
+        price: 449,
+        stock: 150
+      }
+    ],
+
+    inventory: {
+      totalStock: 120,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594034/custom-subject-themed-notebook-covers-chemistry-physics-math_a90hep.webp",
+      back: "notebook-back.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1771594033/physics-themed--notebook-desk-flatlay_wequvo.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1771594033/chemistry--notebook-desk-setup_q7sc6q.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1771594032/matematica-themed--notebook-desk-flatlay_iwf58w.webp",
+      ]
+    },
+
+    tags: [
+      "pcm combo",
+      "science notebook combo",
+      "student combo pack",
+      "school notebooks bundle"
+    ],
+
+    seo: {
+      metaTitle: "PCM Notebook Combo for Science Students",
+      metaDescription:
+        "Cost-saving PCM notebook combo including Physics, Chemistry & Mathematics notebooks. Perfect for school & coaching.",
+      keywords: [
+        "pcm combo notebooks",
+        "science combo",
+        "student bundle",
+        "school notebooks"
+      ]
+    },
+
+    productionTime: "1–2 business days",
+
+    shipping: {
+      weight: 1.5,
+      dimensions: {
+        width: 21,
+        height: 29.7,
+        depth: 6
+      },
+      shippingClass: "standard_box"
+    },
+
+    rating: 4.8,
+    reviewsCount: 56,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "nb-combo-mot-001",
+    name: "Motivational Notebook Combo",
+    slug: "motivational-notebook-combo",
+    sku: "NB-COMBO-MOT-001",
+
+    productType: "notebook_combo",
+    category: "Notebooks",
+    subCategory: "Combo",
+    collections: {
+      franchise: "Minimal",
+    },
+
+    comboType: "Motivational",
+
+    includesNotebooks: [
+      "Take It Day by Day Notebook",
+      "Move at Your Own Pace Notebook",
+      "Bet on Yourself Notebook"
+    ],
+
+    quantityIncluded: 3,
+
+    subjectTheme: ["Motivation", "Positive", "Self Growth"],
+    targetAudience: ["Students", "Teens", "Journaling", "Gift Buyers"],
+
+    brand: "pragyaprint",
+    series: "Motivation Series",
+
+    shortDescription:
+      "Positive motivational notebook combo designed to inspire daily progress.",
+
+    description:
+      "This uplifting combo includes three A4  notebooks featuring encouraging messages and cute character designs. Perfect for students, journaling, or anyone who wants daily motivation while writing. A thoughtful gift bundle that combines style with positivity.",
+
+    highlights: [
+      "Encouraging motivational themes",
+      "Cute and relatable designs",
+      "Perfect for journaling and school use",
+      "Great gift option",
+      "Positive daily inspiration"
+    ],
+
+    pricing: {
+      basePrice: 299,
+      salePrice: 249,
+      discountPercentage: 16,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      size: "A4",
+      paperGSM: 60,
+      bindingType: "",
+      coverFinish: "Matte"
+    },
+
+    options: {
+      pages: [100, 200, 300],
+      rulingType: ["Ruled", "Unruled"]
+    },
+
+    variants: [
+      {
+        variantId: "NB-COMBO-MOT-001-100",
+        pages: 100,
+        price: 249,
+        stock: 150
+      },
+      {
+        variantId: "NB-COMBO-MOT-001-200",
+        pages: 200,
+        price: 349,
+        stock: 150
+      },
+      {
+        variantId: "NB-COMBO-MOT-001-300",
+        pages: 300,
+        price: 449,
+        stock: 150
+      }
+    ],
+
+    inventory: {
+      totalStock: 120,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1771594013/motivational--notebooks-set_miblyk.webp",
+      back: "notebook-back.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1771594013/bet-on-your-damn-self-motivational-notebook-illustration_f14kfe.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1771594013/motivational-notebook-move-at-your-own-pace-snail-graphic_tuc51h.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1771594013/motivational-take-it-day-by-day-notebook-flat-lay_phqvfm.webp",
+      ]
+    },
+
+    tags: [
+      "motivational combo",
+      "inspirational notebooks",
+      "positive notebook set",
+      "student gift combo",
+      "journaling notebooks bundle"
+    ],
+
+    seo: {
+      metaTitle: "Motivational Notebook Combo — Inspiring Study Pack",
+      metaDescription:
+        "Positive A4 notebook combo with uplifting designs. Perfect for students, journaling, and gifting.",
+      keywords: [
+        "motivational notebooks",
+        "inspirational notebook set",
+        "student gift combo",
+        "positive journal notebooks"
+      ]
+    },
+
+    productionTime: "1–2 business days",
+
+    shipping: {
+      weight: 1.5,
+      dimensions: {
+        width: 21,
+        height: 29.7,
+        depth: 6
+      },
+      shippingClass: "standard_box"
+    },
+
+    rating: 4.8,
+    reviewsCount: 56,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
 ];
 
 export const LOCAL_SERVICES = [
+  {
+
+    id: "dj-gentle-blue-marble-001",
+    name: "Be Gentle With Yourself Premium Journal",
+    slug: "be-gentle-with-yourself-premium-journal",
+    sku: "DJ-BGWM-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Aesthetic Quotes Collection",
+
+    collections: {
+      franchise: "Quotes",
+      theme: "Blue Marble",
+      universe: "Minimal Aesthetic",
+      genre: "Motivational"
+    },
+
+    moods: ["Calm", "Minimal", "Aesthetic", "Reflective", "Peaceful"],
+
+    shortDescription:
+      "A calming aesthetic journal featuring a soothing blue marble design with a self-growth quote.",
+
+    description:
+      "Designed to inspire mindfulness and self-reflection, this premium journal blends minimal aesthetics with a calming blue marble design. Featuring the quote 'Be Gentle With Yourself', it serves as a perfect companion for journaling, planning, sketching, or expressing your thoughts with clarity and peace.",
+
+    highlights: [
+      "Premium matte laminated aesthetic cover",
+      "Smooth high-quality pages for writing & sketching",
+      "Elegant durable wiro binding",
+      "Minimal calming design with motivational quote",
+      "Perfect for gifting & daily journaling"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-BGWM-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-BGWM-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-BGWM-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-BGWM-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-BGWM-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-BGWM-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-BGWM-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-BGWM-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-BGWM-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-BGWM-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-BGWM-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-BGWM-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-BGWM-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-BGWM-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-BGWM-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-BGWM-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-BGWM-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-BGWM-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-BGWM-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-BGWM-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931054/be-gentle-with-yourself-blue-marble-spiral-notebook_ydroqs.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929920/be-gentle-with-yourself-spiral-notebook-blue-fluid-art_dfo6va.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "motivational journal",
+      "self growth diary",
+      "aesthetic notebook",
+      "blue marble journal",
+      "mental wellness journal",
+      "gift journal"
+    ],
+
+    seo: {
+      metaTitle: "Be Gentle With Yourself Journal | Aesthetic Blue Marble Diary",
+      metaDescription:
+        "A calming blue marble aesthetic journal with a self-growth quote. Perfect for journaling, planning, and mindfulness.",
+      keywords: [
+        "motivational journal",
+        "self care diary",
+        "aesthetic notebook",
+        "blue marble journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-cr7-stripes-001",
+    name: "CR7 Cristiano Stripes Premium Journal",
+    slug: "cr7-cristiano-stripes-premium-journal",
+    sku: "DJ-CR7S-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Sports Icons Collection",
+
+    collections: {
+      franchise: "Graphic Art",
+      theme: "CR7 Stripes",
+      universe: "Football",
+      genre: "Sports Motivation"
+    },
+
+    moods: [
+      "Energetic",
+      "Bold",
+      "Motivational",
+      "Powerful",
+      "Focused"
+    ],
+
+    shortDescription:
+      "A bold CR7-inspired journal featuring a dynamic striped design symbolizing passion and performance.",
+
+    description:
+      "Inspired by one of football’s greatest icons, this premium journal captures the energy, discipline, and winning mindset of Cristiano Ronaldo. The striking red gradient stripes and iconic CR7 stance make it perfect for those who chase goals relentlessly—whether in sports, studies, or life.",
+
+    highlights: [
+      "Premium matte laminated sports design cover",
+      "High-quality smooth pages for writing & planning",
+      "Durable premium wiro binding",
+      "CR7 inspired bold visual design",
+      "Perfect for students, athletes & fans"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-CR7S-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-CR7S-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-CR7S-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-CR7S-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-CR7S-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-CR7S-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-CR7S-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-CR7S-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-CR7S-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-CR7S-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-CR7S-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-CR7S-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-CR7S-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-CR7S-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-CR7S-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-CR7S-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-CR7S-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-CR7S-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-CR7S-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-CR7S-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931054/cristiano-ronaldo-cr7-manchester-united-spiral-notebook_j7qijr.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929918/cristiano-ronaldo-manchester-united-custom-notebook_fksvlu.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "cr7 notebook",
+      "ronaldo journal",
+      "football diary",
+      "sports notebook",
+      "motivational journal",
+      "gym mindset journal"
+    ],
+
+    seo: {
+      metaTitle: "CR7 Cristiano Ronaldo Journal | Football Motivational Notebook",
+      metaDescription:
+        "CR7 inspired premium journal with bold red stripes design. Perfect for football fans, athletes, and goal-driven individuals.",
+      keywords: [
+        "cr7 notebook",
+        "ronaldo diary",
+        "football journal",
+        "sports motivational notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-dont-give-up-001",
+    name: "Don't Give Up Premium Motivational Journal",
+    slug: "dont-give-up-premium-motivational-journal",
+    sku: "DJ-DGU-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Motivation Core Collection",
+
+    collections: {
+      franchise: "Graphic Art",
+      theme: "Bold Typography",
+      universe: "Self Growth",
+      genre: "Motivational"
+    },
+
+    moods: [
+      "Bold",
+      "Energetic",
+      "Determined",
+      "Focused",
+      "Resilient"
+    ],
+
+    shortDescription:
+      "A bold motivational journal designed to push you forward with a powerful 'Don't Give Up' message.",
+
+    description:
+      "Built for those who refuse to quit, this premium journal features a striking bold typography design with the powerful message 'Don't Give Up'. Designed to fuel persistence and discipline, it's perfect for goal tracking, journaling, and staying committed to your journey. A constant reminder that success comes to those who keep going.",
+
+    highlights: [
+      "Premium matte laminated bold typography cover",
+      "High-quality pages for writing, planning & tracking goals",
+      "Strong durable wiro binding",
+      "High-impact motivational design",
+      "Ideal for students, entrepreneurs & self-growth enthusiasts"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-DGU-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-DGU-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-DGU-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-DGU-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-DGU-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-DGU-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-DGU-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-DGU-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-DGU-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-DGU-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-DGU-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-DGU-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-DGU-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-DGU-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-DGU-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-DGU-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-DGU-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-DGU-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-DGU-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-DGU-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931057/motivational-dont-give-up-spiral-notebook-mockup_fuuyk1.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929919/dont-give-up-motivational--notebook_boudto.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "motivational notebook",
+      "dont give up journal",
+      "success diary",
+      "goal planner journal",
+      "self discipline notebook",
+      "study motivation journal"
+    ],
+
+    seo: {
+      metaTitle: "Don't Give Up Journal | Motivational Notebook for Success & Goals",
+      metaDescription:
+        "Stay focused and never quit with this bold motivational journal. Perfect for goal setting, journaling, and daily inspiration.",
+      keywords: [
+        "motivational journal",
+        "dont give up notebook",
+        "success diary",
+        "goal tracking journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-pressed-floral-vintage-001",
+    name: "Pressed Floral Vintage Aesthetic Journal",
+    slug: "pressed-floral-vintage-aesthetic-journal",
+    sku: "DJ-PFV-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Nature Aesthetic Collection",
+
+    collections: {
+      franchise: "Floral",
+      theme: "Pressed Flowers",
+      universe: "Nature",
+      genre: "Vintage Aesthetic"
+    },
+
+    moods: [
+      "Calm",
+      "Soft",
+      "Aesthetic",
+      "Vintage",
+      "Peaceful"
+    ],
+
+    shortDescription:
+      "A soft vintage-inspired journal featuring delicate pressed floral elements for a calming writing experience.",
+
+    description:
+      "Inspired by the beauty of preserved nature, this premium journal showcases a delicate pressed floral design on a textured background. Perfect for mindful journaling, sketching, or daily reflections, it creates a peaceful and aesthetic space for your thoughts. Ideal for those who appreciate minimal, vintage, and nature-inspired designs.",
+
+    highlights: [
+      "Premium matte laminated vintage floral cover",
+      "Soft aesthetic pressed flower design",
+      "Smooth high-quality pages for writing & sketching",
+      "Elegant and durable wiro binding",
+      "Perfect for journaling, gifting & creative expression"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-PFV-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-PFV-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-PFV-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-PFV-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-PFV-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-PFV-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-PFV-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-PFV-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-PFV-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-PFV-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-PFV-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-PFV-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-PFV-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-PFV-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-PFV-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-PFV-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-PFV-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-PFV-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-PFV-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-PFV-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931062/vintage-floral-spiral-notebook-wood-background_udvgea.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929919/floral-pressed-flower-spiral-notebook-wood-background_kadypa.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "floral notebook",
+      "aesthetic journal",
+      "vintage diary",
+      "nature journal",
+      "minimal notebook",
+      "gift journal"
+    ],
+
+    seo: {
+      metaTitle: "Pressed Floral Aesthetic Journal | Vintage Nature Notebook",
+      metaDescription:
+        "A soft vintage floral aesthetic journal inspired by nature. Perfect for journaling, sketching, and gifting.",
+      keywords: [
+        "floral notebook",
+        "aesthetic diary",
+        "vintage journal",
+        "nature notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-hanuman-meditation-001",
+    name: "Hanuman Meditation Spiritual Journal",
+    slug: "hanuman-meditation-spiritual-journal",
+    sku: "DJ-HANM-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Spiritual Collection",
+
+    collections: {
+      franchise: "Spiritual",
+      theme: "Meditative Hanuman",
+      universe: "Hindu Spirituality",
+      genre: "Devotional"
+    },
+
+    moods: [
+      "Peaceful",
+      "Spiritual",
+      "Focused",
+      "Calm",
+      "Mindful"
+    ],
+
+    shortDescription:
+      "A serene spiritual journal featuring Lord Hanuman in a meditative form, symbolizing strength and inner peace.",
+
+    description:
+      "Inspired by the divine strength and unwavering devotion of Lord Hanuman, this premium journal showcases a calm meditative illustration that radiates peace and focus. Perfect for journaling, spiritual reflection, meditation notes, or daily planning, it helps you stay grounded while pursuing your goals with discipline and clarity.",
+
+    highlights: [
+      "Premium matte laminated spiritual artwork cover",
+      "Calming meditative Hanuman design",
+      "High-quality pages for journaling & reflection",
+      "Durable premium wiro binding",
+      "Ideal for spiritual writing, gifting & daily use"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-HANM-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-HANM-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-HANM-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-HANM-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-HANM-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-HANM-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-HANM-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-HANM-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-HANM-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-HANM-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-HANM-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-HANM-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-HANM-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-HANM-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-HANM-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-HANM-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-HANM-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-HANM-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-HANM-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-HANM-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931058/lord-hanuman-meditating-art-notebook-cover_w988va.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929921/lord-hanuman-illustration-spiral-notebook-cover_ugplup.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "hanuman notebook",
+      "spiritual journal",
+      "meditation diary",
+      "devotional notebook",
+      "hindu spiritual journal",
+      "focus journal"
+    ],
+
+    seo: {
+      metaTitle: "Hanuman Spiritual Journal | Meditation & Devotional Notebook",
+      metaDescription:
+        "A peaceful Hanuman meditation journal designed for spiritual reflection, focus, and mindful journaling.",
+      keywords: [
+        "hanuman journal",
+        "spiritual notebook",
+        "meditation diary",
+        "devotional journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-happy-doodle-001",
+    name: "Do More Of What Makes You Happy Doodle Journal",
+    slug: "do-more-of-what-makes-you-happy-doodle-journal",
+    sku: "DJ-HAPPY-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Cute Doodle Collection",
+
+    collections: {
+      franchise: "Quotes",
+      theme: "Doodle Art",
+      universe: "Cute Aesthetic",
+      genre: "Motivational"
+    },
+
+    moods: [
+      "Happy",
+      "Playful",
+      "Cute",
+      "Positive",
+      "Cheerful"
+    ],
+
+    shortDescription:
+      "A cute doodle-style journal with a joyful message to inspire positivity and creativity.",
+
+    description:
+      "Brighten your day with this adorable doodle-style journal featuring the uplifting quote 'Do More Of What Makes You Happy'. Designed with playful illustrations and vibrant elements, it’s perfect for journaling, note-taking, or creative expression. A perfect companion for those who love positivity, art, and a cheerful vibe.",
+
+    highlights: [
+      "Premium matte laminated cute doodle cover",
+      "Fun and colorful hand-drawn illustration style",
+      "Smooth high-quality pages for writing & sketching",
+      "Durable premium wiro binding",
+      "Perfect for students, gifting & daily journaling"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-HAPPY-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-HAPPY-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-HAPPY-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-HAPPY-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-HAPPY-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-HAPPY-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-HAPPY-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-HAPPY-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-HAPPY-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-HAPPY-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-HAPPY-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-HAPPY-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-HAPPY-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-HAPPY-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-HAPPY-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-HAPPY-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-HAPPY-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-HAPPY-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-HAPPY-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-HAPPY-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931074/motivational-hand-drawn-notebook-quote_ytagwu.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929918/do-more-of-what-makes-you-happy-spiral-notebook_t4nlz5.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "cute notebook",
+      "doodle journal",
+      "happy quotes diary",
+      "aesthetic cute notebook",
+      "gift for friends",
+      "positive journal"
+    ],
+
+    seo: {
+      metaTitle: "Cute Doodle Journal | Do More Of What Makes You Happy Notebook",
+      metaDescription:
+        "A cute and cheerful doodle journal with a positive message. Perfect for students, gifting, and daily happiness journaling.",
+      keywords: [
+        "cute notebook",
+        "doodle journal",
+        "happy diary",
+        "aesthetic cute journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-yellow-train-journey-001",
+    name: "Yellow Train Journey Aesthetic Quote Journal",
+    slug: "yellow-train-journey-aesthetic-quote-journal",
+    sku: "DJ-YTJ-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Aesthetic Quotes Collection",
+
+    collections: {
+      franchise: "Quotes",
+      theme: "Train Illustration",
+      universe: "Minimal Aesthetic",
+      genre: "Motivational"
+    },
+
+    moods: [
+      "Hopeful",
+      "Calm",
+      "Reflective",
+      "Aesthetic",
+      "Thoughtful"
+    ],
+
+    shortDescription:
+      "A minimal aesthetic journal featuring a yellow train illustration with a deep, reflective life quote.",
+
+    description:
+      "This beautifully designed journal captures the essence of life’s journey through a simple yet meaningful illustration of a train and a thoughtful quote: 'There is a seat waiting for you at tables you haven't even seen.' Perfect for journaling, self-reflection, and capturing your thoughts, it inspires hope, patience, and belief in unseen opportunities.",
+
+    highlights: [
+      "Premium matte laminated aesthetic cover",
+      "Minimal illustration with meaningful quote",
+      "Smooth high-quality pages for writing & reflection",
+      "Durable premium wiro binding",
+      "Perfect for journaling, gifting & mindful writing"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-YTJ-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-YTJ-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-YTJ-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-YTJ-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-YTJ-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-YTJ-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-YTJ-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-YTJ-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-YTJ-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-YTJ-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-YTJ-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-YTJ-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-YTJ-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-YTJ-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-YTJ-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-YTJ-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-YTJ-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-YTJ-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-YTJ-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-YTJ-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931070/inspirational-quote-spiral-notebook-yellow-train_bvoyum.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929933/spiral-notebook-yellow-train-inspirational-quote_l6ooxz.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "aesthetic journal",
+      "life quote notebook",
+      "travel vibe journal",
+      "minimal notebook",
+      "motivational diary",
+      "gift journal"
+    ],
+
+    seo: {
+      metaTitle: "Aesthetic Quote Journal | Yellow Train Life Journey Notebook",
+      metaDescription:
+        "A minimal aesthetic journal with a deep life quote and train illustration. Perfect for reflection, journaling, and gifting.",
+      keywords: [
+        "aesthetic notebook",
+        "quote journal",
+        "life journey diary",
+        "minimal aesthetic journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-shiva-parvati-kailash-001",
+    name: "Shiva Parvati Kailash Spiritual Art Journal",
+    slug: "shiva-parvati-kailash-spiritual-art-journal",
+    sku: "DJ-SPK-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Divine Art Collection",
+
+    collections: {
+      franchise: "Spiritual",
+      theme: "Kailash Meditation Art",
+      universe: "Hindu Spirituality",
+      genre: "Devotional Art"
+    },
+
+    moods: [
+      "Divine",
+      "Peaceful",
+      "Spiritual",
+      "Calm",
+      "Sacred"
+    ],
+
+    shortDescription:
+      "A divine art journal featuring Lord Shiva and Goddess Parvati in a serene Kailash setting.",
+
+    description:
+      "Experience divine calm and spiritual connection with this premium journal featuring an artistic depiction of Lord Shiva and Goddess Parvati seated peacefully in the Himalayas. Inspired by Mount Kailash, this design symbolizes balance, devotion, and inner peace. Perfect for journaling, meditation notes, or daily reflections rooted in spirituality.",
+
+    highlights: [
+      "Premium matte laminated spiritual art cover",
+      "Detailed Shiva-Parvati illustration inspired by Kailash",
+      "High-quality pages for journaling & reflection",
+      "Durable premium wiro binding",
+      "Perfect for spiritual use, gifting & daily writing"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-SPK-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-SPK-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-SPK-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-SPK-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-SPK-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-SPK-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-SPK-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-SPK-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-SPK-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-SPK-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-SPK-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-SPK-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-SPK-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-SPK-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-SPK-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-SPK-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-SPK-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-SPK-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-SPK-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-SPK-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931058/shiva-parvati-himalayas-painting-notebook-cover_kf0vpg.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929928/shiva-parvati-mount-kailash-spiral-notebook_w1atcy.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "shiva parvati notebook",
+      "spiritual journal",
+      "devotional diary",
+      "kailash art notebook",
+      "hindu spiritual journal",
+      "meditation journal"
+    ],
+
+    seo: {
+      metaTitle: "Shiva Parvati Journal | Kailash Spiritual Art Notebook",
+      metaDescription:
+        "A divine spiritual journal featuring Shiva and Parvati in a serene Kailash setting. Perfect for meditation, journaling, and gifting.",
+      keywords: [
+        "shiva parvati journal",
+        "spiritual notebook",
+        "kailash diary",
+        "devotional journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-david-graffiti-neoart-001",
+    name: "David Graffiti Neo Art Aesthetic Journal",
+    slug: "david-graffiti-neo-art-aesthetic-journal",
+    sku: "DJ-DAVID-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Modern Art Collection",
+
+    collections: {
+      franchise: "Modern",
+      theme: "Graffiti Neo Art",
+      universe: "Renaissance x Street Art",
+      genre: "Art Aesthetic"
+    },
+
+    moods: [
+      "Bold",
+      "Creative",
+      "Edgy",
+      "Artistic",
+      "Modern"
+    ],
+
+    shortDescription:
+      "A bold neo-art journal blending Michelangelo’s David with modern graffiti aesthetics.",
+
+    description:
+      "This premium journal reimagines the iconic Michelangelo's David with a striking graffiti twist. Combining classical art with contemporary street style, it creates a bold and expressive design perfect for artists, creators, and thinkers. Ideal for journaling, sketching, or capturing creative ideas with attitude.",
+
+    highlights: [
+      "Premium matte laminated modern art cover",
+      "Fusion of classical sculpture and graffiti design",
+      "High-quality pages for writing, sketching & creativity",
+      "Durable premium wiro binding",
+      "Perfect for artists, designers & creative minds"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-DAVID-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-DAVID-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-DAVID-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-DAVID-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-DAVID-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-DAVID-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-DAVID-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-DAVID-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-DAVID-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-DAVID-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-DAVID-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-DAVID-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-DAVID-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-DAVID-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-DAVID-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-DAVID-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-DAVID-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-DAVID-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-DAVID-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-DAVID-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931054/david-statue-graffiti-art-spiral-notebook_wq2te1.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929918/david-michelangelo-street-art-spiral-notebook_nyzmlm.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "david sculpture notebook",
+      "modern art journal",
+      "aesthetic notebook",
+      "graffiti art diary",
+      "artist sketch journal",
+      "creative notebook"
+    ],
+
+    seo: {
+      metaTitle: "David Graffiti Art Journal | Modern Aesthetic Notebook",
+      metaDescription:
+        "A bold fusion of Michelangelo’s David and graffiti art. Perfect for artists, creatives, and aesthetic journaling.",
+      keywords: [
+        "david notebook",
+        "modern art journal",
+        "graffiti notebook",
+        "aesthetic art diary"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-remember-who-you-001",
+    name: "Remember Who You Wanted To Be Motivational Journal",
+    slug: "remember-who-you-wanted-to-be-motivational-journal",
+    sku: "DJ-RWY-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Motivation Core Collection",
+
+    collections: {
+      franchise: "Quotes",
+      theme: "Abstract Motivation",
+      universe: "Self Growth",
+      genre: "Motivational"
+    },
+
+    moods: [
+      "Intense",
+      "Driven",
+      "Focused",
+      "Reflective",
+      "Powerful"
+    ],
+
+    shortDescription:
+      "A powerful motivational journal designed to remind you of your goals and who you strive to become.",
+
+    description:
+      "Stay aligned with your purpose with this bold motivational journal featuring the impactful quote 'Remember Who You Wanted To Be'. Designed to push you beyond distractions and self-doubt, it serves as a daily reminder of your ambitions and discipline. Perfect for journaling, goal tracking, and building a focused mindset.",
+
+    highlights: [
+      "Premium matte laminated abstract design cover",
+      "Bold motivational quote for daily inspiration",
+      "High-quality pages for journaling & goal tracking",
+      "Durable premium wiro binding",
+      "Perfect for students, fitness enthusiasts & self-growth"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-RWY-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-RWY-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-RWY-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-RWY-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-RWY-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-RWY-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-RWY-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-RWY-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-RWY-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-RWY-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-RWY-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-RWY-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-RWY-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-RWY-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-RWY-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-RWY-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-RWY-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-RWY-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-RWY-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-RWY-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931058/motivational-journal-remember-who-you-wanted-to-be-spiral-cover_zx534p.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929923/motivational-spiral-notebook-remember-who-you-wanted-to-be_tncykl.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "motivational notebook",
+      "self discipline journal",
+      "goal setting diary",
+      "gym motivation notebook",
+      "study motivation journal",
+      "self growth journal"
+    ],
+
+    seo: {
+      metaTitle: "Motivational Journal | Remember Who You Wanted To Be Notebook",
+      metaDescription:
+        "A powerful motivational journal to keep you focused on your goals and growth. Perfect for students and self-discipline.",
+      keywords: [
+        "motivational journal",
+        "self discipline notebook",
+        "goal journal",
+        "study motivation diary"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-ocean-sailor-octopus-001",
+    name: "Love Me Like A Sailor Ocean Aesthetic Journal",
+    slug: "love-me-like-a-sailor-ocean-aesthetic-journal",
+    sku: "DJ-SAILOR-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Indie Aesthetic Collection",
+
+    collections: {
+      franchise: "Minimal",
+      theme: "Octopus Sea Art",
+      universe: "Ocean Aesthetic",
+      genre: "Indie Aesthetic"
+    },
+
+    moods: [
+      "Dreamy",
+      "Mysterious",
+      "Aesthetic",
+      "Creative",
+      "Moody"
+    ],
+
+    shortDescription:
+      "A dreamy ocean-inspired journal with a quirky sailor quote and surreal octopus artwork.",
+
+    description:
+      "Dive into a world of imagination with this unique journal featuring an ocean scene blended with surreal octopus tentacles and the poetic line 'Love Me Like A Sailor'. Designed for creative minds and free spirits, this journal is perfect for writing, sketching, or capturing deep thoughts and ideas inspired by the sea.",
+
+    highlights: [
+      "Premium matte laminated indie aesthetic cover",
+      "Unique ocean + surreal octopus artwork",
+      "Creative and expressive visual storytelling design",
+      "High-quality pages for journaling & sketching",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-SAILOR-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-SAILOR-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-SAILOR-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-SAILOR-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-SAILOR-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-SAILOR-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-SAILOR-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-SAILOR-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-SAILOR-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-SAILOR-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-SAILOR-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-SAILOR-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-SAILOR-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-SAILOR-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-SAILOR-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-SAILOR-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-SAILOR-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-SAILOR-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-SAILOR-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-SAILOR-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931073/love-me-like-a-sailor-nautical-spiral-notebook_eehdgd.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929925/octopus-tentacle-sea-spiral-notebook-love-me-like-a-sailor_m1zshd.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "ocean notebook",
+      "aesthetic journal",
+      "indie notebook",
+      "creative diary",
+      "sea aesthetic notebook",
+      "artistic journal"
+    ],
+
+    seo: {
+      metaTitle: "Ocean Aesthetic Journal | Love Me Like A Sailor Notebook",
+      metaDescription:
+        "A dreamy ocean-inspired journal with surreal octopus art and poetic aesthetic. Perfect for creative journaling and gifting.",
+      keywords: [
+        "ocean notebook",
+        "indie aesthetic journal",
+        "sea diary",
+        "creative notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-orange-wave-abstract-001",
+    name: "Orange Wave Minimal Abstract Journal",
+    slug: "orange-wave-minimal-abstract-journal",
+    sku: "DJ-OWA-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Minimal Abstract Collection",
+
+    collections: {
+      franchise: "Graphic Art",
+      theme: "Orange Waves",
+      universe: "Minimal Aesthetic",
+      genre: "Modern Minimal"
+    },
+
+    moods: [
+      "Minimal",
+      "Clean",
+      "Modern",
+      "Calm",
+      "Aesthetic"
+    ],
+
+    shortDescription:
+      "A clean and modern journal featuring a minimal orange wave abstract design.",
+
+    description:
+      "Designed for those who appreciate simplicity and modern aesthetics, this premium journal features a smooth flowing orange wave pattern on a clean background. Perfect for professionals, students, and creatives who prefer a minimal yet stylish notebook for writing, planning, or daily use.",
+
+    highlights: [
+      "Premium matte laminated minimal abstract cover",
+      "Clean modern design with orange wave pattern",
+      "Smooth high-quality pages for writing & planning",
+      "Durable premium wiro binding",
+      "Perfect for office, study & daily journaling"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-OWA-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-OWA-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-OWA-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-OWA-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-OWA-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-OWA-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-OWA-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-OWA-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-OWA-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-OWA-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-OWA-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-OWA-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-OWA-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-OWA-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-OWA-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-OWA-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-OWA-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-OWA-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-OWA-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-OWA-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931057/orange-wavy-abstract-spiral-notebook-wooden-background_y7wot9.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929925/orange-cream-wavy-pattern-spiral-notebook-retro-stationery_lwwatb.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "minimal notebook",
+      "abstract journal",
+      "modern notebook",
+      "office notebook",
+      "clean aesthetic journal",
+      "professional diary"
+    ],
+
+    seo: {
+      metaTitle: "Minimal Abstract Journal | Orange Wave Modern Notebook",
+      metaDescription:
+        "A clean and modern abstract journal with an orange wave design. Perfect for professionals, students, and minimal lovers.",
+      keywords: [
+        "minimal notebook",
+        "abstract journal",
+        "modern diary",
+        "office notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-saraswati-mandala-001",
+    name: "Saraswati Mandala Spiritual Art Journal",
+    slug: "saraswati-mandala-spiritual-art-journal",
+    sku: "DJ-SARA-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Divine Art Collection",
+
+    collections: {
+      franchise: "Spiritual",
+      theme: "Mandala Saraswati Art",
+      universe: "Hindu Spirituality",
+      genre: "Devotional Art"
+    },
+
+    moods: [
+      "Peaceful",
+      "Focused",
+      "Spiritual",
+      "Calm",
+      "Inspired"
+    ],
+
+    shortDescription:
+      "A divine journal featuring Goddess Saraswati in an intricate mandala art style symbolizing knowledge and creativity.",
+
+    description:
+      "Invoke wisdom, creativity, and focus with this beautifully designed journal featuring Goddess Saraswati in a detailed mandala art style. Symbolizing knowledge, music, and learning, this premium journal is perfect for students, writers, and creatives who seek inspiration and clarity in their daily work.",
+
+    highlights: [
+      "Premium matte laminated spiritual mandala cover",
+      "Detailed Saraswati artwork symbolizing knowledge & wisdom",
+      "High-quality pages for journaling, study & reflection",
+      "Durable premium wiro binding",
+      "Ideal for students, creatives & spiritual gifting"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-SARA-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-SARA-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-SARA-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-SARA-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-SARA-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-SARA-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-SARA-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-SARA-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-SARA-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-SARA-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-SARA-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-SARA-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-SARA-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-SARA-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-SARA-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-SARA-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-SARA-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-SARA-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-SARA-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-SARA-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931057/saraswati-goddess-illustration-spiral-notebook_i63mnb.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929927/saraswati-mandala-art-spiral-notebook_bsxz26.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "saraswati notebook",
+      "student journal",
+      "study notebook",
+      "spiritual journal",
+      "knowledge diary",
+      "exam motivation notebook"
+    ],
+
+    seo: {
+      metaTitle: "Saraswati Journal | Spiritual Notebook for Study & Focus",
+      metaDescription:
+        "A divine Saraswati journal designed for students and creatives. Perfect for study, focus, and spiritual inspiration.",
+      keywords: [
+        "saraswati notebook",
+        "study journal",
+        "spiritual notebook",
+        "exam diary"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-spiderman-power-001",
+    name: "Spider Hero Power Quote Premium Journal",
+    slug: "spider-hero-power-quote-premium-journal",
+    sku: "DJ-SPIDEY-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Superhero Collection",
+
+    collections: {
+      franchise: "Modern",
+      theme: "Power Responsibility Quote",
+      universe: "Superhero",
+      genre: "Motivational"
+    },
+
+    moods: [
+      "Powerful",
+      "Bold",
+      "Motivational",
+      "Heroic",
+      "Focused"
+    ],
+
+    shortDescription:
+      "A bold superhero-inspired journal featuring a powerful quote about responsibility and strength.",
+
+    description:
+      "Unleash your inner hero with this premium journal inspired by the iconic spider hero. Featuring a minimal yet powerful design and the legendary quote 'With great power comes great responsibilities', this notebook is perfect for students, creators, and dreamers striving to achieve greatness with purpose.",
+
+    highlights: [
+      "Premium matte laminated superhero design cover",
+      "Minimal bold spider emblem aesthetic",
+      "Iconic motivational quote for daily inspiration",
+      "High-quality pages for journaling & planning",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-SPIDEY-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-SPIDEY-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-SPIDEY-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-SPIDEY-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-SPIDEY-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-SPIDEY-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-SPIDEY-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-SPIDEY-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-SPIDEY-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-SPIDEY-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-SPIDEY-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-SPIDEY-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-SPIDEY-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-SPIDEY-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-SPIDEY-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-SPIDEY-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-SPIDEY-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-SPIDEY-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-SPIDEY-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-SPIDEY-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931076/spider-man-themed-red-spiral-notebook-great-power-quote_py3k1u.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929929/spider-man-themed-spiral-notebook-red-quote_puupsv.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "spiderman notebook",
+      "superhero journal",
+      "marvel style notebook",
+      "motivational notebook",
+      "student journal",
+      "gift notebook"
+    ],
+
+    seo: {
+      metaTitle: "Spider Hero Journal | Motivational Superhero Notebook",
+      metaDescription:
+        "A bold superhero-inspired journal with a powerful quote. Perfect for students, fans, and motivation seekers.",
+      keywords: [
+        "spiderman notebook",
+        "superhero journal",
+        "marvel notebook",
+        "motivational diary"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-sunrise-landscape-art-001",
+    name: "Sunrise Mountain Landscape Art Journal",
+    slug: "sunrise-mountain-landscape-art-journal",
+    sku: "DJ-SUNLAND-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Nature Art Collection",
+
+    collections: {
+      franchise: "Graphic Art",
+      theme: "Sunrise Mountains",
+      universe: "Nature",
+      genre: "Scenic Illustration"
+    },
+
+    moods: [
+      "Peaceful",
+      "Adventurous",
+      "Creative",
+      "Refreshing",
+      "Inspired"
+    ],
+
+    shortDescription:
+      "A vibrant journal featuring a scenic sunrise over mountains, designed to inspire creativity and calm.",
+
+    description:
+      "Capture your thoughts and ideas in this beautifully illustrated journal inspired by nature’s serenity. Featuring a bold sunrise over scenic mountains and lush valleys, this premium notebook is perfect for writers, travelers, and creatives who draw inspiration from the outdoors and vibrant art.",
+
+    highlights: [
+      "Premium matte laminated scenic art cover",
+      "Vibrant sunrise and mountain landscape illustration",
+      "Smooth high-quality pages for journaling & sketching",
+      "Durable premium wiro binding",
+      "Perfect for travel journaling & creative writing"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-SUNLAND-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-SUNLAND-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-SUNLAND-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-SUNLAND-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-SUNLAND-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-SUNLAND-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-SUNLAND-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-SUNLAND-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-SUNLAND-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-SUNLAND-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-SUNLAND-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-SUNLAND-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-SUNLAND-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-SUNLAND-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-SUNLAND-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-SUNLAND-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-SUNLAND-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-SUNLAND-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-SUNLAND-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-SUNLAND-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931086/vibrant-mountain-landscape-spiral-notebook_kvtqft.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929931/spiral-notebook-landscape-illustration-cover_oihxtu.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "landscape notebook",
+      "nature journal",
+      "travel diary",
+      "aesthetic notebook",
+      "art journal",
+      "creative notebook"
+    ],
+
+    seo: {
+      metaTitle: "Nature Landscape Journal | Sunrise Mountain Notebook",
+      metaDescription:
+        "A vibrant landscape journal featuring sunrise mountains. Perfect for travel, journaling, and creative inspiration.",
+      keywords: [
+        "nature notebook",
+        "landscape journal",
+        "travel diary",
+        "aesthetic notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-tree-canopy-nature-001",
+    name: "Tree Canopy Nature Art Journal",
+    slug: "tree-canopy-nature-art-journal",
+    sku: "DJ-TREE-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Nature Art Collection",
+
+    collections: {
+      franchise: "Graphic Art",
+      theme: "Tree Canopy",
+      universe: "Nature",
+      genre: "Botanical Art"
+    },
+
+    moods: [
+      "Calm",
+      "Peaceful",
+      "Grounded",
+      "Mindful",
+      "Refreshing"
+    ],
+
+    shortDescription:
+      "A calming journal inspired by lush tree canopies, designed to bring peace and clarity to your writing.",
+
+    description:
+      "Reconnect with nature through this beautifully illustrated journal featuring an intricate tree canopy design. Inspired by the tranquility of forests and the beauty of natural patterns, this premium notebook is perfect for mindful journaling, sketching, and daily reflection.",
+
+    highlights: [
+      "Premium matte laminated botanical art cover",
+      "Intricate tree canopy illustration for a calming feel",
+      "Smooth high-quality pages for journaling & sketching",
+      "Durable premium wiro binding",
+      "Perfect for mindfulness, journaling & gifting"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-TREE-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-TREE-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-TREE-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-TREE-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-TREE-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-TREE-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-TREE-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-TREE-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-TREE-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-TREE-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-TREE-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-TREE-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-TREE-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-TREE-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-TREE-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-TREE-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-TREE-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-TREE-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-TREE-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-TREE-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931059/tree-canopy-spiral-notebook-design_r8hs0z.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929941/tree-canopy-design-spiral-notebooks-on-wood_ujgjnz.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "nature notebook",
+      "botanical journal",
+      "eco friendly diary",
+      "mindfulness journal",
+      "aesthetic notebook",
+      "green theme notebook"
+    ],
+
+    seo: {
+      metaTitle: "Nature Journal | Tree Canopy Botanical Notebook",
+      metaDescription:
+        "A calming nature journal featuring a tree canopy design. Perfect for mindfulness, journaling, and nature lovers.",
+      keywords: [
+        "nature notebook",
+        "botanical journal",
+        "green aesthetic diary",
+        "mindfulness notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-travel-wanderlust-001",
+    name: "Travel Wanderlust Scrapbook Journal",
+    slug: "travel-wanderlust-scrapbook-journal",
+    sku: "DJ-TRAVEL-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Travel Collection",
+
+    collections: {
+      franchise: "Travel",
+      theme: "Wanderlust Scrapbook",
+      universe: "Travel",
+      genre: "Vintage Travel"
+    },
+
+    moods: [
+      "Adventurous",
+      "Excited",
+      "Creative",
+      "Nostalgic",
+      "Inspired"
+    ],
+
+    shortDescription:
+      "A travel-inspired journal with scrapbook-style elements perfect for capturing memories and adventures.",
+
+    description:
+      "Document your journeys and memories with this vibrant travel-themed journal featuring a collage of maps, passports, tickets, and wanderlust elements. Designed for travelers, dreamers, and explorers, this premium notebook is perfect for planning trips, journaling experiences, or capturing unforgettable moments.",
+
+    highlights: [
+      "Premium matte laminated travel scrapbook cover",
+      "Vintage map, passport & ticket collage design",
+      "Perfect for travel journaling & memory keeping",
+      "Smooth high-quality pages for writing & sketching",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-TRAVEL-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-TRAVEL-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-TRAVEL-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-TRAVEL-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-TRAVEL-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-TRAVEL-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-TRAVEL-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-TRAVEL-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-TRAVEL-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-TRAVEL-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-TRAVEL-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-TRAVEL-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-TRAVEL-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-TRAVEL-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-TRAVEL-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-TRAVEL-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-TRAVEL-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-TRAVEL-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-TRAVEL-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-TRAVEL-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931081/travel-themed-spiral-journal-notebook-cover_vryqrh.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929939/travel-themed-spiral-notebook-collage-design_eod3my.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "travel journal",
+      "wanderlust notebook",
+      "scrapbook diary",
+      "travel planner",
+      "memory journal",
+      "aesthetic notebook"
+    ],
+
+    seo: {
+      metaTitle: "Travel Journal | Wanderlust Scrapbook Notebook",
+      metaDescription:
+        "A travel-themed scrapbook journal perfect for documenting trips, memories, and adventures.",
+      keywords: [
+        "travel journal",
+        "wanderlust notebook",
+        "travel diary",
+        "scrapbook journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-trust-flow-life-001",
+    name: "Trust the Flow of Life Affirmation Journal",
+    slug: "trust-the-flow-of-life-affirmation-journal",
+    sku: "DJ-FLOW-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Mindfulness Collection",
+
+    collections: {
+      franchise: "Quotes",
+      theme: "Trust the Flow",
+      universe: "Self Growth",
+      genre: "Mindfulness"
+    },
+
+    moods: [
+      "Calm",
+      "Healing",
+      "Positive",
+      "Peaceful",
+      "Balanced"
+    ],
+
+    shortDescription:
+      "A calming affirmation journal designed to inspire peace, trust, and mindful living.",
+
+    description:
+      "Embrace calmness and trust the journey with this beautifully designed affirmation journal. Featuring a minimal aesthetic and the uplifting message 'Trust the flow of life', this premium notebook is perfect for mindfulness journaling, self-reflection, and daily positivity.",
+
+    highlights: [
+      "Premium matte laminated minimal affirmation cover",
+      "Soft calming color palette for a peaceful feel",
+      "Positive affirmation design for daily motivation",
+      "Smooth high-quality pages for journaling & reflection",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-FLOW-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-FLOW-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-FLOW-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-FLOW-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-FLOW-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-FLOW-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-FLOW-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-FLOW-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-FLOW-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-FLOW-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-FLOW-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-FLOW-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-FLOW-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-FLOW-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-FLOW-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-FLOW-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-FLOW-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-FLOW-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-FLOW-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-FLOW-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931060/trust-the-flow-of-life-inspirational-spiral-notebook_nvuwdn.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929942/trust-the-flow-of-life-motivational-spiral-notebook_lhort5.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "affirmation journal",
+      "mindfulness notebook",
+      "self care diary",
+      "mental wellness journal",
+      "positive journal",
+      "aesthetic notebook"
+    ],
+
+    seo: {
+      metaTitle: "Affirmation Journal | Trust the Flow of Life Notebook",
+      metaDescription:
+        "A calming affirmation journal designed for mindfulness, positivity, and self-growth.",
+      keywords: [
+        "affirmation journal",
+        "mindfulness notebook",
+        "self care diary",
+        "positive journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-vintage-botanical-001",
+    name: "Vintage Botanical Floral Journal",
+    slug: "vintage-botanical-floral-journal",
+    sku: "DJ-VBOT-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Vintage Collection",
+
+    collections: {
+      franchise: "Floral",
+      theme: "Vintage Floral",
+      universe: "Nature",
+      genre: "Cottagecore Vintage"
+    },
+
+    moods: [
+      "Elegant",
+      "Calm",
+      "Aesthetic",
+      "Classic",
+      "Peaceful"
+    ],
+
+    shortDescription:
+      "A timeless vintage botanical journal with detailed floral illustrations for a classic aesthetic experience.",
+
+    description:
+      "Step into a world of timeless beauty with this vintage botanical journal featuring intricate floral illustrations inspired by classic botanical art. Designed for those who love elegance and nature, this premium notebook is perfect for journaling, sketching, or capturing ideas in a refined and aesthetic way.",
+
+    highlights: [
+      "Premium matte laminated vintage floral cover",
+      "Detailed botanical illustration with classic aesthetic",
+      "Elegant label space for personalization",
+      "Smooth high-quality pages for journaling & sketching",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-VBOT-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-VBOT-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-VBOT-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-VBOT-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-VBOT-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-VBOT-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-VBOT-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-VBOT-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-VBOT-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-VBOT-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-VBOT-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-VBOT-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-VBOT-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-VBOT-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-VBOT-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-VBOT-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-VBOT-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-VBOT-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-VBOT-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-VBOT-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931062/vintage-botanical-floral--notebook_aoflud.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929944/vintage-botanical-floral-spiral-notebook-wooden-background_xhwsk2.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "vintage notebook",
+      "botanical journal",
+      "floral diary",
+      "aesthetic notebook",
+      "cottagecore journal",
+      "gift journal"
+    ],
+
+    seo: {
+      metaTitle: "Vintage Botanical Journal | Floral Aesthetic Notebook",
+      metaDescription:
+        "A timeless vintage botanical journal with elegant floral design. Perfect for journaling, sketching, and gifting.",
+      keywords: [
+        "vintage notebook",
+        "botanical journal",
+        "floral diary",
+        "aesthetic journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-gods-plan-faith-001",
+    name: "God’s Plan Faith & Strength Journal",
+    slug: "gods-plan-faith-strength-journal",
+    sku: "DJ-GPLAN-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Faith & Motivation Collection",
+
+    collections: {
+      franchise: "Modern",
+      theme: "God's Plan",
+      universe: "Spiritual Motivation",
+      genre: "Devotional Inspiration"
+    },
+
+    moods: [
+      "Faith",
+      "Motivation",
+      "Power",
+      "Devotion",
+      "Strength"
+    ],
+
+    shortDescription:
+      "A powerful journal blending faith, strength, and motivation with a divine message of trust and surrender.",
+
+    description:
+      "Channel strength, faith, and resilience with this impactful journal featuring the message 'God’s plan is always better than yours'. Inspired by devotion and inner strength, this notebook is perfect for journaling, reflection, and staying grounded through life’s challenges.",
+
+    highlights: [
+      "Powerful faith-driven motivational cover",
+      "Spiritual and strength-based visual theme",
+      "Perfect for reflection, journaling & goal setting",
+      "Smooth high-quality pages for everyday use",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-GPLAN-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-GPLAN-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-GPLAN-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-GPLAN-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-GPLAN-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-GPLAN-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-GPLAN-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-GPLAN-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-GPLAN-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-GPLAN-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-GPLAN-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-GPLAN-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-GPLAN-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-GPLAN-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-GPLAN-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-GPLAN-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-GPLAN-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-GPLAN-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-GPLAN-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-GPLAN-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931086/virat-kohli-hanuman-inspirational-quote-notebook_rmmun5.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929945/virat-kohli-hanuman-spiritual-cricket-notebook_uervfy.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "faith journal",
+      "spiritual notebook",
+      "motivational diary",
+      "god quotes notebook",
+      "devotional journal",
+      "inspirational notebook"
+    ],
+
+    seo: {
+      metaTitle: "God’s Plan Journal | Faith & Motivation Notebook",
+      metaDescription:
+        "Stay grounded and inspired with this faith-driven journal featuring a powerful message of trust and strength.",
+      keywords: [
+        "faith journal",
+        "spiritual notebook",
+        "god quotes diary",
+        "motivational journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-explore-nature-001",
+    name: "I Just Want to Explore Adventure Journal",
+    slug: "i-just-want-to-explore-adventure-journal",
+    sku: "DJ-EXPLORE-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Adventure Collection",
+
+    collections: {
+      franchise: "Travel",
+      theme: "Explore Nature",
+      universe: "Adventure & Travel",
+      genre: "Outdoor Lifestyle"
+    },
+
+    moods: [
+      "Adventurous",
+      "Free",
+      "Inspired",
+      "Wanderlust",
+      "Energetic"
+    ],
+
+    shortDescription:
+      "A bold adventure journal for explorers, dreamers, and nature lovers.",
+
+    description:
+      "Fuel your wanderlust with this stunning adventure-themed journal featuring the message 'I just want to explore'. Designed for those who crave freedom and discovery, this notebook is perfect for travel notes, journaling, or capturing ideas on the go.",
+
+    highlights: [
+      "Vibrant nature and mountain landscape cover",
+      "Adventure-inspired typography for a bold look",
+      "Perfect for travel journaling and daily notes",
+      "Smooth high-quality pages for writing & sketching",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-EXPLORE-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-EXPLORE-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-EXPLORE-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-EXPLORE-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-EXPLORE-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-EXPLORE-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-EXPLORE-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-EXPLORE-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-EXPLORE-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-EXPLORE-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-EXPLORE-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-EXPLORE-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-EXPLORE-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-EXPLORE-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-EXPLORE-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-EXPLORE-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-EXPLORE-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-EXPLORE-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-EXPLORE-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-EXPLORE-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931067/explore-mountain-landscape-spiral-notebook-wood-background_xanm07.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929920/i-just-want-to-explore-mountain-landscape-spiral-notebook_uic5jx.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "travel journal",
+      "adventure notebook",
+      "wanderlust diary",
+      "nature notebook",
+      "explore journal",
+      "aesthetic travel notebook"
+    ],
+
+    seo: {
+      metaTitle: "Explore Adventure Journal | Travel & Nature Notebook",
+      metaDescription:
+        "A bold and inspiring adventure journal for travel lovers and explorers.",
+      keywords: [
+        "travel journal",
+        "adventure notebook",
+        "wanderlust diary",
+        "nature journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-karma-mirror-001",
+    name: "Karma Mirror Attitude Journal",
+    slug: "karma-mirror-attitude-journal",
+    sku: "DJ-KARMA-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Bold Quotes Collection",
+
+    collections: {
+      franchise: "Modern",
+      theme: "Karma Mirror",
+      universe: "Self Expression",
+      genre: "Bold Aesthetic"
+    },
+
+    moods: [
+      "Bold",
+      "Confident",
+      "Savage",
+      "Expressive",
+      "Empowered"
+    ],
+
+    shortDescription:
+      "A bold statement journal that reflects attitude, confidence, and unapologetic self-expression.",
+
+    description:
+      "Make a statement with this striking journal featuring the quote 'Karma isn't a b*tch, it's a mirror'. Designed for those who embrace confidence and self-awareness, this notebook blends bold typography with aesthetic design—perfect for journaling thoughts, ideas, and unapologetic expression.",
+
+    highlights: [
+      "Bold typography with attitude-driven quote",
+      "Modern aesthetic teal and yellow design",
+      "Perfect for self-expression and journaling",
+      "Smooth high-quality pages for daily writing",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-KARMA-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-KARMA-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-KARMA-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-KARMA-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-KARMA-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-KARMA-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-KARMA-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-KARMA-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-KARMA-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-KARMA-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-KARMA-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-KARMA-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-KARMA-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-KARMA-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-KARMA-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-KARMA-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-KARMA-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-KARMA-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-KARMA-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-KARMA-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931072/karma-isnt-a-bitch-turquoise-spiral-notebook_gxugg0.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929921/karma-spiral-notebook-teal-cover_wb4qlu.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "karma journal",
+      "attitude notebook",
+      "bold quotes diary",
+      "aesthetic journal",
+      "self expression notebook",
+      "genz notebook"
+    ],
+
+    seo: {
+      metaTitle: "Karma Journal | Bold Attitude Notebook",
+      metaDescription:
+        "A bold and aesthetic journal featuring a powerful karma quote. Perfect for self-expression and confidence.",
+      keywords: [
+        "karma notebook",
+        "attitude journal",
+        "bold quotes diary",
+        "genz notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-out-of-mind-001",
+    name: "Out of Mind Retro Abstract Journal",
+    slug: "out-of-mind-retro-abstract-journal",
+    sku: "DJ-OOM-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Abstract Collection",
+
+    collections: {
+      franchise: "Modern",
+      theme: "Out of Mind",
+      universe: "Art & Creativity",
+      genre: "Retro Abstract"
+    },
+
+    moods: [
+      "Creative",
+      "Abstract",
+      "Expressive",
+      "Chill",
+      "Aesthetic"
+    ],
+
+    shortDescription:
+      "A retro abstract journal for creative minds who think beyond limits.",
+
+    description:
+      "Unleash your creativity with this bold retro abstract journal featuring the phrase 'Out of Mind'. Designed for thinkers, artists, and free spirits, this notebook blends expressive typography with fluid abstract patterns—perfect for journaling, sketching, and capturing ideas beyond the ordinary.",
+
+    highlights: [
+      "Retro abstract wavy design with bold typography",
+      "Creative and expressive aesthetic for Gen-Z users",
+      "Perfect for journaling, sketching & brainstorming",
+      "Smooth high-quality pages for everyday use",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-OOM-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-OOM-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-OOM-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-OOM-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-OOM-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-OOM-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-OOM-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-OOM-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-OOM-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-OOM-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-OOM-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-OOM-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-OOM-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-OOM-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-OOM-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-OOM-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-OOM-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-OOM-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-OOM-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-OOM-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931075/retro-wavy-spiral-notebook-out-of-mind_wgut3n.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929926/out-of-mind-spiral-notebook-psychedelic-design_fkpqlu.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "abstract notebook",
+      "retro journal",
+      "creative notebook",
+      "aesthetic journal",
+      "genz notebook",
+      "art notebook"
+    ],
+
+    seo: {
+      metaTitle: "Retro Abstract Journal | Out of Mind Notebook",
+      metaDescription:
+        "A bold retro abstract journal designed for creative minds and self-expression.",
+      keywords: [
+        "abstract notebook",
+        "retro journal",
+        "creative notebook",
+        "aesthetic journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-flame-core-001",
+    name: "Flame Core Minimal Aesthetic Journal",
+    slug: "flame-core-minimal-aesthetic-journal",
+    sku: "DJ-FLAME-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Minimal Bold Collection",
+
+    collections: {
+      franchise: "Minimal",
+      theme: "Flame Core",
+      universe: "Street & Urban",
+      genre: "Edgy Minimal"
+    },
+
+    moods: [
+      "Bold",
+      "Energetic",
+      "Edgy",
+      "Minimal",
+      "Powerful"
+    ],
+
+    shortDescription:
+      "A bold minimal journal featuring a striking flame design for a powerful aesthetic statement.",
+
+    description:
+      "Ignite your creativity with this flame-inspired journal designed for those who love bold and minimal aesthetics. Featuring a striking fire graphic on a clean black background, this notebook is perfect for journaling, sketching, or making a statement wherever you go.",
+
+    highlights: [
+      "Bold flame graphic with minimal black background",
+      "High-contrast edgy aesthetic design",
+      "Perfect for students, creatives & daily journaling",
+      "Smooth high-quality pages for writing & sketching",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-FLAME-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-FLAME-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-FLAME-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-FLAME-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-FLAME-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-FLAME-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-FLAME-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-FLAME-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-FLAME-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-FLAME-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-FLAME-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-FLAME-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-FLAME-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-FLAME-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-FLAME-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-FLAME-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-FLAME-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-FLAME-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-FLAME-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-FLAME-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931068/fire-flame-illustration-spiral-notebook-on-wood_z6yaee.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929930/spiral-notebook-flame-design-cover_jlbiqx.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "flame notebook",
+      "minimal aesthetic journal",
+      "edgy notebook",
+      "street style notebook",
+      "cool notebook",
+      "black aesthetic notebook"
+    ],
+
+    seo: {
+      metaTitle: "Flame Journal | Minimal Edgy Notebook",
+      metaDescription:
+        "A bold minimal flame design notebook perfect for edgy aesthetics and daily journaling.",
+      keywords: [
+        "flame notebook",
+        "black aesthetic journal",
+        "minimal notebook",
+        "edgy journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-stay-weird-001",
+    name: "Stay Weird Quirky Aesthetic Journal",
+    slug: "stay-weird-quirky-aesthetic-journal",
+    sku: "DJ-WEIRD-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Quirky Collection",
+
+    collections: {
+      franchise: "Quotes",
+      theme: "Stay Weird",
+      universe: "Self Expression",
+      genre: "Quirky Aesthetic"
+    },
+
+    moods: [
+      "Fun",
+      "Playful",
+      "Expressive",
+      "Unique",
+      "Chill"
+    ],
+
+    shortDescription:
+      "A fun and quirky journal for those who embrace their uniqueness and love to stand out.",
+
+    description:
+      "Celebrate your individuality with this bold and playful journal featuring the phrase 'Stay Weird'. Designed for free spirits and creative minds, this notebook is perfect for journaling, doodling, or capturing thoughts in your own unique way.",
+
+    highlights: [
+      "Bold playful typography with quirky design",
+      "Minimal yet expressive aesthetic",
+      "Perfect for journaling, doodling & creative notes",
+      "Smooth high-quality pages for everyday use",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-WEIRD-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-WEIRD-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-WEIRD-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-WEIRD-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-WEIRD-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-WEIRD-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-WEIRD-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-WEIRD-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-WEIRD-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-WEIRD-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-WEIRD-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-WEIRD-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-WEIRD-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-WEIRD-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-WEIRD-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-WEIRD-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-WEIRD-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-WEIRD-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-WEIRD-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-WEIRD-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931078/stay-weird-spiral-notebook-mockup-wooden-background_rtmryj.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929936/stay-weird-retro-spiral-notebook-cream-red_vn9qok.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "quirky notebook",
+      "stay weird journal",
+      "fun notebook",
+      "genz notebook",
+      "aesthetic journal",
+      "creative diary"
+    ],
+
+    seo: {
+      metaTitle: "Stay Weird Journal | Quirky Aesthetic Notebook",
+      metaDescription:
+        "A fun and expressive journal for those who love to stay unique and creative.",
+      keywords: [
+        "stay weird notebook",
+        "quirky journal",
+        "fun diary",
+        "genz notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 120,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-hellfire-gothic-001",
+    name: "Hellfire Gothic Tattoo Aesthetic Journal",
+    slug: "hellfire-gothic-tattoo-aesthetic-journal",
+    sku: "DJ-HELLFIRE-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Dark Aesthetic Collection",
+
+    collections: {
+      franchise: "Pop Culture",
+      theme: "Gothic Tattoo",
+      universe: "Dark Fantasy",
+      genre: "Alt / Punk"
+    },
+
+    moods: [
+      "Dark",
+      "Rebellious",
+      "Edgy",
+      "Mystic",
+      "Bold"
+    ],
+
+    shortDescription:
+      "A dark gothic journal inspired by tattoo art and Hellfire aesthetics, perfect for bold personalities.",
+
+    description:
+      "Unleash your dark side with this Hellfire-inspired journal featuring gothic tattoo-style artwork. With bold elements like skulls, weapons, and mystical symbols, this notebook is perfect for those who embrace alternative aesthetics, creativity, and rebellion.",
+
+    highlights: [
+      "Gothic tattoo-style artwork with bold detailing",
+      "Dark fantasy & alt aesthetic appeal",
+      "Perfect for journaling, sketching & creative expression",
+      "High-quality smooth pages",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-HELLFIRE-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-HELLFIRE-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-HELLFIRE-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-HELLFIRE-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-HELLFIRE-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-HELLFIRE-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-HELLFIRE-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931079/stranger-things-hellfire-club-spiral-notebook_x3bmkw.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929937/stranger-things-hellfire-club-spiral-notebook-tattoo-art_avgsih.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "hellfire notebook",
+      "gothic journal",
+      "dark aesthetic notebook",
+      "stranger things notebook",
+      "punk style journal",
+      "tattoo art notebook"
+    ],
+
+    seo: {
+      metaTitle: "Hellfire Gothic Journal | Dark Aesthetic Notebook",
+      metaDescription:
+        "A bold gothic tattoo-style notebook inspired by dark aesthetics and Hellfire vibes.",
+      keywords: [
+        "hellfire notebook",
+        "dark aesthetic journal",
+        "gothic notebook",
+        "punk journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.8,
+    reviewsCount: 95,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-geeta-karma-001",
+    name: "Karma Philosophy Gita Art Journal",
+    slug: "karma-philosophy-gita-art-journal",
+    sku: "DJ-KARMA-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Spiritual Wisdom Collection",
+
+    collections: {
+      franchise: "Spiritual",
+      theme: "Karma Philosophy",
+      universe: "Indian Spiritual",
+      genre: "Philosophical Art"
+    },
+
+    moods: [
+      "Spiritual",
+      "Calm",
+      "Wise",
+      "Reflective",
+      "Powerful"
+    ],
+
+    shortDescription:
+      "A spiritually inspired journal featuring the timeless wisdom of Karma from the Bhagavad Gita.",
+
+    description:
+      "Embrace the profound teachings of the Bhagavad Gita with this beautifully designed journal. Featuring the iconic Karma shloka 'Karmanye Vadhikaraste', this notebook serves as a daily reminder to focus on actions, not outcomes. Perfect for journaling, reflection, and mindful writing.",
+
+    highlights: [
+      "Features Bhagavad Gita Karma shloka artwork",
+      "Rich traditional aesthetic with modern design",
+      "Perfect for journaling, reflection & gifting",
+      "High-quality smooth pages",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-KARMA-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-KARMA-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-KARMA-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-KARMA-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-KARMA-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-KARMA-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-KARMA-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-KARMA-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-KARMA-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-KARMA-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-KARMA-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-KARMA-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-KARMA-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-KARMA-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-KARMA-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-KARMA-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-KARMA-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-KARMA-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-KARMA-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-KARMA-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931065/bhagavad-gita-krishna-verse-spiritual-notebook_qa6yv2.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929934/spiritual-sanskrit-verse-spiral-notebook-design_ht6p1r.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "bhagavad gita notebook",
+      "karma journal",
+      "spiritual notebook",
+      "indian aesthetic journal",
+      "motivational diary",
+      "gift notebook india"
+    ],
+
+    seo: {
+      metaTitle: "Karma Gita Journal | Spiritual Notebook India",
+      metaDescription:
+        "A spiritually inspired journal featuring Bhagavad Gita's Karma philosophy for mindful living.",
+      keywords: [
+        "bhagavad gita notebook",
+        "karma journal",
+        "spiritual diary india",
+        "motivational notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 150,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-earth-chaos-art-001",
+    name: "The Earth Without Art Typography Journal",
+    slug: "earth-without-art-typography-journal",
+    sku: "DJ-EARTH-ART-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Art Expression Collection",
+
+    collections: {
+      franchise: "Quotes",
+      theme: "Art Philosophy",
+      universe: "Creative Expression",
+      genre: "Modern Typography"
+    },
+
+    moods: [
+      "Creative",
+      "Expressive",
+      "Bold",
+      "Artistic",
+      "Thoughtful"
+    ],
+
+    shortDescription:
+      "A bold artistic journal that celebrates creativity with expressive typography and vibrant design.",
+
+    description:
+      "Make a statement with this striking journal featuring the phrase 'The Earth Without Art is Just Eh'. Designed with fluid, paint-like typography, this notebook is perfect for artists, thinkers, and creatives who see the world differently.",
+
+    highlights: [
+      "Unique paint-style typography design",
+      "Bold artistic and expressive aesthetic",
+      "Perfect for artists, designers & creatives",
+      "Smooth high-quality pages for writing & sketching",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-EARTH-ART-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-EARTH-ART-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-EARTH-ART-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-EARTH-ART-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-EARTH-ART-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-EARTH-ART-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-EARTH-ART-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931081/the-earth-without-art-is-just-eh-hand-lettered-quote_doiimb.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929920/earth-without-art-quote-spiral-notebook_lvwycr.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "art notebook",
+      "creative journal",
+      "artist diary",
+      "typography notebook",
+      "design notebook",
+      "aesthetic journal"
+    ],
+
+    seo: {
+      metaTitle: "Art Typography Journal | Creative Notebook",
+      metaDescription:
+        "A bold artistic journal designed for creatives who love expressive typography and design.",
+      keywords: [
+        "art notebook",
+        "creative journal",
+        "artist notebook",
+        "typography journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.8,
+    reviewsCount: 90,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-yes-you-can-001",
+    name: "Yes You Can Floral Motivation Journal",
+    slug: "yes-you-can-floral-motivation-journal",
+    sku: "DJ-YESCAN-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Motivation Collection",
+
+    collections: {
+      franchise: "Quotes",
+      theme: "Yes You Can",
+      universe: "Positive Mindset",
+      genre: "Floral Aesthetic"
+    },
+
+    moods: [
+      "Positive",
+      "Motivating",
+      "Uplifting",
+      "Calm",
+      "Bright"
+    ],
+
+    shortDescription:
+      "A bright and uplifting journal with floral typography to inspire positivity every day.",
+
+    description:
+      "Start your day with confidence and positivity using this beautifully designed journal featuring the phrase 'Yes You Can'. With vibrant floral typography and a clean aesthetic, this notebook is perfect for journaling, goal setting, and daily motivation.",
+
+    highlights: [
+      "Vibrant floral typography design",
+      "Clean and aesthetic motivational theme",
+      "Perfect for journaling, planning & goal setting",
+      "High-quality smooth pages",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-YESCAN-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-YESCAN-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-YESCAN-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-YESCAN-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-YESCAN-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-YESCAN-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-YESCAN-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-YESCAN-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-YESCAN-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-YESCAN-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-YESCAN-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-YESCAN-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-YESCAN-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-YESCAN-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-YESCAN-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-YESCAN-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-YESCAN-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-YESCAN-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-YESCAN-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-YESCAN-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931088/yes-you-can-floral-typography-motivational-notebook_yezbde.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929946/yes-you-can-floral-motivational-notebook_l4sacd.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "motivational notebook",
+      "yes you can journal",
+      "positive diary",
+      "floral notebook",
+      "student journal",
+      "inspirational notebook"
+    ],
+
+    seo: {
+      metaTitle: "Yes You Can Journal | Motivational Notebook",
+      metaDescription:
+        "A bright and inspiring floral journal to keep you motivated and positive every day.",
+      keywords: [
+        "motivational notebook",
+        "yes you can journal",
+        "positive diary",
+        "student notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 140,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-mischief-magic-001",
+    name: "Mischief Magic Quote Journal",
+    slug: "mischief-magic-quote-journal",
+    sku: "DJ-MISCHIEF-001",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Fantasy Collection",
+
+    collections: {
+      franchise: "Quotes",
+      theme: "Mischief Quote",
+      universe: "Fantasy Magic",
+      genre: "Fandom Inspired"
+    },
+
+    moods: [
+      "Magical",
+      "Nostalgic",
+      "Playful",
+      "Mysterious",
+      "Adventurous"
+    ],
+
+    shortDescription:
+      "A magical quote journal inspired by classic wizarding adventures and mischief-filled stories.",
+
+    description:
+      "Step into a world of magic and mystery with this beautifully designed journal inspired by iconic wizarding quotes. Perfect for fans of fantasy, storytelling, and adventure, this notebook brings a nostalgic charm to your everyday writing.",
+
+    highlights: [
+      "Classic magical quote inspired design",
+      "Elegant vintage typography aesthetic",
+      "Perfect for fantasy lovers & journaling",
+      "Smooth high-quality pages",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240],
+        A4: [120, 160, 200, 240]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-MISCHIEF-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-MISCHIEF-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-MISCHIEF-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-MISCHIEF-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-MISCHIEF-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-MISCHIEF-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-MISCHIEF-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 240,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931070/harry-potter-marauders-map-quote-spiral-notebook_lc4eqv.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929920/harry-potter-marauders-map-spiral-notebook_l75god.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "magic notebook",
+      "fantasy journal",
+      "wizard notebook",
+      "mischief quote notebook",
+      "fantasy diary",
+      "gift notebook"
+    ],
+
+    seo: {
+      metaTitle: "Magic Quote Journal | Fantasy Notebook",
+      metaDescription:
+        "A magical fantasy-inspired journal perfect for fans of adventure and storytelling.",
+      keywords: [
+        "magic notebook",
+        "fantasy journal",
+        "wizard notebook",
+        "quote diary"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 135,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-starry-celestial-002",
+    name: "Starry Night Celestial Quote Journal",
+    slug: "starry-night-celestial-quote-journal",
+    sku: "DJ-STARRY-002",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Artistic Impression Collection",
+
+    collections: {
+      franchise: "Modern",
+      theme: "Starry Night Quote",
+      universe: "Celestial Wonders",
+      genre: "Artistic & Motivational"
+    },
+
+    moods: [
+      "Inspirational",
+      "Artistic",
+      "Dreamy",
+      "Sophisticated",
+      "Calm"
+    ],
+
+    shortDescription:
+      "A stunning artistic journal featuring Van Gogh-inspired imagery and an uplifting celestial quote.",
+
+    description:
+      "Embrace the beauty of the night sky with this Starry Night inspired journal. Featuring the timeless 'Stars can't shine without darkness' quote set against a creative torn-paper aesthetic of iconic post-impressionist art, this notebook is designed to inspire your deepest thoughts and creative sparks.",
+
+    highlights: [
+      "Van Gogh 'Starry Night' inspired cover art",
+      "Motivational 'Stars can't shine without darkness' quote",
+      "Elegant vintage typewriter typography",
+      "Smooth high-quality 80 GSM pages",
+      "Durable premium wiro binding for 360-degree opening"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240, 365],
+        A4: [120, 160, 200, 240, 365]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-STARRY-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-STARRY-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-STARRY-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-STARRY-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-STARRY-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-STARRY-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-STARRY-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-STARRY-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-STARRY-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-STARRY-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-STARRY-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-STARRY-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-STARRY-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-STARRY-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-STARRY-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-STARRY-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-STARRY-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-STARRY-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-STARRY-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-STARRY-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 350,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931082/van-gogh-starry-night-quote-notebook_w361av.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929935/starry-night-quote-spiral-notebook-mockup_nhxfdq.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "starry night notebook",
+      "van gogh journal",
+      "celestial diary",
+      "inspirational quote notebook",
+      "artistic stationary",
+      "aesthetic journal"
+    ],
+
+    seo: {
+      metaTitle: "Starry Night Quote Journal | Van Gogh Inspired Notebook",
+      metaDescription:
+        "A beautiful Van Gogh inspired journal with the quote 'Stars can't shine without darkness'. Perfect for art lovers and dreamers.",
+      keywords: [
+        "starry night journal",
+        "van gogh notebook",
+        "celestial quote diary",
+        "artistic wiro notebook"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 42,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-minimalist-overthink-003",
+    name: "Don't Overthink It Abstract Journal",
+    slug: "dont-overthink-it-minimalist-journal",
+    sku: "DJ-MINIMAL-003",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Modern Mindset Collection",
+
+    collections: {
+      franchise: "Minimal",
+      theme: "Mental Wellness",
+      universe: "Abstract Geometry",
+      genre: "Modern Lifestyle"
+    },
+
+    moods: [
+      "Mindful",
+      "Minimalist",
+      "Focus",
+      "Modern",
+      "Calm"
+    ],
+
+    shortDescription:
+      "A sleek, modern journal featuring an abstract geometric design and a gentle reminder to keep it simple.",
+
+    description:
+      "Clear your mind and your desk with this minimalist abstract journal. Featuring a bold retro-modern color palette and the 'Don't Overthink It' mantra, this notebook is the perfect companion for brainstorming, planning, or daily reflection without the clutter.",
+
+    highlights: [
+      "Modern minimalist abstract design",
+      "Bold 'Don't Overthink It' typography",
+      "Vibrant retro-inspired color palette",
+      "Smooth high-quality 80 GSM pages",
+      "Durable premium wiro binding"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240, 365],
+        A4: [120, 160, 200, 240, 365]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-OVERTHINK-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-OVERTHINK-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-OVERTHINK-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-OVERTHINK-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-OVERTHINK-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-OVERTHINK-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-OVERTHINK-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 280,
+      stockStatus: "in_stock",
+      lowStockThreshold: 20
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931065/dont-overthink-it-minimalist-spiral-notebook-wooden-desk_ep4cs7.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929922/minimalist-motivational-spiral-notebook-dont-overthink-it_xpxfaz.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "minimalist notebook",
+      "abstract design journal",
+      "mental health diary",
+      "modern stationary",
+      "overthink it quote",
+      "aesthetic office supplies"
+    ],
+
+    seo: {
+      metaTitle: "Don't Overthink It Journal | Minimalist Abstract Notebook",
+      metaDescription:
+        "Keep your thoughts organized with our minimalist abstract journal. A modern design for mindful writing and productivity.",
+      keywords: [
+        "minimalist journal",
+        "abstract notebook",
+        "dont overthink it diary",
+        "modern wiro journal"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 15,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.8,
+    reviewsCount: 56,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "dj-lyrical-night-met-004",
+    name: "The Night We Met Lyrical Journal",
+    slug: "the-night-we-met-lyrical-journal",
+    sku: "DJ-MET-004",
+
+    productType: "diary_journal",
+    category: "Journals",
+    subCategory: "Premium Journals",
+
+    brand: "pragyaprint",
+    series: "Lyrical Echoes Collection",
+
+    collections: {
+      franchise: "Pop Culture",
+      theme: "The Night We Met",
+      universe: "Romantic Nostalgia",
+      genre: "Fandom & Lyrical"
+    },
+
+    moods: [
+      "Romantic",
+      "Nostalgic",
+      "Melancholic",
+      "Dreamy",
+      "Sentimental"
+    ],
+
+    shortDescription:
+      "A soulful, watercolor-illustrated journal inspired by the hauntingly beautiful lyrics of 'The Night We Met'.",
+
+    description:
+      "Capture your most cherished memories and heartfelt thoughts in this beautifully illustrated journal. Featuring a moody watercolor night sky and a delicate hand-holding illustration, it prominently displays the iconic lyric 'Take me back to the night we met.' Perfect for fans of indie-folk, romantic storytelling, and personal reflection.",
+
+    highlights: [
+      "Custom watercolor celestial cover art",
+      "Hand-holding silhouette 'Take me back' design",
+      "Matte finish for a premium tactile feel",
+      "Smooth high-quality 80 GSM pages",
+      "Durable black wiro binding for easy flat-lay writing"
+    ],
+
+    options: {
+      size: ["A5", "A4"],
+      coverType: ["Softcover", "Hardcover"],
+      rulingType: ["Ruled", "Grid Dots", "Grid Lines", "Unruled", "Dated"],
+      pageMap: {
+        A5: [120, 160, 200, 240, 365],
+        A4: [120, 160, 200, 240, 365]
+      }
+    },
+
+    variants: [
+      { variantId: "DJ-MET-A4-365-HC", size: "A4", pages: 365, coverType: "Hardcover", price: 549, stock: 80 },
+      { variantId: "DJ-MET-A4-365-SC", size: "A4", pages: 365, coverType: "Softcover", price: 499, stock: 80 },
+
+      { variantId: "DJ-MET-A5-365-HC", size: "A5", pages: 365, coverType: "Hardcover", price: 299, stock: 80 },
+      { variantId: "DJ-MET-A5-365-SC", size: "A5", pages: 365, coverType: "Softcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-MET-A5-120-SC", size: "A5", pages: 120, coverType: "Softcover", price: 149, stock: 80 },
+      { variantId: "DJ-MET-A5-160-SC", size: "A5", pages: 160, coverType: "Softcover", price: 179, stock: 80 },
+      { variantId: "DJ-MET-A5-200-SC", size: "A5", pages: 200, coverType: "Softcover", price: 199, stock: 80 },
+      { variantId: "DJ-MET-A5-240-SC", size: "A5", pages: 240, coverType: "Softcover", price: 229, stock: 55 },
+
+      { variantId: "DJ-MET-A5-120-HC", size: "A5", pages: 120, coverType: "Hardcover", price: 199, stock: 80 },
+      { variantId: "DJ-MET-A5-160-HC", size: "A5", pages: 160, coverType: "Hardcover", price: 219, stock: 80 },
+      { variantId: "DJ-MET-A5-200-HC", size: "A5", pages: 200, coverType: "Hardcover", price: 229, stock: 80 },
+      { variantId: "DJ-MET-A5-240-HC", size: "A5", pages: 240, coverType: "Hardcover", price: 249, stock: 80 },
+
+      { variantId: "DJ-MET-A4-120-SC", size: "A4", pages: 120, coverType: "Softcover", price: 289, stock: 80 },
+      { variantId: "DJ-MET-A4-160-SC", size: "A4", pages: 160, coverType: "Softcover", price: 339, stock: 80 },
+      { variantId: "DJ-MET-A4-200-SC", size: "A4", pages: 200, coverType: "Softcover", price: 389, stock: 80 },
+      { variantId: "DJ-MET-A4-240-SC", size: "A4", pages: 240, coverType: "Softcover", price: 429, stock: 80 },
+
+      { variantId: "DJ-MET-A4-120-HC", size: "A4", pages: 120, coverType: "Hardcover", price: 319, stock: 80 },
+      { variantId: "DJ-MET-A4-160-HC", size: "A4", pages: 160, coverType: "Hardcover", price: 349, stock: 80 },
+      { variantId: "DJ-MET-A4-200-HC", size: "A4", pages: 200, coverType: "Hardcover", price: 399, stock: 80 },
+      { variantId: "DJ-MET-A4-240-HC", size: "A4", pages: 240, coverType: "Hardcover", price: 449, stock: 80 }
+    ],
+
+    pricing: {
+      basePrice: 199,
+      salePrice: 149,
+      discountPercentage: 25,
+      currency: "INR",
+      isTaxable: true
+    },
+
+    specifications: {
+      paperGSM: 80,
+      bindingType: "Premium Wiro",
+      coverFinish: "Matte Lamination",
+      orientation: "portrait"
+    },
+
+    inventory: {
+      totalStock: 320,
+      stockStatus: "in_stock",
+      lowStockThreshold: 15
+    },
+
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1773931058/take-me-back-night-we-met-watercolor-notebook_kvfc7i.webp",
+      back: "https://res.cloudinary.com/dal56whd6/image/upload/v1773929939/take-me-back-watercolor-spiral-notebook_jncw3j.webp",
+      images: [
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/spiral-notebook-paper-layout-options-grid-ruled-dotted_gt1fmj.webp",
+        "https://res.cloudinary.com/dal56whd6/image/upload/v1773925138/a4-a5-spiral-notebook-size-comparison-guide_oxn6gk.webp"
+      ]
+    },
+
+    tags: [
+      "the night we met notebook",
+      "lyrical journal",
+      "watercolor aesthetic diary",
+      "music lover gift",
+      "sentimental gift",
+      "romantic diary"
+    ],
+
+    seo: {
+      metaTitle: "The Night We Met Journal | Lyrical Aesthetic Notebook",
+      metaDescription:
+        "Express your feelings in 'The Night We Met' lyrical journal. High-quality notebook with a romantic watercolor night-sky design.",
+      keywords: [
+        "lyrical notebook",
+        "night we met journal",
+        "watercolor journal",
+        "romantic notebook gift"
+      ]
+    },
+
+    productionTime: "2–3 business days",
+
+    shipping: {
+      weight: 0.5,
+      dimensions: {
+        width: 14.8,
+        height: 21,
+        depth: 2.5
+      },
+      shippingClass: "premium_box"
+    },
+
+    rating: 4.9,
+    reviewsCount: 88,
+
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
 
 ];
 
 // --- Categories Data (for filtering/home page) ---
 export const CATEGORIES = [
-  { name: 'Posters', icon: 'Layers', description: 'Large format prints for display and marketing.', image: "https://res.cloudinary.com/dal56whd6/image/upload/v1770976295/posters_yjx4df.png" },
-  { name: 'Spiral Books', icon: 'Briefcase', description: 'Letterheads, envelopes, business cards, and brochures.', image: "https://lemonadeindia.com/cdn/shop/files/personalized-spiral-notebook-zodiac-signsstationerylemonade-379758_1024x1024.jpg?v=1760007996" },
-  { name: 'Photo Prints', icon: 'Image', description: 'Personalized photos, polaroids, and canvas prints.', image: "https://thumbs.dreamstime.com/b/polaroid-prints-textured-wall-collection-each-capturing-unique-scenes-pinned-to-off-white-arrangement-creates-visually-401186269.jpg" },
-  { name: 'Notebooks', icon: 'Heart', description: '', image: notebook },
+  { name: 'Posters', slug: "posters", icon: 'Layers', description: 'Large format prints for display and marketing.', image: "https://res.cloudinary.com/dal56whd6/image/upload/v1770976295/posters_yjx4df.png" },
+  { name: 'Diaries & Journals', slug: "journals", icon: 'Briefcase', description: 'Letterheads, envelopes, business cards, and brochures.', image: journal },
+  { name: 'Photo Prints', slug: "photoprints", icon: 'Image', description: 'Personalized photos, polaroids, and canvas prints.', image: "https://thumbs.dreamstime.com/b/polaroid-prints-textured-wall-collection-each-capturing-unique-scenes-pinned-to-off-white-arrangement-creates-visually-401186269.jpg" },
+  { name: 'Notebooks', slug: "notebooks", icon: 'Heart', description: '', image: notebook },
 
-  { name: 'Wall banners', icon: 'Heart', description: 'Wedding, birthday, and special occasion invitations.', image: "https://dbdzm869oupei.cloudfront.net/img/quadres/large/79603.jpg" },
-  { name: 'Stickers', icon: 'Star', description: 'Vinyl, paper, and custom die-cut stickers.', image: " https://i.pinimg.com/736x/57/ac/9c/57ac9c020929545e9c1d3c648ffb6e3f.jpg" },
+  { name: 'Wall banners', slug: "wallbanners", icon: 'Heart', description: 'Wedding, birthday, and special occasion invitations.', image: "https://dbdzm869oupei.cloudfront.net/img/quadres/large/79603.jpg" },
+  { name: 'Stickers', slug: "stickers", icon: 'Star', description: 'Vinyl, paper, and custom die-cut stickers.', image: " https://i.pinimg.com/736x/57/ac/9c/57ac9c020929545e9c1d3c648ffb6e3f.jpg" },
 ];
 
 //https://images.squarespace-cdn.com/content/v1/66e5ff131ebccd7304d16f90/e8a5362a-d713-4c4c-8cc1-b9d1e1f2525e/s2k+copy111.png?format=500w
@@ -7153,7 +9950,7 @@ export const SERVICES = [
       { id: "bottle-pen", name: "Bottle & Pen Printing" },
       { id: "custom-tshirts", name: "Custom T-Shirts" },
       { id: "cups-mugs", name: "Cups & Mugs" },
-      { id: "spiral-books", name: "Spiral Books" },
+      { id: "-books", name: " Books" },
       { id: "visiting-cards-ads", name: "Visiting Cards" }
     ]
   },
@@ -7198,3 +9995,2251 @@ export const SERVICES = [
 ];
 
 // --- Local Services Data (Offline Shop Offerings) ---
+export const POSTERS = [
+  {
+    id: "prd-cars-lightning-mcqueen-001",
+    name: "Lightning McQueen Cars Aesthetic Wall Poster",
+    slug: "lightning-mcqueen-cars-aesthetic-wall-poster",
+    sku: "PST-ANM-CARS-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Animated_Movies",
+      series: "Lightning McQueen",
+      character: "Lightning McQueen",
+      studio: "Pixar"
+    },
+  
+    themes: [
+      "Cars",
+      "Racing",
+      "Animated",
+      "Aesthetic",
+      "Red",
+      "Speed",
+      "Modern",
+      "Cinematic"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "High-speed Lightning McQueen wall poster inspired by Pixar's iconic Cars movie.",
+  
+    description:
+      "Bring the thrill of the racetrack to your walls with this premium Lightning McQueen poster. Featuring bold red tones, cinematic lighting, and detailed shots of the legendary racer, this design captures the spirit of speed, confidence, and victory.",
+  
+    highlights: [
+      "High-resolution animated artwork",
+      "Bold red racing aesthetic",
+      "Fade-resistant premium inks",
+      "Perfect for gaming rooms & bedrooms",
+      "Great gift for Cars movie fans"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "CARS-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "CARS-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "CARS-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/lightning-mcqueen-cars-movie-poster-interior-mockup_afqlti.webp",
+      images: [
+        "lightning_mcqueen_1.jpg",
+        "lightning_mcqueen_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "lightning mcqueen poster",
+      "cars movie poster",
+      "pixar wall art",
+      "racing car poster",
+      "animated wall decor"
+    ],
+  
+    seo: {
+      metaTitle: "Lightning McQueen Poster | Cars Movie Wall Art",
+      metaDescription:
+        "Buy Lightning McQueen wall poster inspired by Pixar Cars. Perfect racing aesthetic wall decor.",
+      keywords: [
+        "lightning mcqueen poster",
+        "cars movie wall art",
+        "pixar poster",
+        "racing poster"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.8,
+    reviewsCount: 124,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Disney Pixar's Cars. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "prd-anime-hiroshi-nohara-001",
+    name: "Hiroshi Nohara Minimal Anime Wall Poster",
+    slug: "hiroshi-nohara-minimal-anime-wall-poster",
+    sku: "PST-ANM-SCN-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Animated_Movies",
+      series: "Shinchan",
+      character: "Hiroshi Nohara",
+      studio: "Shin-Ei Animation"
+    },
+  
+    themes: [
+      "Anime",
+      "Minimal",
+      "Aesthetic",
+      "Cartoon",
+      "Japanese",
+      "Clean",
+      "Modern",
+      "Iconic"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Minimalist Hiroshi Nohara anime poster with a bold red aesthetic background.",
+  
+    description:
+      "A sleek and minimal anime wall poster featuring Hiroshi Nohara from Crayon Shinchan. Designed with a bold red backdrop and clean vector-style illustration, this artwork brings a modern aesthetic vibe perfect for anime lovers and minimal decor enthusiasts.",
+  
+    highlights: [
+      "Minimal anime artwork design",
+      "Bold red aesthetic background",
+      "Clean vector-style illustration",
+      "Fade-resistant premium inks",
+      "Perfect for desks, bedrooms & studios"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "SHIN-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "SHIN-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "SHIN-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/hiroshi-nohara-crayon-shin-chan-anime-wall-art-decor_iqppid.webp",
+      images: [
+        "hiroshi_nohara_1.jpg",
+        "hiroshi_nohara_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "hiroshi nohara poster",
+      "shinchan anime poster",
+      "minimal anime wall art",
+      "crayon shinchan poster",
+      "anime aesthetic decor"
+    ],
+  
+    seo: {
+      metaTitle: "Hiroshi Nohara Poster | Shinchan Minimal Anime Wall Art",
+      metaDescription:
+        "Buy Hiroshi Nohara anime poster with a minimal red aesthetic design from Crayon Shinchan.",
+      keywords: [
+        "hiroshi nohara poster",
+        "shinchan wall art",
+        "anime minimal poster",
+        "crayon shinchan decor"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.7,
+    reviewsCount: 96,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Crayon Shinchan. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: false,
+    isNewArrival: true
+  },
+  {
+    id: "prd-movie-american-psycho-001",
+    name: "American Psycho Aesthetic Movie Wall Poster",
+    slug: "american-psycho-aesthetic-movie-wall-poster",
+    sku: "PST-MOV-PSY-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Movies",
+      series: "American Psycho",
+      character: "Patrick Bateman",
+      studio: "Lionsgate"
+    },
+  
+    themes: [
+      "Movie",
+      "Dark",
+      "Aesthetic",
+      "Psychological",
+      "Minimal",
+      "Cinematic",
+      "Red",
+      "Cult Classic"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Dark aesthetic American Psycho poster featuring Patrick Bateman in a bold red tone.",
+  
+    description:
+      "Elevate your space with this striking American Psycho wall poster inspired by the cult classic film. Featuring a gritty red-toned portrait of Patrick Bateman, this design captures the film’s dark psychological edge and minimalist cinematic style—perfect for modern interiors.",
+  
+    highlights: [
+      "High-resolution cinematic artwork",
+      "Dark red aesthetic theme",
+      "Minimal and bold design",
+      "Fade-resistant premium inks",
+      "Perfect for movie lovers & modern decor"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "PSY-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "PSY-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "PSY-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/american-psycho-movie-poster-wall-decor_ct21lc.webp",
+      images: [
+        "american_psycho_1.jpg",
+        "american_psycho_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "american psycho poster",
+      "patrick bateman poster",
+      "movie wall art",
+      "dark aesthetic poster",
+      "cult classic film decor"
+    ],
+  
+    seo: {
+      metaTitle: "American Psycho Poster | Patrick Bateman Wall Art",
+      metaDescription:
+        "Buy American Psycho wall poster featuring Patrick Bateman in a dark aesthetic design.",
+      keywords: [
+        "american psycho poster",
+        "patrick bateman wall art",
+        "dark movie poster",
+        "cult classic poster"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.8,
+    reviewsCount: 138,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by American Psycho. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: false
+  },
+  {
+    id: "prd-tv-breaking-bad-001",
+    name: "Breaking Bad Walter White Jesse Pinkman Wall Poster",
+    slug: "breaking-bad-walter-white-jesse-pinkman-wall-poster",
+    sku: "PST-TV-BB-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Series",
+      series: "Breaking Bad",
+      characters: ["Walter White", "Jesse Pinkman"],
+      studio: "AMC"
+    },
+  
+    themes: [
+      "TV Show",
+      "Crime",
+      "Drama",
+      "Dark",
+      "Cinematic",
+      "Iconic",
+      "Yellow",
+      "Minimal",
+      "Aesthetic"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Iconic Breaking Bad poster featuring Walter White and Jesse Pinkman in a bold yellow aesthetic.",
+  
+    description:
+      "Upgrade your wall with this intense Breaking Bad poster showcasing Walter White and Jesse Pinkman in a striking yellow tone. Inspired by the legendary TV series, this artwork captures the chemistry, tension, and iconic identity of one of the greatest shows ever made.",
+  
+    highlights: [
+      "High-resolution TV show artwork",
+      "Iconic yellow Breaking Bad theme",
+      "Bold dual-character composition",
+      "Fade-resistant premium inks",
+      "Perfect for binge-watchers & fans"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "BB-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "BB-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "BB-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/breaking-bad-tv-show-poster-wall-decor-mockup_wwbyog.webp",
+      images: [
+        "breaking_bad_1.jpg",
+        "breaking_bad_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "breaking bad poster",
+      "walter white poster",
+      "jesse pinkman wall art",
+      "tv show poster",
+      "heisenberg poster"
+    ],
+  
+    seo: {
+      metaTitle: "Breaking Bad Poster | Walter White & Jesse Pinkman Wall Art",
+      metaDescription:
+        "Buy Breaking Bad wall poster featuring Walter White and Jesse Pinkman in iconic yellow aesthetic.",
+      keywords: [
+        "breaking bad poster",
+        "walter white wall art",
+        "heisenberg poster",
+        "tv show decor"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.9,
+    reviewsCount: 210,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Breaking Bad. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: false
+  },
+  {
+    id: "prd-music-billie-eilish-001",
+    name: "Billie Eilish Neon Aesthetic Wall Poster",
+    slug: "billie-eilish-neon-aesthetic-wall-poster",
+    sku: "PST-MUS-BIL-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Music",
+      series: "Billie Eilish",
+      artist: "Billie Eilish",
+      album: "Hit Me Hard And Soft"
+    },
+  
+    themes: [
+      "Music",
+      "Pop",
+      "Aesthetic",
+      "Neon",
+      "Green",
+      "Gen Z",
+      "Modern",
+      "Concert",
+      "Trendy"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Trendy Billie Eilish wall poster featuring neon green aesthetic and bold Gen Z vibes.",
+  
+    description:
+      "Make your walls stand out with this vibrant Billie Eilish poster featuring her iconic neon green aesthetic. Inspired by her bold persona and modern pop culture influence, this design is perfect for music lovers who want a trendy and edgy vibe in their space.",
+  
+    highlights: [
+      "High-resolution music artwork",
+      "Iconic neon green Billie aesthetic",
+      "Bold Gen Z style design",
+      "Fade-resistant premium inks",
+      "Perfect for bedrooms & aesthetic setups"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "BIL-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "BIL-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "BIL-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/billie-eilish-magazine-cover-wall-poster-decor_pxns4j.webp",
+      images: [
+        "billie_eilish_1.jpg",
+        "billie_eilish_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "billie eilish poster",
+      "neon aesthetic poster",
+      "music wall art",
+      "gen z decor",
+      "pop singer poster"
+    ],
+  
+    seo: {
+      metaTitle: "Billie Eilish Poster | Neon Aesthetic Music Wall Art",
+      metaDescription:
+        "Buy Billie Eilish neon aesthetic wall poster with trendy Gen Z vibe and bold design.",
+      keywords: [
+        "billie eilish poster",
+        "neon music poster",
+        "aesthetic wall art",
+        "gen z decor poster"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.9,
+    reviewsCount: 187,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Billie Eilish. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "prd-car-dodge-hellcat-001",
+    name: "Dodge Challenger SRT Hellcat Muscle Car Wall Poster",
+    slug: "dodge-challenger-srt-hellcat-muscle-car-wall-poster",
+    sku: "PST-CAR-DOD-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Cars",
+      series: "Dodge Challenger",
+      model: "SRT Hellcat",
+      brand: "Dodge"
+    },
+  
+    themes: [
+      "Cars",
+      "Muscle Car",
+      "Automotive",
+      "Minimal",
+      "Black",
+      "Power",
+      "Speed",
+      "Modern",
+      "Luxury"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Minimal Dodge Challenger SRT Hellcat poster featuring a bold black muscle car aesthetic.",
+  
+    description:
+      "Upgrade your space with this powerful Dodge Challenger SRT Hellcat poster. Featuring a sleek black muscle car against a clean minimal background, this design captures raw performance, aggressive styling, and automotive excellence—perfect for car enthusiasts and modern interiors.",
+  
+    highlights: [
+      "High-resolution car artwork",
+      "Minimal and premium design",
+      "Iconic Hellcat muscle car aesthetic",
+      "Fade-resistant premium inks",
+      "Perfect for garages, rooms & offices"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "DOD-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "DOD-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "DOD-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/dodge-challenger-srt-hellcat-car-poster-wall-art_yahb6a.webp",
+      images: [
+        "dodge_hellcat_1.jpg",
+        "dodge_hellcat_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "dodge hellcat poster",
+      "muscle car wall art",
+      "challenger srt poster",
+      "car enthusiast decor",
+      "automotive poster"
+    ],
+  
+    seo: {
+      metaTitle: "Dodge Challenger SRT Hellcat Poster | Muscle Car Wall Art",
+      metaDescription:
+        "Buy Dodge Hellcat wall poster with minimal design and powerful muscle car aesthetic.",
+      keywords: [
+        "dodge hellcat poster",
+        "muscle car wall art",
+        "challenger srt poster",
+        "car decor poster"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.8,
+    reviewsCount: 112,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Dodge Challenger SRT Hellcat. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: false,
+    isNewArrival: true
+  },
+  {
+    id: "prd-music-eminem-001",
+    name: "Eminem Rolling Stone Cover Wall Poster",
+    slug: "eminem-rolling-stone-cover-wall-poster",
+    sku: "PST-MUS-EMN-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Music",
+      series: "Eminem",
+      artist: "Eminem",
+      magazine: "Rolling Stone"
+    },
+  
+    themes: [
+      "Music",
+      "Hip Hop",
+      "Rap",
+      "Vintage",
+      "Aesthetic",
+      "Celebrity",
+      "Magazine",
+      "Iconic",
+      "Urban"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Iconic Eminem Rolling Stone cover poster with bold hip-hop aesthetic.",
+  
+    description:
+      "Bring legendary hip-hop energy to your walls with this Eminem Rolling Stone cover poster. Featuring a bold magazine-style design and iconic pose, this artwork captures the raw attitude and influence of one of the greatest rappers of all time.",
+  
+    highlights: [
+      "High-resolution music artwork",
+      "Iconic magazine cover design",
+      "Hip-hop and urban aesthetic",
+      "Fade-resistant premium inks",
+      "Perfect for music lovers & modern setups"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "EMN-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "EMN-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "EMN-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/eminem-rolling-stone-magazine-cover-framed-wall-art_hspyqy.webp",
+      images: [
+        "eminem_1.jpg",
+        "eminem_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "eminem poster",
+      "hip hop wall art",
+      "rap poster",
+      "rolling stone cover poster",
+      "music wall decor"
+    ],
+  
+    seo: {
+      metaTitle: "Eminem Poster | Rolling Stone Hip Hop Wall Art",
+      metaDescription:
+        "Buy Eminem Rolling Stone cover poster with iconic hip-hop aesthetic design.",
+      keywords: [
+        "eminem poster",
+        "rap wall art",
+        "hip hop poster",
+        "rolling stone poster"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.9,
+    reviewsCount: 173,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Eminem and Rolling Stone magazine. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "prd-tv-friends-001",
+    name: "Friends TV Show Classic Wall Poster",
+    slug: "friends-tv-show-classic-wall-poster",
+    sku: "PST-TV-FRD-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Series",
+      series: "Friends",
+      characters: [
+        "Rachel Green",
+        "Ross Geller",
+        "Monica Geller",
+        "Chandler Bing",
+        "Joey Tribbiani",
+        "Phoebe Buffay"
+      ],
+      studio: "NBC"
+    },
+  
+    themes: [
+      "TV Show",
+      "Comedy",
+      "Sitcom",
+      "Classic",
+      "Vintage",
+      "Aesthetic",
+      "Pop Culture",
+      "Nostalgia",
+      "Minimal"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Classic Friends TV show poster featuring the iconic cast in a timeless aesthetic.",
+  
+    description:
+      "Celebrate one of the most loved sitcoms of all time with this Friends wall poster. Featuring the iconic cast in a fun and nostalgic setup, this design brings warmth, humor, and timeless vibes to your space—perfect for every Friends fan.",
+  
+    highlights: [
+      "High-resolution TV show artwork",
+      "Iconic Friends cast design",
+      "Clean and nostalgic aesthetic",
+      "Fade-resistant premium inks",
+      "Perfect for bedrooms & cozy spaces"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "FRD-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "FRD-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "FRD-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115867/friends-tv-show-poster-living-room-wall-art_fmavx4.webp",
+      images: [
+        "friends_1.jpg",
+        "friends_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "friends poster",
+      "tv show wall art",
+      "sitcom poster",
+      "friends cast poster",
+      "nostalgic wall decor"
+    ],
+  
+    seo: {
+      metaTitle: "Friends Poster | Classic TV Show Wall Art",
+      metaDescription:
+        "Buy Friends TV show wall poster featuring the iconic cast in a nostalgic aesthetic design.",
+      keywords: [
+        "friends poster",
+        "tv show wall art",
+        "sitcom decor",
+        "friends wall poster"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.9,
+    reviewsCount: 245,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Friends TV series. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: false
+  },
+  {
+    id: "prd-game-ghost-of-tsushima-001",
+    name: "Ghost of Tsushima Samurai Gaming Wall Poster",
+    slug: "ghost-of-tsushima-samurai-gaming-wall-poster",
+    sku: "PST-GAM-GOT-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Gaming",
+      series: "Ghost of Tsushima",
+      character: "Jin Sakai",
+      studio: "Sucker Punch Productions"
+    },
+  
+    themes: [
+      "Gaming",
+      "Samurai",
+      "Action",
+      "Adventure",
+      "Japanese",
+      "Cinematic",
+      "Dark",
+      "Aesthetic",
+      "Warrior"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Epic Ghost of Tsushima poster featuring samurai warrior Jin Sakai in cinematic style.",
+  
+    description:
+      "Bring the spirit of the samurai to your walls with this Ghost of Tsushima poster. Featuring Jin Sakai in a breathtaking cinematic landscape, this artwork captures honor, battle, and the beauty of feudal Japan—perfect for gamers and anime-style aesthetic lovers.",
+  
+    highlights: [
+      "High-resolution gaming artwork",
+      "Cinematic samurai composition",
+      "Inspired by Ghost of Tsushima",
+      "Fade-resistant premium inks",
+      "Perfect for gaming setups & rooms"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "GOT-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "GOT-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "GOT-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115867/ghost-of-tsushima-framed-wall-art-mockup_bddrhk.webp",
+      images: [
+        "ghost_of_tsushima_1.jpg",
+        "ghost_of_tsushima_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "ghost of tsushima poster",
+      "jin sakai wall art",
+      "samurai poster",
+      "gaming wall decor",
+      "playstation game poster"
+    ],
+  
+    seo: {
+      metaTitle: "Ghost of Tsushima Poster | Samurai Gaming Wall Art",
+      metaDescription:
+        "Buy Ghost of Tsushima wall poster featuring Jin Sakai in cinematic samurai aesthetic.",
+      keywords: [
+        "ghost of tsushima poster",
+        "jin sakai wall art",
+        "samurai gaming poster",
+        "playstation decor"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.9,
+    reviewsCount: 156,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Ghost of Tsushima. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "prd-sports-india-cricket-001",
+    name: "Team India World Cup Champions Wall Poster",
+    slug: "team-india-world-cup-champions-wall-poster",
+    sku: "PST-SPR-IND-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Cricket",
+      series: "World Cup Winners",
+      players: ["Virat Kohli", "Rohit Sharma"],
+      sport: "Cricket"
+    },
+  
+    themes: [
+      "Sports",
+      "Cricket",
+      "India",
+      "Champions",
+      "Motivation",
+      "National Pride",
+      "Victory",
+      "Iconic",
+      "Aesthetic"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Celebrate Team India’s World Cup victory with this iconic poster featuring Rohit Sharma and Virat Kohli.",
+  
+    description:
+      "Relive the glory of Team India’s World Cup triumph with this powerful poster featuring Rohit Sharma and Virat Kohli holding the trophy. Designed to capture pride, passion, and victory, this artwork is perfect for cricket fans and patriotic spaces.",
+  
+    highlights: [
+      "High-resolution sports artwork",
+      "Iconic World Cup winning moment",
+      "Emotional and patriotic design",
+      "Fade-resistant premium inks",
+      "Perfect for fans & sports lovers"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "IND-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "IND-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "IND-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115867/india-t20-world-cup-winners-virat-kohli-rohit-sharma-poster_m4twic.webp",
+      images: [
+        "india_cricket_1.jpg",
+        "india_cricket_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "india cricket poster",
+      "world cup poster india",
+      "virat kohli poster",
+      "rohit sharma poster",
+      "cricket wall art"
+    ],
+  
+    seo: {
+      metaTitle: "Team India World Cup Poster | Cricket Champions Wall Art",
+      metaDescription:
+        "Buy Team India World Cup winning poster featuring Virat Kohli and Rohit Sharma.",
+      keywords: [
+        "india cricket poster",
+        "world cup india poster",
+        "virat kohli wall art",
+        "rohit sharma poster"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 5.0,
+    reviewsCount: 320,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Team India and ICC events. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "prd-movie-joker-001",
+    name: "Joker Dark Knight Aesthetic Wall Poster",
+    slug: "joker-dark-knight-aesthetic-wall-poster",
+    sku: "PST-MOV-JOK-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "DC",
+      series: "Batman",
+      character: "Joker",
+      studio: "DC Comics"
+    },
+  
+    themes: [
+      "Movie",
+      "Dark",
+      "Villain",
+      "Aesthetic",
+      "Psychological",
+      "Cinematic",
+      "Grunge",
+      "Iconic",
+      "Artistic"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Dark aesthetic Joker poster inspired by The Dark Knight featuring a gritty artistic style.",
+  
+    description:
+      "Transform your space with this intense Joker wall poster inspired by The Dark Knight. Featuring a gritty and artistic portrayal of the iconic villain, this design captures chaos, madness, and cinematic brilliance—perfect for dark aesthetic lovers.",
+  
+    highlights: [
+      "High-resolution cinematic artwork",
+      "Dark and gritty Joker aesthetic",
+      "Artistic textured design",
+      "Fade-resistant premium inks",
+      "Perfect for modern & dark-themed rooms"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "JOK-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "JOK-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "JOK-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/joker-heath-ledger-wall-art-modern-interior_jaa2sg.webp",
+      images: [
+        "joker_1.jpg",
+        "joker_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "joker poster",
+      "dark knight wall art",
+      "heath ledger joker",
+      "villain poster",
+      "dark aesthetic decor"
+    ],
+  
+    seo: {
+      metaTitle: "Joker Poster | Dark Knight Villain Wall Art",
+      metaDescription:
+        "Buy Joker wall poster inspired by The Dark Knight with dark aesthetic design.",
+      keywords: [
+        "joker poster",
+        "dark knight wall art",
+        "heath ledger joker poster",
+        "villain decor"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 5.0,
+    reviewsCount: 290,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by The Dark Knight. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "prd-music-kendrick-lamar-001",
+    name: "Kendrick Lamar Hip Hop Aesthetic Wall Poster",
+    slug: "kendrick-lamar-hip-hop-aesthetic-wall-poster",
+    sku: "PST-MUS-KND-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Music",
+      series: "Kendrick Lamar",
+      artist: "Kendrick Lamar",
+      genre: "Hip Hop"
+    },
+  
+    themes: [
+      "Music",
+      "Hip Hop",
+      "Rap",
+      "Urban",
+      "Performance",
+      "Aesthetic",
+      "Modern",
+      "Street",
+      "Iconic"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Dynamic Kendrick Lamar poster capturing hip-hop energy and performance aesthetics.",
+  
+    description:
+      "Bring raw hip-hop energy to your space with this Kendrick Lamar wall poster. Featuring a dynamic performance-style composition, this design reflects movement, rhythm, and the powerful presence of one of the greatest modern rappers.",
+  
+    highlights: [
+      "High-resolution music artwork",
+      "Dynamic performance composition",
+      "Modern hip-hop aesthetic",
+      "Fade-resistant premium inks",
+      "Perfect for music lovers & urban decor"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "KND-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "KND-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "KND-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/kendrick-lamar-music-poster-wall-decor_jpfwkv.webp",
+      images: [
+        "kendrick_lamar_1.jpg",
+        "kendrick_lamar_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "kendrick lamar poster",
+      "hip hop wall art",
+      "rap poster",
+      "music decor",
+      "urban aesthetic poster"
+    ],
+  
+    seo: {
+      metaTitle: "Kendrick Lamar Poster | Hip Hop Wall Art",
+      metaDescription:
+        "Buy Kendrick Lamar wall poster with modern hip-hop aesthetic and dynamic performance design.",
+      keywords: [
+        "kendrick lamar poster",
+        "hip hop poster",
+        "rap wall art",
+        "music decor poster"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.8,
+    reviewsCount: 141,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Kendrick Lamar. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: false,
+    isNewArrival: true
+  },
+  {
+    id: "prd-car-mclaren-senna-001",
+    name: "McLaren Senna Supercar Aesthetic Wall Poster",
+    slug: "mclaren-senna-supercar-aesthetic-wall-poster",
+    sku: "PST-CAR-MCL-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Cars",
+      series: "McLaren",
+      model: "Senna",
+      brand: "McLaren"
+    },
+  
+    themes: [
+      "Cars",
+      "Supercar",
+      "Luxury",
+      "Automotive",
+      "Speed",
+      "Performance",
+      "Modern",
+      "Orange",
+      "Premium"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Premium McLaren Senna poster showcasing supercar performance and luxury design.",
+  
+    description:
+      "Elevate your space with this stunning McLaren Senna wall poster. Featuring a bold orange supercar with dynamic composition, this design captures speed, precision, and luxury engineering—perfect for car enthusiasts and modern interiors.",
+  
+    highlights: [
+      "High-resolution automotive artwork",
+      "Premium supercar aesthetic",
+      "Bold orange McLaren design",
+      "Fade-resistant premium inks",
+      "Perfect for car lovers & luxury setups"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "MCL-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "MCL-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "MCL-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115867/mclaren-senna-automotive-wall-art-decor_hwlsgo.webp",
+      images: [
+        "mclaren_senna_1.jpg",
+        "mclaren_senna_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "mclaren senna poster",
+      "supercar wall art",
+      "luxury car poster",
+      "automotive decor",
+      "car enthusiast poster"
+    ],
+  
+    seo: {
+      metaTitle: "McLaren Senna Poster | Supercar Wall Art",
+      metaDescription:
+        "Buy McLaren Senna wall poster with premium supercar aesthetic and luxury design.",
+      keywords: [
+        "mclaren senna poster",
+        "supercar wall art",
+        "luxury car poster",
+        "automotive decor"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.8,
+    reviewsCount: 102,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by McLaren Senna. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: false,
+    isNewArrival: true
+  },
+  {
+    id: "prd-motivational-never-give-up-001",
+    name: "Never Give Up Motivational Typography Wall Poster",
+    slug: "never-give-up-motivational-typography-wall-poster",
+    sku: "PST-MOT-NGU-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Motivation",
+      series: "Typography Posters",
+      theme: "Self Motivation",
+      style: "Minimal"
+    },
+  
+    themes: [
+      "Motivation",
+      "Quotes",
+      "Typography",
+      "Minimal",
+      "Black",
+      "Bold",
+      "Gym",
+      "Focus",
+      "Success"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "original",
+  
+    shortDescription:
+      "Bold motivational typography poster with 'Never Give Up' message in minimal black aesthetic.",
+  
+    description:
+      "Stay focused and inspired with this powerful 'Never Give Up' wall poster. Featuring bold typography and a clean black background, this design delivers a strong motivational message—perfect for study spaces, gyms, and work setups.",
+  
+    highlights: [
+      "Bold motivational quote design",
+      "Minimal black aesthetic",
+      "High-contrast typography",
+      "Fade-resistant premium inks",
+      "Perfect for gym, study & workspace"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "NGU-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "NGU-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "NGU-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115867/never-never-never-give-up-motivational-wall-art-poster-interior_n0rdfy.webp",
+      images: [
+        "never_give_up_1.jpg",
+        "never_give_up_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "motivational poster",
+      "never give up quote",
+      "gym wall art",
+      "study motivation poster",
+      "typography wall decor"
+    ],
+  
+    seo: {
+      metaTitle: "Never Give Up Poster | Motivational Typography Wall Art",
+      metaDescription:
+        "Buy Never Give Up motivational wall poster with bold typography and minimal design.",
+      keywords: [
+        "motivational poster",
+        "never give up wall art",
+        "gym quote poster",
+        "study motivation decor"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.7,
+    reviewsCount: 88,
+  
+    copyrightNote:
+      "Original motivational typography design by pragyaprint.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: false,
+    isNewArrival: true
+  },
+  {
+    id: "prd-motivational-change-life-001",
+    name: "Only You Can Change Your Life Minimal Wall Poster",
+    slug: "only-you-can-change-your-life-minimal-wall-poster",
+    sku: "PST-MOT-OYC-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Motivation",
+      series: "Typography Posters",
+      theme: "Self Growth",
+      style: "Minimal"
+    },
+  
+    themes: [
+      "Motivation",
+      "Quotes",
+      "Typography",
+      "Minimal",
+      "Black and White",
+      "Self Growth",
+      "Mindset",
+      "Success",
+      "Modern"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "original",
+  
+    shortDescription:
+      "Minimal black and white motivational poster with 'Only You Can Change Your Life' quote.",
+  
+    description:
+      "Stay inspired every day with this clean and minimal motivational poster featuring the powerful message 'Only You Can Change Your Life'. Designed with bold brush-style typography, this artwork adds a modern and focused vibe to any space.",
+  
+    highlights: [
+      "Minimal black and white design",
+      "Bold brush typography style",
+      "Clean modern aesthetic",
+      "Fade-resistant premium inks",
+      "Perfect for study, office & bedroom"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "OYC-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "OYC-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "OYC-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/only-you-can-change-your-life-wall-art-poster_bofnga.webp",
+      images: [
+        "change_life_1.jpg",
+        "change_life_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "motivational poster",
+      "self growth wall art",
+      "minimal quote poster",
+      "study motivation decor",
+      "black white typography poster"
+    ],
+  
+    seo: {
+      metaTitle: "Only You Can Change Your Life Poster | Minimal Motivational Wall Art",
+      metaDescription:
+        "Buy minimal motivational wall poster with 'Only You Can Change Your Life' quote in modern design.",
+      keywords: [
+        "motivational poster",
+        "self growth poster",
+        "minimal wall art",
+        "study motivation poster"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.8,
+    reviewsCount: 76,
+  
+    copyrightNote:
+      "Original motivational typography design by pragyaprint.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: false,
+    isNewArrival: true
+  },
+  {
+    id: "prd-sports-maldini-001",
+    name: "Paolo Maldini AC Milan Legend Wall Poster",
+    slug: "paolo-maldini-ac-milan-legend-wall-poster",
+    sku: "PST-SPR-FBL-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Football",
+      series: "AC Milan",
+      player: "Paolo Maldini",
+      league: "Serie A"
+    },
+  
+    themes: [
+      "Sports",
+      "Football",
+      "Legend",
+      "Athlete",
+      "Vintage",
+      "Aesthetic",
+      "Red Black",
+      "Iconic",
+      "Minimal"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Iconic Paolo Maldini poster featuring AC Milan legend in bold vintage aesthetic.",
+  
+    description:
+      "Celebrate football greatness with this Paolo Maldini wall poster. Featuring the legendary AC Milan captain in a bold red and black design, this artwork captures leadership, legacy, and passion—perfect for true football fans.",
+  
+    highlights: [
+      "High-resolution sports artwork",
+      "Iconic AC Milan legend design",
+      "Bold red and black aesthetic",
+      "Fade-resistant premium inks",
+      "Perfect for football fans & sports decor"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "FBL-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "FBL-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "FBL-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/paulo-maldini-ac-milan-poster-wall-art_xa2fic.webp",
+      images: [
+        "maldini_1.jpg",
+        "maldini_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "paolo maldini poster",
+      "ac milan wall art",
+      "football legend poster",
+      "soccer decor",
+      "sports wall art"
+    ],
+  
+    seo: {
+      metaTitle: "Paolo Maldini Poster | AC Milan Football Legend Wall Art",
+      metaDescription:
+        "Buy Paolo Maldini AC Milan poster with iconic football legend design.",
+      keywords: [
+        "paolo maldini poster",
+        "ac milan wall art",
+        "football poster",
+        "soccer legend decor"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.8,
+    reviewsCount: 94,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Paolo Maldini and AC Milan. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: false,
+    isNewArrival: true
+  },
+  {
+    id: "prd-marvel-doctor-doom-001",
+    name: "Doctor Doom Dark Marvel Aesthetic Wall Poster",
+    slug: "doctor-doom-dark-marvel-aesthetic-wall-poster",
+    sku: "PST-MRV-DOM-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Marvel",
+      series: "Doctor Doom",
+      character: "Doctor Doom",
+      universe: "Marvel Universe"
+    },
+  
+    themes: [
+      "Superhero",
+      "Marvel",
+      "Dark",
+      "Villain",
+      "Cinematic",
+      "Aesthetic",
+      "Green",
+      "Power",
+      "Iconic"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Dark Doctor Doom poster inspired by Marvel aesthetic with cinematic and powerful design.",
+  
+    description:
+      "Bring power and mystery to your walls with this Doctor Doom wall poster. Featuring a dark cinematic portrayal with rich green tones, this artwork captures the dominance and intelligence of one of Marvel’s most iconic villains.",
+  
+    highlights: [
+      "High-resolution Marvel artwork",
+      "Dark cinematic villain aesthetic",
+      "Rich green tone design",
+      "Fade-resistant premium inks",
+      "Perfect for superhero & gaming setups"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "DOM-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "DOM-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "DOM-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/robert-downey-jr-doctor-doom-canvas-print-wall-art_cia8dn.webp",
+      images: [
+        "doctor_doom_1.jpg",
+        "doctor_doom_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "doctor doom poster",
+      "marvel villain poster",
+      "superhero wall art",
+      "dark marvel poster",
+      "comic decor"
+    ],
+  
+    seo: {
+      metaTitle: "Doctor Doom Poster | Dark Marvel Villain Wall Art",
+      metaDescription:
+        "Buy Doctor Doom wall poster with dark Marvel aesthetic and cinematic design.",
+      keywords: [
+        "doctor doom poster",
+        "marvel wall art",
+        "superhero poster",
+        "villain decor"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.8,
+    reviewsCount: 109,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Marvel characters. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "prd-marvel-thor-001",
+    name: "Thor Odinson Avengers Wall Poster",
+    slug: "thor-odinson-avengers-wall-poster",
+    sku: "PST-MRV-THR-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Marvel",
+      series: "Avengers",
+      character: "Thor Odinson",
+      universe: "Marvel Universe"
+    },
+  
+    themes: [
+      "Superhero",
+      "Marvel",
+      "Avengers",
+      "Hero",
+      "Power",
+      "Cinematic",
+      "Red",
+      "Minimal",
+      "Iconic"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Powerful Thor Odinson poster featuring Avengers aesthetic and bold typography.",
+  
+    description:
+      "Bring the power of the God of Thunder to your walls with this Thor Odinson poster. Featuring a striking pose with bold typography, this design captures strength, sacrifice, and heroism—perfect for Marvel fans and superhero setups.",
+  
+    highlights: [
+      "High-resolution Marvel artwork",
+      "Bold superhero typography design",
+      "Iconic Thor aesthetic",
+      "Fade-resistant premium inks",
+      "Perfect for Marvel & gaming setups"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "THR-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "THR-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "THR-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115869/thor-odinson-avengers-doomsday-movie-poster-wall-mockup_ihkwhr.webp",
+      images: [
+        "thor_1.jpg",
+        "thor_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "thor poster",
+      "avengers wall art",
+      "marvel superhero poster",
+      "god of thunder poster",
+      "superhero decor"
+    ],
+  
+    seo: {
+      metaTitle: "Thor Poster | Avengers Marvel Wall Art",
+      metaDescription:
+        "Buy Thor Odinson wall poster with powerful Avengers aesthetic and bold design.",
+      keywords: [
+        "thor poster",
+        "avengers poster",
+        "marvel wall art",
+        "superhero decor"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.9,
+    reviewsCount: 168,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Marvel characters. Not official merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: true,
+    isNewArrival: true
+  },
+  {
+    id: "prd-animation-zootopia-001",
+    name: "Zootopia Nick & Judy Cute Wall Poster",
+    slug: "zootopia-nick-judy-cute-wall-poster",
+    sku: "PST-ANI-ZOO-001",
+  
+    productType: "posters",
+    category: "Posters",
+  
+    collections: {
+      franchise: "Animated_Movies",
+      studio: "Disney",
+      characters: "Nick Wilde & Judy Hopps",
+      genre: "Animation"
+    },
+  
+    themes: [
+      "Animation",
+      "Cute",
+      "Kids",
+      "Fun",
+      "Colorful",
+      "Cartoon",
+      "Wholesome",
+      "Friendship",
+      "Aesthetic"
+    ],
+  
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+  
+    shortDescription:
+      "Adorable Zootopia poster featuring Nick Wilde and Judy Hopps in a fun playful pose.",
+  
+    description:
+      "Add a fun and cheerful vibe to your space with this Zootopia wall poster featuring Nick Wilde and Judy Hopps. With vibrant colors and a playful aesthetic, this poster is perfect for kids’ rooms, gifts, or anyone who loves animated movies.",
+  
+    highlights: [
+      "High-resolution animated artwork",
+      "Cute and colorful design",
+      "Perfect for kids & gifting",
+      "Fade-resistant premium inks",
+      "Great for bedrooms & study spaces"
+    ],
+  
+    pricing: {
+      basePrice: 149,
+      salePrice: 99,
+      discountPercentage: 33,
+      currency: "INR",
+      isTaxable: true
+    },
+  
+    options: {
+      size: ["A4", "A5", "A3"],
+      paperType: ["Matte", "Glossy"]
+    },
+  
+    variants: [
+      { variantId: "ZOO-A4", size: "A4", price: 99, stock: 30 },
+      { variantId: "ZOO-A3", size: "A3", price: 179, stock: 30 },
+      { variantId: "ZOO-A5", size: "A5", price: 69, stock: 20 }
+    ],
+  
+    inventory: {
+      totalStock: 80,
+      stockStatus: "in_stock",
+      lowStockThreshold: 8
+    },
+  
+    media: {
+      thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115869/zootopia-characters-wall-art-mockup_iteqtf.webp",
+      images: [
+        "zootopia_1.jpg",
+        "zootopia_2.jpg"
+      ]
+    },
+  
+    tags: [
+      "zootopia poster",
+      "nick wilde judy hopps",
+      "kids wall art",
+      "cartoon poster",
+      "cute disney decor"
+    ],
+  
+    seo: {
+      metaTitle: "Zootopia Poster | Nick & Judy Cute Wall Art",
+      metaDescription:
+        "Buy Zootopia wall poster featuring Nick Wilde and Judy Hopps in fun colorful design.",
+      keywords: [
+        "zootopia poster",
+        "nick wilde judy hopps",
+        "kids cartoon wall art",
+        "disney poster"
+      ]
+    },
+  
+    productionTime: "2–3 business days",
+  
+    shipping: {
+      weight: 0.28,
+      dimensions: { width: 18, height: 24, depth: 0.1 },
+      shippingClass: "small_tube"
+    },
+  
+    rating: 4.7,
+    reviewsCount: 58,
+  
+    copyrightNote:
+      "Fan-made artwork inspired by Zootopia. Not official Disney merchandise.",
+  
+    status: "active",
+    visibility: "public",
+    isFeatured: false,
+    isNewArrival: true
+  },
+];

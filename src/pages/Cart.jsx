@@ -58,19 +58,16 @@ const Cart = () => {
       });
     }
   };
-  
 
   const removeItem = (cartItemId) => {
     dispatchCart({
       type: "REMOVE_ITEM",
       payload: { cartItemId },
     });
-  
+
     setNotification({ message: "Item removed from cart.", type: "danger" });
     setTimeout(() => setNotification(null), 3000);
   };
-  
-
 
   const proceedToCheckout = () => {
     if (cart.length > 0) {
@@ -141,31 +138,72 @@ const Cart = () => {
                     alt={item.name}
                     className="w-full h-full object-cover"
                   />
-                </div>  
+                </div>
 
                 {/* Item Details */}
                 <div className="flex-grow text-center sm:text-left">
                   <h3 className="text-lg font-bold text-gray-900 mb-1">
                     {item.name}
                   </h3>
-                  <p className="text-sm text-gray-500 mb-1">
-                    Variant:{" "}
-                    <span className="font-semibold text-primary">
-                      {item.variantLabel}
-                    </span>
-                  </p>
-                  <p className="text-xl font-bold text-gray-900">
+
+                  {/* Dynamic Attribute Display */}
+                  <div className="text-sm text-gray-500 space-y-0.5">
+                    {/* Display Variant Label if exists (Banners/General Products) */}
+                    {item.variantLabel && (
+                      <p>
+                        Variant:{" "}
+                        <span className="font-medium text-primary">
+                          {item.variantLabel}
+                        </span>
+                      </p>
+                    )}
+
+                    {/* Display Notebook/Journal Specifics */}
+                    {item.pages && (
+                      <p>
+                        Pages:{" "}
+                        <span className="font-medium text-primary">
+                          {item.pages}
+                        </span>
+                      </p>
+                    )}
+                    {item.rulingType && (
+                      <p>
+                        Ruling:{" "}
+                        <span className="font-medium text-primary">
+                          {item.rulingType}
+                        </span>
+                      </p>
+                    )}
+                    {item.coverType && (
+                      <p>
+                        Cover:{" "}
+                        <span className="font-medium text-primary">
+                          {item.coverType}
+                        </span>
+                      </p>
+                    )}
+                    {item.material && (
+                      <p>
+                        Material:{" "}
+                        <span className="font-medium text-primary">
+                          {item.material}
+                        </span>
+                      </p>
+                    )}
+                  </div>
+
+                  <p className="text-xl font-bold text-gray-900 mt-2">
                     {formatCurrency(item.price * item.quantity)}
                   </p>
                 </div>
-
                 {/* Quantity Control */}
                 <div className="flex items-center space-x-2 mt-3 sm:mt-0 sm:ml-4">
                   <div className="flex items-center border border-gray-300 rounded-xl">
                     <button
-                      onClick={() => updateQuantity(item.cartItemId, item.quantity - 1)}
-
-                      
+                      onClick={() =>
+                        updateQuantity(item.cartItemId, item.quantity - 1)
+                      }
                       className="p-2 text-gray-600 hover:bg-gray-100 rounded-l-xl transition"
                       aria-label="Decrease quantity"
                     >
@@ -175,8 +213,9 @@ const Cart = () => {
                       {item.quantity}
                     </span>
                     <button
-                      onClick={() => updateQuantity(item.cartItemId, item.quantity + 1)}
-
+                      onClick={() =>
+                        updateQuantity(item.cartItemId, item.quantity + 1)
+                      }
                       className="p-2 text-gray-600 hover:bg-gray-100 rounded-r-xl transition"
                       aria-label="Increase quantity"
                     >

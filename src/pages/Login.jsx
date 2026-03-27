@@ -165,14 +165,14 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20 border p-6 rounded-xl shadow bg-white">
+    <div className="max-w-md mx-auto mt-20 border p-6 rounded-xl shadow bg-white min-h-[50vh]">
       <h2 className="text-2xl font-bold mb-4 text-gray-900">Login</h2>
 
       {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
 
-      <form onSubmit={handleLogin} className="space-y-3">
+      <form onSubmit={handleLogin} className="space-y-4">
         <input
-          className="w-full border p-2 rounded"
+          className="w-full border p-3 rounded"
           type="email"
           name="email"
           placeholder="Email"
@@ -182,7 +182,7 @@ const Login = () => {
         />
 
         <input
-          className="w-full border p-2 rounded"
+          className="w-full border p-3 rounded"
           type="password"
           name="password"
           placeholder="Password"
@@ -199,13 +199,13 @@ const Login = () => {
         </button>
       </form>
 
-      <p className="text-sm mt-3">
+      <p className="text-md mt-4">
         Don't have an account?{" "}
         <Link to="/signup" className="text-blue-500">
           Sign Up
         </Link>
       </p>
-      <p className="text-sm mt-3">
+      <p className="text-md mt-3">
         Login using phone?{" "}
         <Link to="/phone-login" className="text-blue-500">
           Click Here

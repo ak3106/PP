@@ -434,6 +434,8 @@ const Products = ({ dispatchCart }) => {
       ? "Notebooks"
       : location.pathname.includes("journals")
         ? "Journals"
+      : location.pathname.includes("banners")
+        ? "Banners"
         : null;
 
   const { products, loading, error } = useProducts();

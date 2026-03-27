@@ -116,6 +116,7 @@ const NotebookDetail = () => {
         productId: notebook.id,
         name: notebook.name,
         variantId: selectedVariant.variantId,
+        variantLabel: `A4 / ${selectedVariant.pages} pages / ${selectedRuling}`,
         pages: selectedPages,
         rulingType: selectedRuling,
         price: selectedVariant.price,

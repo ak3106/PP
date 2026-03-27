@@ -41,6 +41,7 @@ const categoryMap = {
   posters: "Posters",
   journals: "Journals",
   notebooks: "Notebooks",
+  banners: "Banners"
 };
 
 const CollectionsPage = () => {

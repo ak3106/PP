@@ -1,64 +1,76 @@
-import React, { createContext, useContext, useReducer, useEffect, useMemo } from "react";
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  useMemo,
+} from "react";
 
 const CartContext = createContext();
 
 // --- Reducer Logic: Synchronized with application actions ---
 const cartReducer = (state, action) => {
   switch (action.type) {
-
     case "ADD_ITEM": {
-      const {
-        productId,
-        name,
-        variantId,
-        variantLabel,
-        price,
-        quantity,
-        thumbnail,
-      } = action.payload;
+      const item = action.payload;
 
-      const cartItemId = `${productId}_${variantId}`;
+      const uniqueSuffix = [
+        item.variantId,
+        item.rulingType,
+        item.pages,
+        item.coverType,
+        item.size,
+      ]
+        .filter(Boolean)
+        .join("_");
 
-      const existing = state.find(
-        item => item.cartItemId === cartItemId
-      );
+      const cartItemId = `${item.productId || item.bannerId}_${uniqueSuffix}`;
 
-      if (existing) {
-        return state.map(item =>
-          item.cartItemId === cartItemId
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
+      const existingIndex = state.findIndex((i) => i.cartItemId === cartItemId);
+
+      if (existingIndex > -1) {
+        return state.map((i, index) =>
+          index === existingIndex
+            ? { ...i, quantity: i.quantity + item.quantity }
+            : i
         );
       }
 
-      return [
-        ...state,
-        {
-          cartItemId,
-          productId,
-          name,
-          variantId,
-          variantLabel,
-          price,
-          quantity,
-          thumbnail,
-        },
-      ];
+      // 🔥 NORMALIZED ITEM STRUCTURE
+      const normalizedItem = {
+        productId: item.productId || "",
+        name: item.name || "",
+        variantId: item.variantId || "",
+        variantLabel: item.variantLabel || "",
+        size: item.size ?? null,
+        pages: item.pages ?? null,
+        rulingType: item.rulingType ?? null,
+        finish: item.finish,
+        material: item.material,
+        coverType: item.coverType ?? null,
+        price: item.price || 0,
+        quantity: item.quantity || 1,
+        thumbnail: item.thumbnail || "",
+
+        cartItemId,
+      };
+
+      return [...state, normalizedItem];
     }
 
     case "REMOVE_ITEM":
       return state.filter(
-        item => item.cartItemId !== action.payload.cartItemId
+        (item) => item.cartItemId !== action.payload.cartItemId
       );
-    
+
     case "UPDATE_QUANTITY":
       return state
-        .map(item =>
+        .map((item) =>
           item.cartItemId === action.payload.cartItemId
             ? { ...item, quantity: action.payload.quantity }
             : item
         )
-        .filter(item => item.quantity > 0);
+        .filter((item) => item.quantity > 0);
 
     case "CLEAR_CART":
       return [];
@@ -67,7 +79,6 @@ const cartReducer = (state, action) => {
       return state;
   }
 };
-
 
 export const CartProvider = ({ children }) => {
   // Load initial state from localStorage (or default to empty array)
@@ -80,7 +91,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("pragya_cart", JSON.stringify(cart));
   }, [cart]);
-  
+
   // Calculate item count (useful for Navbar)
   const cartItemCount = useMemo(
     () => cart.reduce((acc, item) => acc + item.quantity, 0),

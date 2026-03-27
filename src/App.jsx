@@ -7,39 +7,41 @@ import { auth } from "./firebase";
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM": {
-      const {
-        productId,
-        name,
-        variantId,
-        variantLabel,
-        price,
-        quantity,
-        thumbnail,
-      } = action.payload;
+      const item = action.payload;
 
-      const cartItemId = `${productId}_${variantId}`;
+      // 1. Generate a Truly Unique ID
+      // We combine the ID with any custom options provided in the payload.
+      // This ensures a "Ruled" journal and "Blank" journal stay as separate line items.
+      const uniqueSuffix = [
+        item.variantId,
+        item.rulingType,
+        item.pages,
+        item.coverType,
+        item.material,
+        item.size
+      ]
+        .filter(Boolean) // Remove undefined/null values
+        .join("_");
 
-      const existing = state.find((item) => item.cartItemId === cartItemId);
+      const cartItemId = `${item.productId || item.bannerId}_${uniqueSuffix}`;
 
-      if (existing) {
-        return state.map((item) =>
-          item.cartItemId === cartItemId
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
+      // 2. Check if this exact configuration already exists
+      const existingIndex = state.findIndex((i) => i.cartItemId === cartItemId);
+
+      if (existingIndex > -1) {
+        return state.map((i, index) =>
+          index === existingIndex
+            ? { ...i, quantity: i.quantity + item.quantity }
+            : i
         );
       }
 
+      // 3. Add new item (Spreading 'item' preserves all custom fields)
       return [
         ...state,
         {
+          ...item,
           cartItemId,
-          productId,
-          name,
-          variantId,
-          variantLabel,
-          price,
-          quantity,
-          thumbnail,
         },
       ];
     }
@@ -77,6 +79,7 @@ import NotebookDetail from "./pages/NotebookDetail";
 // import PostersCollections from "./pages/PostersCollections";
 // import SpiralCollections from "./pages/SpiralCollections";
 import CollectionsPage from "./pages/CollectionPage";
+import BannerDetail from "./pages/BannerDetail";
 // import TestCloudinary from "./admin/TestCloudinary";
 // import AddProduct from "./admin/AddProduct";
 // import SeedRunner from "./SeedRunner";
@@ -145,7 +148,7 @@ const App = () => {
         onLogout={handleLogout}
       />
 
-      <main className="flex-grow bg-cream">
+      <main className="flex-grow bg-cream min-h-[90vh]">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
@@ -187,6 +190,10 @@ const App = () => {
           <Route
             path="/products/notebooks/:collection/:id"
             element={<NotebookDetail />}
+          />
+          <Route
+            path="/products/banners/:collection/:id"
+            element={<BannerDetail />}
           />
 
           <Route

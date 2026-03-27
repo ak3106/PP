@@ -11,12 +11,13 @@ import {
   Minus,
   Plus,
   SparklesIcon,
+  MapIcon,
 } from "lucide-react";
 import Button from "../components/UI/Button";
 import { useCart } from "../context/CartContext";
 import useProducts from "../hooks/useProducts";
 
-const ProductDetail = () => {
+const BannerDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { dispatchCart } = useCart();
@@ -26,7 +27,7 @@ const ProductDetail = () => {
   // --------------------------------------------------
   // PRODUCT FETCH
   // --------------------------------------------------
-  const product = useMemo(
+  const banner = useMemo(
     () => products.find((p) => p.id === id),
     [products, id]
   );
@@ -34,11 +35,13 @@ const ProductDetail = () => {
   // --------------------------------------------------
   // DEFAULT OPTIONS
   // --------------------------------------------------
-  const defaultSize = product?.options?.size?.[0] ?? null;
-  const defaultType = product?.options?.paperType?.[0] ?? null;
+  const defaultSize = banner?.options?.size?.[0] ?? null;
+  const defaultType = banner?.options?.paperType?.[0] ?? null;
+  const defaultMaterial = banner?.options?.material?.[0] ?? null;
 
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
+  const [selectedMaterial, setSelectedMaterial] = useState(null);
   const [mainImage, setMainImage] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [isAdding, setIsAdding] = useState(false);
@@ -48,18 +51,22 @@ const ProductDetail = () => {
   // --------------------------------------------------
   // Sync once product is loaded
   useEffect(() => {
-    if (product) {
-      setSelectedSize(product.options?.size?.[0] ?? null);
-      setSelectedType(product.options?.paperType?.[0] ?? null);
-      setMainImage(product.media?.thumbnail ?? "");
+    if (banner) {
+      setSelectedSize(banner.options?.size?.[0] ?? null);
+      setSelectedType(banner.options?.paperType?.[0] ?? null);
+      setSelectedMaterial(banner.options?.material?.[0] ?? null);
+      setMainImage(banner.media?.thumbnail ?? "");
     }
-  }, [product]);
+  }, [banner]);
 
   // Variant resolution
   const selectedVariant = useMemo(() => {
-    if (!product) return null;
-    return product.variants.find((v) => v.size === selectedSize);
-  }, [product, selectedSize]);
+    if (!banner) return null;
+
+    return banner.variants.find(
+      (v) => v.size === selectedSize && v.material === selectedMaterial
+    );
+  }, [banner, selectedSize, selectedMaterial]);
 
   const finalPrice = selectedVariant?.price ?? 0;
 
@@ -76,15 +83,16 @@ const ProductDetail = () => {
     dispatchCart({
       type: "ADD_ITEM",
       payload: {
-        productId: product.id,
-        name: product.name,
+        bannerId: banner.id,
+        name: banner.name,
         variantId: selectedVariant.variantId,
         size: selectedSize,
         finish: selectedType,
         variantLabel: `${selectedVariant.size} / ${selectedType}`,
         price: selectedVariant.price,
+        material: selectedVariant.material,
         quantity,
-        thumbnail: product.media?.thumbnail,
+        thumbnail: banner.media?.thumbnail,
       },
     });
 
@@ -100,12 +108,12 @@ const ProductDetail = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
-        <p className="text-lg font-semibold text-gray-600">Loading product…</p>
+        <p className="text-lg font-semibold text-gray-600">Loading banner…</p>
       </div>
     );
   }
 
-  if (!product) {
+  if (!banner) {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-bold text-red-600 mb-4">
@@ -143,13 +151,13 @@ const ProductDetail = () => {
           <div className="rounded-2xl overflow-hidden shadow-lg mb-4">
             <img
               src={mainImage}
-              alt={product.name}
+              alt={banner.name}
               className="w-full h-full object-cover"
             />
           </div>
 
           <div className="flex gap-3">
-            {[product.media?.thumbnail, ...(product.media?.images || [])]
+            {[banner.media?.thumbnail, ...(banner.media?.images || [])]
               .filter(Boolean)
               .map((img, i) => (
                 <img
@@ -167,10 +175,10 @@ const ProductDetail = () => {
         {/* DETAILS */}
         <div>
           <p className="text-sm font-semibold text-primary uppercase">
-            {product.category}
+            {banner.category}
           </p>
 
-          <h1 className="text-4xl font-extrabold mb-3">{product.name}</h1>
+          <h1 className="text-4xl font-extrabold mb-3">{banner.name}</h1>
 
           {/* Rating */}
           <div className="flex items-center mb-5">
@@ -178,14 +186,14 @@ const ProductDetail = () => {
               <Star
                 key={i}
                 className={`w-5 h-5 ${
-                  i < Math.floor(product.rating)
+                  i < Math.floor(banner.rating)
                     ? "fill-yellow-500"
                     : "text-gray-300"
                 }`}
               />
             ))}
             <span className="ml-2 text-gray-600 text-sm">
-              ({product.reviewsCount} reviews)
+              ({banner.reviewsCount} reviews)
             </span>
           </div>
 
@@ -194,16 +202,16 @@ const ProductDetail = () => {
             {formatPrice(finalPrice)}
           </div>
 
-          <p className="text-gray-700 mb-8">{product.description}</p>
+          <p className="text-gray-700 mb-8">{banner.description}</p>
 
           {/* SIZE OPTIONS */}
-          {product.options?.size && (
+          {banner.options?.size && (
             <div className="mb-6">
               <h3 className="font-semibold mb-2 flex items-center">
                 <Tag className="w-4 h-4 mr-2" /> Size:
               </h3>
               <div className="flex gap-3 flex-wrap">
-                {product.options.size.map((size) => (
+                {banner.options.size.map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
@@ -220,13 +228,36 @@ const ProductDetail = () => {
             </div>
           )}
 
-          {product.options?.size && (
+          {banner.options?.material && (
+            <div className="mb-6">
+              <h3 className="font-semibold mb-2 flex items-center">
+                <MapIcon className="w-4 h-4 mr-2" /> Material:
+              </h3>
+              <div className="flex gap-3 flex-wrap">
+                {banner.options.material.map((ban) => (
+                  <button
+                    key={ban}
+                    onClick={() => setSelectedMaterial(ban)}
+                    className={`px-4 py-2 rounded-full border ${
+                      selectedMaterial === ban
+                        ? "bg-primary text-white"
+                        : "bg-white"
+                    }`}
+                  >
+                    {ban}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {banner.options?.size && (
             <div className="mb-6">
               <h3 className="font-semibold mb-2 flex items-center">
                 <SparklesIcon className="w-4 h-4 mr-2" /> Finish:
               </h3>
               <div className="flex gap-3 flex-wrap">
-                {product.options.paperType.map((type) => (
+                {banner.options.paperType.map((type) => (
                   <button
                     key={type}
                     onClick={() => setSelectedType(type)}
@@ -274,15 +305,15 @@ const ProductDetail = () => {
           <div className="mt-8 space-y-2 text-sm text-gray-600">
             <div className="flex items-center">
               <Clock className="w-4 h-4 mr-2" />
-              Production: {product.productionTime}
+              Production: {banner.productionTime}
             </div>
             <div className="flex items-center">
               <Truck className="w-4 h-4 mr-2" />
-              Shipping Class: {product.shipping.shippingClass}
+              Shipping Class: {banner.shipping.shippingClass}
             </div>
             <div className="flex items-center">
               <CheckCircle className="w-4 h-4 mr-2" />
-              Stock: {product.inventory.stockStatus}
+              Stock: {banner.inventory.stockStatus}
             </div>
           </div>
         </div>
@@ -291,4 +322,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default BannerDetail;

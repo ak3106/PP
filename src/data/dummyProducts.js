@@ -9894,7 +9894,7 @@ export const CATEGORIES = [
   { name: 'Photo Prints', slug: "photoprints", icon: 'Image', description: 'Personalized photos, polaroids, and canvas prints.', image: "https://thumbs.dreamstime.com/b/polaroid-prints-textured-wall-collection-each-capturing-unique-scenes-pinned-to-off-white-arrangement-creates-visually-401186269.jpg" },
   { name: 'Notebooks', slug: "notebooks", icon: 'Heart', description: '', image: notebook },
 
-  { name: 'Wall banners', slug: "wallbanners", icon: 'Heart', description: 'Wedding, birthday, and special occasion invitations.', image: "https://dbdzm869oupei.cloudfront.net/img/quadres/large/79603.jpg" },
+  { name: 'Wall banners', slug: "banners", icon: 'Heart', description: 'Wedding, birthday, and special occasion invitations.', image: "https://dbdzm869oupei.cloudfront.net/img/quadres/large/79603.jpg" },
   { name: 'Stickers', slug: "stickers", icon: 'Star', description: 'Vinyl, paper, and custom die-cut stickers.', image: " https://i.pinimg.com/736x/57/ac/9c/57ac9c020929545e9c1d3c648ffb6e3f.jpg" },
 ];
 
@@ -10001,17 +10001,17 @@ export const POSTERS = [
     name: "Lightning McQueen Cars Aesthetic Wall Poster",
     slug: "lightning-mcqueen-cars-aesthetic-wall-poster",
     sku: "PST-ANM-CARS-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Animated_Movies",
       series: "Lightning McQueen",
       character: "Lightning McQueen",
       studio: "Pixar"
     },
-  
+
     themes: [
       "Cars",
       "Racing",
@@ -10022,17 +10022,17 @@ export const POSTERS = [
       "Modern",
       "Cinematic"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "High-speed Lightning McQueen wall poster inspired by Pixar's iconic Cars movie.",
-  
+
     description:
       "Bring the thrill of the racetrack to your walls with this premium Lightning McQueen poster. Featuring bold red tones, cinematic lighting, and detailed shots of the legendary racer, this design captures the spirit of speed, confidence, and victory.",
-  
+
     highlights: [
       "High-resolution animated artwork",
       "Bold red racing aesthetic",
@@ -10040,7 +10040,7 @@ export const POSTERS = [
       "Perfect for gaming rooms & bedrooms",
       "Great gift for Cars movie fans"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -10048,24 +10048,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "CARS-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "CARS-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "CARS-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/lightning-mcqueen-cars-movie-poster-interior-mockup_afqlti.webp",
       images: [
@@ -10073,7 +10073,7 @@ export const POSTERS = [
         "lightning_mcqueen_2.jpg"
       ]
     },
-  
+
     tags: [
       "lightning mcqueen poster",
       "cars movie poster",
@@ -10081,7 +10081,7 @@ export const POSTERS = [
       "racing car poster",
       "animated wall decor"
     ],
-  
+
     seo: {
       metaTitle: "Lightning McQueen Poster | Cars Movie Wall Art",
       metaDescription:
@@ -10093,21 +10093,21 @@ export const POSTERS = [
         "racing poster"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.8,
     reviewsCount: 124,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Disney Pixar's Cars. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -10118,17 +10118,17 @@ export const POSTERS = [
     name: "Hiroshi Nohara Minimal Anime Wall Poster",
     slug: "hiroshi-nohara-minimal-anime-wall-poster",
     sku: "PST-ANM-SCN-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Animated_Movies",
       series: "Shinchan",
       character: "Hiroshi Nohara",
       studio: "Shin-Ei Animation"
     },
-  
+
     themes: [
       "Anime",
       "Minimal",
@@ -10139,17 +10139,17 @@ export const POSTERS = [
       "Modern",
       "Iconic"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Minimalist Hiroshi Nohara anime poster with a bold red aesthetic background.",
-  
+
     description:
       "A sleek and minimal anime wall poster featuring Hiroshi Nohara from Crayon Shinchan. Designed with a bold red backdrop and clean vector-style illustration, this artwork brings a modern aesthetic vibe perfect for anime lovers and minimal decor enthusiasts.",
-  
+
     highlights: [
       "Minimal anime artwork design",
       "Bold red aesthetic background",
@@ -10157,7 +10157,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for desks, bedrooms & studios"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -10165,24 +10165,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "SHIN-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "SHIN-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "SHIN-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/hiroshi-nohara-crayon-shin-chan-anime-wall-art-decor_iqppid.webp",
       images: [
@@ -10190,7 +10190,7 @@ export const POSTERS = [
         "hiroshi_nohara_2.jpg"
       ]
     },
-  
+
     tags: [
       "hiroshi nohara poster",
       "shinchan anime poster",
@@ -10198,7 +10198,7 @@ export const POSTERS = [
       "crayon shinchan poster",
       "anime aesthetic decor"
     ],
-  
+
     seo: {
       metaTitle: "Hiroshi Nohara Poster | Shinchan Minimal Anime Wall Art",
       metaDescription:
@@ -10210,21 +10210,21 @@ export const POSTERS = [
         "crayon shinchan decor"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.7,
     reviewsCount: 96,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Crayon Shinchan. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: false,
@@ -10235,17 +10235,17 @@ export const POSTERS = [
     name: "American Psycho Aesthetic Movie Wall Poster",
     slug: "american-psycho-aesthetic-movie-wall-poster",
     sku: "PST-MOV-PSY-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Movies",
       series: "American Psycho",
       character: "Patrick Bateman",
       studio: "Lionsgate"
     },
-  
+
     themes: [
       "Movie",
       "Dark",
@@ -10256,17 +10256,17 @@ export const POSTERS = [
       "Red",
       "Cult Classic"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Dark aesthetic American Psycho poster featuring Patrick Bateman in a bold red tone.",
-  
+
     description:
       "Elevate your space with this striking American Psycho wall poster inspired by the cult classic film. Featuring a gritty red-toned portrait of Patrick Bateman, this design captures the film’s dark psychological edge and minimalist cinematic style—perfect for modern interiors.",
-  
+
     highlights: [
       "High-resolution cinematic artwork",
       "Dark red aesthetic theme",
@@ -10274,7 +10274,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for movie lovers & modern decor"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -10282,24 +10282,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "PSY-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "PSY-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "PSY-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/american-psycho-movie-poster-wall-decor_ct21lc.webp",
       images: [
@@ -10307,7 +10307,7 @@ export const POSTERS = [
         "american_psycho_2.jpg"
       ]
     },
-  
+
     tags: [
       "american psycho poster",
       "patrick bateman poster",
@@ -10315,7 +10315,7 @@ export const POSTERS = [
       "dark aesthetic poster",
       "cult classic film decor"
     ],
-  
+
     seo: {
       metaTitle: "American Psycho Poster | Patrick Bateman Wall Art",
       metaDescription:
@@ -10327,21 +10327,21 @@ export const POSTERS = [
         "cult classic poster"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.8,
     reviewsCount: 138,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by American Psycho. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -10352,17 +10352,17 @@ export const POSTERS = [
     name: "Breaking Bad Walter White Jesse Pinkman Wall Poster",
     slug: "breaking-bad-walter-white-jesse-pinkman-wall-poster",
     sku: "PST-TV-BB-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Series",
       series: "Breaking Bad",
       characters: ["Walter White", "Jesse Pinkman"],
       studio: "AMC"
     },
-  
+
     themes: [
       "TV Show",
       "Crime",
@@ -10374,17 +10374,17 @@ export const POSTERS = [
       "Minimal",
       "Aesthetic"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Iconic Breaking Bad poster featuring Walter White and Jesse Pinkman in a bold yellow aesthetic.",
-  
+
     description:
       "Upgrade your wall with this intense Breaking Bad poster showcasing Walter White and Jesse Pinkman in a striking yellow tone. Inspired by the legendary TV series, this artwork captures the chemistry, tension, and iconic identity of one of the greatest shows ever made.",
-  
+
     highlights: [
       "High-resolution TV show artwork",
       "Iconic yellow Breaking Bad theme",
@@ -10392,7 +10392,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for binge-watchers & fans"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -10400,24 +10400,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "BB-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "BB-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "BB-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/breaking-bad-tv-show-poster-wall-decor-mockup_wwbyog.webp",
       images: [
@@ -10425,7 +10425,7 @@ export const POSTERS = [
         "breaking_bad_2.jpg"
       ]
     },
-  
+
     tags: [
       "breaking bad poster",
       "walter white poster",
@@ -10433,7 +10433,7 @@ export const POSTERS = [
       "tv show poster",
       "heisenberg poster"
     ],
-  
+
     seo: {
       metaTitle: "Breaking Bad Poster | Walter White & Jesse Pinkman Wall Art",
       metaDescription:
@@ -10445,21 +10445,21 @@ export const POSTERS = [
         "tv show decor"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.9,
     reviewsCount: 210,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Breaking Bad. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -10470,17 +10470,17 @@ export const POSTERS = [
     name: "Billie Eilish Neon Aesthetic Wall Poster",
     slug: "billie-eilish-neon-aesthetic-wall-poster",
     sku: "PST-MUS-BIL-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Music",
       series: "Billie Eilish",
       artist: "Billie Eilish",
       album: "Hit Me Hard And Soft"
     },
-  
+
     themes: [
       "Music",
       "Pop",
@@ -10492,17 +10492,17 @@ export const POSTERS = [
       "Concert",
       "Trendy"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Trendy Billie Eilish wall poster featuring neon green aesthetic and bold Gen Z vibes.",
-  
+
     description:
       "Make your walls stand out with this vibrant Billie Eilish poster featuring her iconic neon green aesthetic. Inspired by her bold persona and modern pop culture influence, this design is perfect for music lovers who want a trendy and edgy vibe in their space.",
-  
+
     highlights: [
       "High-resolution music artwork",
       "Iconic neon green Billie aesthetic",
@@ -10510,7 +10510,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for bedrooms & aesthetic setups"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -10518,24 +10518,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "BIL-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "BIL-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "BIL-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/billie-eilish-magazine-cover-wall-poster-decor_pxns4j.webp",
       images: [
@@ -10543,7 +10543,7 @@ export const POSTERS = [
         "billie_eilish_2.jpg"
       ]
     },
-  
+
     tags: [
       "billie eilish poster",
       "neon aesthetic poster",
@@ -10551,7 +10551,7 @@ export const POSTERS = [
       "gen z decor",
       "pop singer poster"
     ],
-  
+
     seo: {
       metaTitle: "Billie Eilish Poster | Neon Aesthetic Music Wall Art",
       metaDescription:
@@ -10563,21 +10563,21 @@ export const POSTERS = [
         "gen z decor poster"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.9,
     reviewsCount: 187,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Billie Eilish. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -10588,17 +10588,17 @@ export const POSTERS = [
     name: "Dodge Challenger SRT Hellcat Muscle Car Wall Poster",
     slug: "dodge-challenger-srt-hellcat-muscle-car-wall-poster",
     sku: "PST-CAR-DOD-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Cars",
       series: "Dodge Challenger",
       model: "SRT Hellcat",
       brand: "Dodge"
     },
-  
+
     themes: [
       "Cars",
       "Muscle Car",
@@ -10610,17 +10610,17 @@ export const POSTERS = [
       "Modern",
       "Luxury"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Minimal Dodge Challenger SRT Hellcat poster featuring a bold black muscle car aesthetic.",
-  
+
     description:
       "Upgrade your space with this powerful Dodge Challenger SRT Hellcat poster. Featuring a sleek black muscle car against a clean minimal background, this design captures raw performance, aggressive styling, and automotive excellence—perfect for car enthusiasts and modern interiors.",
-  
+
     highlights: [
       "High-resolution car artwork",
       "Minimal and premium design",
@@ -10628,7 +10628,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for garages, rooms & offices"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -10636,24 +10636,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "DOD-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "DOD-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "DOD-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/dodge-challenger-srt-hellcat-car-poster-wall-art_yahb6a.webp",
       images: [
@@ -10661,7 +10661,7 @@ export const POSTERS = [
         "dodge_hellcat_2.jpg"
       ]
     },
-  
+
     tags: [
       "dodge hellcat poster",
       "muscle car wall art",
@@ -10669,7 +10669,7 @@ export const POSTERS = [
       "car enthusiast decor",
       "automotive poster"
     ],
-  
+
     seo: {
       metaTitle: "Dodge Challenger SRT Hellcat Poster | Muscle Car Wall Art",
       metaDescription:
@@ -10681,21 +10681,21 @@ export const POSTERS = [
         "car decor poster"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.8,
     reviewsCount: 112,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Dodge Challenger SRT Hellcat. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: false,
@@ -10706,17 +10706,17 @@ export const POSTERS = [
     name: "Eminem Rolling Stone Cover Wall Poster",
     slug: "eminem-rolling-stone-cover-wall-poster",
     sku: "PST-MUS-EMN-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Music",
       series: "Eminem",
       artist: "Eminem",
       magazine: "Rolling Stone"
     },
-  
+
     themes: [
       "Music",
       "Hip Hop",
@@ -10728,17 +10728,17 @@ export const POSTERS = [
       "Iconic",
       "Urban"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Iconic Eminem Rolling Stone cover poster with bold hip-hop aesthetic.",
-  
+
     description:
       "Bring legendary hip-hop energy to your walls with this Eminem Rolling Stone cover poster. Featuring a bold magazine-style design and iconic pose, this artwork captures the raw attitude and influence of one of the greatest rappers of all time.",
-  
+
     highlights: [
       "High-resolution music artwork",
       "Iconic magazine cover design",
@@ -10746,7 +10746,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for music lovers & modern setups"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -10754,24 +10754,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "EMN-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "EMN-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "EMN-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/eminem-rolling-stone-magazine-cover-framed-wall-art_hspyqy.webp",
       images: [
@@ -10779,7 +10779,7 @@ export const POSTERS = [
         "eminem_2.jpg"
       ]
     },
-  
+
     tags: [
       "eminem poster",
       "hip hop wall art",
@@ -10787,7 +10787,7 @@ export const POSTERS = [
       "rolling stone cover poster",
       "music wall decor"
     ],
-  
+
     seo: {
       metaTitle: "Eminem Poster | Rolling Stone Hip Hop Wall Art",
       metaDescription:
@@ -10799,21 +10799,21 @@ export const POSTERS = [
         "rolling stone poster"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.9,
     reviewsCount: 173,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Eminem and Rolling Stone magazine. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -10824,10 +10824,10 @@ export const POSTERS = [
     name: "Friends TV Show Classic Wall Poster",
     slug: "friends-tv-show-classic-wall-poster",
     sku: "PST-TV-FRD-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Series",
       series: "Friends",
@@ -10841,7 +10841,7 @@ export const POSTERS = [
       ],
       studio: "NBC"
     },
-  
+
     themes: [
       "TV Show",
       "Comedy",
@@ -10853,17 +10853,17 @@ export const POSTERS = [
       "Nostalgia",
       "Minimal"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Classic Friends TV show poster featuring the iconic cast in a timeless aesthetic.",
-  
+
     description:
       "Celebrate one of the most loved sitcoms of all time with this Friends wall poster. Featuring the iconic cast in a fun and nostalgic setup, this design brings warmth, humor, and timeless vibes to your space—perfect for every Friends fan.",
-  
+
     highlights: [
       "High-resolution TV show artwork",
       "Iconic Friends cast design",
@@ -10871,7 +10871,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for bedrooms & cozy spaces"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -10879,24 +10879,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "FRD-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "FRD-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "FRD-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115867/friends-tv-show-poster-living-room-wall-art_fmavx4.webp",
       images: [
@@ -10904,7 +10904,7 @@ export const POSTERS = [
         "friends_2.jpg"
       ]
     },
-  
+
     tags: [
       "friends poster",
       "tv show wall art",
@@ -10912,7 +10912,7 @@ export const POSTERS = [
       "friends cast poster",
       "nostalgic wall decor"
     ],
-  
+
     seo: {
       metaTitle: "Friends Poster | Classic TV Show Wall Art",
       metaDescription:
@@ -10924,21 +10924,21 @@ export const POSTERS = [
         "friends wall poster"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.9,
     reviewsCount: 245,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Friends TV series. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -10949,17 +10949,17 @@ export const POSTERS = [
     name: "Ghost of Tsushima Samurai Gaming Wall Poster",
     slug: "ghost-of-tsushima-samurai-gaming-wall-poster",
     sku: "PST-GAM-GOT-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Gaming",
       series: "Ghost of Tsushima",
       character: "Jin Sakai",
       studio: "Sucker Punch Productions"
     },
-  
+
     themes: [
       "Gaming",
       "Samurai",
@@ -10971,17 +10971,17 @@ export const POSTERS = [
       "Aesthetic",
       "Warrior"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Epic Ghost of Tsushima poster featuring samurai warrior Jin Sakai in cinematic style.",
-  
+
     description:
       "Bring the spirit of the samurai to your walls with this Ghost of Tsushima poster. Featuring Jin Sakai in a breathtaking cinematic landscape, this artwork captures honor, battle, and the beauty of feudal Japan—perfect for gamers and anime-style aesthetic lovers.",
-  
+
     highlights: [
       "High-resolution gaming artwork",
       "Cinematic samurai composition",
@@ -10989,7 +10989,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for gaming setups & rooms"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -10997,24 +10997,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "GOT-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "GOT-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "GOT-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115867/ghost-of-tsushima-framed-wall-art-mockup_bddrhk.webp",
       images: [
@@ -11022,7 +11022,7 @@ export const POSTERS = [
         "ghost_of_tsushima_2.jpg"
       ]
     },
-  
+
     tags: [
       "ghost of tsushima poster",
       "jin sakai wall art",
@@ -11030,7 +11030,7 @@ export const POSTERS = [
       "gaming wall decor",
       "playstation game poster"
     ],
-  
+
     seo: {
       metaTitle: "Ghost of Tsushima Poster | Samurai Gaming Wall Art",
       metaDescription:
@@ -11042,21 +11042,21 @@ export const POSTERS = [
         "playstation decor"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.9,
     reviewsCount: 156,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Ghost of Tsushima. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -11067,17 +11067,17 @@ export const POSTERS = [
     name: "Team India World Cup Champions Wall Poster",
     slug: "team-india-world-cup-champions-wall-poster",
     sku: "PST-SPR-IND-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Cricket",
       series: "World Cup Winners",
       players: ["Virat Kohli", "Rohit Sharma"],
       sport: "Cricket"
     },
-  
+
     themes: [
       "Sports",
       "Cricket",
@@ -11089,17 +11089,17 @@ export const POSTERS = [
       "Iconic",
       "Aesthetic"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Celebrate Team India’s World Cup victory with this iconic poster featuring Rohit Sharma and Virat Kohli.",
-  
+
     description:
       "Relive the glory of Team India’s World Cup triumph with this powerful poster featuring Rohit Sharma and Virat Kohli holding the trophy. Designed to capture pride, passion, and victory, this artwork is perfect for cricket fans and patriotic spaces.",
-  
+
     highlights: [
       "High-resolution sports artwork",
       "Iconic World Cup winning moment",
@@ -11107,7 +11107,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for fans & sports lovers"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -11115,24 +11115,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "IND-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "IND-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "IND-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115867/india-t20-world-cup-winners-virat-kohli-rohit-sharma-poster_m4twic.webp",
       images: [
@@ -11140,7 +11140,7 @@ export const POSTERS = [
         "india_cricket_2.jpg"
       ]
     },
-  
+
     tags: [
       "india cricket poster",
       "world cup poster india",
@@ -11148,7 +11148,7 @@ export const POSTERS = [
       "rohit sharma poster",
       "cricket wall art"
     ],
-  
+
     seo: {
       metaTitle: "Team India World Cup Poster | Cricket Champions Wall Art",
       metaDescription:
@@ -11160,21 +11160,21 @@ export const POSTERS = [
         "rohit sharma poster"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 5.0,
     reviewsCount: 320,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Team India and ICC events. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -11185,17 +11185,17 @@ export const POSTERS = [
     name: "Joker Dark Knight Aesthetic Wall Poster",
     slug: "joker-dark-knight-aesthetic-wall-poster",
     sku: "PST-MOV-JOK-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "DC",
       series: "Batman",
       character: "Joker",
       studio: "DC Comics"
     },
-  
+
     themes: [
       "Movie",
       "Dark",
@@ -11207,17 +11207,17 @@ export const POSTERS = [
       "Iconic",
       "Artistic"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Dark aesthetic Joker poster inspired by The Dark Knight featuring a gritty artistic style.",
-  
+
     description:
       "Transform your space with this intense Joker wall poster inspired by The Dark Knight. Featuring a gritty and artistic portrayal of the iconic villain, this design captures chaos, madness, and cinematic brilliance—perfect for dark aesthetic lovers.",
-  
+
     highlights: [
       "High-resolution cinematic artwork",
       "Dark and gritty Joker aesthetic",
@@ -11225,7 +11225,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for modern & dark-themed rooms"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -11233,24 +11233,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "JOK-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "JOK-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "JOK-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/joker-heath-ledger-wall-art-modern-interior_jaa2sg.webp",
       images: [
@@ -11258,7 +11258,7 @@ export const POSTERS = [
         "joker_2.jpg"
       ]
     },
-  
+
     tags: [
       "joker poster",
       "dark knight wall art",
@@ -11266,7 +11266,7 @@ export const POSTERS = [
       "villain poster",
       "dark aesthetic decor"
     ],
-  
+
     seo: {
       metaTitle: "Joker Poster | Dark Knight Villain Wall Art",
       metaDescription:
@@ -11278,21 +11278,21 @@ export const POSTERS = [
         "villain decor"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 5.0,
     reviewsCount: 290,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by The Dark Knight. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -11303,17 +11303,17 @@ export const POSTERS = [
     name: "Kendrick Lamar Hip Hop Aesthetic Wall Poster",
     slug: "kendrick-lamar-hip-hop-aesthetic-wall-poster",
     sku: "PST-MUS-KND-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Music",
       series: "Kendrick Lamar",
       artist: "Kendrick Lamar",
       genre: "Hip Hop"
     },
-  
+
     themes: [
       "Music",
       "Hip Hop",
@@ -11325,17 +11325,17 @@ export const POSTERS = [
       "Street",
       "Iconic"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Dynamic Kendrick Lamar poster capturing hip-hop energy and performance aesthetics.",
-  
+
     description:
       "Bring raw hip-hop energy to your space with this Kendrick Lamar wall poster. Featuring a dynamic performance-style composition, this design reflects movement, rhythm, and the powerful presence of one of the greatest modern rappers.",
-  
+
     highlights: [
       "High-resolution music artwork",
       "Dynamic performance composition",
@@ -11343,7 +11343,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for music lovers & urban decor"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -11351,24 +11351,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "KND-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "KND-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "KND-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115866/kendrick-lamar-music-poster-wall-decor_jpfwkv.webp",
       images: [
@@ -11376,7 +11376,7 @@ export const POSTERS = [
         "kendrick_lamar_2.jpg"
       ]
     },
-  
+
     tags: [
       "kendrick lamar poster",
       "hip hop wall art",
@@ -11384,7 +11384,7 @@ export const POSTERS = [
       "music decor",
       "urban aesthetic poster"
     ],
-  
+
     seo: {
       metaTitle: "Kendrick Lamar Poster | Hip Hop Wall Art",
       metaDescription:
@@ -11396,21 +11396,21 @@ export const POSTERS = [
         "music decor poster"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.8,
     reviewsCount: 141,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Kendrick Lamar. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: false,
@@ -11421,17 +11421,17 @@ export const POSTERS = [
     name: "McLaren Senna Supercar Aesthetic Wall Poster",
     slug: "mclaren-senna-supercar-aesthetic-wall-poster",
     sku: "PST-CAR-MCL-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Cars",
       series: "McLaren",
       model: "Senna",
       brand: "McLaren"
     },
-  
+
     themes: [
       "Cars",
       "Supercar",
@@ -11443,17 +11443,17 @@ export const POSTERS = [
       "Orange",
       "Premium"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Premium McLaren Senna poster showcasing supercar performance and luxury design.",
-  
+
     description:
       "Elevate your space with this stunning McLaren Senna wall poster. Featuring a bold orange supercar with dynamic composition, this design captures speed, precision, and luxury engineering—perfect for car enthusiasts and modern interiors.",
-  
+
     highlights: [
       "High-resolution automotive artwork",
       "Premium supercar aesthetic",
@@ -11461,7 +11461,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for car lovers & luxury setups"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -11469,24 +11469,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "MCL-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "MCL-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "MCL-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115867/mclaren-senna-automotive-wall-art-decor_hwlsgo.webp",
       images: [
@@ -11494,7 +11494,7 @@ export const POSTERS = [
         "mclaren_senna_2.jpg"
       ]
     },
-  
+
     tags: [
       "mclaren senna poster",
       "supercar wall art",
@@ -11502,7 +11502,7 @@ export const POSTERS = [
       "automotive decor",
       "car enthusiast poster"
     ],
-  
+
     seo: {
       metaTitle: "McLaren Senna Poster | Supercar Wall Art",
       metaDescription:
@@ -11514,21 +11514,21 @@ export const POSTERS = [
         "automotive decor"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.8,
     reviewsCount: 102,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by McLaren Senna. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: false,
@@ -11539,17 +11539,17 @@ export const POSTERS = [
     name: "Never Give Up Motivational Typography Wall Poster",
     slug: "never-give-up-motivational-typography-wall-poster",
     sku: "PST-MOT-NGU-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Motivation",
       series: "Typography Posters",
       theme: "Self Motivation",
       style: "Minimal"
     },
-  
+
     themes: [
       "Motivation",
       "Quotes",
@@ -11561,17 +11561,17 @@ export const POSTERS = [
       "Focus",
       "Success"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "original",
-  
+
     shortDescription:
       "Bold motivational typography poster with 'Never Give Up' message in minimal black aesthetic.",
-  
+
     description:
       "Stay focused and inspired with this powerful 'Never Give Up' wall poster. Featuring bold typography and a clean black background, this design delivers a strong motivational message—perfect for study spaces, gyms, and work setups.",
-  
+
     highlights: [
       "Bold motivational quote design",
       "Minimal black aesthetic",
@@ -11579,7 +11579,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for gym, study & workspace"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -11587,24 +11587,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "NGU-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "NGU-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "NGU-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115867/never-never-never-give-up-motivational-wall-art-poster-interior_n0rdfy.webp",
       images: [
@@ -11612,7 +11612,7 @@ export const POSTERS = [
         "never_give_up_2.jpg"
       ]
     },
-  
+
     tags: [
       "motivational poster",
       "never give up quote",
@@ -11620,7 +11620,7 @@ export const POSTERS = [
       "study motivation poster",
       "typography wall decor"
     ],
-  
+
     seo: {
       metaTitle: "Never Give Up Poster | Motivational Typography Wall Art",
       metaDescription:
@@ -11632,21 +11632,21 @@ export const POSTERS = [
         "study motivation decor"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.7,
     reviewsCount: 88,
-  
+
     copyrightNote:
       "Original motivational typography design by pragyaprint.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: false,
@@ -11657,17 +11657,17 @@ export const POSTERS = [
     name: "Only You Can Change Your Life Minimal Wall Poster",
     slug: "only-you-can-change-your-life-minimal-wall-poster",
     sku: "PST-MOT-OYC-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Motivation",
       series: "Typography Posters",
       theme: "Self Growth",
       style: "Minimal"
     },
-  
+
     themes: [
       "Motivation",
       "Quotes",
@@ -11679,17 +11679,17 @@ export const POSTERS = [
       "Success",
       "Modern"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "original",
-  
+
     shortDescription:
       "Minimal black and white motivational poster with 'Only You Can Change Your Life' quote.",
-  
+
     description:
       "Stay inspired every day with this clean and minimal motivational poster featuring the powerful message 'Only You Can Change Your Life'. Designed with bold brush-style typography, this artwork adds a modern and focused vibe to any space.",
-  
+
     highlights: [
       "Minimal black and white design",
       "Bold brush typography style",
@@ -11697,7 +11697,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for study, office & bedroom"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -11705,24 +11705,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "OYC-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "OYC-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "OYC-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/only-you-can-change-your-life-wall-art-poster_bofnga.webp",
       images: [
@@ -11730,7 +11730,7 @@ export const POSTERS = [
         "change_life_2.jpg"
       ]
     },
-  
+
     tags: [
       "motivational poster",
       "self growth wall art",
@@ -11738,7 +11738,7 @@ export const POSTERS = [
       "study motivation decor",
       "black white typography poster"
     ],
-  
+
     seo: {
       metaTitle: "Only You Can Change Your Life Poster | Minimal Motivational Wall Art",
       metaDescription:
@@ -11750,21 +11750,21 @@ export const POSTERS = [
         "study motivation poster"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.8,
     reviewsCount: 76,
-  
+
     copyrightNote:
       "Original motivational typography design by pragyaprint.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: false,
@@ -11775,17 +11775,17 @@ export const POSTERS = [
     name: "Paolo Maldini AC Milan Legend Wall Poster",
     slug: "paolo-maldini-ac-milan-legend-wall-poster",
     sku: "PST-SPR-FBL-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Football",
       series: "AC Milan",
       player: "Paolo Maldini",
       league: "Serie A"
     },
-  
+
     themes: [
       "Sports",
       "Football",
@@ -11797,17 +11797,17 @@ export const POSTERS = [
       "Iconic",
       "Minimal"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Iconic Paolo Maldini poster featuring AC Milan legend in bold vintage aesthetic.",
-  
+
     description:
       "Celebrate football greatness with this Paolo Maldini wall poster. Featuring the legendary AC Milan captain in a bold red and black design, this artwork captures leadership, legacy, and passion—perfect for true football fans.",
-  
+
     highlights: [
       "High-resolution sports artwork",
       "Iconic AC Milan legend design",
@@ -11815,7 +11815,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for football fans & sports decor"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -11823,24 +11823,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "FBL-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "FBL-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "FBL-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/paulo-maldini-ac-milan-poster-wall-art_xa2fic.webp",
       images: [
@@ -11848,7 +11848,7 @@ export const POSTERS = [
         "maldini_2.jpg"
       ]
     },
-  
+
     tags: [
       "paolo maldini poster",
       "ac milan wall art",
@@ -11856,7 +11856,7 @@ export const POSTERS = [
       "soccer decor",
       "sports wall art"
     ],
-  
+
     seo: {
       metaTitle: "Paolo Maldini Poster | AC Milan Football Legend Wall Art",
       metaDescription:
@@ -11868,21 +11868,21 @@ export const POSTERS = [
         "soccer legend decor"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.8,
     reviewsCount: 94,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Paolo Maldini and AC Milan. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: false,
@@ -11893,17 +11893,17 @@ export const POSTERS = [
     name: "Doctor Doom Dark Marvel Aesthetic Wall Poster",
     slug: "doctor-doom-dark-marvel-aesthetic-wall-poster",
     sku: "PST-MRV-DOM-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Marvel",
       series: "Doctor Doom",
       character: "Doctor Doom",
       universe: "Marvel Universe"
     },
-  
+
     themes: [
       "Superhero",
       "Marvel",
@@ -11915,17 +11915,17 @@ export const POSTERS = [
       "Power",
       "Iconic"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Dark Doctor Doom poster inspired by Marvel aesthetic with cinematic and powerful design.",
-  
+
     description:
       "Bring power and mystery to your walls with this Doctor Doom wall poster. Featuring a dark cinematic portrayal with rich green tones, this artwork captures the dominance and intelligence of one of Marvel’s most iconic villains.",
-  
+
     highlights: [
       "High-resolution Marvel artwork",
       "Dark cinematic villain aesthetic",
@@ -11933,7 +11933,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for superhero & gaming setups"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -11941,24 +11941,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "DOM-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "DOM-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "DOM-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115868/robert-downey-jr-doctor-doom-canvas-print-wall-art_cia8dn.webp",
       images: [
@@ -11966,7 +11966,7 @@ export const POSTERS = [
         "doctor_doom_2.jpg"
       ]
     },
-  
+
     tags: [
       "doctor doom poster",
       "marvel villain poster",
@@ -11974,7 +11974,7 @@ export const POSTERS = [
       "dark marvel poster",
       "comic decor"
     ],
-  
+
     seo: {
       metaTitle: "Doctor Doom Poster | Dark Marvel Villain Wall Art",
       metaDescription:
@@ -11986,21 +11986,21 @@ export const POSTERS = [
         "villain decor"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.8,
     reviewsCount: 109,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Marvel characters. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -12011,17 +12011,17 @@ export const POSTERS = [
     name: "Thor Odinson Avengers Wall Poster",
     slug: "thor-odinson-avengers-wall-poster",
     sku: "PST-MRV-THR-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Marvel",
       series: "Avengers",
       character: "Thor Odinson",
       universe: "Marvel Universe"
     },
-  
+
     themes: [
       "Superhero",
       "Marvel",
@@ -12033,17 +12033,17 @@ export const POSTERS = [
       "Minimal",
       "Iconic"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Powerful Thor Odinson poster featuring Avengers aesthetic and bold typography.",
-  
+
     description:
       "Bring the power of the God of Thunder to your walls with this Thor Odinson poster. Featuring a striking pose with bold typography, this design captures strength, sacrifice, and heroism—perfect for Marvel fans and superhero setups.",
-  
+
     highlights: [
       "High-resolution Marvel artwork",
       "Bold superhero typography design",
@@ -12051,7 +12051,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Perfect for Marvel & gaming setups"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -12059,24 +12059,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "THR-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "THR-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "THR-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115869/thor-odinson-avengers-doomsday-movie-poster-wall-mockup_ihkwhr.webp",
       images: [
@@ -12084,7 +12084,7 @@ export const POSTERS = [
         "thor_2.jpg"
       ]
     },
-  
+
     tags: [
       "thor poster",
       "avengers wall art",
@@ -12092,7 +12092,7 @@ export const POSTERS = [
       "god of thunder poster",
       "superhero decor"
     ],
-  
+
     seo: {
       metaTitle: "Thor Poster | Avengers Marvel Wall Art",
       metaDescription:
@@ -12104,21 +12104,21 @@ export const POSTERS = [
         "superhero decor"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.9,
     reviewsCount: 168,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Marvel characters. Not official merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: true,
@@ -12129,17 +12129,17 @@ export const POSTERS = [
     name: "Zootopia Nick & Judy Cute Wall Poster",
     slug: "zootopia-nick-judy-cute-wall-poster",
     sku: "PST-ANI-ZOO-001",
-  
+
     productType: "posters",
     category: "Posters",
-  
+
     collections: {
       franchise: "Animated_Movies",
       studio: "Disney",
       characters: "Nick Wilde & Judy Hopps",
       genre: "Animation"
     },
-  
+
     themes: [
       "Animation",
       "Cute",
@@ -12151,17 +12151,17 @@ export const POSTERS = [
       "Friendship",
       "Aesthetic"
     ],
-  
+
     brand: "pragyaprint",
     artistName: "madhur",
     licenseType: "fan_art",
-  
+
     shortDescription:
       "Adorable Zootopia poster featuring Nick Wilde and Judy Hopps in a fun playful pose.",
-  
+
     description:
       "Add a fun and cheerful vibe to your space with this Zootopia wall poster featuring Nick Wilde and Judy Hopps. With vibrant colors and a playful aesthetic, this poster is perfect for kids’ rooms, gifts, or anyone who loves animated movies.",
-  
+
     highlights: [
       "High-resolution animated artwork",
       "Cute and colorful design",
@@ -12169,7 +12169,7 @@ export const POSTERS = [
       "Fade-resistant premium inks",
       "Great for bedrooms & study spaces"
     ],
-  
+
     pricing: {
       basePrice: 149,
       salePrice: 99,
@@ -12177,24 +12177,24 @@ export const POSTERS = [
       currency: "INR",
       isTaxable: true
     },
-  
+
     options: {
       size: ["A4", "A5", "A3"],
       paperType: ["Matte", "Glossy"]
     },
-  
+
     variants: [
       { variantId: "ZOO-A4", size: "A4", price: 99, stock: 30 },
       { variantId: "ZOO-A3", size: "A3", price: 179, stock: 30 },
       { variantId: "ZOO-A5", size: "A5", price: 69, stock: 20 }
     ],
-  
+
     inventory: {
       totalStock: 80,
       stockStatus: "in_stock",
       lowStockThreshold: 8
     },
-  
+
     media: {
       thumbnail: "https://res.cloudinary.com/dal56whd6/image/upload/v1774115869/zootopia-characters-wall-art-mockup_iteqtf.webp",
       images: [
@@ -12202,7 +12202,7 @@ export const POSTERS = [
         "zootopia_2.jpg"
       ]
     },
-  
+
     tags: [
       "zootopia poster",
       "nick wilde judy hopps",
@@ -12210,7 +12210,7 @@ export const POSTERS = [
       "cartoon poster",
       "cute disney decor"
     ],
-  
+
     seo: {
       metaTitle: "Zootopia Poster | Nick & Judy Cute Wall Art",
       metaDescription:
@@ -12222,24 +12222,1341 @@ export const POSTERS = [
         "disney poster"
       ]
     },
-  
+
     productionTime: "2–3 business days",
-  
+
     shipping: {
       weight: 0.28,
       dimensions: { width: 18, height: 24, depth: 0.1 },
       shippingClass: "small_tube"
     },
-  
+
     rating: 4.7,
     reviewsCount: 58,
-  
+
     copyrightNote:
       "Fan-made artwork inspired by Zootopia. Not official Disney merchandise.",
-  
+
     status: "active",
     visibility: "public",
     isFeatured: false,
     isNewArrival: true
   },
+];
+
+export const BANNER = [
+  {
+    id: "wb-spiritual-radha-krishna-001",
+    name: "Radha Krishna Eternal Love Wall Banner",
+    slug: "radha-krishna-eternal-love-wall-banner",
+    sku: "WB-SPI-RK-001",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "Spiritual",
+      series: "Devotional Art",
+      album: "Divine Landscapes",
+      artist: "Madhur"
+    },
+
+    themes: ["Spiritual", "Indian Art", "Devotional", "Aesthetic", "Floral"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "original_art",
+
+    "shortDescription": "Premium fabric wall banner featuring Radha Krishna in a serene floral setting.",
+    "description": "A high-definition spiritual wall banner capturing the divine love of Radha Krishna on a swing, surrounded by vibrant blooms. Perfect for home temples, living rooms, or office decor.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Intricate floral detail & high-res print",
+      "Vibrant, fade-resistant colors",
+      "Traditional yet modern aesthetic",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-RK-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-RK-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-RK-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-RK-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-RK-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-RK-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-RK-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-RK-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-RK-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-RK-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-RK-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-RK-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202307/radha-krishna-spiritual-wall-art-office-decor_aelfg3.webp",
+      "images": [
+        "https://res.cloudinary.com/.../radha_krishna_mockup1.webp"
+      ]
+    },
+
+    "tags": [
+      "spiritual banner",
+      "radha krishna art",
+      "indian wall decor",
+      "devotional wall hanging",
+      "office decor"
+    ],
+
+    "seo": {
+      "metaTitle": "Radha Krishna Wall Banner | Spiritual Home Decor",
+      "metaDescription": "Transform your space with the Radha Krishna Eternal Love banner. High-quality fabric and vibrant colors.",
+      "keywords": ["radha krishna banner", "spiritual wall art", "iskcon art", "indian decor"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": true,
+    isNewArrival: false
+  },
+  {
+    id: "wb-spiritual-hanuman-meditation-002",
+    name: "Lord Hanuman Meditating Divine Wall Banner",
+    slug: "lord-hanuman-meditating-divine-wall-banner",
+    sku: "WB-SPI-HNM-002",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "Spiritual",
+      series: "Divine Strength",
+      album: "Vedic Icons",
+      artist: "Madhur"
+    },
+
+    themes: ["Spiritual", "Hinduism", "Meditation", "Fitness", "Traditional"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "original_art",
+
+    "shortDescription": "Powerful wall banner of Lord Hanuman in a meditative state with Jai Shri Ram mandala.",
+    "description": "A striking wall banner depicting a muscular, serene Lord Hanuman in deep meditation. The background features a glowing 'Ram' naam mandala, symbolizing strength and devotion. Ideal for home gyms, meditation spaces, or living areas.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Detailed muscular anatomy and divine aura",
+      "Vivid Jai Shri Ram mandala backdrop",
+      "Fade-resistant high-definition print",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-HNM-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-HNM-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-HNM-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-HNM-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-HNM-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-HNM-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-HNM-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-HNM-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-HNM-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-HNM-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-HNM-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-HNM-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202304/lord-hanuman-meditating-muscular-canvas-wall-art_szccyr.webp",
+      "images": [
+        "https://res.cloudinary.com/.../hanuman_mockup1.webp"
+      ]
+    },
+
+    "tags": [
+      "hanuman banner",
+      "meditation decor",
+      "spiritual wall art",
+      "gym motivation",
+      "jai shri ram banner"
+    ],
+
+    "seo": {
+      "metaTitle": "Lord Hanuman Meditating Wall Banner | Divine Strength Art",
+      "metaDescription": "A premium spiritual banner of Lord Hanuman. Bring strength and serenity to your home with this high-quality wall decor.",
+      "keywords": ["hanuman wall art", "bajrangbali banner", "spiritual decor", "meditating hanuman"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": true,
+    isNewArrival: true
+  },
+  {
+    id: "wb-movie-interstellar-003",
+    name: "Interstellar 'Mann's Planet' Cinematic Wall Banner",
+    slug: "interstellar-manns-planet-cinematic-wall-banner",
+    sku: "WB-MOV-INT-003",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "Movies",
+      series: "Christopher Nolan Collection",
+      album: "Sci-Fi Greats",
+      artist: "Madhur"
+    },
+
+    themes: ["Sci-Fi", "Cinema", "Space", "Minimalist", "Aesthetic"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+
+    "shortDescription": "Premium cinematic wall banner featuring the icy landscapes of Interstellar.",
+    "description": "A breathtaking high-definition banner capturing the iconic exploration of Mann's Planet from Christopher Nolan's Interstellar. Features a cool blue and white palette that adds a modern, sophisticated touch to any office or room.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Widescreen cinematic composition",
+      "Deep, high-contrast printing",
+      "Fade-resistant icy blue tones",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-INT-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-INT-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-INT-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-INT-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-INT-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-INT-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-INT-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-INT-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-INT-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-INT-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-INT-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-INT-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202304/interstellar-movie-poster-office-wall-decor_agyzbz.webp",
+      "images": [
+        "https://res.cloudinary.com/.../interstellar_mockup1.webp"
+      ]
+    },
+
+    "tags": [
+      "interstellar poster",
+      "movie banner",
+      "sci-fi decor",
+      "office wall art",
+      "space banner"
+    ],
+
+    "seo": {
+      "metaTitle": "Interstellar Movie Wall Banner | Sci-Fi Decor",
+      "metaDescription": "Elevate your room with this Interstellar cinematic banner. High-quality print on premium fabric.",
+      "keywords": ["interstellar wall art", "movie posters india", "space wall decor", "nolan movie banner"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": true,
+    isNewArrival: false
+  },
+  {
+    id: "wb-marvel-ironman-minimalist-004",
+    name: "Iron Man Minimalist Glow Wall Banner",
+    slug: "iron-man-minimalist-glow-wall-banner",
+    sku: "WB-MAR-IM-004",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "Marvel",
+      series: "Avengers Collection",
+      album: "Minimalist Heroes",
+      artist: "Madhur"
+    },
+
+    themes: ["Superheroes", "Marvel", "Minimalist", "Tech", "Modern"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+
+    "shortDescription": "Premium minimalist wall banner featuring Iron Man's iconic silhouette.",
+    "description": "A sophisticated minimalist wall banner showcasing the silhouette of Iron Man with a glowing Arc Reactor focus. Designed with a dark aesthetic to complement high-end office setups and gaming rooms.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Deep black tones & high-contrast glow effect",
+      "Minimalist design for professional environments",
+      "Fade-resistant high-resolution print",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-IM-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-IM-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-IM-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-IM-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-IM-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-IM-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-IM-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-IM-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-IM-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-IM-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-IM-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-IM-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202308/iron-man-minimalist-wall-art-office-setup_s2koso.webp",
+      "images": [
+        "https://res.cloudinary.com/.../ironman_mockup_office.webp"
+      ]
+    },
+
+    "tags": [
+      "iron man banner",
+      "marvel wall art",
+      "minimalist superhero",
+      "office decor",
+      "avengers wall hanging"
+    ],
+
+    "seo": {
+      "metaTitle": "Iron Man Minimalist Wall Banner | Marvel Office Decor",
+      "metaDescription": "Add a touch of Stark Industries to your office with this premium minimalist Iron Man banner. High-definition print on durable fabric.",
+      "keywords": ["iron man wall decor", "minimalist marvel poster", "stark tech art", "avengers office art"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": true,
+    isNewArrival: true
+  },
+  {
+    id: "wb-tv-friends-cast-005",
+    name: "Friends TV Show Iconic Cast Wall Banner",
+    slug: "friends-tv-show-iconic-cast-wall-banner",
+    sku: "WB-TV-FRN-005",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "TV Shows",
+      series: "90s Nostalgia",
+      album: "Sitcom Classics",
+      artist: "Madhur"
+    },
+
+    themes: ["Comedy", "90s", "Friends", "Aesthetic", "Pop Culture"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+
+    "shortDescription": "Premium fabric wall banner featuring the legendary cast of Friends.",
+    "description": "The ultimate tribute to the world's favorite sitcom. This high-quality banner features the iconic cast in a classic pose, perfect for adding a cozy, nostalgic feel to your bedroom, living room, or cafe-themed office.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Vibrant high-definition character print",
+      "Durable and fade-resistant fabric",
+      "Classic 90s aesthetic",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-FRN-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-FRN-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-FRN-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-FRN-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-FRN-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-FRN-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-FRN-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-FRN-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-FRN-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-FRN-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-FRN-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-FRN-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202307/friends-tv-show-cast-wall-art-office-decor_ktqob7.webp",
+      "images": [
+        "https://res.cloudinary.com/.../friends_mockup_living.webp"
+      ]
+    },
+
+    "tags": [
+      "friends tv show",
+      "friends merchandise",
+      "90s tv decor",
+      "central perk banner",
+      "sitcom wall art"
+    ],
+
+    "seo": {
+      "metaTitle": "Friends TV Show Cast Wall Banner | Nostalgic Room Decor",
+      "metaDescription": "Celebrate your favorite sitcom with this premium Friends cast wall banner. High-quality fabric and vibrant 90s style.",
+      "keywords": ["friends wall art", "friends tv show poster", "central perk decor", "90s nostalgia banner"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": false,
+    isNewArrival: true
+  },
+  {
+    id: "wb-tv-got-bastards-006",
+    name: "Game of Thrones Battle of the Bastards Wall Banner",
+    slug: "game-of-thrones-battle-of-the-bastards-wall-banner",
+    sku: "WB-TV-GOT-006",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "TV Shows",
+      series: "Epic Fantasy",
+      album: "Westeros Collection",
+      artist: "Madhur"
+    },
+
+    themes: ["Fantasy", "Action", "Cinematic", "Medieval", "Dark Aesthetic"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+
+    "shortDescription": "Epic wall banner featuring Jon Snow from the Battle of the Bastards.",
+    "description": "Capture the raw intensity of the North with this premium wall banner. Depicting Jon Snow facing the cavalry charge in the legendary 'Battle of the Bastards', this piece brings the cinematic scale of Westeros to your home or office.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Epic cinematic widescreen composition",
+      "High-contrast grit and detail",
+      "Fade-resistant dark tones",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-GOT-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-GOT-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-GOT-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-GOT-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-GOT-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-GOT-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-GOT-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-GOT-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-GOT-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-GOT-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-GOT-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-GOT-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202306/game-of-thrones-battle-of-the-bastards-wall-art-home-office_q3kg8g.webp",
+      "images": [
+        "https://res.cloudinary.com/.../got_mockup_office.webp"
+      ]
+    },
+
+    "tags": [
+      "game of thrones banner",
+      "jon snow wall art",
+      "battle of the bastards",
+      "fantasy decor",
+      "hbo merchandise"
+    ],
+
+    "seo": {
+      "metaTitle": "Game of Thrones Battle of the Bastards Wall Banner | Jon Snow Art",
+      "metaDescription": "Relive the greatest battle in TV history with this Jon Snow wall banner. Premium fabric and cinematic print quality.",
+      "keywords": ["game of thrones wall art", "jon snow poster", "stark banner", "westeros wall decor"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": true,
+    isNewArrival: false
+  },
+  {
+    id: "wb-marvel-loki-silhouette-007",
+    name: "Loki God of Mischief Minimalist Wall Banner",
+    slug: "loki-god-of-mischief-minimalist-wall-banner",
+    sku: "WB-MAR-LOK-007",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "Marvel",
+      series: "Asgardian Legends",
+      album: "Minimalist Heroes",
+      artist: "Madhur"
+    },
+
+    themes: ["Superheroes", "Marvel", "Minimalist", "Fantasy", "Dark Aesthetic"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+
+    "shortDescription": "Premium fabric wall banner featuring Loki's iconic horned silhouette.",
+    "description": "A sleek, minimalist tribute to Loki, the God of Mischief. Featuring the iconic horned helmet silhouette in a high-contrast dark design, this banner is a sophisticated choice for office decor, gaming setups, or Marvel fans.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Sharp, high-contrast minimalist design",
+      "Vibrant green accents on deep black",
+      "Fade-resistant high-definition print",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-LOK-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-LOK-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-LOK-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-LOK-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-LOK-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-LOK-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-LOK-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-LOK-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-LOK-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-LOK-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-LOK-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-LOK-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202306/loki-silhouette-poster-office-decor_ilhjzi.webp",
+      "images": [
+        "https://res.cloudinary.com/.../loki_mockup_office.webp"
+      ]
+    },
+
+    "tags": [
+      "loki banner",
+      "marvel silhouette",
+      "god of mischief",
+      "minimalist superhero decor",
+      "asgardian art"
+    ],
+
+    "seo": {
+      "metaTitle": "Loki Minimalist Wall Banner | Marvel Silhouette Decor",
+      "metaDescription": "Embrace your glorious purpose with this premium Loki silhouette banner. High-quality fabric with a sleek minimalist finish.",
+      "keywords": ["loki wall art", "minimalist marvel poster", "loki silhouette", "marvel office decor"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": false,
+    isNewArrival: true
+  },
+  {
+    id: "wb-dc-batman-motorcycle-008",
+    name: "Batman Dark Knight Motorcycle Wall Banner",
+    slug: "batman-dark-knight-motorcycle-wall-banner",
+    sku: "WB-DC-BAT-008",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "DC Comics",
+      series: "The Dark Knight Trilogy",
+      album: "Gotham Nights",
+      artist: "Madhur"
+    },
+
+    themes: ["Superheroes", "DC", "Action", "Automotive", "Dark Aesthetic"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+
+    "shortDescription": "Premium wall banner featuring Batman on a motorcycle through the streets of Gotham.",
+    "description": "An intense, high-action wall banner depicting the Dark Knight navigating a sleek motorcycle through a rainy, neon-lit Gotham City. Perfect for fans of the trilogy and anyone looking for a bold, cinematic atmosphere in their office or room.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Cinematic motion-blur effect and high-res detail",
+      "Deep blacks and vibrant blue/neon contrast",
+      "Fade-resistant high-definition print",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-BAT-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-BAT-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-BAT-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-BAT-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-BAT-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-BAT-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-BAT-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-BAT-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-BAT-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-BAT-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-BAT-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-BAT-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202306/batman-motorcycle-wall-art-office-decor_akxzb5.webp",
+      "images": [
+        "https://res.cloudinary.com/.../batman_mockup_office.webp"
+      ]
+    },
+
+    "tags": [
+      "batman banner",
+      "dark knight wall art",
+      "dc comics decor",
+      "motorcycle poster",
+      "gotham city art"
+    ],
+
+    "seo": {
+      "metaTitle": "Batman Dark Knight Motorcycle Wall Banner | Gotham City Art",
+      "metaDescription": "Bring the intensity of Gotham to your walls with this premium Batman motorcycle banner. Durable fabric and stunning cinematic print.",
+      "keywords": ["batman wall decor", "dark knight motorcycle art", "gotham banner", "superhero wall hanging"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": true,
+    isNewArrival: false
+  },
+  {
+    id: "wb-marvel-tony-stark-abstract-009",
+    name: "Tony Stark Abstract Vision Wall Banner",
+    slug: "tony-stark-abstract-vision-wall-banner",
+    sku: "WB-MAR-TSA-009",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "Marvel",
+      series: "Genius Billionaire Collection",
+      album: "Abstract Heroes",
+      artist: "Madhur"
+    },
+
+    themes: ["Marvel", "Abstract", "Modern", "Tech", "Aesthetic"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+
+    "shortDescription": "Premium abstract fabric wall banner of Tony Stark/Iron Man.",
+    "description": "A sophisticated abstract portrait of Tony Stark, blending high-tech aesthetics with artistic brushstrokes. This banner is designed for modern office spaces, studios, or fans who prefer a subtle, artistic approach to superhero decor.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Modern abstract art style",
+      "Vibrant high-contrast color palette",
+      "Fade-resistant high-definition print",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-TSA-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-TSA-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-TSA-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-TSA-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-TSA-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-TSA-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-TSA-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-TSA-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-TSA-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-TSA-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-TSA-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-TSA-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202306/modern-office-decor-tony-stark-abstract-portrait_fermf9.webp",
+      "images": [
+        "https://res.cloudinary.com/.../tony_stark_mockup_office.webp"
+      ]
+    },
+
+    "tags": [
+      "tony stark art",
+      "iron man banner",
+      "abstract wall decor",
+      "marvel office art",
+      "modern superhero banner"
+    ],
+
+    "seo": {
+      "metaTitle": "Tony Stark Abstract Wall Banner | Modern Marvel Art",
+      "metaDescription": "Upgrade your office with this premium Tony Stark abstract banner. High-quality fabric featuring a unique, modern artistic style.",
+      "keywords": ["tony stark wall art", "abstract iron man", "marvel office decor", "modern banner art"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": true,
+    isNewArrival: true
+  },
+  {
+    id: "wb-dc-superman-flight-010",
+    name: "Superman Man of Steel Flight Wall Banner",
+    slug: "superman-man-of-steel-flight-wall-banner",
+    sku: "WB-DC-SUP-010",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "DC Comics",
+      series: "Justice League Icons",
+      album: "Dawn of Justice",
+      artist: "Madhur"
+    },
+
+    themes: ["Superheroes", "DC", "Inspirational", "Action", "Vintage Modern"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+
+    "shortDescription": "Premium wall banner of Superman soaring through the Metropolis sky.",
+    "description": "A powerful and inspiring wall banner featuring the Man of Steel in his iconic flight pose. With vibrant primary colors and a cinematic sky backdrop, this banner is the perfect center-piece for home offices, kids' rooms, or collector spaces.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Dynamic flight composition",
+      "Vibrant Red, Blue, and Yellow tones",
+      "Fade-resistant high-definition print",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-SUP-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-SUP-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-SUP-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-SUP-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-SUP-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-SUP-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-SUP-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-SUP-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-SUP-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-SUP-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-SUP-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-SUP-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202303/superman-wall-art-home-office-decor_nh8pgh.webp",
+      "images": [
+        "https://res.cloudinary.com/.../superman_mockup_office.webp"
+      ]
+    },
+
+    "tags": [
+      "superman banner",
+      "man of steel art",
+      "dc comics wall decor",
+      "justice league art",
+      "superhero flight poster"
+    ],
+
+    "seo": {
+      "metaTitle": "Superman Man of Steel Wall Banner | DC Comics Art",
+      "metaDescription": "Inspirational Superman wall banner on premium fabric. Bring the strength of Metropolis to your home or office.",
+      "keywords": ["superman wall art", "clark kent poster", "dc superhero banner", "man of steel decor"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": false,
+    isNewArrival: true
+  },
+  {
+    id: "wb-marvel-thor-lightning-011",
+    name: "Thor God of Thunder Cosmic Wall Banner",
+    slug: "thor-god-of-thunder-cosmic-wall-banner",
+    sku: "WB-MAR-THR-011",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "Marvel",
+      series: "Asgardian Legends",
+      album: "Avenging Heroes",
+      artist: "Madhur"
+    },
+
+    themes: ["Marvel", "Superheroes", "Cosmic", "Action", "Cinematic"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+
+    "shortDescription": "Premium fabric wall banner featuring Thor wielding Mjolnir amidst lightning.",
+    "description": "An epic cinematic wall banner showcasing Thor, the God of Thunder, channeling the power of the storm. Featuring high-contrast lightning effects and a cosmic backdrop, this piece adds a powerful energy to any gaming room, home office, or studio.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Dynamic lightning and storm visual effects",
+      "High-definition cosmic color palette",
+      "Fade-resistant durable print",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-THR-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-THR-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-THR-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-THR-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-THR-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-THR-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-THR-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-THR-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-THR-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-THR-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-THR-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-THR-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202304/thor-movie-poster-home-office-decor_jnwq3y.webp",
+      "images": [
+        "https://res.cloudinary.com/.../thor_mockup_setup.webp"
+      ]
+    },
+
+    "tags": [
+      "thor banner",
+      "god of thunder",
+      "marvel wall art",
+      "avengers decor",
+      "lightning poster"
+    ],
+
+    "seo": {
+      "metaTitle": "Thor God of Thunder Wall Banner | Marvel Cosmic Decor",
+      "metaDescription": "Summon the power of Asgard with this premium Thor wall banner. High-definition fabric print featuring intense lightning and cosmic art.",
+      "keywords": ["thor wall art", "mjolnir banner", "marvel asgardian art", "superhero room decor"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": true,
+    isNewArrival: false
+  },
+  {
+    id: "wb-sports-f1-racing-012",
+    name: "Formula 1 Grand Prix Velocity Wall Banner",
+    slug: "f1-race-car-velocity-wall-banner",
+    sku: "WB-SPT-F1-012",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "Sports",
+      series: "Motorsport Legends",
+      album: "Velocity Series",
+      artist: "Madhur"
+    },
+
+    themes: ["Sports", "Racing", "F1", "Automotive", "Modern"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "original_art",
+
+    "shortDescription": "Premium fabric wall banner featuring a high-speed Formula 1 race car.",
+    "description": "Capture the essence of speed and engineering excellence with this F1 racing wall banner. Featuring a sleek aerodynamic race car in motion, this piece is designed to bring a high-energy, professional look to modern office interiors and gaming dens.",
+
+    "highlights": [
+      "Premium fabric material",
+      "Dynamic motion-blur racing aesthetic",
+      "High-definition automotive detail",
+      "Fade-resistant vibrant colors",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-F1-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-F1-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-F1-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-F1-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-F1-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-F1-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-F1-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-F1-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-F1-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-F1-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-F1-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-F1-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202304/f1-race-car-wall-art-modern-office-interior_sdq8t8.webp",
+      "images": [
+        "https://res.cloudinary.com/.../f1_mockup_office.webp"
+      ]
+    },
+
+    "tags": [
+      "f1 banner",
+      "formula 1 art",
+      "racing wall decor",
+      "motorsport poster",
+      "car enthusiast gift"
+    ],
+
+    "seo": {
+      "metaTitle": "Formula 1 Racing Wall Banner | Modern Motorsport Art",
+      "metaDescription": "Level up your office decor with this premium F1 racing banner. High-quality fabric featuring a sleek Grand Prix race car in motion.",
+      "keywords": ["f1 wall art", "racing car banner", "motorsport decor", "formula 1 poster india"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": true,
+    isNewArrival: true
+  },
+  {
+    id: "wb-sports-ronaldo-cr7-013",
+    name: "Cristiano Ronaldo CR7 Legendary Wall Banner",
+    slug: "cristiano-ronaldo-cr7-legendary-wall-banner",
+    sku: "WB-SPT-CR7-013",
+
+    productType: "banner",
+    category: "Banners",
+
+    collections: {
+      franchise: "Sports",
+      series: "Football Legends",
+      album: "The GOAT Series",
+      artist: "Madhur"
+    },
+
+    themes: ["Sports", "Football", "Inspirational", "Fitness", "Modern"],
+
+    brand: "pragyaprint",
+    artistName: "madhur",
+    licenseType: "fan_art",
+
+    "shortDescription": "Premium fabric wall banner featuring football icon Cristiano Ronaldo.",
+    "description": "Celebrate the legacy of CR7 with this high-definition wall banner. Captured in a moment of peak performance, this piece is designed to inspire discipline and excellence. A perfect addition to home gyms, sports rooms, or modern office setups.",
+
+    "highlights": [
+      "Premium fabric material",
+      "High-intensity sports photography print",
+      "Vibrant colors with deep contrast",
+      "Fade-resistant and durable",
+      "Lightweight & easy to hang"
+    ],
+
+    "pricing": {
+      "basePrice": 199,
+      "salePrice": 149,
+      "discountPercentage": 25,
+      "currency": "INR",
+      "isTaxable": true
+    },
+
+    "options": {
+      "size": ["12x18", "18x24", "24x36", "36x48"],
+      "material": ["Paper", "Vinyl", "Canvas"],
+      "paperType": ["Matte", "Glossy"]
+    },
+
+    "variants": [
+      { "variantId": "WB-CR7-12x18-PAPER", "size": "12x18", "material": "Paper", "price": 149, "stock": 30 },
+      { "variantId": "WB-CR7-18x24-PAPER", "size": "18x24", "material": "Paper", "price": 349, "stock": 25 },
+      { "variantId": "WB-CR7-24x36-PAPER", "size": "24x36", "material": "Paper", "price": 649, "stock": 25 },
+      { "variantId": "WB-CR7-36x48-PAPER", "size": "36x48", "material": "Paper", "price": 1299, "stock": 25 },
+      { "variantId": "WB-CR7-12x18-VINYL", "size": "12x18", "material": "Vinyl", "price": 149, "stock": 30 },
+      { "variantId": "WB-CR7-18x24-VINYL", "size": "18x24", "material": "Vinyl", "price": 349, "stock": 25 },
+      { "variantId": "WB-CR7-24x36-VINYL", "size": "24x36", "material": "Vinyl", "price": 649, "stock": 25 },
+      { "variantId": "WB-CR7-36x48-VINYL", "size": "36x48", "material": "Vinyl", "price": 1299, "stock": 25 },
+      { "variantId": "WB-CR7-12x18-CANVAS", "size": "12x18", "material": "Canvas", "price": 499, "stock": 15 },
+      { "variantId": "WB-CR7-18x24-CANVAS", "size": "18x24", "material": "Canvas", "price": 899, "stock": 15 },
+      { "variantId": "WB-CR7-24x36-CANVAS", "size": "24x36", "material": "Canvas", "price": 1599, "stock": 15 },
+      { "variantId": "WB-CR7-36x48-CANVAS", "size": "36x48", "material": "Canvas", "price": 2999, "stock": 15 }
+    ],
+
+    "inventory": {
+      "totalStock": 270,
+      "stockStatus": "in_stock",
+      "lowStockThreshold": 10
+    },
+
+    "media": {
+      "thumbnail": "https://res.cloudinary.com/dal56whd6/image/upload/v1774202303/cristiano-ronaldo-wall-art-office-desk-setup_pnanpx.webp",
+      "images": [
+        "https://res.cloudinary.com/.../ronaldo_mockup_desk.webp"
+      ]
+    },
+
+    "tags": [
+      "cristiano ronaldo banner",
+      "cr7 wall art",
+      "football decor",
+      "motivational sports poster",
+      "real madrid art"
+    ],
+
+    "seo": {
+      "metaTitle": "Cristiano Ronaldo CR7 Wall Banner | Football Legend Decor",
+      "metaDescription": "Level up your space with this premium Cristiano Ronaldo wall banner. High-quality fabric featuring the football GOAT in action.",
+      "keywords": ["ronaldo wall decor", "cr7 poster india", "football wall banner", "motivational athlete art"]
+    },
+
+    "productionTime": "2–4 business days",
+
+    "shipping": {
+      "weight": 0.4,
+      "dimensions": { "width": 24, "height": 36, "depth": 1 },
+      "shippingClass": "rolled_tube"
+    },
+
+    "status": "active",
+    "isFeatured": true,
+    isNewArrival: false
+  },
+
 ];

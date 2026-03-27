@@ -13,11 +13,13 @@ const useProducts = () => {
         const productsRef = collection(db, "products");
         const journalsRef = collection(db, "journals");
         const notebooksRef = collection(db, "notebooks");
+        const bannersRef = collection(db, "banners");
 
-        const [productsSnap, journalsSnap, notebooksSnap] = await Promise.all([
+        const [productsSnap, journalsSnap, notebooksSnap, bannersSnap] = await Promise.all([
           getDocs(productsRef),
           getDocs(journalsRef),
           getDocs(notebooksRef),
+          getDocs(bannersRef),
         ]);
 
         const posters = productsSnap.docs.map((doc) => ({
@@ -33,9 +35,13 @@ const useProducts = () => {
           id: doc.id,
           ...doc.data(),
         }));
+        const banners = bannersSnap.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
 
         // 🔥 Merge both collections
-        setProducts([...posters, ...journals,...notebooks]);
+        setProducts([...posters, ...journals,...notebooks,...banners]);
       } catch (err) {
         console.error(err);
         setError(err);

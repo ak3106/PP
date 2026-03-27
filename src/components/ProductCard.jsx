@@ -157,6 +157,9 @@ const ProductCard = ({ product }) => {
     else if (product.category === "Notebooks") {
       return `/products/notebooks/:collection/${product.id}`;
     }
+    else if (product.category === "Banners") {
+      return `/products/banners/:collection/${product.id}`;
+    }
     return `/products/posters/:collection/${product.id}`;
   }, [product]);
 

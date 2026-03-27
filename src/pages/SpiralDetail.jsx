@@ -10,6 +10,9 @@ import {
   Tag,
   Minus,
   Plus,
+  NotebookText,
+  NotepadText,
+  Printer,
 } from "lucide-react";
 import Button from "../components/UI/Button";
 import { useCart } from "../context/CartContext";
@@ -30,6 +33,7 @@ const SpiralDetail = () => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedPages, setSelectedPages] = useState(null);
   const [selectedRuling, setSelectedRuling] = useState(null);
+  const [selectedCover, setSelectedCover] = useState(null);
   const [mainImage, setMainImage] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [isAdding, setIsAdding] = useState(false);
@@ -41,14 +45,14 @@ const SpiralDetail = () => {
     if (!journal) return;
 
     const defaultSize = journal.options?.size?.[0] ?? null;
-    const defaultPages =
-      journal.options?.pageMap?.[defaultSize]?.[0] ?? null;
-    const defaultRuling =
-      journal.options?.rulingType?.[0] ?? null;
+    const defaultPages = journal.options?.pageMap?.[defaultSize]?.[0] ?? null;
+    const defaultRuling = journal.options?.rulingType?.[0] ?? null;
+    const defaultCover = journal.options?.coverType?.[0] ?? null;
 
     setSelectedSize(defaultSize);
     setSelectedPages(defaultPages);
     setSelectedRuling(defaultRuling);
+    setSelectedCover(defaultCover);
     setMainImage(journal.media?.thumbnail ?? "");
   }, [journal]);
 
@@ -57,12 +61,22 @@ const SpiralDetail = () => {
   // --------------------------------------------------
   useEffect(() => {
     if (!journal || !selectedSize) return;
-
-    const firstPage =
-    journal.options?.pageMap?.[selectedSize]?.[0] ?? null;
-
-    setSelectedPages(firstPage);
-  }, [selectedSize, journal]);
+  
+    // 1. Check if "Dated" is selected
+    if (selectedRuling === "Dated") {
+      setSelectedPages(365); // Force 365 pages
+      return;
+    }
+  
+    // 2. Otherwise, use your standard logic
+    const availablePages = journal.options?.pageMap?.[selectedSize] ?? [];
+    
+    // If current selection isn't in the new size's options, reset to first available
+    if (!availablePages.includes(selectedPages)) {
+      setSelectedPages(availablePages[0] ?? null);
+    }
+  }, [selectedSize, selectedRuling, journal]);
+  
 
   // --------------------------------------------------
   // VARIANT RESOLUTION
@@ -74,14 +88,14 @@ const SpiralDetail = () => {
       (v) =>
         v.size === selectedSize &&
         v.pages === selectedPages &&
-        (v.rulingType ? v.rulingType === selectedRuling : true)
+        (v.rulingType ? v.rulingType === selectedRuling : true) &&
+        v.coverType == selectedCover
     );
-  }, [journal, selectedSize, selectedPages, selectedRuling]);
+  }, [journal, selectedSize, selectedPages, selectedRuling, selectedCover]);
 
   const finalPrice = selectedVariant?.price ?? 0;
 
-  const formatPrice = (price) =>
-    `₹${price.toLocaleString("en-IN")}`;
+  const formatPrice = (price) => `₹${price.toLocaleString("en-IN")}`;
 
   // --------------------------------------------------
   // MEDIA ORDER (THUMBNAIL → BACK → IMAGES)
@@ -95,6 +109,17 @@ const SpiralDetail = () => {
       ...(journal.media.images || []),
     ].filter(Boolean);
   }, [journal]);
+
+  const relatedProducts = useMemo(() => {
+    return products
+      .filter(
+        (p) =>
+          p.productType === "diary_journal" &&
+          p.id !== journal?.id &&
+          p.collections.franchise === journal?.collections.franchise
+      )
+      .slice(0, 4);
+  }, [products, journal]);
 
   // --------------------------------------------------
   // ADD TO CART
@@ -110,9 +135,12 @@ const SpiralDetail = () => {
         productId: journal.id,
         name: journal.name,
         variantId: selectedVariant.variantId,
+        variantLabel: `${selectedVariant.size} / ${selectedVariant.pages} pages / ${selectedVariant.coverType} / ${selectedRuling}`,
+
         size: selectedSize,
         pages: selectedPages,
         rulingType: selectedRuling,
+        coverType: selectedCover,
         price: selectedVariant.price,
         quantity,
         thumbnail: journal.media?.thumbnail,
@@ -131,9 +159,7 @@ const SpiralDetail = () => {
   if (loading)
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
-        <p className="text-lg font-semibold text-gray-600">
-          Loading product…
-        </p>
+        <p className="text-lg font-semibold text-gray-600">Loading product…</p>
       </div>
     );
 
@@ -143,9 +169,7 @@ const SpiralDetail = () => {
         <h2 className="text-2xl font-bold text-red-600 mb-4">
           Product Not Found
         </h2>
-        <Button onClick={() => navigate("/products")}>
-          Back to Products
-        </Button>
+        <Button onClick={() => navigate("/products")}>Back to Products</Button>
       </div>
     );
 
@@ -187,9 +211,7 @@ const SpiralDetail = () => {
                 src={img}
                 onClick={() => setMainImage(img)}
                 className={`w-20 h-20 object-cover rounded-xl cursor-pointer border-2 ${
-                  img === mainImage
-                    ? "border-primary"
-                    : "border-gray-200"
+                  img === mainImage ? "border-primary" : "border-gray-200"
                 }`}
               />
             ))}
@@ -202,9 +224,7 @@ const SpiralDetail = () => {
             {journal.category}
           </p>
 
-          <h1 className="text-4xl font-extrabold mb-3">
-            {journal.name}
-          </h1>
+          <h1 className="text-4xl font-extrabold mb-3">{journal.name}</h1>
 
           {/* Rating */}
           <div className="flex items-center mb-5">
@@ -228,9 +248,7 @@ const SpiralDetail = () => {
             {formatPrice(finalPrice)}
           </div>
 
-          <p className="text-gray-700 mb-8">
-            {journal.description}
-          </p>
+          <p className="text-gray-700 mb-8">{journal.description}</p>
 
           {/* SIZE */}
           <div className="mb-6">
@@ -243,9 +261,7 @@ const SpiralDetail = () => {
                   key={size}
                   onClick={() => setSelectedSize(size)}
                   className={`px-4 py-2 rounded-full border ${
-                    selectedSize === size
-                      ? "bg-primary text-white"
-                      : "bg-white"
+                    selectedSize === size ? "bg-primary text-white" : "bg-white"
                   }`}
                 >
                   {size}
@@ -254,46 +270,42 @@ const SpiralDetail = () => {
             </div>
           </div>
 
-          {/* PAGES */}
-          {selectedSize && (
-            <div className="mb-6">
-              <h3 className="font-semibold mb-2">
-                Pages:
-              </h3>
-              <div className="flex gap-3 flex-wrap">
-                {journal.options?.pageMap?.[
-                  selectedSize
-                ]?.map((pages) => (
-                  <button
-                    key={pages}
-                    onClick={() => setSelectedPages(pages)}
-                    className={`px-4 py-2 rounded-full border ${
-                      selectedPages === pages
-                        ? "bg-primary text-white"
-                        : "bg-white"
-                    }`}
-                  >
-                    {pages} Pages
-                  </button>
-                ))}
-              </div>
+          {/* COVER TYPEEE */}
+          <div className="mb-6">
+            <h3 className="font-semibold mb-2 flex items-center">
+              <Printer className="w-4 h-4 mr-2" /> Cover Type:
+            </h3>
+            <div className="flex gap-3 flex-wrap">
+              {journal.options?.coverType?.map((cover) => (
+                <button
+                  key={cover}
+                  onClick={() => setSelectedCover(cover)}
+                  className={`px-4 py-2 rounded-full border ${
+                    selectedCover === cover ? "bg-primary text-white" : "bg-white"
+                  }`}
+                >
+                  {cover}
+                </button>
+              ))}
             </div>
-          )}
+          </div>
 
+          {/* PAGES */}
           {/* RULING */}
           <div className="mb-6">
-            <h3 className="font-semibold mb-2">
-              Ruling:
+          <h3 className="font-semibold mb-2 flex items-center">
+              <NotepadText className="w-4 h-4 mr-2" /> Ruling Type:
             </h3>
+              
             <div className="flex gap-3 flex-wrap">
               {journal.options?.rulingType?.map((type) => (
                 <button
                   key={type}
                   onClick={() => setSelectedRuling(type)}
-                  className={`px-4 py-2 rounded-full border ${
+                  className={`px-4 py-2 rounded-full border transition-all ${
                     selectedRuling === type
-                      ? "bg-primary text-white"
-                      : "bg-white"
+                      ? "bg-primary text-white border-primary" // Adjusted to 'black' or your 'primary'
+                      : "bg-white border-gray-300 hover:border-primary"
                   }`}
                 >
                   {type}
@@ -302,29 +314,47 @@ const SpiralDetail = () => {
             </div>
           </div>
 
+          {/* PAGES - New Section */}
+          <div className="mb-6">
+          <h3 className="font-semibold mb-2 flex items-center">
+          <NotebookText className="w-4 h-4 mr-2"/>Pages:
+            </h3>
+            <div className="flex gap-3 flex-wrap">
+              {journal.options?.pageMap?.[selectedSize]
+                ?.filter((pageCount) => {
+                  // If Dated is selected, ONLY show 365
+                  if (selectedRuling === "Dated") return pageCount === 365;
+                  // If anything else is selected, hide 365
+                  return pageCount !== 365;
+                })
+                .map((pageCount) => (
+                  <button
+                    key={pageCount}
+                    onClick={() => setSelectedPages(pageCount)}
+                    className={`px-4 py-2 rounded-full border transition-all ${
+                      selectedPages === pageCount
+                        ? "bg-primary text-white border-primary"
+                        : "bg-white border-gray-300 hover:border-primary"
+                    }`}
+                  >
+                    {pageCount} Pages
+                  </button>
+                ))}
+            </div>
+          </div>
+
           {/* QUANTITY */}
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-semibold">
-              Quantity
-            </span>
+            <span className="font-semibold">Quantity</span>
             <div className="flex items-center border rounded-xl">
               <button
-                onClick={() =>
-                  setQuantity((q) => Math.max(1, q - 1))
-                }
+                onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                 className="p-3"
               >
                 <Minus size={16} />
               </button>
-              <span className="w-10 text-center">
-                {quantity}
-              </span>
-              <button
-                onClick={() =>
-                  setQuantity((q) => q + 1)
-                }
-                className="p-3"
-              >
+              <span className="w-10 text-center">{quantity}</span>
+              <button onClick={() => setQuantity((q) => q + 1)} className="p-3">
                 <Plus size={16} />
               </button>
             </div>
@@ -348,8 +378,7 @@ const SpiralDetail = () => {
             </div>
             <div className="flex items-center">
               <Truck className="w-4 h-4 mr-2" />
-              Shipping Class:{" "}
-              {journal.shipping.shippingClass}
+              Shipping Class: {journal.shipping.shippingClass}
             </div>
             <div className="flex items-center">
               <CheckCircle className="w-4 h-4 mr-2" />
@@ -358,6 +387,26 @@ const SpiralDetail = () => {
           </div>
         </div>
       </div>
+      {relatedProducts.length > 0 && (
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold mb-6">You may also like</h2>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            {relatedProducts.map((item) => (
+              <div
+                key={item.id}
+                onClick={() =>
+                  navigate(`/products/journals/:collection/${item.id}`)
+                }
+                className="cursor-pointer"
+              >
+                <img src={item.media.thumbnail} className="rounded-lg" />
+                <p className="mt-2 text-sm font-medium">{item.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

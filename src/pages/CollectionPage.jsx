@@ -2,6 +2,15 @@ import React, { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useProducts from "../hooks/useProducts";
 
+
+
+// ─── unchanged helpers (keep your real ones) ──────────────────────────────────
+const categoryMap = {
+  posters: "Posters",
+  journals: "Journals",
+  notebooks: "Notebooks",
+  banners: "Banners",
+}; // your real categoryMap
 const COLLECTION_IMAGES = {
   posters: {
     Marvel:
@@ -27,23 +36,63 @@ const COLLECTION_IMAGES = {
     Animated_Movies:
       "https://res.cloudinary.com/dal56whd6/image/upload/v1772010079/animated-movie-posters-collage-collection_ocwqlt.webp",
     All: "https://res.cloudinary.com/dal56whd6/image/upload/v1771873222/pop-culture-movie-tv-show-posters-collage_ogvble.webp",
-    Trending:"https://res.cloudinary.com/dal56whd6/image/upload/v1772105234/trending-pop-culture-posters-collage_khzjvb.webp"
+    Trending:
+      "https://res.cloudinary.com/dal56whd6/image/upload/v1772105234/trending-pop-culture-posters-collage_khzjvb.webp",
   },
   s: {},
   notebooks: {
     Football:
       "https://res.cloudinary.com/dal56whd6/image/upload/v1771873221/football-posters-collage-iconic-players_tnvq18.webp",
   },
-  // add more
-};
+}; // your real COLLECTION_IMAGES
+// ──────────────────────────────────────────────────────────────────────────────
 
-const categoryMap = {
-  posters: "Posters",
-  journals: "Journals",
-  notebooks: "Notebooks",
-  banners: "Banners"
-};
+/* ─── Badge ──────────────────────────────────────────────────────────────────── */
+function Badge({ children }) {
+  return (
+    <span className="inline-block text-[0.6rem] font-bold tracking-widest uppercase text-white bg-amber-500 rounded-full px-2.5 py-0.5 self-start mb-1">
+      {children}
+    </span>
+  );
+}
 
+/* ─── CollectionCard ─────────────────────────────────────────────────────────── */
+function CollectionCard({ src, alt, title, subtitle, badge, onClick, featured }) {
+  return (
+    <div
+      onClick={onClick}
+      className={[
+        "group cursor-pointer rounded-2xl overflow-hidden bg-white h-[40  vh] lg:h-[90vh]",
+        "shadow-sm hover:shadow-xl transition-all duration-300 ease-out",
+        "hover:-translate-y-1 flex flex-col",
+        featured ? "md:col-span-1" : "",
+      ].join(" ")}
+    >
+      {/* Image */}
+      <div className={`relative overflow-hidden ${featured ? "aspect-[3/4]" : "aspect-[3/4]"}`}>
+        <img
+          src={src || "/default.jpg"}
+          alt={alt}
+          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        />
+        {/* gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+      </div>
+
+      {/* Body */}
+      <div className="flex flex-col gap-1 p-4 flex-2">
+        {badge && <Badge>{badge}</Badge>}
+        <h3 className="text-base font-bold tracking-tight leading-tight m-0">{title}</h3>
+        <p className="text-xs text-stone-400 m-0">{subtitle}</p>
+        <span className="text-sm font-bold text-amber-500 inline-block transition-transform duration-300 ease-out group-hover:translate-x-1">
+          →
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ─── CollectionsPage ────────────────────────────────────────────────────────── */
 const CollectionsPage = () => {
   const { categorySlug } = useParams();
   const navigate = useNavigate();
@@ -51,10 +100,9 @@ const CollectionsPage = () => {
 
   const selectedCategory = categoryMap[categorySlug];
 
-  // 🎯 Franchise collections
+  // 🎯 Franchise collections  (logic unchanged)
   const collections = useMemo(() => {
     if (!selectedCategory) return [];
-
     return [
       ...new Set(
         products
@@ -65,7 +113,7 @@ const CollectionsPage = () => {
     ];
   }, [products, selectedCategory]);
 
-  // 🎯 Trending (isNewArrival)
+  // 🎯 Trending (isNewArrival)  (logic unchanged)
   const trendingExists = useMemo(() => {
     return products.some(
       (p) => p.category === selectedCategory && p.isNewArrival
@@ -73,71 +121,74 @@ const CollectionsPage = () => {
   }, [products, selectedCategory]);
 
   if (!selectedCategory) {
-    return <div className="text-center py-20">Category not found</div>;
+    return (
+      <div className="flex items-center justify-center h-[60vh] text-stone-400 text-lg">
+        Category not found
+      </div>
+    );
   }
 
+  const totalCollections = 1 + (trendingExists ? 1 : 0) + collections.length;
+
   return (
-    <div className="max-w-7xl mx-auto px-6 py-10">
-      <h1 className="text-4xl font-extrabold mb-10 capitalize">
-        {categorySlug} Collections
-      </h1>
+    <div className="min-h-screen bg-stone-50 text-stone-900">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-14 py-10 lg:py-16">
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-        {/* ⭐ ALL PRODUCTS */}
-        <div
-          onClick={() => navigate(`/products/${categorySlug}/all`)}
-          className="cursor-pointer rounded-2xl overflow-hidden shadow hover:shadow-xl transition"
-        >
-          <img
-            src={COLLECTION_IMAGES[categorySlug]?.All || "/default.jpg"}
+        {/* ── Header ──────────────────────────────────────────────────── */}
+        <header className="flex flex-wrap items-end justify-between gap-4 pb-6 mb-8 border-b border-stone-200">
+          <div>
+            <p className="text-[0.65rem] font-bold tracking-[0.18em] uppercase text-amber-500 mb-1">
+              Shop by collection
+            </p>
+            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-none capitalize m-0">
+              {categorySlug} Collections
+            </h1>
+          </div>
+          <span className="text-xs text-stone-400 tracking-wide self-end pb-0.5">
+            {totalCollections} collection{totalCollections !== 1 ? "s" : ""}
+          </span>
+        </header>
+
+        {/* ── Grid ────────────────────────────────────────────────────── */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6">
+
+          {/* ⭐ ALL PRODUCTS — featured wide card */}
+          <CollectionCard
+            featured
+            src={COLLECTION_IMAGES[categorySlug]?.All}
             alt="All"
-            className="w-full h-[70vh] object-cover"
+            title={`All ${selectedCategory}`}
+            subtitle="Browse the full lineup"
+            onClick={() => navigate(`/products/${categorySlug}/all`)}
           />
-          <div className="p-4 text-center">
-            <h3 className="font-bold text-lg">All {selectedCategory}</h3>
-            <p className="text-sm text-gray-500 mt-1">Browse everything</p>
-          </div>
-        </div>
 
-        {/* ⭐ TRENDING */}
-        {trendingExists && (
-          <div
-            onClick={() => navigate(`/products/${categorySlug}/trending`)}
-            className="cursor-pointer rounded-2xl overflow-hidden shadow hover:shadow-xl transition"
-          >
-            <img
-            src={COLLECTION_IMAGES[categorySlug]?.Trending || "/default.jpg"}
-            alt="Trending"
-              className="w-full h-[70vh] object-cover"
+          {/* ⭐ TRENDING */}
+          {trendingExists && (
+            <CollectionCard
+              src={COLLECTION_IMAGES[categorySlug]?.Trending}
+              alt="Trending"
+              title="Trending"
+              subtitle="New arrivals"
+              badge="New"
+              onClick={() => navigate(`/products/${categorySlug}/trending`)}
             />
-            <div className="p-4 text-center">
-              <h3 className="font-bold text-lg">Trending</h3>
-              <p className="text-sm text-gray-500 mt-1">New arrivals</p>
-            </div>
-          </div>
-        )}
+          )}
 
-        {/* ⭐ DYNAMIC COLLECTIONS */}
-        {collections.map((col) => (
-          <div
-            key={col}
-            onClick={() =>
-              navigate(`/products/${categorySlug}/${col.toLowerCase()}`)
-            }
-            className="cursor-pointer rounded-2xl overflow-hidden shadow hover:shadow-xl transition"
-          >
-            <img
-              src={COLLECTION_IMAGES[categorySlug]?.[col] || "/default.jpg"}
+          {/* ⭐ DYNAMIC COLLECTIONS */}
+          {collections.map((col) => (
+            <CollectionCard
+              key={col}
+              src={COLLECTION_IMAGES[categorySlug]?.[col]}
               alt={col}
-              className="w-full h-[70vh] object-cover"
+              title={col}
+              subtitle="Explore"
+              onClick={() =>
+                navigate(`/products/${categorySlug}/${col.toLowerCase()}`)
+              }
             />
+          ))}
 
-            <div className="p-4 text-center">
-              <h3 className="font-bold text-lg">{col}</h3>
-              <p className="text-sm text-gray-500 mt-1">Explore</p>
-            </div>
-          </div>
-        ))}
+        </div>
       </div>
     </div>
   );

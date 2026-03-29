@@ -87,7 +87,7 @@ const Home = () => {
       </section>
 
       {/* OUR PRODUCTS */}
-      <section className="py-8 bg-cream px-8 min-h-[120vh] md:min-h-[90vh]">
+      <section className="py-8 bg-cream px-8 min-h-[100vh] md:min-h-[90vh]">
   <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
     <h2 className="text-5xl sm:text-5xl md:text-9xl font-bold text-gray-900 mb-8 uppercase tracking-tighter">
       OUR PRODUCTS
@@ -140,8 +140,8 @@ const Home = () => {
     py-8
     bg-cream
     px-8 
-    min-h-[162vh]        /* default: phones*/
-    md:min-h-[145vh]     /* medium screens */
+    min-h-[105vh]        /* default: phones*/
+    md:min-h-[110vh]     /* medium screens */
     lg:min-h-[90vh]      /* large desktops */
   "
       >

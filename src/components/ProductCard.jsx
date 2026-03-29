@@ -250,7 +250,7 @@ const ProductCard = ({ product }) => {
   // --------------------------------------------------
   return (
     <div
-      className="min-h-[50vh] lg:min-h-[80vh] bg-highlight rounded-md 
+      className="min-h-[45vh] lg:min-h-[80vh] bg-highlight rounded-md 
     hover:shadow-xl transition duration-300 
     overflow-hidden relative group border border-gray-50 
     flex flex-col justify-between"
@@ -285,7 +285,7 @@ const ProductCard = ({ product }) => {
             "/fallback.jpg"
           }
           alt={product.name}
-          className="w-full h-[33vh] lg:h-[60vh] object-cover 
+          className="w-full h-[31vh] lg:h-[60vh] object-cover 
      group-hover:scale-[1.03] transition duration-300"
         />
       </div>

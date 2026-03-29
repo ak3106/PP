@@ -29,15 +29,17 @@ const Signup = () => {
     const container = document.getElementById("recaptcha-container");
     if (!container) return;
 
-    if (!window.recaptchaVerifier) {  
+    if (!window.recaptchaVerifier) {
       try {
         window.recaptchaVerifier = new RecaptchaVerifier(auth, container, {
           size: "invisible",
-          // When deploying, ensure this Site Key matches your "Score-based" key in GCP
           sitekey: import.meta.env.VITE_RECAPTCHA_SITE_KEY, 
           callback: () => console.log("reCAPTCHA verified"),
-          "expired-callback": () => resetRecaptcha(),
         });
+
+        // Add this line to ensure the verifier is ready for production
+        window.recaptchaVerifier.render(); 
+
       } catch (err) {
         console.error("Recaptcha Init Error:", err);
       }

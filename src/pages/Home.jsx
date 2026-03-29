@@ -47,7 +47,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* 1. Hero Section - Modern & Animated */}
-      <section className="relative text-gray-800 pt-24 pb-32 overflow-hidden shadow-2xl bg-[#2C4E34]">
+      <section className="relative text-red-800 pt-24 pb-32 overflow-hidden shadow-2xl bg-[#2C4E34]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight mb-4 animate-fadeInUp text-cream">

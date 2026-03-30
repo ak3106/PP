@@ -30,63 +30,58 @@ const Signup = () => {
     }
   };
 
-  const setupRecaptcha = () => {
+  const setupRecaptcha = async () => {
     const container = document.getElementById("recaptcha-container");
-    if (!container) return;
+    if (!container) {
+      console.error("DOM element 'recaptcha-container' not found!");
+      return null;
+    }
 
-    if (!window.recaptchaVerifier) {
-      try {
-        window.recaptchaVerifier = new RecaptchaVerifier(auth, container, {
-          size: "invisible",
-          sitekey: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
-          callback: () => console.log("reCAPTCHA verified"),
-        });
+    try {
+      // Create a fresh instance every time for reliability
+      const verifier = new RecaptchaVerifier(auth, container, {
+        size: "invisible",
+        sitekey: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
+        callback: (token) => {
+          console.log("reCAPTCHA verified");
+        },
+        "expired-callback": () => {
+          resetRecaptcha();
+        },
+      });
 
-        // Add this line to ensure the verifier is ready for production
-        window.recaptchaVerifier.render();
-      } catch (err) {
-        console.error("Recaptcha Init Error:", err);
-      }
+      // CRITICAL: Wait for the widget to actually render in the DOM
+      await verifier.render();
+      window.recaptchaVerifier = verifier;
+      return verifier;
+    } catch (err) {
+      console.error("Recaptcha Init Error:", err);
+      return null;
     }
   };
 
   const sendOTP = async () => {
     setError("");
-
-    // 1. Clean the phone number (remove spaces, dashes, parentheses)
-    // Users often type "+91 98765-43210", which Firebase rejects.
     const cleanedPhone = form.phone.replace(/[\s\-()]/g, "");
 
-    // 2. Strict Validation
-    if (!cleanedPhone.startsWith("+")) {
-      setError(
-        "Please include '+' and your country code (e.g., +919876543210)"
-      );
-      return;
-    }
-
-    // Usually, + (1) + Country (1-3) + Number (10) means length should be 12-14
-    if (cleanedPhone.length < 11) {
-      setError("Phone number is too short. Please check again.");
+    if (!cleanedPhone.startsWith("+") || cleanedPhone.length < 11) {
+      setError("Invalid format. Use +91XXXXXXXXXX");
       return;
     }
 
     try {
       setLoading(true);
+      resetRecaptcha(); // Clear any old "ghost" instances
 
-      // 3. Clear and Re-initialize reCAPTCHA
-      // This prevents "Verifier not ready" errors on second attempts
-      if (window.recaptchaVerifier) {
-        window.recaptchaVerifier.clear();
-        window.recaptchaVerifier = null;
+      // Wait for the verifier to be fully ready
+      const appVerifier = await setupRecaptcha();
+
+      if (!appVerifier) {
+        throw new Error(
+          "reCAPTCHA failed to initialize. Please refresh the page."
+        );
       }
 
-      setupRecaptcha();
-
-      const appVerifier = window.recaptchaVerifier;
-      if (!appVerifier) throw new Error("reCAPTCHA failed to initialize.");
-
-      // 4. Send OTP using the CLEANED number
       const confirmation = await signInWithPhoneNumber(
         auth,
         cleanedPhone,
@@ -94,27 +89,14 @@ const Signup = () => {
       );
 
       setConfirmationResult(confirmation);
-      alert("OTP Sent Successfully to " + cleanedPhone);
+      alert("OTP Sent Successfully!");
     } catch (err) {
-      console.error("Full OTP Error Object:", err);
-
-      // 5. User-Friendly Error Messages
-      if (err.code === "auth/too-many-requests") {
-        setError(
-          "Too many attempts. Please wait 30 minutes or use a test number."
-        );
-      } else if (err.code === "auth/invalid-phone-number") {
-        setError("The phone number is invalid. Check the country code.");
-      } else if (err.code === "auth/captcha-check-failed") {
-        setError("reCAPTCHA expired or failed. Please try again.");
-      } else {
-        setError("Failed to send OTP: " + err.message);
-      }
+      console.error("Full Error:", err);
+      setError(err.message || "Failed to send OTP");
     } finally {
       setLoading(false);
     }
   };
-
   const handleSignup = async (e) => {
     e.preventDefault();
     if (!confirmationResult || !otp)

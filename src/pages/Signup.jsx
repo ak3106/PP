@@ -31,26 +31,16 @@ const Signup = () => {
   };
 
   const setupRecaptcha = async () => {
-    const container = document.getElementById("recaptcha-container");
-    if (!container) {
-      console.error("DOM element 'recaptcha-container' not found!");
-      return null;
-    }
-
+    resetRecaptcha();
+  
     try {
-      // Create a fresh instance every time for reliability
-      const verifier = new RecaptchaVerifier(auth, container, {
+      const verifier = new RecaptchaVerifier(auth, "recaptcha-container", {
         size: "invisible",
-        sitekey: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
-        callback: (token) => {
-          console.log("reCAPTCHA verified");
-        },
-        "expired-callback": () => {
-          resetRecaptcha();
-        },
+        callback: () => console.log("verified"),
+        "expired-callback": () => resetRecaptcha(),
+        // ❌ Do NOT pass sitekey here
       });
-
-      // CRITICAL: Wait for the widget to actually render in the DOM
+  
       await verifier.render();
       window.recaptchaVerifier = verifier;
       return verifier;
@@ -59,6 +49,7 @@ const Signup = () => {
       return null;
     }
   };
+  // CRITICAL: Wait for the widget to actually render in the
 
   const sendOTP = async () => {
     setError("");

@@ -1,116 +1,152 @@
 import { useState } from "react";
-import { auth } from "../firebase";
-import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import { saveUserToDB } from "../utils/saveUserToDB";
-import { Link, useNavigate } from "react-router-dom";
+import { auth, db } from "../firebase";
+import {
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
+  signOut,
+} from "firebase/auth";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { useNavigate, Link } from "react-router-dom";
 
 const PhoneLogin = () => {
   const navigate = useNavigate();
+
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
-  const [result, setResult] = useState(null);
+  const [confirmationResult, setConfirmationResult] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Setup Recaptcha
-  const setupRecaptcha = () => {
-    if (!window.recaptchaVerifier) {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        auth, // ✅ FIRST PARAM MUST BE AUTH
-        "recaptcha-container",
-        {
-          size: "invisible",
-          callback: () => {
-            console.log("Recaptcha verified");
-          },
-        }
-      );
+  // ---------------------------------------
+  // RECAPTCHA HANDLING
+  // ---------------------------------------
+  const resetRecaptcha = () => {
+    if (window.recaptchaVerifier) {
+      window.recaptchaVerifier.clear();
+      window.recaptchaVerifier = null;
     }
   };
 
+  const setupRecaptcha = async () => {
+    resetRecaptcha();
+
+    const verifier = new RecaptchaVerifier(auth, "recaptcha-container", {
+      size: "invisible",
+      callback: () => console.log("Recaptcha verified"),
+    });
+
+    await verifier.render();
+    window.recaptchaVerifier = verifier;
+    return verifier;
+  };
+
+  // ---------------------------------------
+  // CHECK USER EXISTS
+  // ---------------------------------------
+  const checkUserExists = async (phoneNumber) => {
+    const q = query(collection(db, "users"), where("phone", "==", phoneNumber));
+
+    const snapshot = await getDocs(q);
+    return !snapshot.empty;
+  };
+
+  // ---------------------------------------
+  // SEND OTP
+  // ---------------------------------------
   const sendOTP = async () => {
     setError("");
 
-    if (!phone.startsWith("+")) {
-      setError("Include country code. Example: +91XXXXXXXXXX");
+    const cleanedPhone = phone.replace(/[\s\-()]/g, "");
+
+    if (!cleanedPhone.startsWith("+") || cleanedPhone.length < 11) {
+      setError("Invalid format. Use +91XXXXXXXXXX");
       return;
     }
 
     try {
       setLoading(true);
 
-      // Clear old verifier
-      if (window.recaptchaVerifier) {
-        window.recaptchaVerifier.clear();
-        window.recaptchaVerifier = null;
+      // 🔥 CHECK USER FIRST
+      const exists = await checkUserExists(cleanedPhone);
+
+      if (!exists) {
+        setError("User not found. Please signup first.");
+        setLoading(false);
+        return;
       }
 
-      setupRecaptcha();
-
-      const appVerifier = window.recaptchaVerifier;
+      const appVerifier = await setupRecaptcha();
 
       const confirmation = await signInWithPhoneNumber(
         auth,
-        phone,
+        cleanedPhone,
         appVerifier
       );
 
-      setResult(confirmation);
+      setConfirmationResult(confirmation);
       alert("OTP Sent!");
     } catch (err) {
-      console.log("OTP ERROR:", err);
-      setError(err.message || "Failed to send OTP.");
+      console.error("OTP ERROR:", err);
+      setError("Failed to send OTP");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
+  // ---------------------------------------
+  // VERIFY OTP
+  // ---------------------------------------
   const verifyOTP = async () => {
     setError("");
 
-    if (!otp) return;
+    if (!otp || !confirmationResult) {
+      setError("Enter OTP first");
+      return;
+    }
 
     try {
       setLoading(true);
 
-      const res = await result.confirm(otp);
+      const res = await confirmationResult.confirm(otp);
 
-      await saveUserToDB(res.user, {
-        phone: res.user.phoneNumber,
-      });
+      // 🔥 DOUBLE CHECK USER EXISTS
+      const exists = await checkUserExists(res.user.phoneNumber);
+
+      if (!exists) {
+        await signOut(auth);
+        setError("User not found. Please signup.");
+        return;
+      }
 
       alert("Login Successful");
       navigate("/");
     } catch (err) {
-      setError("Invalid OTP");
       console.log(err);
+      setError("Invalid OTP");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
-
-  console.log("AUTH:",auth);
 
   return (
     <div className="max-w-md mx-auto mt-20 border p-6 rounded-xl shadow bg-white">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900">Phone OTP Login</h2>
+      <h2 className="text-2xl font-bold mb-4">Phone Login</h2>
 
       {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
 
-      {!result ? (
+      {!confirmationResult ? (
         <>
           <input
-            className="w-full border p-4 rounded mb-5"
+            className="w-full border p-3 rounded mb-4"
             type="tel"
-            value={phone}
             placeholder="+91XXXXXXXXXX"
+            value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
-
           <button
             onClick={sendOTP}
             disabled={loading}
-            className="w-full bg-gray-900 text-white p-3 rounded disabled:opacity-60"
+            className="w-full bg-black text-white p-3 rounded disabled:opacity-50"
           >
             {loading ? "Sending OTP..." : "Send OTP"}
           </button>
@@ -120,15 +156,15 @@ const PhoneLogin = () => {
           <input
             className="w-full border p-3 rounded mb-4"
             type="text"
-            value={otp}
             placeholder="Enter OTP"
+            value={otp}
             onChange={(e) => setOtp(e.target.value)}
           />
 
           <button
             onClick={verifyOTP}
             disabled={loading}
-            className="w-full bg-gray-900 text-white p-3 rounded disabled:opacity-60"
+            className="w-full bg-black text-white p-3 rounded disabled:opacity-50"
           >
             {loading ? "Verifying..." : "Verify OTP"}
           </button>

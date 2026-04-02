@@ -80,9 +80,11 @@ import NotebookDetail from "./pages/NotebookDetail";
 // import SpiralCollections from "./pages/SpiralCollections";
 import CollectionsPage from "./pages/CollectionPage";
 import BannerDetail from "./pages/BannerDetail";
+import Account from "./pages/Account";
+import Orders from "./pages/Orders";
 // import TestCloudinary from "./admin/TestCloudinary";
 // import AddProduct from "./admin/AddProduct";
-// import SeedRunner from "./SeedRunner";
+import SeedRunner from "./SeedRunner";
 
 // --- Lazy Pages ---
 const Home = lazy(() => import("./pages/Home"));
@@ -161,6 +163,8 @@ const App = () => {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/orders" element={<Orders />} />
 
           {/* PRODUCTS HUB */}
           {/* <Route path="/products" element={<Products />} />
@@ -212,7 +216,7 @@ const App = () => {
           <Route path="/phone-login" element={<PhoneLogin />} />
           {/* <Route path="/test-cloudinary" element={<TestCloudinary />} /> */}
           {/* <Route path="/add-product" element={<AddProduct />} /> */}
-          {/* <Route path="/seed-products" element={<SeedRunner />} /> */}
+          <Route path="/seed-products" element={<SeedRunner />} />
           <Route path="/custom/poster" element={<CustomPoster />} />
 
           <Route path="*" element={<Home />} />

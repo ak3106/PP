@@ -131,18 +131,15 @@ const Navbar = ({ user, onLogout }) => {
                 </NavLink>
               ) : (
                 <div className="relative group hidden md:block">
-                  <button className="bg-gray-100 px-4 py-2 rounded-lg flex items-center">
-                    <User className="w-4 h-4 mr-2" /> {user.name}
+                  <button
+                    onClick={() => navigate("/account")}
+                    className="bg-gray-100 px-4 py-2 rounded-lg flex items-center"
+                  >
+                    <User className="w-4 h-4 mr-2" />{" "}
+                    {user?.displayName || user?.name || "Account"}
                   </button>
 
-                  <div className="absolute right-0 mt-2 w-40 bg-white shadow-xl rounded-xl opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition">
-                    <button
-                      onClick={onLogout}
-                      className="block px-4 py-2 w-full text-left hover:bg-indigo-50"
-                    >
-                      Logout
-                    </button>
-                  </div>
+                  <div className="absolute right-0 mt-2 w-40 bg-white shadow-xl rounded-xl opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition"></div>
                 </div>
               )}
 

@@ -10,6 +10,7 @@ export const saveUserToDB = async (user, extraData = {}) => {
   if (!existing.exists()) {
     await setDoc(userRef, {
       uid: user.uid,
+      // name: user.name || "User",
       name: user.displayName || extraData.name || "User",
       email: user.email || null,
       phone: extraData.phone || user.phoneNumber || null,   // ✅ FIXED

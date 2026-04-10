@@ -1,154 +1,31 @@
-// import React, { useState } from 'react';
-// import { useNavigate, NavLink } from 'react-router-dom';
-// // Removed 'Google' import
-// import { Mail, Lock, LogIn, User, ArrowLeft } from 'lucide-react';
-// import Button from '../components/UI/Button';
-// import Input from '../components/UI/Input';
-
-// /**
-//  * Custom inline SVG for Google Logo (Fixes 'Google' export error).
-//  */
-// const GoogleIcon = ({ className = "w-5 h-5 mr-2" }) => (
-//     <svg
-//         className={className}
-//         xmlns="http://www.w3.org/2000/svg"
-//         viewBox="0 0 533.5 544.3"
-//     >
-//         <path fill="#4285f4" d="M533.5 273.3c0-21.7-1.8-37-3.6-52.5h-201v100.2h117.8c-12 55.4-44.2 92.5-99 125.7-44.6 27.5-98.8 45-163 45-124 0-224.2-97.4-224.2-221.7s100.2-221.7 224.2-221.7c67.3 0 120.9 26 163.6 64.9l75.5-72.3c-44.6-43.1-105.8-69.5-179.1-69.5-146.4 0-265.4 119.5-265.4 263.6S129.1 544.3 275.5 544.3c103.8 0 179.9-38.3 227.5-89.9 44.6-48.4 68.3-111.4 68.3-181.1z"/>
-//         <path fill="#34a853" d="M141.2 323.5l102.1 76.5c18.5 14.2 41.5 24.3 64.8 24.3 35.8 0 69.8-13.6 97.4-38.4l75.5 72.3c-53.6 47.9-122.5 74.6-211.5 74.6C129.1 544.3 10 424.8 10 273.3S129.1 323.5 141.2 323.5z"/>
-//         <path fill="#fbbc05" d="M533.5 273.3c0-21.7-1.8-37-3.6-52.5h-201v100.2h117.8c-12 55.4-44.2 92.5-99 125.7-44.6 27.5-98.8 45-163 45-124 0-224.2-97.4-224.2-221.7s100.2-221.7 224.2-221.7c67.3 0 120.9 26 163.6 64.9l75.5-72.3c-44.6-43.1-105.8-69.5-179.1-69.5-146.4 0-265.4 119.5-265.4 263.6S129.1 544.3 275.5 544.3c103.8 0 179.9-38.3 227.5-89.9 44.6-48.4 68.3-111.4 68.3-181.1z"/>
-//         <path fill="#ea4335" d="M141.2 225.5l102.1-76.5c18.5-14.2 41.5-24.3 64.8-24.3 35.8 0 69.8 13.6 97.4 38.4l75.5-72.3C479 13.2 409.1-13.5 319.1-13.5c-146.4 0-265.4 119.5-265.4 263.6S129.1 544.3 275.5 544.3c103.8 0 179.9-38.3 227.5-89.9 44.6-48.4 68.3-111.4 68.3-181.1z" transform="translate(0 -13.5)"/>
-//     </svg>
-// );
-
-// const Login = ({ onLogin }) => {
-//     const navigate = useNavigate();
-//     const [email, setEmail] = useState('');
-//     const [password, setPassword] = useState('');
-//     const [error, setError] = useState('');
-//     const [isLoading, setIsLoading] = useState(false);
-
-//     const handleLogin = (e) => {
-//         e.preventDefault();
-//         setError('');
-
-//         if (!email || !password) {
-//             setError('Please enter both email and password.');
-//             return;
-//         }
-
-//         if (password.length < 6) {
-//             setError('Password must be at least 6 characters long.');
-//             return;
-//         }
-
-//         setIsLoading(true);
-
-//         // --- Phase 1: Simulate Authentication ---
-//         const redirectPath = localStorage.getItem('redirect_after_login') || '/';
-
-//         setTimeout(() => {
-//             setIsLoading(false);
-//             if (email.includes('@') && password.length >= 6) {
-//                 // Simulate successful authentication
-//                 onLogin({ email: email });
-//                 localStorage.removeItem('redirect_after_login'); // Clear redirect path
-//                 navigate(redirectPath); // Redirect to original path or home
-//             } else {
-//                 setError('Invalid email or password. Hint: Any valid-looking email/password > 6 chars works in Phase 1.');
-//             }
-//         }, 1500);
-//     };
-
-//     return (
-//         <div className="max-w-md mx-auto px-4 py-16 min-h-[80vh]">
-//             <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-2xl border border-indigo-100 animate-fadeInUp">
-//                 <h1 className="text-3xl font-extrabold text-indigo-700 mb-2 text-center">
-//                     Welcome Back!
-//                 </h1>
-//                 <p className="text-gray-600 mb-8 text-center">
-//                     Sign in to continue your order or access your profile.
-//                 </p>
-
-//                 <form onSubmit={handleLogin} className="space-y-6">
-
-//                     <Input
-//                         label="Email Address"
-//                         type="email"
-//                         value={email}
-//                         onChange={(e) => setEmail(e.target.value)}
-//                         placeholder="your.email@example.com"
-//                         required
-//                     />
-
-//                     <Input
-//                         label="Password"
-//                         type="password"
-//                         value={password}
-//                         onChange={(e) => setPassword(e.target.value)}
-//                         placeholder="••••••••"
-//                         required
-//                     />
-
-//                     {error && (
-//                         <div className="p-3 bg-red-100 text-red-700 rounded-xl text-sm">
-//                             {error}
-//                         </div>
-//                     )}
-
-//                     <Button
-//                         type="submit"
-//                         className="w-full py-3 text-lg flex items-center justify-center"
-//                         disabled={isLoading}
-//                     >
-//                         {isLoading ? (
-//                             <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-//                         ) : (
-//                             <LogIn className="w-5 h-5 mr-2" />
-//                         )}
-//                         {isLoading ? 'Authenticating...' : 'Sign In'}
-//                     </Button>
-//                 </form>
-
-//                 <div className="my-6 flex items-center before:flex-1 before:border-t before:border-gray-300 after:flex-1 after:border-t after:border-gray-300">
-//                     <p className="text-center font-semibold mx-4 text-gray-600">OR</p>
-//                 </div>
-
-//                 {/* Google Sign-in Placeholder with Inline SVG */}
-//                 <Button
-//                     variant="secondary"
-//                     className="w-full py-3 flex items-center justify-center"
-//                     onClick={() => setError('Google Sign-In integration coming in Phase 2!')}
-//                 >
-//                     <GoogleIcon className="w-5 h-5 mr-2" /> Sign In with Google
-//                 </Button>
-
-//                 <p className="text-center text-sm text-gray-600 mt-6">
-//                     Don't have an account?
-//                     <NavLink to="/register" className="text-indigo-600 font-semibold hover:text-indigo-700 ml-1">
-//                         Sign Up
-//                     </NavLink>
-//                 </p>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Login;
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
+  signOut,
+} from "firebase/auth";
+import { auth, db } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
+import { saveUserToDB } from "../utils/saveUserToDB";
 
 const Login = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showForgot, setShowForgot] = useState(false);
+  const [resetEmail, setResetEmail] = useState("");
+  const [resetMsg, setResetMsg] = useState("");
+  const [resetLoading, setResetLoading] = useState(false);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
+  // ---------------------------------------
+  // EMAIL LOGIN
+  // ---------------------------------------
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
@@ -158,59 +35,208 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, form.email, form.password);
       navigate("/");
     } catch (err) {
-      setError("Invalid email or password");
+      if (
+        err.code === "auth/user-not-found" ||
+        err.code === "auth/wrong-password" ||
+        err.code === "auth/invalid-credential"
+      ) {
+        setError("Invalid email or password.");
+      } else if (err.code === "auth/too-many-requests") {
+        setError("Too many attempts. Please try again later or reset your password.");
+      } else {
+        setError("Login failed. Please try again.");
+      }
+    } finally {
+      setLoading(false);
     }
+  };
 
-    setLoading(false);
+  // ---------------------------------------
+  // GOOGLE LOGIN
+  // ✅ If new user → sign them out and send to /signup
+  // ✅ If existing user → go home
+  // ---------------------------------------
+  const handleGoogleLogin = async () => {
+    setError("");
+    setLoading(true);
+
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const isNewUser = result._tokenResponse?.isNewUser;
+
+      if (isNewUser) {
+        // They don't have an account yet — send to signup
+        await signOut(auth);
+        navigate("/signup", {
+          state: { message: "Please sign up first to create your account." },
+        });
+        return;
+      }
+
+      // Existing user — go home
+      navigate("/");
+    } catch (err) {
+      if (err.code !== "auth/popup-closed-by-user") {
+        setError("Google sign-in failed. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // ---------------------------------------
+  // FORGOT PASSWORD
+  // ---------------------------------------
+  const handleForgotPassword = async (e) => {
+    e.preventDefault();
+    setResetMsg("");
+    setError("");
+    setResetLoading(true);
+
+    try {
+      await sendPasswordResetEmail(auth, resetEmail);
+      setResetMsg("Reset link sent! Check your inbox.");
+    } catch (err) {
+      if (err.code === "auth/user-not-found") {
+        setError("No account found with this email.");
+      } else if (err.code === "auth/invalid-email") {
+        setError("Invalid email address.");
+      } else {
+        setError("Failed to send reset email. Try again.");
+      }
+    } finally {
+      setResetLoading(false);
+    }
   };
 
   return (
     <div className="max-w-md mx-auto mt-20 border p-6 rounded-xl shadow bg-white min-h-[50vh]">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900">Login</h2>
 
-      {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+      {/* ------------------ FORGOT PASSWORD VIEW ------------------ */}
+      {showForgot ? (
+        <>
+          <button
+            onClick={() => {
+              setShowForgot(false);
+              setResetMsg("");
+              setError("");
+              setResetEmail("");
+            }}
+            className="text-sm text-gray-500 mb-4 flex items-center gap-1 hover:text-gray-800"
+          >
+            ← Back to Login
+          </button>
 
-      <form onSubmit={handleLogin} className="space-y-4">
-        <input
-          className="w-full border p-3 rounded"
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
+          <h2 className="text-2xl font-bold mb-1 text-gray-900">Reset Password</h2>
+          <p className="text-sm text-gray-500 mb-4">
+            Enter your email and we'll send you a reset link.
+          </p>
 
-        <input
-          className="w-full border p-3 rounded"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
+          {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+          {resetMsg && <p className="text-green-600 text-sm mb-3">{resetMsg}</p>}
 
-        <button
-          disabled={loading}
-          className="w-full bg-gray-900 text-white p-2 rounded disabled:opacity-60"
-        >
-          {loading ? "Logging in..." : "Login"}
-        </button>
-      </form>
+          <form onSubmit={handleForgotPassword} className="space-y-4">
+            <input
+              className="w-full border p-3 rounded"
+              type="email"
+              placeholder="Your email"
+              value={resetEmail}
+              onChange={(e) => setResetEmail(e.target.value)}
+              required
+            />
+            <button
+              disabled={resetLoading}
+              className="w-full bg-gray-900 text-white p-3 rounded disabled:opacity-60"
+            >
+              {resetLoading ? "Sending..." : "Send Reset Link"}
+            </button>
+          </form>
+        </>
+      ) : (
 
-      <p className="text-md mt-4">
-        Don't have an account?{" "}
-        <Link to="/signup" className="text-blue-500">
-          Sign Up
-        </Link>
-      </p>
-      <p className="text-md mt-3">
-        Login using phone?{" "}
-        <Link to="/phone-login" className="text-blue-500">
-          Click Here
-        </Link>
-      </p>
+        /* ------------------ LOGIN VIEW ------------------ */
+        <>
+          <h2 className="text-2xl font-bold mb-4 text-gray-900">Login</h2>
+
+          {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            <input
+              className="w-full border p-3 rounded"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              className="w-full border p-3 rounded"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
+
+            <div className="text-right">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowForgot(true);
+                  setError("");
+                  setResetEmail(form.email);
+                }}
+                className="text-sm text-blue-500 hover:underline"
+              >
+                Forgot password?
+              </button>
+            </div>
+
+            <button
+              disabled={loading}
+              className="w-full bg-gray-900 text-white p-3 rounded disabled:opacity-60"
+            >
+              {loading ? "Logging in..." : "Login"}
+            </button>
+          </form>
+
+          {/* Divider */}
+          <div className="flex items-center gap-3 my-4">
+            <hr className="flex-1 border-gray-300" />
+            <span className="text-sm text-gray-400">or</span>
+            <hr className="flex-1 border-gray-300" />
+          </div>
+
+          {/* Google Login */}
+          <button
+            onClick={handleGoogleLogin}
+            disabled={loading}
+            className="w-full border border-gray-300 p-3 rounded flex items-center justify-center gap-3 hover:bg-gray-50 disabled:opacity-60"
+          >
+            <svg viewBox="0 0 48 48" className="w-5 h-5">
+              <path fill="#FFC107" d="M43.6 20H24v8h11.3C33.6 33.1 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.1 6.5 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-8 19.7-20 0-1.3-.1-2.7-.1-4z"/>
+              <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.1 18.9 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.1 6.5 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+              <path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.9 13.5-5l-6.2-5.2C29.4 35.6 26.8 36 24 36c-5.2 0-9.6-2.9-11.3-7.1l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+              <path fill="#1976D2" d="M43.6 20H24v8h11.3c-.9 2.4-2.5 4.4-4.6 5.8l6.2 5.2C40.7 35.7 44 30.3 44 24c0-1.3-.1-2.7-.4-4z"/>
+            </svg>
+            <span className="text-sm font-medium text-gray-700">
+              Continue with Google
+            </span>
+          </button>
+
+          <p className="text-md mt-4">
+            Don't have an account?{" "}
+            <Link to="/signup" className="text-blue-500">Sign Up</Link>
+          </p>
+          <p className="text-md mt-3">
+            {/* Login using phone?{" "}
+            <Link to="/phone-login" className="text-blue-500">Click Here</Link> */}
+          </p>
+        </>
+      )}
     </div>
   );
 };

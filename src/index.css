@@ -10,7 +10,7 @@ body {
 }
 
 
-/* Custom Scrollbar Hide for Horizontal Timeline */
+/* Custom Scrollbar Hide for Horizontal Timeline
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
@@ -48,4 +48,4 @@ body {
 
 .animate-ping-once {
   animation: pingOnce 0.35s ease-out;
-}
+} */

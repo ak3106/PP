@@ -136,7 +136,7 @@ const Navbar = ({ user, onLogout }) => {
                     className="bg-gray-100 px-4 py-2 rounded-lg flex items-center"
                   >
                     <User className="w-4 h-4 mr-2" />{" "}
-                    {user?.displayName || user?.name || "Account"}
+                    {user?.displayName || user.name || "Account"}
                   </button>
 
                   <div className="absolute right-0 mt-2 w-40 bg-white shadow-xl rounded-xl opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition"></div>
@@ -152,12 +152,12 @@ const Navbar = ({ user, onLogout }) => {
         </div>
       </header>
 
-      {/* ✅ MOBILE NAV MENU (THIS WAS MISSING) */}
+      {/* ✅ MOBILE NAV MENU */}
       <div
         className={`lg:hidden fixed top-20 left-0 w-full bg-white shadow-xl z-40 transition-all duration-300 ${
           isOpen
             ? "max-h-[500px] opacity-100"
-            : "max-h-0 opacity-0 overflow-hidden"
+            : "max-h-0 opacity-0 overflow-x-hidden"
         }`}
       >
         {navItems.map(({ name, path, icon: Icon }) => (
@@ -171,7 +171,7 @@ const Navbar = ({ user, onLogout }) => {
           </NavLink>
         ))}
 
-        {!user && (
+        {!user ? (
           <NavLink
             to="/login"
             onClick={() => setIsOpen(false)}
@@ -180,24 +180,52 @@ const Navbar = ({ user, onLogout }) => {
             <User className="inline w-5 h-5 mr-2" />
             Login / Signup
           </NavLink>
+        ) : (
+          <NavLink
+            to="/account"
+            onClick={() => setIsOpen(false)}
+            className="block px-6 py-4 font-semibold text-gray-800 hover:bg-indigo-50"
+          >
+            <User className="inline w-5 h-5 mr-2" />
+            My Account
+          </NavLink>
         )}
       </div>
 
       {/* ✅ SEARCH MODAL */}
+
       {showSearch && (
-        <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center">
-          <div className="bg-white w-full max-w-md p-6 rounded-xl shadow-xl">
+        <div
+          className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center"
+          onClick={() => setShowSearch(false)} // Close when clicking outside
+        >
+          <div
+            className="bg-white w-full max-w-md p-6 rounded-xl shadow-xl relative animate-fadeIn"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setShowSearch(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
             <form onSubmit={handleSearch}>
-              <div className="flex items-center border rounded-lg overflow-hidden">
+              <div className="flex items-center border rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-primary">
                 <input
                   type="text"
                   value={searchText}
                   onChange={(e) => setSearchText(e.target.value)}
                   placeholder="Search products..."
+                  autoFocus
                   className="w-full px-4 py-2 outline-none"
                 />
-                <button className="px-3 py-4 bg-primary text-white">
-                  <Search />
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-primary text-white hover:bg-primary-dark transition"
+                >
+                  <Search className="w-5 h-5" />
                 </button>
               </div>
             </form>

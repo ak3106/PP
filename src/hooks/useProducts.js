@@ -2,55 +2,53 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
+// Module-level cache — persists across mounts
+let cachedProducts = null;
+let fetchPromise = null; // prevents double-fetch in StrictMode
+
 const useProducts = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState(cachedProducts || []);
+  const [loading, setLoading] = useState(cachedProducts === null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchAllProducts = async () => {
-      try {
-        const productsRef = collection(db, "products");
-        const journalsRef = collection(db, "journals");
-        const notebooksRef = collection(db, "notebooks");
-        const bannersRef = collection(db, "banners");
+    if (cachedProducts !== null) {
+      setProducts(cachedProducts);
+      setLoading(false);
+      return;
+    }
 
-        const [productsSnap, journalsSnap, notebooksSnap, bannersSnap] = await Promise.all([
-          getDocs(productsRef),
-          getDocs(journalsRef),
-          getDocs(notebooksRef),
-          getDocs(bannersRef),
-        ]);
+    // If already fetching (StrictMode double-mount), reuse same promise
+    if (!fetchPromise) {
+      fetchPromise = Promise.all([
+        getDocs(collection(db, "products")),
+        getDocs(collection(db, "journals")),
+        getDocs(collection(db, "notebooks")),
+        getDocs(collection(db, "banners")),
+      ]).then(([productsSnap, journalsSnap, notebooksSnap, bannersSnap]) => {
+        const allProducts = [
+          ...productsSnap.docs,
+          ...journalsSnap.docs,
+          ...notebooksSnap.docs,
+          ...bannersSnap.docs,
+        ].map((doc) => ({ id: doc.id, ...doc.data() }));
 
-        const posters = productsSnap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
+        cachedProducts = allProducts;
+        return allProducts;
+      });
+    }
 
-        const journals = journalsSnap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        const notebooks = notebooksSnap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        const banners = bannersSnap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-
-        // 🔥 Merge both collections
-        setProducts([...posters, ...journals,...notebooks,...banners]);
-      } catch (err) {
+    // Both mounts share the same promise
+    fetchPromise
+      .then((allProducts) => {
+        setProducts(allProducts);
+        setLoading(false);
+      })
+      .catch((err) => {
         console.error(err);
         setError(err);
-      }
-
-      setLoading(false);
-    };
-
-    fetchAllProducts();
+        setLoading(false);
+      });
   }, []);
 
   return { products, loading, error };

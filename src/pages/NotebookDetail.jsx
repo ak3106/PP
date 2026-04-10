@@ -32,7 +32,7 @@ const NotebookDetail = () => {
   // --------------------------------------------------
   const [selectedPages, setSelectedPages] = useState(null);
   const [selectedRuling, setSelectedRuling] = useState(null);
-  const [mainImage, setMainImage] = useState("");
+  const [mainImage, setMainImage] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [isAdding, setIsAdding] = useState(false);
 

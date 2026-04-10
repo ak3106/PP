@@ -276,7 +276,7 @@
 
 // export default Products;
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { Search, ShoppingCart, Filter, Clock, CheckCircle } from "lucide-react";
 
@@ -288,6 +288,11 @@ import * as LucideIcons from "lucide-react";
 
 import { CATEGORIES } from "../data/dummyProducts";
 import useProducts from "../hooks/useProducts";
+
+import {
+  useScrollRestoration,
+  restoreScroll,
+} from "../hooks/useScrollRestoration";
 
 // ---------------- LISTING VIEW ----------------
 const ProductListingView = ({
@@ -424,9 +429,38 @@ const CategoryHubView = ({ navigate }) => {
 
 // ---------------- MAIN PRODUCTS ----------------
 const Products = ({ dispatchCart }) => {
+  useScrollRestoration(); // still saves scroll position as you scroll
+  const { products, loading, error } = useProducts();
+  const location = useLocation();
+
+  // ✅ Restore scroll only after products have loaded and rendered
+  useEffect(() => {
+    const key = location.pathname + location.search;
+    const saved = window.__scrollPositions[key];
+    if (!saved) return;
+  
+    let attempts = 0;
+  
+    const tryRestore = () => {
+      const pageHeight = document.body.scrollHeight;
+      attempts++;
+  
+      console.log(`attempt ${attempts}: height=${pageHeight}, target=${saved}`);
+  
+      if (pageHeight > saved + window.innerHeight) {
+        // Page is tall enough — restore now
+        window.scrollTo({ top: saved, behavior: 'instant' });
+      } else if (attempts < 20) {
+        // Page not tall enough yet — try again next frame
+        requestAnimationFrame(tryRestore);
+      }
+    };
+  
+    requestAnimationFrame(tryRestore);
+  }, [location.pathname, location.search]);
+
   const navigate = useNavigate();
   const { categorySlug, collection } = useParams();
-  const location = useLocation();
 
   const selectedCategory = location.pathname.includes("posters")
     ? "Posters"
@@ -434,11 +468,9 @@ const Products = ({ dispatchCart }) => {
       ? "Notebooks"
       : location.pathname.includes("journals")
         ? "Journals"
-      : location.pathname.includes("banners")
-        ? "Banners"
-        : null;
-
-  const { products, loading, error } = useProducts();
+        : location.pathname.includes("banners")
+          ? "Banners"
+          : null;
 
   // const selectedCategory =
   //   categorySlug === "posters"
@@ -449,10 +481,16 @@ const Products = ({ dispatchCart }) => {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    setSearchTerm("");
-  }, [collection]);
+  const prevCollection = useRef(null);
 
+  useEffect(() => {
+    // Only reset search if collection actually changed to something new
+    // not on back navigation to same collection
+    if (prevCollection.current !== null && prevCollection.current !== collection) {
+      setSearchTerm("");
+    }
+    prevCollection.current = collection;
+  }, [collection]);
   // filtering
   const filteredProducts = useMemo(() => {
     if (!selectedCategory) return [];
@@ -496,8 +534,6 @@ const Products = ({ dispatchCart }) => {
       </div>
     );
 
-  console.log("CATEGORY:", selectedCategory);
-  console.log("collec:", collection);
 
   return (
     <div className="max-w-8xl mx-auto px-4 md:px-10 py-10">

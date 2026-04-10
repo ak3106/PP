@@ -135,8 +135,7 @@ const SpiralDetail = () => {
         productId: journal.id,
         name: journal.name,
         variantId: selectedVariant.variantId,
-        variantLabel: `${selectedVariant.size} / ${selectedVariant.pages} pages / ${selectedVariant.coverType} / ${selectedRuling}`,
-
+        // variantLabel: `${selectedVariant.size} / ${selectedVariant.pages} pages / ${selectedVariant.coverType} / ${selectedRuling}`,
         size: selectedSize,
         pages: selectedPages,
         rulingType: selectedRuling,

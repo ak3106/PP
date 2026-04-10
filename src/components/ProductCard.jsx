@@ -171,26 +171,31 @@ const ProductCard = ({ product }) => {
   const defaultSize =
     product.productType === "diary_journal"
       ? "A5"
-      : product.options?.size?.includes("A4")
+      :product.productType === "notebooks"
+      ? "A4"
+      :
+       product.options?.size?.includes("A4")
         ? "A4"
         : (product.options?.size?.[0] ?? null);
 
   const defaultPages =
-    defaultSize && product.options?.pageMap?.[defaultSize]?.[0];
+    defaultSize && product.options?.pageMap?.[defaultSize]?.[0] || product.options?.pages?.[0];
 
   const defaultRuling = product.options?.rulingType?.[0] ?? null;
+
+  const defaultType = product.options?.paperType?.[1] ?? null;
+
+  const defaultCover = product.options?.coverType?.[0] ?? null;
+
+  const defaultMaterial = product.options?.material?.[0] ?? null;
+
 
   // DEFAULT VARIANT
   const defaultVariant = useMemo(() => {
     if (!product.variants) return null;
-
-    return product.variants.find(
-      (v) =>
-        v.size === defaultSize &&
-        v.pages === defaultPages &&
-        (v.rulingType ? v.rulingType === defaultRuling : true)
-    );
-  }, [product, defaultSize, defaultPages, defaultRuling]);
+    // console.log("first")
+    return product.variants
+  }, [product]);
 
   // PRICING ENGINE
   const priceData = useMemo(() => {
@@ -221,7 +226,9 @@ const ProductCard = ({ product }) => {
   // --------------------------------------------------
   const handleAddToCart = (e) => {
     e.stopPropagation();
+    // console.log(defaultVariant)
     if (!defaultVariant || isAdding) return;
+    
 
     setIsAdding(true);
 
@@ -234,7 +241,13 @@ const ProductCard = ({ product }) => {
         size: defaultSize,
         pages: defaultPages,
         rulingType: defaultRuling,
-        price: defaultVariant.price,
+        price: product.pricing.salePrice,
+        coverType: defaultCover,
+        finish: defaultType,
+        material: defaultMaterial,
+        // variantLabel: `${defaultSize} / ${defaultPages} pages / ${defaultCover} / ${defaultRuling}`,
+
+        // variantLabel: `${defaultSize} / ${defaultType}`,
         quantity: 1,
         thumbnail: product.media?.thumbnail,
       },

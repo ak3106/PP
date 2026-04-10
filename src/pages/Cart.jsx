@@ -191,6 +191,22 @@ const Cart = () => {
                         </span>
                       </p>
                     )}
+                    {item.size && (
+                      <p>
+                        Size:{" "}
+                        <span className="font-medium text-primary">
+                          {item.size}
+                        </span>
+                      </p>
+                    )}
+                    {item.finish && (
+                      <p>
+                        Finish Type:{" "}
+                        <span className="font-medium text-primary">
+                          {item.finish}
+                        </span>
+                      </p>
+                    )}
                   </div>
 
                   <p className="text-xl font-bold text-gray-900 mt-2">

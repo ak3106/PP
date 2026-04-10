@@ -1,5 +1,5 @@
 import React, { useState, useReducer, useEffect, useMemo, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase";
 
@@ -18,7 +18,7 @@ const cartReducer = (state, action) => {
         item.pages,
         item.coverType,
         item.material,
-        item.size
+        item.size,
       ]
         .filter(Boolean) // Remove undefined/null values
         .join("_");
@@ -85,6 +85,10 @@ import Orders from "./pages/Orders";
 // import TestCloudinary from "./admin/TestCloudinary";
 // import AddProduct from "./admin/AddProduct";
 import SeedRunner from "./SeedRunner";
+import PrivacyPolicy from "./pages/policies/PrivacyPolicy";
+import TermsConditions from "./pages/policies/TermsConditions";
+import ShippingPolicy from "./pages/policies/ShippingPolicy";
+import RefundPolicy from "./pages/policies/RefundPolicy";
 
 // --- Lazy Pages ---
 const Home = lazy(() => import("./pages/Home"));
@@ -98,7 +102,7 @@ const Login = lazy(() => import("./pages/Login"));
 const Register = lazy(() => import("./pages/Signup"));
 const Contact = lazy(() => import("./pages/Contact"));
 const About = lazy(() => import("./pages/About"));
-const PhoneLogin = lazy(() => import("./pages/PhoneLogin"));
+// const PhoneLogin = lazy(() => import("./pages/PhoneLogin"));
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -163,7 +167,11 @@ const App = () => {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/account" element={<Account />} />
+          <Route
+            path="/account"
+            element={<Navigate to="/account/profile" replace />}
+          />
+          <Route path="/account/:tab" element={<Account />} />
           <Route path="/orders" element={<Orders />} />
 
           {/* PRODUCTS HUB */}
@@ -213,11 +221,15 @@ const App = () => {
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/phone-login" element={<PhoneLogin />} />
+          {/* <Route path="/phone-login" element={<PhoneLogin />} /> */}
           {/* <Route path="/test-cloudinary" element={<TestCloudinary />} /> */}
           {/* <Route path="/add-product" element={<AddProduct />} /> */}
           <Route path="/seed-products" element={<SeedRunner />} />
           <Route path="/custom/poster" element={<CustomPoster />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsConditions />} />
+          <Route path="/shipping" element={<ShippingPolicy />} />
+          <Route path="/refund" element={<RefundPolicy />} />
 
           <Route path="*" element={<Home />} />
         </Routes>

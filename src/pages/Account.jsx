@@ -17,6 +17,59 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { Building2, Hash, MapPinned, Phone, Tag, User, X } from "lucide-react";
+// import { Field } from "firebase/firestore/pipelines";
+
+const EMPTY_ADDRESS = {
+  label: "",
+  addressLine1: "",
+  addressLine2: "",
+  city: "",
+  state: "",
+  pincode: "",
+  name: "",
+  phone: "",
+};
+
+const INDIAN_STATES = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+  "Andaman and Nicobar Islands",
+  "Chandigarh",
+  "Dadra and Nagar Haveli",
+  "Daman and Diu",
+  "Delhi",
+  "Jammu and Kashmir",
+  "Ladakh",
+  "Lakshadweep",
+  "Puducherry",
+];
 
 // ─── Confirm Dialog ───────────────────────────────────────────────────────────
 const ConfirmDialog = ({ message, onConfirm, onCancel }) => (
@@ -51,119 +104,218 @@ const ConfirmDialog = ({ message, onConfirm, onCancel }) => (
   </div>
 );
 
-// ─── Address Modal ────────────────────────────────────────────────────────────
-const AddressModal = ({ onSave, onClose, existing }) => {
-  const [form, setForm] = useState(
-    existing || {
-      label: "",
-      line1: "",
-      line2: "",
-      city: "",
-      state: "",
-      pincode: "",
-    }
-  );
+const Field = ({
+  label,
+  name,
+  placeholder,
+  maxLength,
+  icon: Icon,
+  optional,
+  value,
+  onChange,
+  error,
+}) => (
+  <div>
+    <label className="block text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-1.5">
+      {Icon && <Icon className="inline w-3.5 h-3.5 mr-1" />}
+      {label}
+      {optional && (
+        <span className="text-zinc-400 normal-case font-normal ml-1">
+          (optional)
+        </span>
+      )}
+    </label>
+    <input
+      name={name}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      maxLength={maxLength}
+      className={`w-full px-4 py-2.5 rounded-xl border text-sm outline-none transition-all focus:ring-2 focus:ring-indigo-500 ${
+        error ? "border-red-400 bg-red-50" : "border-zinc-200 bg-white"
+      }`}
+    />
+    {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+  </div>
+);
 
-  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+// ─── Address Modal ────────────────────────────────────────────────────────────
+const AddressModal = ({ initial, onSave, onClose, isSaving }) => {
+  const [form, setForm] = useState(initial || EMPTY_ADDRESS);
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((p) => ({ ...p, [name]: value }));
+    setErrors((p) => ({ ...p, [name]: undefined }));
+  };
+
+  const validate = () => {
+    const err = {};
+    if (!form.label.trim())
+      err.label = "Label is required (e.g. Home, Office).";
+    if (!form.name.trim()) err.name = "Name is required.";
+    if (!form.phone.match(/^\d{10}$/))
+      err.phone = "Valid 10-digit phone required.";
+    if (!form.addressLine1.trim())
+      err.addressLine1 = "Address Line 1 is required.";
+    if (!form.city.trim()) err.city = "City is required.";
+    if (!form.state) err.state = "Please select a state.";
+    if (!form.pincode.match(/^\d{6}$/))
+      err.pincode = "Valid 6-digit pincode required.";
+    setErrors(err);
+    return Object.keys(err).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validate()) onSave(form);
+  };
 
   return (
-    <div
-      className="fixed inset-0 bg-black/45 z-[1000] flex items-center justify-center p-4 animate-in fade-in duration-150"
-      onClick={onClose}
-    >
-      <div
-        className="bg-white rounded-[20px] p-8 w-full max-w-[520px] text-left shadow-2xl animate-in slide-in-from-bottom-4 duration-200"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <h3 className=" text-[1.1rem] font-semibold mb-[1.2rem] text-[#1a1a1a]">
-          {existing ? "Edit Address" : "Add New Address"}
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-[0.9rem]">
-          <div className="flex flex-col gap-1 sm:col-span-2">
-            <label className="text-[0.78rem] font-semibold text-[#888] uppercase tracking-wider">
-              Label (e.g. Home, Office)
-            </label>
-            <input
-              className="border-[1.5px] border-[#e8e8e8] rounded-xl px-4 py-3 text-sm text-[#1a1a1a] focus:border-[#1a1a1a] outline-none transition-colors"
-              placeholder="Home"
-              value={form.label}
-              onChange={set("label")}
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+      <div className="bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b bg-zinc-50">
+          <h3 className="text-lg font-bold text-zinc-800">
+            {initial?.label ? "Edit Address" : "Add New Address"}
+          </h3>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-full hover:bg-zinc-200 transition-colors"
+          >
+            <X className="w-5 h-5 text-zinc-500" />
+          </button>
+        </div>
+
+        {/* Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="p-6 space-y-4 max-h-[75vh] overflow-y-auto"
+        >
+          <Field
+            label="Label"
+            name="label"
+            placeholder="e.g. Home, Office, Parents"
+            icon={Tag}
+            value={form.label}
+            onChange={handleChange}
+            error={errors.label}
+          />
+
+          <div className="grid grid-cols-2 gap-3">
+            <Field
+              label="Full Name"
+              name="name"
+              placeholder="Recipient name"
+              icon={User}
+              value={form.name}
+              onChange={handleChange}
+              error={errors.name}
+            />
+            <Field
+              label="Phone"
+              name="phone"
+              placeholder="10-digit number"
+              maxLength={10}
+              icon={Phone}
+              value={form.phone}
+              onChange={handleChange}
+              error={errors.phone}
             />
           </div>
-          <div className="flex flex-col gap-1 sm:col-span-2">
-            <label className="text-[0.78rem] font-semibold text-[#888] uppercase tracking-wider">
-              Address Line 1
-            </label>
-            <input
-              className="border-[1.5px] border-[#e8e8e8] rounded-xl px-4 py-3 text-sm text-[#1a1a1a] focus:border-[#1a1a1a] outline-none transition-colors"
-              placeholder="Street, Building"
-              value={form.line1}
-              onChange={set("line1")}
-            />
-          </div>
-          <div className="flex flex-col gap-1 sm:col-span-2">
-            <label className="text-[0.78rem] font-semibold text-[#888] uppercase tracking-wider">
-              Address Line 2
-            </label>
-            <input
-              className="border-[1.5px] border-[#e8e8e8] rounded-xl px-4 py-3 text-sm text-[#1a1a1a] focus:border-[#1a1a1a] outline-none transition-colors"
-              placeholder="Landmark (optional)"
-              value={form.line2}
-              onChange={set("line2")}
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-[0.78rem] font-semibold text-[#888] uppercase tracking-wider">
-              City
-            </label>
-            <input
-              className="border-[1.5px] border-[#e8e8e8] rounded-xl px-4 py-3 text-sm text-[#1a1a1a] focus:border-[#1a1a1a] outline-none transition-colors"
-              placeholder="Mumbai"
+
+          <Field
+            label="Address Line 1"
+            name="addressLine1"
+            placeholder="Flat / House No., Building, Street"
+            icon={MapPinned}
+            value={form.addressLine1}
+            onChange={handleChange}
+            error={errors.addressLine1}
+          />
+
+          <Field
+            label="Address Line 2"
+            name="addressLine2"
+            placeholder="Area, Landmark (optional)"
+            icon={Building2}
+            optional
+            value={form.addressLine2}
+            onChange={handleChange}
+            error={errors.addressLine2}
+          />
+
+          <div className="grid grid-cols-2 gap-3">
+            <Field
+              label="City"
+              name="city"
+              placeholder="City"
               value={form.city}
-              onChange={set("city")}
+              onChange={handleChange}
+              error={errors.city}
+            />
+            <Field
+              label="Pincode"
+              name="pincode"
+              placeholder="6-digit pincode"
+              maxLength={6}
+              icon={Hash}
+              value={form.pincode}
+              onChange={handleChange}
+              error={errors.pincode}
             />
           </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-[0.78rem] font-semibold text-[#888] uppercase tracking-wider">
+
+          {/* State dropdown */}
+          <div>
+            <label className="block text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-1.5">
               State
             </label>
-            <input
-              className="border-[1.5px] border-[#e8e8e8] rounded-xl px-4 py-3 text-sm text-[#1a1a1a] focus:border-[#1a1a1a] outline-none transition-colors"
-              placeholder="Maharashtra"
+            <select
+              name="state"
               value={form.state}
-              onChange={set("state")}
-            />
+              onChange={handleChange}
+              className={`w-full px-4 py-2.5 rounded-xl border text-sm outline-none transition-all focus:ring-2 focus:ring-indigo-500 bg-white ${
+                errors.state ? "border-red-400 bg-red-50" : "border-zinc-200"
+              }`}
+            >
+              <option value="">Select State</option>
+              {INDIAN_STATES.map((s) => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </select>
+            {errors.state && (
+              <p className="text-red-500 text-xs mt-1">{errors.state}</p>
+            )}
           </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-[0.78rem] font-semibold text-[#888] uppercase tracking-wider">
-              Pincode
-            </label>
-            <input
-              className="border-[1.5px] border-[#e8e8e8] rounded-xl px-4 py-3 text-sm text-[#1a1a1a] focus:border-[#1a1a1a] outline-none transition-colors"
-              placeholder="400001"
-              value={form.pincode}
-              onChange={set("pincode")}
-            />
+
+          {/* Actions */}
+          <div className="pt-2 flex gap-3">
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex-1 px-4 py-2.5 rounded-xl border border-zinc-200 text-sm font-semibold text-zinc-600 hover:bg-zinc-50 transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              disabled={isSaving}
+              className="flex-1 px-4 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+            >
+              {isSaving ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" /> Saving...
+                </>
+              ) : (
+                "Save Address"
+              )}
+            </button>
           </div>
-        </div>
-        <div className="flex gap-3 justify-end mt-[1.4rem]">
-          <button
-            className="bg-[#f5f4f0] text-[#1a1a1a] rounded-xl px-[1.4rem] py-3 text-sm font-medium hover:bg-[#ebebeb] transition-colors"
-            onClick={onClose}
-          >
-            Cancel
-          </button>
-          <button
-            className="bg-[#1a1a1a] text-white rounded-xl px-[1.6rem] py-3 text-sm font-semibold hover:opacity-80 transition-opacity"
-            onClick={() => {
-              if (!form.label || !form.line1 || !form.city)
-                return alert("Fill required fields");
-              onSave(form);
-            }}
-          >
-            Save Address
-          </button>
-        </div>
+        </form>
       </div>
     </div>
   );

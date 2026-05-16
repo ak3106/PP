@@ -120,7 +120,7 @@ const Login = () => {
             onClick={() => {
               setShowForgot(false);
               setResetMsg("");
-              setError("");
+              setError(""); 
               setResetEmail("");
             }}
             className="text-sm text-gray-500 mb-4 flex items-center gap-1 hover:text-gray-800"

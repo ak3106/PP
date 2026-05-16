@@ -188,7 +188,7 @@ const Navbar = ({ user, onLogout }) => {
           >
             <User className="inline w-5 h-5 mr-2" />
             My Account
-          </NavLink>
+          </NavLink>``
         )}
       </div>
 

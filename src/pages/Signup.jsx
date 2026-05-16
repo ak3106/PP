@@ -108,7 +108,11 @@ const Signup = () => {
       const appVerifier = await setupRecaptcha();
       if (!appVerifier) throw new Error("reCAPTCHA failed.");
 
-      const confirmation = await signInWithPhoneNumber(auth, fullPhone, appVerifier);
+      const confirmation = await signInWithPhoneNumber(
+        auth,
+        fullPhone,
+        appVerifier,
+      );
       setConfirmationResult(confirmation);
       setOtpSent(true);
       setCooldown(30);
@@ -122,14 +126,22 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    if (!confirmationResult || !otp) return setError("Please verify OTP first.");
+    if (!confirmationResult || !otp)
+      return setError("Please verify OTP first.");
 
     try {
       setLoading(true);
       await confirmationResult.confirm(otp);
-      const res = await createUserWithEmailAndPassword(auth, form.email, form.password);
+      const res = await createUserWithEmailAndPassword(
+        auth,
+        form.email,
+        form.password,
+      );
       await updateProfile(res.user, { displayName: form.name });
-      await saveUserToDB(res.user, { name: form.name, phone: `+91${form.phone}` });
+      await saveUserToDB(res.user, {
+        name: form.name,
+        phone: `+91${form.phone}`,
+      });
       navigate("/");
     } catch (err) {
       setError("Signup failed. Check details or OTP.");
@@ -152,7 +164,8 @@ const Signup = () => {
         navigate("/");
       }
     } catch (err) {
-      if (err.code !== "auth/popup-closed-by-user") setError("Google sign-in failed.");
+      if (err.code !== "auth/popup-closed-by-user")
+        setError("Google sign-in failed.");
     } finally {
       setLoading(false);
     }
@@ -161,19 +174,38 @@ const Signup = () => {
   const sendModalOTP = async () => {
     setModalError("");
     if (modalPhone.length !== 10) return setModalError("Enter 10 digits.");
-    
+
     const fullPhone = `+91${modalPhone}`;
 
+    // try {
+    //   setLoading(true);
+    //   const appVerifier = await setupRecaptcha("recaptcha-container-modal");
+    //   const confirmation = await signInWithPhoneNumber(auth, fullPhone, appVerifier);
+    //   setConfirmationResult(confirmation);
+    //   setModalOtpSent(true);
+    //   setModalCooldown(30);
+    // } catch (err) {
+    //   setModalError("Failed to send OTP");
+    //   resetRecaptcha("recaptcha-container-modal");
+    // } finally {
+    //   setLoading(false);
+    // }
     try {
       setLoading(true);
-      const appVerifier = await setupRecaptcha("recaptcha-container-modal");
-      const confirmation = await signInWithPhoneNumber(auth, fullPhone, appVerifier);
+      const appVerifier = await setupRecaptcha();
+      if (!appVerifier) throw new Error("reCAPTCHA failed.");
+
+      const confirmation = await signInWithPhoneNumber(
+        auth,
+        fullPhone,
+        appVerifier,
+      );
       setConfirmationResult(confirmation);
-      setModalOtpSent(true);
-      setModalCooldown(30);
+      setOtpSent(true);
+      setCooldown(30);
     } catch (err) {
-      setModalError("Failed to send OTP");
-      resetRecaptcha("recaptcha-container-modal");
+      setError(err.message || "Failed to send OTP");
+      resetRecaptcha();
     } finally {
       setLoading(false);
     }
@@ -183,7 +215,10 @@ const Signup = () => {
     try {
       setLoading(true);
       await confirmationResult.confirm(modalOtp);
-      await saveUserToDB(googleUser, { name: googleUser.displayName, phone: `+91${modalPhone}` });
+      await saveUserToDB(googleUser, {
+        name: googleUser.displayName,
+        phone: `+91${modalPhone}`,
+      });
       setShowPhoneModal(false);
       navigate("/");
     } catch (err) {
@@ -196,10 +231,11 @@ const Signup = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 px-6">
       <div className="max-w-md mx-auto w-full bg-white border border-gray-100 p-8 rounded-2xl shadow-xl transition-all">
-        
         {/* Header */}
         <div className="mb-8">
-          <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">Create Account</h2>
+          <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">
+            Create Account
+          </h2>
           <p className="text-gray-500 mt-2">Join us today to get started.</p>
         </div>
 
@@ -210,18 +246,26 @@ const Signup = () => {
           </div>
         )}
 
-        {error && <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg border border-red-100 mb-4">{error}</div>}
+        {error && (
+          <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg border border-red-100 mb-4">
+            {error}
+          </div>
+        )}
 
         <form onSubmit={handleSignup} className="space-y-5">
           {/* Name & Email */}
           <input
             className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-            type="text" placeholder="Full Name" required
+            type="text"
+            placeholder="Full Name"
+            required
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
           <input
             className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-            type="email" placeholder="Email Address" required
+            type="email"
+            placeholder="Email Address"
+            required
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
 
@@ -233,34 +277,49 @@ const Signup = () => {
               </span>
               <input
                 className="flex-1 border border-gray-300 p-3 rounded-r-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                type="tel" maxLength="10" placeholder="10-digit number" required
+                type="tel"
+                maxLength="10"
+                placeholder="10-digit number"
+                required
                 value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value.replace(/\D/g, "") })}
+                onChange={(e) =>
+                  setForm({ ...form, phone: e.target.value.replace(/\D/g, "") })
+                }
               />
             </div>
           </div>
 
           <input
             className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-            type="password" placeholder="Password" required
+            type="password"
+            placeholder="Password"
+            required
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
 
           {/* OTP Handling */}
           <div className="space-y-3">
             <button
-              type="button" onClick={sendOTP}
+              type="button"
+              onClick={sendOTP}
               disabled={loading || cooldown > 0 || form.phone.length !== 10}
               className="w-full bg-blue-50 text-blue-600 font-bold p-3 rounded-lg hover:bg-blue-100 disabled:opacity-50 transition-all"
             >
-              {cooldown > 0 ? `Resend in ${cooldown}s` : otpSent ? "Resend OTP" : "Send OTP"}
+              {cooldown > 0
+                ? `Resend in ${cooldown}s`
+                : otpSent
+                  ? "Resend OTP"
+                  : "Send OTP"}
             </button>
 
             {otpSent && (
               <input
                 className="w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-center tracking-widest font-bold"
-                type="text" maxLength="6" placeholder="Enter 6-digit OTP"
-                value={otp} onChange={(e) => setOtp(e.target.value)}
+                type="text"
+                maxLength="6"
+                placeholder="Enter 6-digit OTP"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
               />
             )}
           </div>
@@ -276,7 +335,9 @@ const Signup = () => {
         {/* Divider */}
         <div className="relative my-8 text-center">
           <hr className="border-gray-200" />
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-gray-400 text-sm">OR</span>
+          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-gray-400 text-sm">
+            OR
+          </span>
         </div>
 
         <button
@@ -285,16 +346,31 @@ const Signup = () => {
           className="w-full border border-gray-200 p-3 rounded-lg flex items-center justify-center gap-3 hover:bg-gray-50 active:scale-[0.98] transition-all font-semibold text-gray-700"
         >
           <svg viewBox="0 0 48 48" className="w-5 h-5">
-            <path fill="#FFC107" d="M43.6 20H24v8h11.3C33.6 33.1 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.1 6.5 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-8 19.7-20 0-1.3-.1-2.7-.1-4z" />
-            <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.1 18.9 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.1 6.5 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" />
-            <path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.9 13.5-5l-6.2-5.2C29.4 35.6 26.8 36 24 36c-5.2 0-9.6-2.9-11.3-7.1l-6.5 5C9.5 39.6 16.2 44 24 44z" />
-            <path fill="#1976D2" d="M43.6 20H24v8h11.3c-.9 2.4-2.5 4.4-4.6 5.8l6.2 5.2C40.7 35.7 44 30.3 44 24c0-1.3-.1-2.7-.4-4z" />
+            <path
+              fill="#FFC107"
+              d="M43.6 20H24v8h11.3C33.6 33.1 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.1 6.5 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-8 19.7-20 0-1.3-.1-2.7-.1-4z"
+            />
+            <path
+              fill="#FF3D00"
+              d="M6.3 14.7l6.6 4.8C14.5 15.1 18.9 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34.1 6.5 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"
+            />
+            <path
+              fill="#4CAF50"
+              d="M24 44c5.2 0 9.9-1.9 13.5-5l-6.2-5.2C29.4 35.6 26.8 36 24 36c-5.2 0-9.6-2.9-11.3-7.1l-6.5 5C9.5 39.6 16.2 44 24 44z"
+            />
+            <path
+              fill="#1976D2"
+              d="M43.6 20H24v8h11.3c-.9 2.4-2.5 4.4-4.6 5.8l6.2 5.2C40.7 35.7 44 30.3 44 24c0-1.3-.1-2.7-.4-4z"
+            />
           </svg>
           Continue with Google
         </button>
 
         <p className="text-center text-sm text-gray-600 mt-8">
-          Already have an account? <Link to="/login" className="text-blue-600 font-bold hover:underline">Login</Link>
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-600 font-bold hover:underline">
+            Login
+          </Link>
         </p>
 
         <div id="recaptcha-container"></div>
@@ -304,35 +380,59 @@ const Signup = () => {
       {showPhoneModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl p-8 w-full max-w-sm shadow-2xl scale-in-center">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Complete Profile</h3>
-            <p className="text-sm text-gray-500 mb-6">Enter your phone number to secure your account.</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Complete Profile
+            </h3>
+            <p className="text-sm text-gray-500 mb-6">
+              Enter your phone number to secure your account.
+            </p>
 
-            {modalError && <p className="text-red-500 text-xs mb-3 font-medium">{modalError}</p>}
+            {modalError && (
+              <p className="text-red-500 text-xs mb-3 font-medium">
+                {modalError}
+              </p>
+            )}
 
             <div className="flex mb-4">
-              <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-gray-500 font-bold">+91</span>
+              <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-gray-500 font-bold">
+                +91
+              </span>
               <input
                 className="flex-1 border border-gray-300 p-3 rounded-r-lg focus:ring-2 focus:ring-blue-500 outline-none"
-                type="tel" maxLength="10" placeholder="00000 00000"
-                value={modalPhone} onChange={(e) => setModalPhone(e.target.value.replace(/\D/g, ""))}
+                type="tel"
+                maxLength="10"
+                placeholder="00000 00000"
+                value={modalPhone}
+                onChange={(e) =>
+                  setModalPhone(e.target.value.replace(/\D/g, ""))
+                }
                 disabled={modalOtpSent}
               />
             </div>
 
             <button
               onClick={sendModalOTP}
-              disabled={loading || modalCooldown > 0 || modalPhone.length !== 10}
+              disabled={
+                loading || modalCooldown > 0 || modalPhone.length !== 10
+              }
               className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 transition-all mb-4"
             >
-              {modalCooldown > 0 ? `Resend in ${modalCooldown}s` : modalOtpSent ? "Resend OTP" : "Send OTP"}
+              {modalCooldown > 0
+                ? `Resend in ${modalCooldown}s`
+                : modalOtpSent
+                  ? "Resend OTP"
+                  : "Send OTP"}
             </button>
 
             {modalOtpSent && (
               <div className="space-y-4">
                 <input
                   className="w-full border border-gray-300 p-3 rounded-lg text-center tracking-widest font-bold focus:ring-2 focus:ring-blue-500 outline-none"
-                  type="text" maxLength="6" placeholder="OTP"
-                  value={modalOtp} onChange={(e) => setModalOtp(e.target.value)}
+                  type="text"
+                  maxLength="6"
+                  placeholder="OTP"
+                  value={modalOtp}
+                  onChange={(e) => setModalOtp(e.target.value)}
                 />
                 <button
                   onClick={handleModalVerify}
@@ -344,7 +444,10 @@ const Signup = () => {
               </div>
             )}
 
-            <button onClick={() => setShowPhoneModal(false)} className="w-full text-xs text-gray-400 mt-4 hover:text-gray-600">
+            <button
+              onClick={() => setShowPhoneModal(false)}
+              className="w-full text-xs text-gray-400 mt-4 hover:text-gray-600"
+            >
               Cancel
             </button>
 

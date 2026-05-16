@@ -81,7 +81,7 @@ const ProductDetail = () => {
         variantId: selectedVariant.variantId,
         size: selectedSize,
         finish: selectedType,
-        variantLabel: `${selectedVariant.size} / ${selectedType}`,
+        // variantLabel: `${selectedVariant.size} / ${selectedType}`,
         price: selectedVariant.price,
         quantity,
         thumbnail: product.media?.thumbnail,

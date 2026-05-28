@@ -21,6 +21,7 @@ import {
   LOCAL_SERVICES,
   SERVICES,
 } from "../data/dummyProducts";
+// import SoftAurora from "@/components/SoftAurora"; // Adjust path if it's in /components/SoftAurora
 
 // Helper function to dynamically get the Lucide icon for services
 const getServiceIcon = (iconName) => {
@@ -45,9 +46,27 @@ const Home = () => {
   const highlightedServices = LOCAL_SERVICES.slice(0, 3);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      {/* <div style={{ width: "1920px", height: "750px", position: "absolute"}}>
+        <SoftAurora
+          speed={0.6}
+          scale={1.1}
+          brightness={1}
+          color1="#902929"
+          color2="#f8c3ff"
+          noiseFrequency={2.5}
+          noiseAmplitude={1.5}
+          bandHeight={0.3}
+          bandSpread={1.1}
+          octaveDecay={0.1}
+          layerOffset={0}
+          colorSpeed={1}
+          enableMouseInteraction={false}
+          mouseInfluence={0.25}
+        />
+      </div> */}
       {/* 1. Hero Section - Modern & Animated */}
-      <section className="relative text-gray-800 pt-24 pb-32 overflow-hidden shadow-2xl bg-[#2C4E34]">
+      <section className="relative text-gray-800 pt-24 pb-32 overflow-hidden shadow-2xl bg-[rgb(44,78,52)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight mb-4 animate-fadeInUp text-cream">
@@ -78,7 +97,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-
+      
         {/* Abstract Background Animation */}
         <div className="absolute inset-0 opacity-10">
           <div className="w-96 h-96 bg-green-600 rounded-full absolute -top-10 -left-10 animate-spin-slow"></div>
@@ -88,24 +107,24 @@ const Home = () => {
 
       {/* OUR PRODUCTS */}
       <section className="py-8 bg-cream px-8 min-h-[100vh] md:min-h-[90vh]">
-  <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
-    <h2 className="text-5xl sm:text-5xl md:text-9xl font-bold text-gray-900 mb-8 uppercase tracking-tighter">
-      OUR PRODUCTS
-    </h2>
+        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
+          <h2 className="text-5xl sm:text-5xl md:text-9xl font-bold text-gray-900 mb-8 uppercase tracking-tighter">
+            OUR PRODUCTS
+          </h2>
 
-    <div className="absolute left-0 top-[85%] w-full flex justify-center lg:top-[70%]">
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-        {featuredCategories.slice(0, 5).map((cat) => (
-          <CategoryCard
-            key={cat.name}
-            category={cat}
-            navigate={navigate}
-          />
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+          <div className="absolute left-0 top-[85%] w-full flex justify-center lg:top-[70%]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+              {featuredCategories.slice(0, 5).map((cat) => (
+                <CategoryCard
+                  key={cat.name}
+                  category={cat}
+                  navigate={navigate}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       {/* 3. Featured Products Section (E-Commerce) */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -162,19 +181,18 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>  
+      </section>
 
       {/* 4. Local Services Highlight */}
-          <div className="pl-8 flex lg:justify-end pr-10">
-          <ArrowRight className="w-4 h-4 md:w-7 md:h-7"/>
-            <a
-              onClick={() => navigate("/services")}
-              className="text-xs hover:text-primary md:text-lg underline"
-            >
-              See All Local Services
-            </a>
-          </div>
-
+      <div className="pl-8 flex lg:justify-end pr-10">
+        <ArrowRight className="w-4 h-4 md:w-7 md:h-7" />
+        <a
+          onClick={() => navigate("/services")}
+          className="text-xs hover:text-primary md:text-lg underline"
+        >
+          See All Local Services
+        </a>
+      </div>
 
       {/* 5. Portfolio/Quality Teaser */}
       <section className="py-16">
@@ -231,6 +249,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
     </div>
   );
 };

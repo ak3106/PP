@@ -2,7 +2,7 @@
 import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 // import { cars } from "../data/poster";
-import { SPIRAL } from "../data/spiral";
+import { MOV } from "../data/poster";
 
 /**
  * ONE-TIME PRODUCT SEEDER
@@ -10,9 +10,9 @@ import { SPIRAL } from "../data/spiral";
  */
 export const seedProducts = async () => {
   try {
-    const productsRef = collection(db, "journals");
+    const productsRef = collection(db, "products");
 
-    for (const product of SPIRAL) {
+    for (const product of MOV) {
       const productRef = doc(productsRef, product.id);
 
       await setDoc(productRef, {

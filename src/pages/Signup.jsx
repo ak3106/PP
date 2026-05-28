@@ -177,19 +177,19 @@ const Signup = () => {
 
     const fullPhone = `+91${modalPhone}`;
 
-    // try {
-    //   setLoading(true);
-    //   const appVerifier = await setupRecaptcha("recaptcha-container-modal");
-    //   const confirmation = await signInWithPhoneNumber(auth, fullPhone, appVerifier);
-    //   setConfirmationResult(confirmation);
-    //   setModalOtpSent(true);
-    //   setModalCooldown(30);
-    // } catch (err) {
-    //   setModalError("Failed to send OTP");
-    //   resetRecaptcha("recaptcha-container-modal");
-    // } finally {
-    //   setLoading(false);
-    // }
+    try {
+      setLoading(true);
+      const appVerifier = await setupRecaptcha("recaptcha-container-modal");
+      const confirmation = await signInWithPhoneNumber(auth, fullPhone, appVerifier);
+      setConfirmationResult(confirmation);
+      setModalOtpSent(true);
+      setModalCooldown(30);
+    } catch (err) {
+      setModalError("Failed to send OTP");
+      resetRecaptcha("recaptcha-container-modal");
+    } finally {
+      setLoading(false);
+    }
     try {
       setLoading(true);
       const appVerifier = await setupRecaptcha();

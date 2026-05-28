@@ -157,12 +157,24 @@ const Signup = () => {
       setLoading(true);
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      if (result._tokenResponse?.isNewUser) {
-        setGoogleUser(result.user);
-        setShowPhoneModal(true);
-      } else {
+
+      if (!result._tokenResponse?.isNewUser) {
+        // Existing user — just go home
         navigate("/");
+        return;
       }
+
+      // ✅ Sign out immediately — don't let them in until phone is verified
+      await signOut(auth);
+
+      // Store user data temporarily in state (not in Firebase)
+      setGoogleUser({
+        displayName: result.user.displayName,
+        email: result.user.email,
+        uid: result.user.uid,
+        photoURL: result.user.photoURL,
+      });
+      setShowPhoneModal(true);
     } catch (err) {
       if (err.code !== "auth/popup-closed-by-user")
         setError("Google sign-in failed.");
@@ -176,23 +188,11 @@ const Signup = () => {
     if (modalPhone.length !== 10) return setModalError("Enter 10 digits.");
 
     const fullPhone = `+91${modalPhone}`;
+    if (modalCooldown > 0) return;
 
     try {
       setLoading(true);
       const appVerifier = await setupRecaptcha("recaptcha-container-modal");
-      const confirmation = await signInWithPhoneNumber(auth, fullPhone, appVerifier);
-      setConfirmationResult(confirmation);
-      setModalOtpSent(true);
-      setModalCooldown(30);
-    } catch (err) {
-      setModalError("Failed to send OTP");
-      resetRecaptcha("recaptcha-container-modal");
-    } finally {
-      setLoading(false);
-    }
-    try {
-      setLoading(true);
-      const appVerifier = await setupRecaptcha();
       if (!appVerifier) throw new Error("reCAPTCHA failed.");
 
       const confirmation = await signInWithPhoneNumber(
@@ -201,28 +201,47 @@ const Signup = () => {
         appVerifier,
       );
       setConfirmationResult(confirmation);
-      setOtpSent(true);
-      setCooldown(30);
+      setModalOtpSent(true);
+      setModalCooldown(30);
     } catch (err) {
-      setError(err.message || "Failed to send OTP");
-      resetRecaptcha();
+      setModalError(err.message || "Failed to send OTP");
+      resetRecaptcha("recaptcha-container-modal");
     } finally {
       setLoading(false);
     }
   };
 
   const handleModalVerify = async () => {
+    setModalError("");
+    if (!confirmationResult || !modalOtp) {
+      setModalError("Enter OTP first.");
+      return;
+    }
+
     try {
       setLoading(true);
+
+      // 1. Verify OTP
       await confirmationResult.confirm(modalOtp);
-      await saveUserToDB(googleUser, {
+
+      // 2. Sign back in with Google to restore the session
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+
+      // 3. Save to DB now that phone is verified
+      await saveUserToDB(result.user, {
         name: googleUser.displayName,
         phone: `+91${modalPhone}`,
       });
+
       setShowPhoneModal(false);
       navigate("/");
     } catch (err) {
-      setModalError("Invalid OTP.");
+      if (err.code === "auth/invalid-verification-code") {
+        setModalError("Invalid OTP. Please try again.");
+      } else {
+        setModalError("Verification failed. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -445,7 +464,16 @@ const Signup = () => {
             )}
 
             <button
-              onClick={() => setShowPhoneModal(false)}
+              onClick={async () => {
+                await signOut(auth).catch(() => {});
+                setGoogleUser(null);
+                setShowPhoneModal(false);
+                setModalPhone("");
+                setModalOtp("");
+                setModalOtpSent(false);
+                setModalError("");
+                resetRecaptcha("recaptcha-container-modal");
+              }}
               className="w-full text-xs text-gray-400 mt-4 hover:text-gray-600"
             >
               Cancel

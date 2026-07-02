@@ -10,7 +10,7 @@ import {
   Info,
   HelpCircle,
 } from "lucide-react";
-import logo from "../assets/logo pragya print.png";
+import logo from "../assets/pragyanewlogo.png";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const Footer = () => {
@@ -27,21 +27,21 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-zinc-900 text-white mt-12 border-t border-zinc-700/50 ">
+    <footer className="bg-[#0F0E0C] text-white mt-12 border-t border-zinc-700/50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 py-12 ">
-        <div className="flex gap-10 flex-col lg:flex-row lg:gap-24">
+        <div className="flex gap-10 flex-col lg:flex-row lg:gap-24 lg:py-8">
           {/* Column 1: Branding & Mission */}
           <div className="flex-1">
             <div className="flex items-center">
               <img src={logo} alt="Pragya Print Logo" className="h-12" />
-              <span className="text-xl ml-2  font-medium hidden sm:inline">
+              {/* <span className="text-xl ml-2  font-medium hidden sm:inline">
                 Pragya
                 <span className="text-xl font-bold hidden sm:inline">
                   print
                 </span>
-              </span>
+              </span> */}
             </div>
-            <p className="mt-2 text-sm text-gray-400 leading-relaxed max-w-sm">
+            <p className="mt-2 text-sm text-gray-100 leading-relaxed max-w-sm">
               30 years of local trust meeting modern e-commerce. Your partner
               for quality printing, from polaroids to professional stationery.
             </p>
@@ -59,7 +59,7 @@ const Footer = () => {
                   to={path}
                   className={({ isActive }) =>
                     `flex items-center text-sm font-medium hover:text-gray-200 ${
-                      isActive ? "text-gray-300" : "text-gray-400"
+                      isActive ? "text-gray-300" : "text-gray-100"
                     }`
                   }
                 >
@@ -75,7 +75,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-highlight">
               Get In Touch
             </h4>
-            <ul className="space-y-3 text-sm text-gray-400">
+            <ul className="space-y-3 text-sm text-gray-100">
               <li className="flex items-center">
                 <Mail className="w-4 h-4 mr-3 text-highlight" />
                 <a
@@ -106,10 +106,10 @@ const Footer = () => {
 
           {/* Column 4: Social */}
           <div className="flex-none">
-            <h4 className="text-lg font-semibold mb-4 text-highlight">
+            <h4 className="text-lg font-semibold mb-4 text-[#C8973A]">
               Connect
             </h4>
-            <div className="flex space-x-4 text-gray-400">
+            <div className="flex space-x-4 text-gray-100">
               <a
                 href="https://www.facebook.com/pragyaaprinting.press"
                 target="_blank"
@@ -129,11 +129,15 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
+        <span className="absolute hidden font-serif text-[18rem] font-bold text-[#F7F3EC]/[0.03] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none whitespace-nowrap tracking-tighter lg:block">
+          PRINT
+        </span>
         {/* Copyright */}
-        <div className="mt-10 pt-6 border-t border-gray-700 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} Pragya Printing Press. All rights
-          reserved.
+        <div className="mt-10 pt-6 border-t border-[#C8973A] text-center text-sm text-gray-500 flex justify-between">
+          <div>&copy; {new Date().getFullYear()} PragyaPrint. All rights reserved.</div>
+          <a href="https://pragyaprint.com" target="_blank" el="noopener noreferrer">
+            pragyaprint.com
+          </a>
         </div>
       </div>
     </footer>

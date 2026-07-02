@@ -32,7 +32,7 @@ const cartReducer = (state, action) => {
         return state.map((i, index) =>
           index === existingIndex
             ? { ...i, quantity: i.quantity + item.quantity }
-            : i
+            : i,
         );
       }
 
@@ -48,7 +48,7 @@ const cartReducer = (state, action) => {
 
     case "REMOVE_ITEM":
       return state.filter(
-        (item) => item.cartItemId !== action.payload.cartItemId
+        (item) => item.cartItemId !== action.payload.cartItemId,
       );
 
     case "UPDATE_QUANTITY":
@@ -56,7 +56,7 @@ const cartReducer = (state, action) => {
         .map((item) =>
           item.cartItemId === action.payload.cartItemId
             ? { ...item, quantity: action.payload.quantity }
-            : item
+            : item,
         )
         .filter((item) => item.quantity > 0);
 
@@ -81,7 +81,7 @@ import NotebookDetail from "./pages/NotebookDetail";
 import CollectionsPage from "./pages/CollectionPage";
 import BannerDetail from "./pages/BannerDetail";
 import Account from "./pages/Account";
-import Orders from "./pages/Orders";
+import OrderDetail from "./pages/OrderDetail";
 // import TestCloudinary from "./admin/TestCloudinary";
 // import AddProduct from "./admin/AddProduct";
 import SeedRunner from "./SeedRunner";
@@ -99,7 +99,7 @@ const Checkout = lazy(() => import("./pages/Checkout"));
 const Services = lazy(() => import("./pages/Services"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const Login = lazy(() => import("./pages/Login"));
-const Register = lazy(() => import("./pages/Signup"));
+// const Register = lazy(() => import("./pages/Signup"));
 const Contact = lazy(() => import("./pages/Contact"));
 const About = lazy(() => import("./pages/About"));
 // const PhoneLogin = lazy(() => import("./pages/PhoneLogin"));
@@ -127,7 +127,7 @@ const App = () => {
   // --- Cart Item Count ---
   const cartItemCount = useMemo(
     () => cart.reduce((acc, item) => acc + item.quantity, 0),
-    [cart]
+    [cart],
   );
 
   // --- Splash Loader ---
@@ -171,8 +171,8 @@ const App = () => {
             path="/account"
             element={<Navigate to="/account/profile" replace />}
           />
-          <Route path="/account/:tab" element={<Account />} />
-          <Route path="/orders" element={<Orders />} />
+          <Route path="/account/orders/:orderId" element={<OrderDetail />} />
+          <Route path="/account/:tab?" element={<Account />} />
 
           {/* PRODUCTS HUB */}
           {/* <Route path="/products" element={<Products />} />

@@ -6,21 +6,20 @@ export default {
   ],
   theme: {
     extend: {
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0", transform: "scale(0.95)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
-        },
-      },
       animation: {
-        fadeIn: "fadeIn 0.2s ease-out",
+        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+        'marquee': 'marquee 25s linear infinite',
       },
-      colors: {
-        cream: "#f8fcff",
-        primary: "#2C4E34",
-        accent: "#FFA800",
-        highlight: "#F3F4F6",
-      },
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: 0, transform: 'translateY(20px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
+      }
     },
   },
   plugins: [],

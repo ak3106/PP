@@ -8,6 +8,7 @@ import {
   getDocs,
   query,
   where,
+  documentId,
 } from "firebase/firestore";
 import {
   signOut,
@@ -17,8 +18,21 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Building2, Hash, MapPinned, Phone, Tag, User, X } from "lucide-react";
-// import { Field } from "firebase/firestore/pipelines";
+import {
+  Building2,
+  Hash,
+  MapPinned,
+  Phone,
+  Tag,
+  User,
+  X,
+  Loader2,
+  ChevronRight,
+  PhoneCall,
+  Clock,
+  MessageCircle,
+  Mail,
+} from "lucide-react";
 
 const EMPTY_ADDRESS = {
   label: "",
@@ -71,8 +85,15 @@ const INDIAN_STATES = [
   "Puducherry",
 ];
 
-// ─── Confirm Dialog ───────────────────────────────────────────────────────────
-const ConfirmDialog = ({ message, onConfirm, onCancel }) => (
+// ─── Confirm Dialog (generalized: also reused by OrderDetail for cancel/return) ──
+const ConfirmDialog = ({
+  title = "Sign out?",
+  icon = "🚪",
+  message,
+  confirmLabel = "Sign Out",
+  onConfirm,
+  onCancel,
+}) => (
   <div
     className="fixed inset-0 bg-black/45 z-[1000] flex items-center justify-center p-4 animate-in fade-in duration-150"
     onClick={onCancel}
@@ -81,9 +102,9 @@ const ConfirmDialog = ({ message, onConfirm, onCancel }) => (
       className="bg-white rounded-[20px] p-8 w-full max-w-[380px] text-center shadow-2xl animate-in slide-in-from-bottom-4 duration-200"
       onClick={(e) => e.stopPropagation()}
     >
-      <div className="text-[2.2rem] mb-2">🚪</div>
-      <h3 className=" text-[1.3rem] font-semibold mb-2 text-[#1a1a1a]">
-        Sign out?
+      <div className="text-[2.2rem] mb-2">{icon}</div>
+      <h3 className="text-[1.3rem] font-semibold mb-2 text-[#1a1a1a]">
+        {title}
       </h3>
       <p className="text-[#666] text-sm mb-6">{message}</p>
       <div className="flex gap-3 justify-center">
@@ -97,7 +118,7 @@ const ConfirmDialog = ({ message, onConfirm, onCancel }) => (
           className="bg-[#ef4444] text-white rounded-xl px-[1.4rem] py-3 text-sm font-semibold transition-opacity hover:opacity-90"
           onClick={onConfirm}
         >
-          Sign Out
+          {confirmLabel}
         </button>
       </div>
     </div>
@@ -175,7 +196,6 @@ const AddressModal = ({ initial, onSave, onClose, isSaving }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
       <div className="bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
-        {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b bg-zinc-50">
           <h3 className="text-lg font-bold text-zinc-800">
             {initial?.label ? "Edit Address" : "Add New Address"}
@@ -188,7 +208,6 @@ const AddressModal = ({ initial, onSave, onClose, isSaving }) => {
           </button>
         </div>
 
-        {/* Form */}
         <form
           onSubmit={handleSubmit}
           className="p-6 space-y-4 max-h-[75vh] overflow-y-auto"
@@ -267,7 +286,6 @@ const AddressModal = ({ initial, onSave, onClose, isSaving }) => {
             />
           </div>
 
-          {/* State dropdown */}
           <div>
             <label className="block text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-1.5">
               State
@@ -292,7 +310,6 @@ const AddressModal = ({ initial, onSave, onClose, isSaving }) => {
             )}
           </div>
 
-          {/* Actions */}
           <div className="pt-2 flex gap-3">
             <button
               type="button"
@@ -325,7 +342,22 @@ const AddressModal = ({ initial, onSave, onClose, isSaving }) => {
 const Account = () => {
   const navigate = useNavigate();
   const { tab } = useParams();
-  const user = auth.currentUser;
+
+  // BUG FIX: previously `const user = auth.currentUser;` read at render
+  // time. On a hard refresh, auth.currentUser is often null for a moment
+  // before Firebase Auth rehydrates the session — and since it wasn't
+  // state, this component had no way to know when a real user showed up.
+  // The data-fetch effect below depends on `user`, so if it was null on
+  // first render, it hit `if (!user) return` and never fetched again,
+  // leaving ordersLoading stuck at true forever. Mirrors the same fix
+  // already applied in OrderDetail.jsx.
+  const [user, setUser] = useState(() => auth.currentUser);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged
+      ? auth.onAuthStateChanged((u) => setUser(u))
+      : () => {};
+    return unsubscribe;
+  }, []);
 
   const [profile, setProfile] = useState({
     name: "",
@@ -336,7 +368,9 @@ const Account = () => {
   });
   const [addresses, setAddresses] = useState({});
   const [orders, setOrders] = useState([]);
+  const [ordersLoading, setOrdersLoading] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [savingAddress, setSavingAddress] = useState(false);
   const [activeTab, setActiveTab] = useState("profile");
   const [showLogout, setShowLogout] = useState(false);
   const [showAddrModal, setShowAddrModal] = useState(false);
@@ -351,32 +385,71 @@ const Account = () => {
     setTimeout(() => setToast(null), 3000);
   };
 
-  // Add this inside your Account component
   useEffect(() => {
-    if (tab) {
-      setActiveTab(tab);
-    } else {
-      // Default to profile if no tab is specified in URL
-      setActiveTab("profile");
-    }
+    setActiveTab(tab || "profile");
   }, [tab]);
 
+  // ── Fetch user profile, addresses & orders ─────────────────────────────
   useEffect(() => {
+    // If auth hasn't hydrated yet, wait for the next `user` update instead
+    // of silently leaving ordersLoading stuck at true.
     if (!user) return;
     (async () => {
-      const ref = doc(db, "users", user.uid);
-      const snap = await getDoc(ref);
-      if (snap.exists()) {
+      try {
+        setOrdersLoading(true);
+        const ref = doc(db, "users", user.uid);
+        const snap = await getDoc(ref);
+        if (!snap.exists()) {
+          setOrdersLoading(false);
+          return;
+        }
+
         const data = snap.data();
         setProfile({ ...data, email: user.email });
         setAddresses(data.addresses || {});
-        if (data.orderIds?.length) {
-          const ordersRef = collection(db, "orders");
-          const q = query(ordersRef, where("userId", "==", data.uid));
-          const ordSnap = await getDocs(q);
-          setOrders(ordSnap.docs.map((d) => ({ id: d.id, ...d.data() })));
+
+        // Orders are pulled using the `orderIds` array stored on the user
+        // doc, which is what's actually populated at checkout (the user
+        // doc's uid field itself isn't a queryable `userId` field on it).
+        const ids = Array.isArray(data.orderIds) ? data.orderIds : [];
+        if (ids.length === 0) {
+          setOrders([]);
+          setOrdersLoading(false);
+          return;
         }
+
+        // Firestore "in" queries accept at most 10 values per query,
+        // so large orderIds arrays are batched into chunks.
+        const chunks = [];
+        for (let i = 0; i < ids.length; i += 10) {
+          chunks.push(ids.slice(i, i + 10));
+        }
+
+        const ordersRef = collection(db, "orders");
+        const snaps = await Promise.all(
+          chunks.map((chunk) =>
+            getDocs(query(ordersRef, where(documentId(), "in", chunk)))
+          )
+        );
+
+        const allOrders = snaps
+          .flatMap((s) => s.docs.map((d) => ({ id: d.id, ...d.data() })))
+          .sort((a, b) => {
+            const aTime = a.createdAt?.toMillis
+              ? a.createdAt.toMillis()
+              : new Date(a.date || 0).getTime();
+            const bTime = b.createdAt?.toMillis
+              ? b.createdAt.toMillis()
+              : new Date(b.date || 0).getTime();
+            return bTime - aTime;
+          });
+
+        setOrders(allOrders);
+      } catch (err) {
+        console.error("Failed to load account data:", err);
+        showToast("Couldn't load your orders. Please retry.", "error");
       }
+      setOrdersLoading(false);
     })();
   }, [user]);
 
@@ -413,21 +486,37 @@ const Account = () => {
   };
 
   const saveAddress = async (addrData) => {
-    const key = editingAddr?.key || `addr_${Date.now()}`;
-    const updated = { ...addresses, [key]: addrData };
-    setAddresses(updated);
-    setShowAddrModal(false);
-    setEditingAddr(null);
-    await updateDoc(doc(db, "users", user.uid), { addresses: updated });
-    showToast("Address saved");
+    try {
+      setSavingAddress(true);
+      const key = editingAddr?.key || `addr_${Date.now()}`;
+      const updated = { ...addresses, [key]: addrData };
+      await updateDoc(doc(db, "users", user.uid), { addresses: updated });
+      setAddresses(updated);
+      setShowAddrModal(false);
+      setEditingAddr(null);
+      showToast("Address saved");
+    } catch (err) {
+      showToast(err.message, "error");
+    }
+    setSavingAddress(false);
   };
 
   const deleteAddress = async (key) => {
+    // BUG FIX: this previously updated local state optimistically, then
+    // called updateDoc with no try/catch and always showed a success
+    // toast — so a failed write looked identical to a successful one,
+    // and the UI drifted from Firestore with no way to notice or recover.
+    const previous = addresses;
     const updated = { ...addresses };
     delete updated[key];
     setAddresses(updated);
-    await updateDoc(doc(db, "users", user.uid), { addresses: updated });
-    showToast("Address removed");
+    try {
+      await updateDoc(doc(db, "users", user.uid), { addresses: updated });
+      showToast("Address removed");
+    } catch (err) {
+      setAddresses(previous); // roll back the optimistic update
+      showToast(err.message || "Couldn't remove address", "error");
+    }
   };
 
   const handleLogout = async () => {
@@ -446,18 +535,24 @@ const Account = () => {
     { key: "profile", label: "Profile", icon: "👤" },
     { key: "orders", label: "Orders", icon: "📦" },
     { key: "addresses", label: "Addresses", icon: "📍" },
+    { key: "help", label: "Help & Support", icon: "🆘" },
   ];
 
+  // Aligned with OrderDetail.jsx, which defaults an unset status to
+  // "placed" rather than "processing" — keeping both pages in agreement.
   const statusColor = {
-    delivered: "text-[#22c55e] bg-[#22c55e18]",
-    processing: "text-[#f59e0b] bg-[#f59e0b18]",
-    cancelled: "text-[#ef4444] bg-[#ef444418]",
+    placed: "text-[#f59e0b] bg-[#f59e0b18]",
+    confirmed: "text-[#3b82f6] bg-[#3b82f618]",
     shipped: "text-[#3b82f6] bg-[#3b82f618]",
+    out_for_delivery: "text-[#3b82f6] bg-[#3b82f618]",
+    delivered: "text-[#22c55e] bg-[#22c55e18]",
+    cancelled: "text-[#ef4444] bg-[#ef444418]",
+    cancellation_requested: "text-[#ef4444] bg-[#ef444418]",
+    return_requested: "text-[#ef4444] bg-[#ef444418]",
   };
 
   return (
     <div className="min-h-screen bg-[#f5f4f0] text-[#1a1a1a] px-4 py-8 pb-16">
-      {/* ── Toast ── */}
       {toast && (
         <div
           className={`fixed bottom-8 left-1/2 -translate-x-1/2 px-[1.6rem] py-3 rounded-[40px] text-sm font-medium z-[2000] shadow-xl animate-in fade-in slide-in-from-bottom-3 ${toast.type === "error" ? "bg-[#ef4444] text-white" : "bg-[#1a1a1a] text-white"}`}
@@ -466,7 +561,6 @@ const Account = () => {
         </div>
       )}
 
-      {/* ── Logout Confirm ── */}
       {showLogout && (
         <ConfirmDialog
           message="You'll need to sign in again to access your account."
@@ -475,10 +569,10 @@ const Account = () => {
         />
       )}
 
-      {/* ── Address Modal ── */}
       {showAddrModal && (
         <AddressModal
-          existing={editingAddr?.data}
+          initial={editingAddr?.data}
+          isSaving={savingAddress}
           onSave={saveAddress}
           onClose={() => {
             setShowAddrModal(false);
@@ -490,12 +584,12 @@ const Account = () => {
       <div className="max-w-6xl mx-auto">
         {/* ── User Banner ── */}
         <div className="bg-[#1a1a1a] rounded-[20px] p-8 flex items-center gap-[1.6rem] mb-8 relative overflow-hidden">
-          <div className="absolute -right-[60px] -top-[60px] w-[240px] height-[240px] bg-[radial-gradient(circle,rgba(255,220,80,0.18)_0%,transparent_70%)] rounded-full" />
-          <div className="w-[72px] h-[72px] rounded-full bg-gradient-to-br from-[#f5c842] to-[#e8a020] flex items-center justify-center  text-[1.6rem] font-semibold text-[#1a1a1a] shrink-0 z-10">
+          <div className="absolute -right-[60px] -top-[60px] w-[240px] h-[240px] bg-[radial-gradient(circle,rgba(255,220,80,0.18)_0%,transparent_70%)] rounded-full" />
+          <div className="w-[72px] h-[72px] rounded-full bg-gradient-to-br from-[#f5c842] to-[#e8a020] flex items-center justify-center text-[1.6rem] font-semibold text-[#1a1a1a] shrink-0 z-10">
             {initials}
           </div>
           <div className="flex-1 z-10">
-            <p className=" text-[1.5rem] font-semibold text-white mb-1">
+            <p className="text-[1.5rem] font-semibold text-white mb-1">
               {profile.name || "Welcome back"}
             </p>
             <p className="text-[#888] text-[0.85rem]">
@@ -504,13 +598,13 @@ const Account = () => {
           </div>
           <div className="hidden sm:flex gap-[1.6rem] z-10">
             <div className="text-right">
-              <div className=" text-[1.4rem] text-[#f5c842] font-semibold">
+              <div className="text-[1.4rem] text-[#f5c842] font-semibold">
                 {orders.length}
               </div>
               <div className="text-[0.75rem] text-[#666]">Orders</div>
             </div>
             <div className="text-right">
-              <div className=" text-[1.4rem] text-[#f5c842] font-semibold">
+              <div className="text-[1.4rem] text-[#f5c842] font-semibold">
                 {Object.keys(addresses).length}
               </div>
               <div className="text-[0.75rem] text-[#666]">Saved Addresses</div>
@@ -518,7 +612,6 @@ const Account = () => {
           </div>
         </div>
 
-        {/* ── Body ── */}
         <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-[1.6rem] max-w-8xl mx-auto">
           {/* ── Sidebar ── */}
           <aside className="bg-white rounded-2xl p-[1.2rem] shadow-sm h-fit">
@@ -530,10 +623,7 @@ const Account = () => {
                     ? "bg-[#1a1a1a] text-white"
                     : "text-[#555] hover:bg-[#f5f4f0] hover:text-[#1a1a1a]"
                 }`}
-                onClick={() => {
-                  // Navigate to /account/orders, /account/addresses, etc.
-                  navigate(`/account/${t.key}`);
-                }}
+                onClick={() => navigate(`/account/${t.key}`)}
               >
                 <span>{t.icon}</span> {t.label}
               </button>
@@ -571,7 +661,7 @@ const Account = () => {
             {/* ════ PROFILE TAB ════ */}
             {activeTab === "profile" && (
               <div className="bg-white rounded-2xl p-[1.8rem] shadow-sm animate-in fade-in duration-300">
-                <p className=" text-[1.2rem] font-semibold mb-[1.4rem] text-[#1a1a1a]">
+                <p className="text-[1.2rem] font-semibold mb-[1.4rem] text-[#1a1a1a]">
                   Personal Information
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -706,10 +796,14 @@ const Account = () => {
             {/* ════ ORDERS TAB ════ */}
             {activeTab === "orders" && (
               <div className="bg-white rounded-2xl p-[1.8rem] shadow-sm animate-in fade-in duration-300">
-                <p className=" text-[1.2rem] font-semibold mb-[1.4rem] text-[#1a1a1a]">
+                <p className="text-[1.2rem] font-semibold mb-[1.4rem] text-[#1a1a1a]">
                   Order History
                 </p>
-                {orders.length === 0 ? (
+                {ordersLoading ? (
+                  <div className="flex items-center justify-center py-12">
+                    <Loader2 className="w-6 h-6 animate-spin text-[#aaa]" />
+                  </div>
+                ) : orders.length === 0 ? (
                   <div className="text-center py-12 text-[#aaa] text-sm">
                     <span className="text-[2.4rem] block mb-2">📦</span>
                     No orders yet. Start shopping!
@@ -718,18 +812,28 @@ const Account = () => {
                   <div className="space-y-[0.8rem]">
                     {orders.map((order) => {
                       const status = (
-                        order.status || "processing"
+                        order.status || "placed"
                       ).toLowerCase();
                       const statusClass =
-                        statusColor[status] || "text-[#888] bg-[#88818]";
+                        statusColor[status] || "text-[#888] bg-[#88888818]";
                       return (
                         <div
                           key={order.id}
-                          className="border-[1.5px] border-[#e8e8e8] rounded-xl p-[1.1rem_1.2rem] flex items-center justify-between gap-4"
+                          onClick={() =>
+                            // BUG FIX: was `/account/orders?orderid=${order.id}`,
+                            // which is the same *path* as the Orders tab
+                            // itself (/account/orders via /account/:tab?).
+                            // React Router always resolved that path to the
+                            // static /account/orders route, so this row
+                            // never actually opened OrderDetail correctly.
+                            // Now uses its own path segment instead.
+                            navigate(`/account/orders/${order.id}`)
+                          }
+                          className="border-[1.5px] border-[#e8e8e8] rounded-xl p-[1.1rem_1.2rem] flex items-center justify-between gap-4 cursor-pointer hover:border-[#1a1a1a] hover:shadow-sm transition-all"
                         >
                           <div>
                             <div className="font-semibold text-sm">
-                              #{order.id.slice(-10)}
+                              #{order.id.slice(-10).toUpperCase()}
                             </div>
                             <div className="text-[0.78rem] text-[#999] mt-1">
                               {order.createdAt?.toDate
@@ -746,16 +850,19 @@ const Account = () => {
                           <span
                             className={`rounded-[20px] px-[0.8rem] py-1 text-[0.75rem] font-semibold capitalize ${statusClass}`}
                           >
-                            {status}
+                            {status.replace(/_/g, " ")}
                           </span>
-                          <div>
-                            <div className=" text-[1.1rem] font-semibold text-right">
-                              ₹{order.pricing.total ?? "—"}
+                          <div className="flex items-center gap-3">
+                            <div>
+                              <div className="text-[1.1rem] font-semibold text-right">
+                                ₹{order.pricing?.total ?? "—"}
+                              </div>
+                              <div className="text-[0.78rem] text-[#999] text-right">
+                                {order.items?.length ?? 0} item
+                                {order.items?.length !== 1 ? "s" : ""}
+                              </div>
                             </div>
-                            <div className="text-[0.78rem] text-[#999] text-right">
-                              {order.items?.length ?? 0} item
-                              {order.items?.length !== 1 ? "s" : ""}
-                            </div>
+                            <ChevronRight className="w-4 h-4 text-[#ccc] shrink-0" />
                           </div>
                         </div>
                       );
@@ -769,7 +876,7 @@ const Account = () => {
             {activeTab === "addresses" && (
               <div className="bg-white rounded-2xl p-[1.8rem] shadow-sm animate-in fade-in duration-300">
                 <div className="flex justify-between items-center mb-[1.2rem]">
-                  <p className=" text-[1.2rem] font-semibold text-[#1a1a1a]">
+                  <p className="text-[1.2rem] font-semibold text-[#1a1a1a]">
                     Saved Addresses
                   </p>
                 </div>
@@ -783,8 +890,13 @@ const Account = () => {
                         {addr.label}
                       </div>
                       <div className="text-[0.88rem] text-[#333] leading-relaxed">
-                        {addr.line1}
-                        {addr.line2 ? `, ${addr.line2}` : ""}
+                        <span className="font-medium text-[#1a1a1a]">
+                          {addr.name}
+                        </span>
+                        {addr.phone ? ` · ${addr.phone}` : ""}
+                        <br />
+                        {addr.addressLine1}
+                        {addr.addressLine2 ? `, ${addr.addressLine2}` : ""}
                         <br />
                         {addr.city}, {addr.state} – {addr.pincode}
                       </div>
@@ -821,6 +933,106 @@ const Account = () => {
                 </div>
               </div>
             )}
+
+            {/* ════ HELP & SUPPORT TAB ════ */}
+            {activeTab === "help" && (
+              <div className="bg-white rounded-2xl p-[1.8rem] shadow-sm animate-in fade-in duration-300">
+                <p className="text-[1.2rem] font-semibold mb-2 text-[#1a1a1a]">
+                  Help & Support
+                </p>
+                <p className="text-sm text-[#999] mb-6">
+                  We're here to help — reach out anytime.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                  {/* NOTE: replace with your real support number */}
+                  <a
+                    href="tel:+919876543210"
+                    className="border-[1.5px] border-[#e8e8e8] rounded-xl p-5 flex flex-col gap-2 hover:border-[#1a1a1a] transition-colors"
+                  >
+                    <PhoneCall className="w-5 h-5 text-[#1a1a1a]" />
+                    <p className="text-sm font-semibold text-[#1a1a1a]">
+                      Call Us
+                    </p>
+                    <p className="text-xs text-[#999]">+91 98765 43210</p>
+                    <p className="text-[0.7rem] text-[#bbb] flex items-center gap-1">
+                      <Clock className="w-3 h-3" /> Mon–Sat, 10 AM – 7 PM
+                    </p>
+                  </a>
+
+                  {/* NOTE: replace with your real WhatsApp business number */}
+                  <a
+                    href="https://wa.me/919876543210?text=Hi%2C%20I%20need%20help%20with%20my%20order"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-[1.5px] border-[#e8e8e8] rounded-xl p-5 flex flex-col gap-2 hover:border-[#22c55e] transition-colors"
+                  >
+                    <MessageCircle className="w-5 h-5 text-[#22c55e]" />
+                    <p className="text-sm font-semibold text-[#1a1a1a]">
+                      WhatsApp Chat
+                    </p>
+                    <p className="text-xs text-[#999]">Quick replies, all week</p>
+                    <p className="text-[0.7rem] text-[#22c55e]">
+                      Start chat →
+                    </p>
+                  </a>
+
+                  {/* NOTE: replace with your real support email */}
+                  <a
+                    href="mailto:support@yourstore.com"
+                    className="border-[1.5px] border-[#e8e8e8] rounded-xl p-5 flex flex-col gap-2 hover:border-[#1a1a1a] transition-colors"
+                  >
+                    <Mail className="w-5 h-5 text-[#1a1a1a]" />
+                    <p className="text-sm font-semibold text-[#1a1a1a]">
+                      Email Support
+                    </p>
+                    <p className="text-xs text-[#999]">
+                      support@yourstore.com
+                    </p>
+                    <p className="text-[0.7rem] text-[#bbb]">
+                      Response within 24 hours
+                    </p>
+                  </a>
+                </div>
+
+                <p className="text-sm font-semibold text-[#1a1a1a] mb-3">
+                  Common Questions
+                </p>
+                <div className="space-y-2">
+                  {[
+                    {
+                      q: "How do I track my order?",
+                      a: "Open Orders from the sidebar and click any order to view its delivery status.",
+                    },
+                    {
+                      q: "What is your return policy?",
+                      a: "You can request a cancellation or return within 12 hours of placing your order from the order details page.",
+                    },
+                    {
+                      q: "How long does delivery take?",
+                      a: "Most orders are delivered within 3–7 business days depending on your location.",
+                    },
+                    {
+                      q: "How do I change my delivery address?",
+                      a: "Add or edit addresses anytime from the Addresses tab. Existing orders keep the address selected at checkout.",
+                    },
+                  ].map((item, i) => (
+                    <details
+                      key={i}
+                      className="border-[1.5px] border-[#e8e8e8] rounded-xl px-4 py-3 group"
+                    >
+                      <summary className="text-sm font-medium text-[#1a1a1a] cursor-pointer list-none flex justify-between items-center">
+                        {item.q}
+                        <span className="text-[#bbb] group-open:rotate-45 transition-transform">
+                          ＋
+                        </span>
+                      </summary>
+                      <p className="text-sm text-[#999] mt-2">{item.a}</p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            )}
           </main>
         </div>
       </div>
@@ -829,3 +1041,4 @@ const Account = () => {
 };
 
 export default Account;
+export { ConfirmDialog };

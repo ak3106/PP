@@ -32,6 +32,7 @@ import {
   updateDoc,
   collection,
   addDoc,
+  arrayUnion,
   serverTimestamp,
 } from "firebase/firestore";
 
@@ -553,10 +554,13 @@ const Checkout = ({ user }) => {
     });
 
   // ── Save order ──
+  // ── Save order ──
   const saveOrderToFirestore = async (razorpayDetails = null) => {
     try {
       const selectedAddress = addresses[selectedAddressIdx];
-      await addDoc(collection(db, "orders"), {
+      
+      // 1. Create the order document
+      const docRef = await addDoc(collection(db, "orders"), {
         userId: user.uid,
         customer: {
           name: user.name || user.displayName || "",
@@ -582,6 +586,14 @@ const Checkout = ({ user }) => {
         status: "placed",
         createdAt: serverTimestamp(),
       });
+
+      // 2. Append the new order ID to the user's orders array
+      const userDocRef = doc(db, "users", user.uid);
+      await updateDoc(userDocRef, {
+        orderIds: arrayUnion(docRef.id)
+      });
+
+      // 3. Clear cart and update UI
       dispatchCart({ type: "CLEAR_CART" });
       setOrderStatus("success");
     } catch (error) {

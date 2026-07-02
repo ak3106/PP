@@ -27,7 +27,7 @@ const Portfolio = () => {
     ];
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 min-h-[80vh]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 min-h-[80vh]">
             
             <header className="text-center mb-16 pt-10 pb-8 bg-indigo-50 rounded-3xl shadow-xl">
                 <h1 className="text-5xl font-extrabold text-gray-900 mb-3 animate-fadeInDown">Our Work, Our Promise</h1>

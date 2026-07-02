@@ -375,7 +375,7 @@ const CategoryHubView = ({ navigate }) => {
   ];
 
   return (
-    <div className="py-3 md:py-10">
+    <div className="py-3 md:py-16">
       <h1 className="text-5xl font-extrabold text-primary mb-3">
         Ready-Made Products
       </h1>

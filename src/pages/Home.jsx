@@ -1,257 +1,526 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Truck,
-  Package,
-  Layers,
-  Printer,
-  Star,
-  Heart,
-  CheckCircle,
-  ArrowLeft,
-  ArrowRight,
-} from "lucide-react";
-import Button from "../components/UI/Button";
-import ProductCard from "../components/ProductCard";
-import ServiceCard from "../components/ServiceCard";
-import CategoryCard from "../components/CategoryCard";
-import {
-  PRODUCTS,
-  CATEGORIES,
-  LOCAL_SERVICES,
-  SERVICES,
-} from "../data/dummyProducts";
-// import SoftAurora from "@/components/SoftAurora"; // Adjust path if it's in /components/SoftAurora
 
-// Helper function to dynamically get the Lucide icon for services
-const getServiceIcon = (iconName) => {
-  const icons = { Truck, Package, Layers, Printer, Heart, Star };
-  return icons[iconName] || Layers;
+/* ─────────────────────────────────────────────
+   Inline styles as a design-token object so
+   Tailwind / CSS-modules are NOT required.
+   Every colour, spacing & font matches the
+   preview exactly.
+───────────────────────────────────────────── */
+
+const T = {
+  ink: "#0f0e0c",
+  cream: "#f7f3ec",
+  paper: "#ece8df",
+  gold: "#c8973a",
+  goldLight: "#e8be6a",
+  forest: "#2c4e34",
+  rust: "#c4421a",
+  muted: "#7a7268",
+  border: "rgba(15,14,12,0.12)",
 };
 
-/**
- * The main landing page for Pragya Printing Press.
- * Highlights e-commerce products, local services, and portfolio quality.
- * @returns {JSX.Element}
- */
+/* ── tiny reusable primitives ── */
+const SectionLabel = ({ children }) => (
+  <p
+    style={{
+      fontSize: "0.72rem",
+      fontWeight: 500,
+      letterSpacing: "0.12em",
+      textTransform: "uppercase",
+      color: T.gold,
+      marginBottom: "1rem",
+      display: "flex",
+      alignItems: "center",
+      gap: "0.75rem",
+    }}
+  >
+    <span style={{ height: 1, width: "2rem", background: T.gold, display: "inline-block" }} />
+    {children}
+  </p>
+);
+
+const BtnPrimary = ({ children, onClick, style = {} }) => {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <button
+      onClick={onClick}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        background: hov ? T.forest : T.ink,
+        color: T.cream,
+        border: "none",
+        padding: "0.9rem 2rem",
+        fontFamily: "'DM Sans', sans-serif",
+        fontSize: "0.85rem",
+        fontWeight: 500,
+        letterSpacing: "0.06em",
+        textTransform: "uppercase",
+        cursor: "pointer",
+        transform: hov ? "translateY(-2px)" : "none",
+        transition: "all 0.25s",
+        ...style,
+      }}
+    >
+      {children}
+    </button>
+  );
+};
+
+const BtnGhost = ({ children, onClick, style = {} }) => {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <button
+      onClick={onClick}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        background: "transparent",
+        color: T.ink,
+        border: `1px solid ${hov ? T.ink : T.border}`,
+        padding: "0.9rem 2rem",
+        fontFamily: "'DM Sans', sans-serif",
+        fontSize: "0.85rem",
+        fontWeight: 500,
+        letterSpacing: "0.06em",
+        textTransform: "uppercase",
+        cursor: "pointer",
+        transition: "all 0.25s",
+        ...style,
+      }}
+    >
+      {children}
+    </button>
+  );
+};
+
+/* ─────────────────────────────────────────────
+   DATA
+───────────────────────────────────────────── */
+
+const HERO_CARDS = [
+  { icon: "🗺️", name: "Wall Posters", count: "24 styles", variant: "accent", tall: true },
+  { icon: "📔", name: "Journals",     count: "12 designs", variant: "default" },
+  { icon: "🏷️", name: "Stickers",     count: "Custom cuts", variant: "gold" },
+  { icon: "🖨️", name: "Custom Print", count: "Any format",  variant: "default" },
+];
+
+const CATEGORIES = [
+  { icon: "🗺️", name: "Wall Posters",    sub: "A4, A3, A2 & custom sizes", variant: "dark", span: true },
+  { icon: "📔", name: "Spiral Journals", sub: "Ruled, dotted, blank",       variant: "default" },
+  { icon: "📓", name: "Notebooks",       sub: "Softcover & hardbound",      variant: "default" },
+  { icon: "🏷️", name: "Stickers",        sub: "Die-cut & sheet formats",    variant: "rust" },
+  { icon: "🎌", name: "Banners",         sub: "Vinyl, flex & fabric",       variant: "default" },
+];
+
+const PRODUCTS = [
+  { icon: "🗺️", name: "Motivational Poster",  desc: "High-gloss A3, vivid colour on 170gsm paper.", price: "₹149", unit: "piece", badge: "Bestseller" },
+  { icon: "📔", name: "Spiral Journal A5",    desc: "200 dotted pages, sturdy cover, smooth writing.", price: "₹299", unit: "unit",  badge: "New" },
+  { icon: "🏷️", name: "Custom Sticker Sheet", desc: "Die-cut vinyl stickers, weatherproof & vibrant.",  price: "₹99",  unit: "sheet", badge: null },
+  { icon: "📓", name: "Hardbound Notebook",   desc: "Cloth-bound cover, 192 ruled pages, bookmark.",   price: "₹249", unit: "unit",  badge: "Sale" },
+];
+
+const SERVICES = [
+  { num: "01", icon: "🖨️", name: "Offset Printing",      desc: "Bulk runs with exceptional colour fidelity. Ideal for brochures, catalogues, and marketing collateral." },
+  { num: "02", icon: "💻", name: "Digital Printing",      desc: "Fast turnaround for short runs. Variable data printing for personalised campaigns." },
+  { num: "03", icon: "✂️", name: "Die-Cut & Finishing",   desc: "Custom shapes, lamination, spot UV, and embossing that make your print stand out." },
+  { num: "04", icon: "🎌", name: "Large Format & Banners",desc: "Hoardings, flex banners, standees, and backdrops for events and signage." },
+  { num: "05", icon: "📐", name: "Design & Pre-Press",    desc: "In-house team prepares artwork for print-ready output with colour correction and proofing." },
+  { num: "06", icon: "📦", name: "Packaging Print",       desc: "Product boxes, carry bags, and custom packaging with premium finish and branding." },
+];
+
+const QUALITY_POINTS = [
+  { icon: "✦", title: "Colour precision",  desc: "Pantone-matched inks, CMYK calibrated presses." },
+  { icon: "♻", title: "Eco materials",     desc: "FSC-certified papers and soy-based inks." },
+  { icon: "⚡", title: "Fast turnaround",   desc: "24–48 hr digital, 3–5 day offset runs." },
+  { icon: "🛡", title: "Print guarantee",   desc: "Free reprint if we fall short on quality." },
+];
+
+const TESTIMONIALS = [
+  { initials: "AR", name: "Aarav Rathore",  role: "Small business owner",  text: "Ordered 500 custom stickers for my small business. The die-cut precision was incredible and they arrived a day early. Will reorder every quarter." },
+  { initials: "PS", name: "Priya Shukla",   role: "School administrator",   text: "The spiral journals for our school were exactly as designed. Colour vibrancy on the covers far exceeded what we got from our previous vendor." },
+  { initials: "MK", name: "Manav Kapoor",   role: "Event coordinator",      text: "Pragya Print handled our event backdrop and 200+ posters. Everything was crisp, timely, and the team guided us through the design process beautifully." },
+];
+
+const MARQUEE_ITEMS = [
+  "Wall Posters", "Spiral Journals", "Custom Stickers",
+  "Fabric Banners", "Notebooks", "Premium Print Services",
+  "Offset Printing", "Digital Printing",
+];
+
+/* ─────────────────────────────────────────────
+   MAIN COMPONENT
+───────────────────────────────────────────── */
+
 const Home = () => {
   const navigate = useNavigate();
 
-  // Use the first 4 products for the featured section
-  const featuredProducts = PRODUCTS.slice(0, 4);
-  // Use the first 6 categories
-  const featuredCategories = CATEGORIES.slice(0, 6);
-  const featuredServices = SERVICES.slice(0, 6);
-  // Use the first 3 services for the highlight
-  const highlightedServices = LOCAL_SERVICES.slice(0, 3);
+  /* inject Google Fonts + global keyframes once */
+  useEffect(() => {
+    const fontId = "pragya-fonts";
+    if (!document.getElementById(fontId)) {
+      const link = document.createElement("link");
+      link.id = fontId;
+      link.rel = "stylesheet";
+      link.href =
+        "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap";
+      document.head.appendChild(link);
+    }
+    const styleId = "pragya-keyframes";
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement("style");
+      style.id = styleId;
+      style.textContent = `
+        @keyframes pragya-fadeUp {
+          from { opacity: 0; transform: translateY(24px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pragya-marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .pragya-fade-up { opacity: 0; animation: pragya-fadeUp 0.6s ease forwards; }
+        .pragya-fade-1  { animation-delay: 0.10s; }
+        .pragya-fade-2  { animation-delay: 0.22s; }
+        .pragya-fade-3  { animation-delay: 0.36s; }
+        .pragya-fade-4  { animation-delay: 0.52s; }
+        .pragya-fade-5  { animation-delay: 0.68s; }
+        .pragya-marquee-track { animation: pragya-marquee 22s linear infinite; }
+        .pragya-hero-card:hover .pragya-cat-bg {
+          opacity: 0.2 !important;
+          transform: scale(1.06) !important;
+        }
+        .pragya-cat-tile:hover .pragya-tile-arrow  { opacity: 1 !important; transform: translateX(0) !important; }
+        .pragya-cat-tile:hover .pragya-tile-icon   { opacity: 0.18 !important; transform: translate(-50%,-68%) scale(1.08) !important; }
+        .pragya-product-card:hover { transform: translateY(-5px) !important; }
+        .pragya-product-card:hover .pragya-prod-icon { transform: scale(1.08) !important; }
+      `;
+      document.head.appendChild(style);
+    }
+  }, []);
+
+  /* ── NAV ── */
+  const [navScrolled, setNavScrolled] = React.useState(false);
+  useEffect(() => {
+    const onScroll = () => setNavScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <div className="min-h-screen relative">
-      {/* <div style={{ width: "1920px", height: "750px", position: "absolute"}}>
-        <SoftAurora
-          speed={0.6}
-          scale={1.1}
-          brightness={1}
-          color1="#902929"
-          color2="#f8c3ff"
-          noiseFrequency={2.5}
-          noiseAmplitude={1.5}
-          bandHeight={0.3}
-          bandSpread={1.1}
-          octaveDecay={0.1}
-          layerOffset={0}
-          colorSpeed={1}
-          enableMouseInteraction={false}
-          mouseInfluence={0.25}
-        />
-      </div> */}
-      {/* 1. Hero Section - Modern & Animated */}
-      <section className="relative text-gray-800 pt-24 pb-32 overflow-hidden shadow-2xl bg-[rgb(44,78,52)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight mb-4 animate-fadeInUp text-cream">
-              Pragya Print:{" "}
-              <span className="text-[#FFA800] block sm:inline">
-                30 Years of Print Excellence.
-              </span>
-            </h1>
-            <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
-              Your trusted local press is now online. Customize and order
-              posters, letterheads, and merchandise or find our essential local
-              services.
-            </p>
-            <div className="flex justify-center space-x-4">
-              <Button
-                onClick={() => navigate("/products")}
-                className="bg-[#FFA800] hover:bg-yellow-500 transition-colors px-8 py-3 text-lg hover:shadow-2xl"
-              >
-                Shop E-Commerce
-              </Button>
-              <Button
-                onClick={() => navigate("/services")}
-                variant="outline"
-                className=" border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 text-lg"
-              >
-                Local Services
-              </Button>
-            </div>
-          </div>
-        </div>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: "#F5F4F0", color: T.ink, overflowX: "hidden" }}>
+
+      {/* ── NAV ── */}
       
-        {/* Abstract Background Animation */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="w-96 h-96 bg-green-600 rounded-full absolute -top-10 -left-10 animate-spin-slow"></div>
-          <div className="w-48 h-48 bg-green-600 rounded-full absolute bottom-0 right-0 animate-pulse-slow"></div>
-        </div>
-      </section>
 
-      {/* OUR PRODUCTS */}
-      <section className="py-8 bg-cream px-8 min-h-[100vh] md:min-h-[90vh]">
-        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
-          <h2 className="text-5xl sm:text-5xl md:text-9xl font-bold text-gray-900 mb-8 uppercase tracking-tighter">
-            OUR PRODUCTS
-          </h2>
-
-          <div className="absolute left-0 top-[85%] w-full flex justify-center lg:top-[70%]">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-              {featuredCategories.slice(0, 5).map((cat) => (
-                <CategoryCard
-                  key={cat.name}
-                  category={cat}
-                  navigate={navigate}
-                />
-              ))}
-            </div>
+      {/* ── HERO ── */}
+      <section style={{
+        minHeight: "100vh",
+        display: "grid", gridTemplateColumns: "1fr 1fr",
+        paddingTop: 60, position: "relative", overflow: "hidden",
+      }}>
+        {/* Left */}
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5rem 3rem 5rem 4rem", position: "relative", zIndex: 2 }}>
+          <p className="pragya-fade-up pragya-fade-1" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: T.gold, marginBottom: "1.5rem" }}>
+            <span style={{ width: "2rem", height: 1, background: T.gold, display: "inline-block" }} />
+            Est. 1994 · Print House
+          </p>
+          <h1 className="pragya-fade-up pragya-fade-2" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(3.2rem, 5vw, 5rem)", fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.03em", marginBottom: "1.5rem" }}>
+            Print that<br /><em style={{ fontStyle: "italic", color: T.rust }}>Speaks</em><br />for itself.
+          </h1>
+          <p className="pragya-fade-up pragya-fade-3" style={{ fontSize: "1rem", lineHeight: 1.7, color: T.muted, maxWidth: "40ch", marginBottom: "2.5rem" }}>
+            Posters, journals, stickers, banners — crafted with 30 years of precision. Custom prints delivered to your door.
+          </p>
+          <div className="pragya-fade-up pragya-fade-4" style={{ display: "flex", gap: "1rem" }}>
+            <BtnPrimary onClick={() => navigate("/products")}>Explore Products</BtnPrimary>
+            <BtnGhost onClick={() => navigate("/services")}>Our Services</BtnGhost>
+          </div>
+          <div className="pragya-fade-up pragya-fade-5" style={{ display: "flex", gap: "2.5rem", marginTop: "3.5rem", paddingTop: "2rem", borderTop: `0.5px solid ${T.border}` }}>
+            {[["30+", "Years in print"], ["12k+", "Happy customers"], ["50+", "Product types"]].map(([val, lab]) => (
+              <div key={lab}>
+                <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, display: "block" }}>{val}</span>
+                <span style={{ fontSize: "0.72rem", color: T.muted, letterSpacing: "0.06em", textTransform: "uppercase" }}>{lab}</span>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
-      {/* 3. Featured Products Section (E-Commerce) */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-10 border-b pb-3">
-            <h2 className="text-3xl font-bold text-gray-800 md:text-4xl">
-              Must-Have Products
-            </h2>
-            <Button
-              onClick={() => navigate("/products")}
-              variant="outline"
-              className="text-sm"
-            >
-              View All E-Store
-            </Button>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {featuredProducts.map((product) => (
-              // ProductCard now needs the navigate function passed through props
-              <ProductCard
-                key={product.id}
-                product={product}
-                navigate={navigate}
-              />
+
+        {/* Right mosaic */}
+        <div style={{ position: "relative", background: T.paper, overflow: "hidden" }}>
+          {/* diagonal overlap */}
+          <div style={{ position: "absolute", top: 0, left: -60, width: 120, height: "100%", background: T.cream, transform: "skewX(-3deg)", zIndex: 3 }} />
+          <div style={{ position: "absolute", inset: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "1rem", padding: "5rem 2rem 2rem 2rem" }}>
+            {HERO_CARDS.map((card) => (
+              <HeroCard key={card.name} card={card} onClick={() => navigate("/products")} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* OUR SERVICES */}
-      <section
-        className="
-    py-8
-    bg-cream
-    px-8 
-    min-h-[105vh]        /* default: phones*/
-    md:min-h-[110vh]     /* medium screens */
-    lg:min-h-[90vh]      /* large desktops */
-  "
-      >
-        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
-          <h2 className="text-5xl md:text-9xl text-right font-bold text-gray-900 mb-8 uppercase tracking-tighter">
-            OUR Services
-          </h2>
-
-          <div className="absolute left-0 top-[75%] w-full flex justify-center">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-              {featuredServices.map((service) => (
-                <ServiceCard
-                  key={service.name}
-                  service={service}
-                  navigate={navigate}
-                />
-              ))}
-            </div>
-          </div>
+      {/* ── MARQUEE ── */}
+      <div style={{ background: T.ink, padding: "0.75rem 0", overflow: "hidden" }} aria-hidden="true">
+        <div className="pragya-marquee-track" style={{ display: "flex", whiteSpace: "nowrap" }}>
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
+            <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: "1.5rem", padding: "0 2.5rem", fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: T.cream, opacity: 0.7 }}>
+              {item}
+              <span style={{ width: 4, height: 4, borderRadius: "50%", background: T.gold, display: "inline-block" }} />
+            </span>
+          ))}
         </div>
-      </section>
-
-      {/* 4. Local Services Highlight */}
-      <div className="pl-8 flex lg:justify-end pr-10">
-        <ArrowRight className="w-4 h-4 md:w-7 md:h-7" />
-        <a
-          onClick={() => navigate("/services")}
-          className="text-xs hover:text-primary md:text-lg underline"
-        >
-          See All Local Services
-        </a>
       </div>
 
-      {/* 5. Portfolio/Quality Teaser */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="lg:order-2">
-              <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
-                Our Print Quality is Our Signature
+      {/* ── CATEGORIES ── */}
+      <div style={{ background: T.cream }}>
+        <div style={{ padding: "6rem 4rem", maxWidth: 1400, margin: "0 auto" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "3rem" }}>
+            <div>
+              <SectionLabel>Browse by category</SectionLabel>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.025em" }}>
+                Find what you<br />need to <em style={{ color: T.rust, fontStyle: "italic" }}>make</em>.
               </h2>
-              <p className="text-lg text-gray-700 mb-6">
-                After 30 years, we know that nothing beats tangible proof.
-                Explore our past projects to see the sharpness, color, and
-                finish we deliver.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "High-definition color fidelity",
-                  "Durable, long-lasting materials",
-                  "Precision cutting and finishing",
-                  "Eco-friendly and sustainable options",
-                ].map((point, index) => (
-                  <li key={index} className="flex items-start text-gray-700">
-                    <CheckCircle className="w-5 h-5 mr-3 mt-1 text-green-500 flex-shrink-0" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                onClick={() => navigate("/portfolio")}
-                variant="secondary"
-                className="px-6 py-3"
-              >
-                View Portfolio Gallery
-              </Button>
             </div>
-            {/* Dummy Photo Collage / Quality Showcase */}
-            <div className="lg:order-1 grid grid-cols-2 gap-4 p-4 bg-gray-100 rounded-3xl shadow-inner">
-              <img
-                src="https://placehold.co/300x200/4f46e5/ffffff?text=Poster+Work"
-                alt="Portfolio Image 1"
-                className="rounded-xl object-cover h-full shadow-lg transform hover:scale-[1.05] transition duration-300"
-              />
-              <img
-                src="https://placehold.co/300x200/9333ea/ffffff?text=Card+Sample"
-                alt="Portfolio Image 2"
-                className="rounded-xl object-cover h-full shadow-lg transform hover:scale-[1.05] transition duration-300"
-              />
-              <img
-                src="https://placehold.co/300x200/059669/ffffff?text=Mug+Print"
-                alt="Portfolio Image 3"
-                className="rounded-xl object-cover h-full shadow-lg transform hover:scale-[1.05] transition duration-300 col-span-2"
-              />
-            </div>
+            <BtnGhost onClick={() => navigate("/products")} style={{ fontSize: "0.78rem", padding: "0.6rem 1.4rem" }}>View all →</BtnGhost>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "220px 220px", gap: "1rem" }}>
+            {CATEGORIES.map((cat) => (
+              <CatTile key={cat.name} cat={cat} onClick={() => navigate("/products")} />
+            ))}
           </div>
         </div>
-      </section>
+      </div>
 
+      {/* ── PRODUCTS ── */}
+      <div style={{ background: T.paper }}>
+        <div style={{ padding: "6rem 4rem", maxWidth: 1400, margin: "0 auto" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+            <div>
+              <SectionLabel>Must-haves</SectionLabel>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.025em" }}>
+                Bestselling<br /><em style={{ color: T.rust, fontStyle: "italic" }}>products</em>.
+              </h2>
+            </div>
+            <BtnGhost onClick={() => navigate("/products")} style={{ fontSize: "0.78rem", padding: "0.6rem 1.4rem" }}>All products →</BtnGhost>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem", marginTop: "3rem" }}>
+            {PRODUCTS.map((p) => (
+              <ProductCard key={p.name} product={p} onClick={() => navigate("/products")} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── SERVICES ── */}
+      <div style={{ background: T.cream }}>
+        <div style={{ padding: "6rem 4rem", maxWidth: 1400, margin: "0 auto" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+            <div>
+              <SectionLabel>Professional services</SectionLabel>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.025em" }}>
+                What we do<br /><em style={{ color: T.rust, fontStyle: "italic" }}>best</em>.
+              </h2>
+            </div>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginTop: "3rem" }}>
+            {SERVICES.map((s) => (
+              <ServiceItem key={s.name} service={s} onClick={() => navigate("/services")} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── QUALITY STRIP ── */}
+      <div style={{ background: T.forest, color: T.cream, padding: "5rem 4rem", display: "flex", alignItems: "center", gap: "6rem" }}>
+        <div style={{ flex: 1 }}>
+          <SectionLabel style={{ color: T.goldLight }}>Our promise</SectionLabel>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.025em", color: T.cream, marginBottom: "1.25rem" }}>
+            Quality you<br />can <em style={{ color: T.goldLight, fontStyle: "italic" }}>feel</em>.
+          </h2>
+          <p style={{ fontSize: "0.9rem", color: "rgba(247,243,236,0.6)", lineHeight: 1.7, maxWidth: "36ch" }}>
+            Three decades of refining every step of the process — from ink chemistry to paper selection — so your print always exceeds expectations.
+          </p>
+          <BtnPrimary onClick={() => navigate("/portfolio")} style={{ marginTop: "2rem", background: T.gold, color: T.ink }}>
+            View Portfolio
+          </BtnPrimary>
+        </div>
+        <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+          {QUALITY_POINTS.map((qp) => (
+            <div key={qp.title} style={{ display: "flex", gap: "1rem" }}>
+              <div style={{ width: 36, height: 36, flexShrink: 0, border: `1px solid rgba(200,151,58,0.4)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", color: T.goldLight }}>
+                {qp.icon}
+              </div>
+              <div>
+                <div style={{ fontSize: "0.9rem", fontWeight: 500, marginBottom: 2 }}>{qp.title}</div>
+                <div style={{ fontSize: "0.75rem", color: "rgba(247,243,236,0.55)", lineHeight: 1.5 }}>{qp.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ── TESTIMONIALS ── */}
+      <div style={{ background: T.paper }}>
+        <div style={{ padding: "6rem 4rem", maxWidth: 1400, margin: "0 auto" }}>
+          <SectionLabel>Word on the street</SectionLabel>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.025em" }}>
+            Customers who<br /><em style={{ color: T.rust, fontStyle: "italic" }}>trust</em> our print.
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginTop: "3rem" }}>
+            {TESTIMONIALS.map((t) => (
+              <TestiCard key={t.name} testi={t} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+
+     
     </div>
   );
 };
+
+/* ─────────────────────────────────────────────
+   SUB-COMPONENTS
+───────────────────────────────────────────── */
+
+const NavLink = ({ label, onClick }) => {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <span
+      onClick={onClick}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{ fontSize: "0.8rem", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: hov ? T.ink : T.muted, cursor: "pointer", transition: "color 0.2s" }}
+    >
+      {label}
+    </span>
+  );
+};
+
+const HeroCard = ({ card, onClick }) => {
+  const bg = card.variant === "accent" ? T.forest : card.variant === "gold" ? T.gold : T.cream;
+  const textColor = card.variant === "accent" ? T.cream : T.ink;
+  const subColor = card.variant === "accent" ? "rgba(247,243,236,0.6)" : card.variant === "gold" ? "rgba(15,14,12,0.55)" : T.muted;
+  return (
+    <div
+      className="pragya-hero-card"
+      onClick={onClick}
+      style={{
+        background: bg, color: textColor,
+        border: `0.5px solid ${T.border}`,
+        display: "flex", flexDirection: "column", justifyContent: "flex-end",
+        padding: "1.2rem", overflow: "hidden", position: "relative",
+        gridRow: card.tall ? "span 2" : "auto",
+        cursor: "pointer", transition: "transform 0.3s",
+      }}
+    >
+      <div className="pragya-cat-bg" style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "5rem", opacity: 0.12, transition: "opacity 0.3s, transform 0.3s", pointerEvents: "none" }}>
+        {card.icon}
+      </div>
+      <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, position: "relative", zIndex: 1 }}>{card.name}</div>
+      <div style={{ fontSize: "0.7rem", color: subColor, letterSpacing: "0.08em", textTransform: "uppercase", position: "relative", zIndex: 1, marginTop: 2 }}>{card.count}</div>
+    </div>
+  );
+};
+
+const CatTile = ({ cat, onClick }) => {
+  const bg = cat.variant === "dark" ? T.forest : cat.variant === "rust" ? T.rust : T.paper;
+  const textColor = cat.variant === "dark" || cat.variant === "rust" ? T.cream : T.ink;
+  const subColor = cat.variant === "dark" ? "rgba(247,243,236,0.5)" : cat.variant === "rust" ? "rgba(247,243,236,0.55)" : T.muted;
+  const arrowBg = cat.variant === "dark" ? T.gold : T.ink;
+  const arrowColor = cat.variant === "dark" ? T.ink : T.cream;
+  return (
+    <div
+      className="pragya-cat-tile"
+      onClick={onClick}
+      style={{
+        background: bg, color: textColor,
+        border: `0.5px solid ${T.border}`,
+        position: "relative", overflow: "hidden",
+        display: "flex", flexDirection: "column", justifyContent: "flex-end",
+        padding: "1.5rem",
+        gridRow: cat.span ? "span 2" : "auto",
+        cursor: "pointer", transition: "box-shadow 0.3s",
+      }}
+    >
+      <div className="pragya-tile-icon" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -65%)", fontSize: "5rem", opacity: 0.1, transition: "opacity 0.3s, transform 0.3s", pointerEvents: "none" }}>
+        {cat.icon}
+      </div>
+      <div className="pragya-tile-arrow" style={{ position: "absolute", top: "1.5rem", right: "1.5rem", width: 32, height: 32, display: "flex", alignItems: "center", justifyContent: "center", background: arrowBg, color: arrowColor, fontSize: "1rem", opacity: 0, transform: "translateX(-6px)", transition: "opacity 0.25s, transform 0.25s" }}>→</div>
+      <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.3rem", fontWeight: 700, position: "relative", zIndex: 1 }}>{cat.name}</div>
+      <div style={{ fontSize: "0.75rem", color: subColor, letterSpacing: "0.06em", textTransform: "uppercase", position: "relative", zIndex: 1, marginTop: 4 }}>{cat.sub}</div>
+    </div>
+  );
+};
+
+const ProductCard = ({ product, onClick }) => (
+  <div className="pragya-product-card" onClick={onClick} style={{ background: T.cream, border: `0.5px solid ${T.border}`, overflow: "hidden", cursor: "pointer", transition: "transform 0.25s" }}>
+    <div style={{ width: "100%", aspectRatio: "4/3", overflow: "hidden", background: T.paper, position: "relative" }}>
+      <div className="pragya-prod-icon" style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "3.5rem", transition: "transform 0.4s" }}>
+        {product.icon}
+      </div>
+      {product.badge && (
+        <div style={{ position: "absolute", top: "0.75rem", left: "0.75rem", background: T.ink, color: T.cream, fontSize: "0.62rem", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", padding: "3px 8px" }}>
+          {product.badge}
+        </div>
+      )}
+    </div>
+    <div style={{ padding: "1rem 1.2rem 1.2rem" }}>
+      <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, marginBottom: 4 }}>{product.name}</div>
+      <div style={{ fontSize: "0.78rem", color: T.muted, marginBottom: "0.75rem", lineHeight: 1.5 }}>{product.desc}</div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ fontSize: "1rem", fontWeight: 500, fontFamily: "'Playfair Display', serif" }}>
+          {product.price} <span style={{ fontSize: "0.7rem", color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>/ {product.unit}</span>
+        </div>
+        <AddBtn />
+      </div>
+    </div>
+  </div>
+);
+
+const AddBtn = () => {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <button
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{ background: hov ? T.ink : "none", border: `1px solid ${T.border}`, width: 28, height: 28, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", transition: "all 0.2s", color: hov ? T.cream : T.ink }}
+    >+</button>
+  );
+};
+
+const ServiceItem = ({ service, onClick }) => {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <div
+      onClick={onClick}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{ padding: "2rem 1.5rem", border: `0.5px solid ${T.border}`, position: "relative", overflow: "hidden", background: hov ? T.paper : "transparent", cursor: "pointer", transition: "background 0.3s" }}
+    >
+      <div style={{ position: "absolute", top: "1rem", right: "1.2rem", fontFamily: "'Playfair Display', serif", fontSize: "3rem", fontWeight: 900, color: T.border, lineHeight: 1, pointerEvents: "none" }}>{service.num}</div>
+      <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>{service.icon}</div>
+      <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.5rem" }}>{service.name}</div>
+      <div style={{ fontSize: "0.82rem", color: T.muted, lineHeight: 1.6 }}>{service.desc}</div>
+    </div>
+  );
+};
+
+const TestiCard = ({ testi }) => (
+  <div style={{ padding: "1.75rem", border: `0.5px solid ${T.border}`, background: T.cream, position: "relative" }}>
+    <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "3rem", color: T.gold, lineHeight: 1, marginBottom: "0.5rem" }}>"</div>
+    <div style={{ fontSize: "0.8rem", color: T.gold, letterSpacing: 2, marginBottom: "0.75rem" }}>★★★★★</div>
+    <p style={{ fontSize: "0.88rem", lineHeight: 1.7, color: T.ink, marginBottom: "1.25rem", fontStyle: "italic" }}>{testi.text}</p>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+      <div style={{ width: 36, height: 36, borderRadius: "50%", background: T.paper, border: `0.5px solid ${T.border}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.75rem", fontWeight: 500, color: T.muted }}>
+        {testi.initials}
+      </div>
+      <div>
+        <div style={{ fontSize: "0.82rem", fontWeight: 500 }}>{testi.name}</div>
+        <div style={{ fontSize: "0.72rem", color: T.muted }}>{testi.role}</div>
+      </div>
+    </div>
+  </div>
+);
 
 export default Home;

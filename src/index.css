@@ -1,53 +1,11 @@
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
+/* @import "tw-animate-css";
+@import "shadcn/tailwind.css"; */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 1. DEFINE VARIABLES AT THE NATIVE ROOT LEVEL (OUTSIDE OF LAYERS) */
-:root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --border: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  /* ... keep your other oklch variables here ... */
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --ring: oklch(0.556 0 0);
-  /* ... keep your dark mode variables here ... */
-}
-
-/* 2. USE THE '@theme inline' DIRECTIVE TO AUTO-GENERATE UTILITIES */
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-border: var(--border);
-  --color-ring: var(--ring);
-}
-
-/* 3. ASSIGN BASE LAYOUT STYLES SAFELY USING NATIVE CSS PROPERTY VALUE LOOKUPS */
-@layer base {
-  .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
-  }
-
-/* CHANGE THIS IN YOUR INDEX.CSS */
-* {
-  /* Remove '@apply border;' from here */
-  outline-color: var(--ring);
-}
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-  
-  html {
-    @apply font-sans;
-  }
+@theme {
+  /* This creates the font-serif-display utility class */
+  --font-serif-display: "Playfair Display", serif;
 }

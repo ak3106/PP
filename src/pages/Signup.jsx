@@ -13,6 +13,7 @@ import {
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { saveUserToDB } from "../utils/saveUserToDB";
 import { useNavigate, Link, useLocation } from "react-router-dom";
+// import { triggerWelcomeEmail } from "../utils/triggerWelcomeEmail";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -142,6 +143,10 @@ const Signup = () => {
         name: form.name,
         phone: `+91${form.phone}`,
       });
+
+      // Trigger welcome email
+      // await triggerWelcomeEmail(res.user.email, form.name);
+
       navigate("/");
     } catch (err) {
       setError("Signup failed. Check details or OTP.");
@@ -204,7 +209,16 @@ const Signup = () => {
       setModalOtpSent(true);
       setModalCooldown(30);
     } catch (err) {
-      setModalError(err.message || "Failed to send OTP");
+      if (
+        err.message?.includes("TOO_MANY_ATTEMPTS") ||
+        err.message?.includes("too-many-requests")
+      ) {
+        setError(
+          "Too many OTP requests. Please wait 30 minutes and try again.",
+        );
+      } else {
+        setError(err.message || "Failed to send OTP");
+      }
       resetRecaptcha("recaptcha-container-modal");
     } finally {
       setLoading(false);
@@ -234,11 +248,17 @@ const Signup = () => {
         phone: `+91${modalPhone}`,
       });
 
+      // await triggerWelcomeEmail(result.user.email, googleUser.displayName);
+
       setShowPhoneModal(false);
       navigate("/");
     } catch (err) {
       if (err.code === "auth/invalid-verification-code") {
         setModalError("Invalid OTP. Please try again.");
+      } else if (err.code === "auth/too-many-requests") {
+        setModalError(
+          "Account temporarily locked due to too many attempts. Reset your password or try again later.",
+        );
       } else {
         setModalError("Verification failed. Please try again.");
       }

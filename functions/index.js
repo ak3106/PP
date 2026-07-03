@@ -32,7 +32,7 @@ exports.sendWelcomeEmail = onDocumentCreated(
     if (email) {
       try {
         const response = await resend.emails.send({
-          from: "PragyaPrint <hello@pragyaprint.com>",
+          from: "PragyaPrint <mail@mail.pragyaprint.com>",
           to: email,
           subject: "Welcome to the PragyaPrint Family! 🎨📓",
           html: `

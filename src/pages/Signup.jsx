@@ -13,7 +13,7 @@ import {
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { saveUserToDB } from "../utils/saveUserToDB";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-// import { triggerWelcomeEmail } from "../utils/triggerWelcomeEmail";
+import { triggerWelcomeEmail } from "../utils/triggerWelcomeEmail";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -145,7 +145,7 @@ const Signup = () => {
       });
 
       // Trigger welcome email
-      // await triggerWelcomeEmail(res.user.email, form.name);
+      await triggerWelcomeEmail(res.user.email, form.name);
 
       navigate("/");
     } catch (err) {
@@ -248,7 +248,7 @@ const Signup = () => {
         phone: `+91${modalPhone}`,
       });
 
-      // await triggerWelcomeEmail(result.user.email, googleUser.displayName);
+      await triggerWelcomeEmail(result.user.email, googleUser.displayName);
 
       setShowPhoneModal(false);
       navigate("/");

@@ -1,5 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+// import TextType from '../components/TextType';
+import BlurText from "../components/BlurText";
+import Aurora from "../components/Aurora";
+import SplitText from "../components/SplitText";
+import BorderGlow from "../components/BorderGlow";
+import Navbar from "../components/Navbar";
+import banner from "../assets/pexels-alphaen-31726551.jpg"
 
 /* ─────────────────────────────────────────────
    Inline styles as a design-token object so
@@ -35,7 +42,14 @@ const SectionLabel = ({ children }) => (
       gap: "0.75rem",
     }}
   >
-    <span style={{ height: 1, width: "2rem", background: T.gold, display: "inline-block" }} />
+    <span
+      style={{
+        height: 1,
+        width: "2rem",
+        background: T.gold,
+        display: "inline-block",
+      }}
+    />
     {children}
   </p>
 );
@@ -100,53 +114,184 @@ const BtnGhost = ({ children, onClick, style = {} }) => {
 ───────────────────────────────────────────── */
 
 const HERO_CARDS = [
-  { icon: "🗺️", name: "Wall Posters", count: "24 styles", variant: "accent", tall: true },
-  { icon: "📔", name: "Journals",     count: "12 designs", variant: "default" },
-  { icon: "🏷️", name: "Stickers",     count: "Custom cuts", variant: "gold" },
-  { icon: "🖨️", name: "Custom Print", count: "Any format",  variant: "default" },
+  {
+    icon: "🗺️",
+    name: "Wall Posters",
+    count: "24 styles",
+    variant: "accent",
+    tall: true,
+  },
+  { icon: "📔", name: "Journals", count: "12 designs", variant: "default" },
+  { icon: "🏷️", name: "Stickers", count: "Custom cuts", variant: "gold" },
+  { icon: "🖨️", name: "Custom Print", count: "Any format", variant: "default" },
 ];
 
 const CATEGORIES = [
-  { icon: "🗺️", name: "Wall Posters",    sub: "A4, A3, A2 & custom sizes", variant: "dark", span: true },
-  { icon: "📔", name: "Spiral Journals", sub: "Ruled, dotted, blank",       variant: "default" },
-  { icon: "📓", name: "Notebooks",       sub: "Softcover & hardbound",      variant: "default" },
-  { icon: "🏷️", name: "Stickers",        sub: "Die-cut & sheet formats",    variant: "rust" },
-  { icon: "🎌", name: "Banners",         sub: "Vinyl, flex & fabric",       variant: "default" },
+  {
+    icon: "🗺️",
+    name: "Wall Posters",
+    sub: "A4, A3, A2 & custom sizes",
+    variant: "dark",
+    image:"https://res.cloudinary.com/dal56whd6/image/upload/v1770976295/posters_yjx4df.png",
+    span: true,
+  },
+  {
+    icon: "📔",
+    name: "Spiral Journals",
+    sub: "Ruled, dotted, blank",
+    image:"https://res.cloudinary.com/dal56whd6/image/upload/v1783584390/39207D6D-9FDC-40D4-AC0D-04FE5DFEB050.webp",
+    variant: "default",
+  },
+  {
+    icon: "📓",
+    name: "Notebooks",
+    image:"https://res.cloudinary.com/dal56whd6/image/upload/v1783584656/85.jpg",
+    sub: "Softcover & hardbound",
+    variant: "default",
+  },
+  {
+    icon: "🏷️",
+    name: "Retro Prints",
+    image:"https://res.cloudinary.com/dal56whd6/image/upload/v1783584058/61iVDoqEx8L.jpg",
+    sub: "Die-cut & sheet formats",
+    variant: "rust",
+  },
+  {
+    icon: "🎌",
+    name: "Banners",
+    sub: "Vinyl, flex & fabric",
+    image:"https://res.cloudinary.com/dal56whd6/image/upload/v1783590076/modern-minimalist-room-decor-with-framed-movie-posters.webp",
+    variant: "default",
+  },
 ];
 
 const PRODUCTS = [
-  { icon: "🗺️", name: "Motivational Poster",  desc: "High-gloss A3, vivid colour on 170gsm paper.", price: "₹149", unit: "piece", badge: "Bestseller" },
-  { icon: "📔", name: "Spiral Journal A5",    desc: "200 dotted pages, sturdy cover, smooth writing.", price: "₹299", unit: "unit",  badge: "New" },
-  { icon: "🏷️", name: "Custom Sticker Sheet", desc: "Die-cut vinyl stickers, weatherproof & vibrant.",  price: "₹99",  unit: "sheet", badge: null },
-  { icon: "📓", name: "Hardbound Notebook",   desc: "Cloth-bound cover, 192 ruled pages, bookmark.",   price: "₹249", unit: "unit",  badge: "Sale" },
+  {
+    icon: "🗺️",
+    name: "Motivational Poster",
+    desc: "High-gloss A3, vivid colour on 170gsm paper.",
+    price: "₹149",
+    unit: "piece",
+    badge: "Bestseller",
+  },
+  {
+    icon: "📔",
+    name: "Spiral Journal A5",
+    desc: "200 dotted pages, sturdy cover, smooth writing.",
+    price: "₹299",
+    unit: "unit",
+    badge: "New",
+  },
+  {
+    icon: "🏷️",
+    name: "Custom Sticker Sheet",
+    desc: "Die-cut vinyl stickers, weatherproof & vibrant.",
+    price: "₹99",
+    unit: "sheet",
+    badge: null,
+  },
+  {
+    icon: "📓",
+    name: "Hardbound Notebook",
+    desc: "Cloth-bound cover, 192 ruled pages, bookmark.",
+    price: "₹249",
+    unit: "unit",
+    badge: "Sale",
+  },
 ];
 
 const SERVICES = [
-  { num: "01", icon: "🖨️", name: "Offset Printing",      desc: "Bulk runs with exceptional colour fidelity. Ideal for brochures, catalogues, and marketing collateral." },
-  { num: "02", icon: "💻", name: "Digital Printing",      desc: "Fast turnaround for short runs. Variable data printing for personalised campaigns." },
-  { num: "03", icon: "✂️", name: "Die-Cut & Finishing",   desc: "Custom shapes, lamination, spot UV, and embossing that make your print stand out." },
-  { num: "04", icon: "🎌", name: "Large Format & Banners",desc: "Hoardings, flex banners, standees, and backdrops for events and signage." },
-  { num: "05", icon: "📐", name: "Design & Pre-Press",    desc: "In-house team prepares artwork for print-ready output with colour correction and proofing." },
-  { num: "06", icon: "📦", name: "Packaging Print",       desc: "Product boxes, carry bags, and custom packaging with premium finish and branding." },
+  {
+    num: "01",
+    icon: "🖨️",
+    name: "Offset Printing",
+    desc: "Bulk runs with exceptional colour fidelity. Ideal for brochures, catalogues, and marketing collateral.",
+  },
+  {
+    num: "02",
+    icon: "💻",
+    name: "Digital Printing",
+    desc: "Fast turnaround for short runs. Variable data printing for personalised campaigns.",
+  },
+  {
+    num: "03",
+    icon: "✂️",
+    name: "Die-Cut & Finishing",
+    desc: "Custom shapes, lamination, spot UV, and embossing that make your print stand out.",
+  },
+  {
+    num: "04",
+    icon: "🎌",
+    name: "Large Format & Banners",
+    desc: "Hoardings, flex banners, standees, and backdrops for events and signage.",
+  },
+  {
+    num: "05",
+    icon: "📐",
+    name: "Design & Pre-Press",
+    desc: "In-house team prepares artwork for print-ready output with colour correction and proofing.",
+  },
+  {
+    num: "06",
+    icon: "📦",
+    name: "Packaging Print",
+    desc: "Product boxes, carry bags, and custom packaging with premium finish and branding.",
+  },
 ];
 
 const QUALITY_POINTS = [
-  { icon: "✦", title: "Colour precision",  desc: "Pantone-matched inks, CMYK calibrated presses." },
-  { icon: "♻", title: "Eco materials",     desc: "FSC-certified papers and soy-based inks." },
-  { icon: "⚡", title: "Fast turnaround",   desc: "24–48 hr digital, 3–5 day offset runs." },
-  { icon: "🛡", title: "Print guarantee",   desc: "Free reprint if we fall short on quality." },
+  {
+    icon: "✦",
+    title: "Colour precision",
+    desc: "Pantone-matched inks, CMYK calibrated presses.",
+  },
+  {
+    icon: "♻",
+    title: "Eco materials",
+    desc: "FSC-certified papers and soy-based inks.",
+  },
+  {
+    icon: "⚡",
+    title: "Fast turnaround",
+    desc: "24–48 hr digital, 3–5 day offset runs.",
+  },
+  {
+    icon: "🛡",
+    title: "Print guarantee",
+    desc: "Free reprint if we fall short on quality.",
+  },
 ];
 
 const TESTIMONIALS = [
-  { initials: "AR", name: "Aarav Rathore",  role: "Small business owner",  text: "Ordered 500 custom stickers for my small business. The die-cut precision was incredible and they arrived a day early. Will reorder every quarter." },
-  { initials: "PS", name: "Priya Shukla",   role: "School administrator",   text: "The spiral journals for our school were exactly as designed. Colour vibrancy on the covers far exceeded what we got from our previous vendor." },
-  { initials: "MK", name: "Manav Kapoor",   role: "Event coordinator",      text: "Pragya Print handled our event backdrop and 200+ posters. Everything was crisp, timely, and the team guided us through the design process beautifully." },
+  {
+    initials: "AR",
+    name: "Aarav Rathore",
+    role: "Small business owner",
+    text: "Ordered 500 custom stickers for my small business. The die-cut precision was incredible and they arrived a day early. Will reorder every quarter.",
+  },
+  {
+    initials: "PS",
+    name: "Priya Shukla",
+    role: "School administrator",
+    text: "The spiral journals for our school were exactly as designed. Colour vibrancy on the covers far exceeded what we got from our previous vendor.",
+  },
+  {
+    initials: "MK",
+    name: "Manav Kapoor",
+    role: "Event coordinator",
+    text: "Pragya Print handled our event backdrop and 200+ posters. Everything was crisp, timely, and the team guided us through the design process beautifully.",
+  },
 ];
 
 const MARQUEE_ITEMS = [
-  "Wall Posters", "Spiral Journals", "Custom Stickers",
-  "Fabric Banners", "Notebooks", "Premium Print Services",
-  "Offset Printing", "Digital Printing",
+  "Wall Posters",
+  "Spiral Journals",
+  "Custom Stickers",
+  "Fabric Banners",
+  "Notebooks",
+  "Premium Print Services",
+  "Offset Printing",
+  "Digital Printing",
 ];
 
 /* ─────────────────────────────────────────────
@@ -158,15 +303,15 @@ const Home = () => {
 
   /* inject Google Fonts + global keyframes once */
   useEffect(() => {
-    const fontId = "pragya-fonts";
-    if (!document.getElementById(fontId)) {
-      const link = document.createElement("link");
-      link.id = fontId;
-      link.rel = "stylesheet";
-      link.href =
-        "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap";
-      document.head.appendChild(link);
-    }
+    // const fontId = "pragya-fonts";
+    // if (!document.getElementById(fontId)) {
+    //   const link = document.createElement("link");
+    //   link.id = fontId;
+    //   link.rel = "stylesheet";
+    //   link.href =
+    //     "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap";
+    //   document.head.appendChild(link);
+    // }
     const styleId = "pragya-keyframes";
     if (!document.getElementById(styleId)) {
       const style = document.createElement("style");
@@ -209,82 +354,235 @@ const Home = () => {
   }, []);
 
   return (
-    <div style={{ fontFamily: "'DM Sans', sans-serif", background: "#F5F4F0", color: T.ink, overflowX: "hidden" }}>
+    <div
+      style={{
+        fontFamily: "'DM Sans', sans-serif",
+        background: "#F5F4F0",
+        color: T.ink,
+        overflowX: "hidden",
+        position: "relative",
+        // backgroundColor: "red",
 
-      {/* ── NAV ── */}
-      
+      }}
+    >
 
+      <Aurora
+        colorStops={["#7cff67", "#B497CF", "#5227FF"]}
+        blend={1}
+        amplitude={1}
+        speed={1}
+      />
       {/* ── HERO ── */}
-      <section style={{
-        minHeight: "100vh",
-        display: "grid", gridTemplateColumns: "1fr 1fr",
-        paddingTop: 60, position: "relative", overflow: "hidden",
-      }}>
-        {/* Left */}
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "5rem 3rem 5rem 4rem", position: "relative", zIndex: 2 }}>
-          <p className="pragya-fade-up pragya-fade-1" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: T.gold, marginBottom: "1.5rem" }}>
-            <span style={{ width: "2rem", height: 1, background: T.gold, display: "inline-block" }} />
-            Est. 1994 · Print House
-          </p>
-          <h1 className="pragya-fade-up pragya-fade-2" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(3.2rem, 5vw, 5rem)", fontWeight: 900, lineHeight: 1.02, letterSpacing: "-0.03em", marginBottom: "1.5rem" }}>
-            Print that<br /><em style={{ fontStyle: "italic", color: T.rust }}>Speaks</em><br />for itself.
-          </h1>
-          <p className="pragya-fade-up pragya-fade-3" style={{ fontSize: "1rem", lineHeight: 1.7, color: T.muted, maxWidth: "40ch", marginBottom: "2.5rem" }}>
-            Posters, journals, stickers, banners — crafted with 30 years of precision. Custom prints delivered to your door.
-          </p>
-          <div className="pragya-fade-up pragya-fade-4" style={{ display: "flex", gap: "1rem" }}>
-            <BtnPrimary onClick={() => navigate("/products")}>Explore Products</BtnPrimary>
-            <BtnGhost onClick={() => navigate("/services")}>Our Services</BtnGhost>
+      <section
+        style={{
+          minHeight: "40vh",
+          display: "flex",
+          flexDirection: "column",
+          padding: "0px 40px 0px 40px",
+          position: "relative",
+          overflow: "hidden",
+          marginTop: "-100px"
+        }}
+      >
+        {/* first layer */}
+
+        <div className=" flex justify-between z-2 pt-10 items-center">
+          <SplitText
+            text="Lifestyle & Decor"
+            className="text-8xl font-extrabold"
+            delay={160}
+            duration={1.0}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+            // onLetterAnimationComplete={handleAnimationComplete}
+            showCallback={false}
+          />
+          <div className="text-2xl font-serif pragya-fade-up pragya-fade-5">
+            {/* <div className="flex flex-wrap gap-2">
+              <BlurText
+                text="-Personalize your"
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+              />
+
+              <BlurText
+                text="Stationery"
+                delay={300}
+                animateBy="words"
+                direction="bottom"
+                className="font-bold italic"
+              />
+
+              <BlurText
+                text="&"
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+              />
+            </div>
+            <div className="flex flex-wrap gap-2 pl-10">
+              <BlurText
+                text="make"
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+                className="font-bold italic"
+              />
+
+              <BlurText
+                text="it"
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+              />
+
+              <BlurText
+                text="yours!"
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+              />
+            </div> */}
+            <p className=" mt-4">-Personalize your <b><i>Stationery</i></b> & </p>
+            <p className="pl-16">make it <b><i>yours! </i></b></p>
           </div>
-          <div className="pragya-fade-up pragya-fade-5" style={{ display: "flex", gap: "2.5rem", marginTop: "3.5rem", paddingTop: "2rem", borderTop: `0.5px solid ${T.border}` }}>
+        </div>
+
+        {/* second layer */}
+        <div className="items-center flex justify-between relative z-2 pt-6 ">
+          <div className="text-2xl font-serif pragya-fade-up pragya-fade-5">
+            {/* <div className="flex flex-wrap gap-2">
+              <BlurText
+                text="-Upgrade your"
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+              />
+
+              <BlurText
+                text="Lifestyle"
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+                className="font-bold italic"
+              />
+
+              <BlurText
+                text="&"
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+              />
+            </div>
+            <div className="flex flex-wrap gap-2 pl-16">
+              <BlurText
+                text="Decorate"
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+                className="font-bold italic"
+              />
+
+              <BlurText
+                text="your"
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+              />
+
+              <BlurText
+                text="space."
+                delay={70}
+                animateBy="words"
+                direction="bottom"
+              />
+            </div> */}
+            <p className=" mt-4">-Upgrade your <b><i>Lifestyle</i></b> & </p>
+            <p className="pl-16"><b><i>Decorate </i></b>your space.</p>
+          </div>
+          <SplitText
+            text="Stationery"
+            className="text-8xl font-extrabold"
+            delay={160}
+            duration={1.5}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+            // onLetterAnimationComplete={handleAnimationComplete}
+            showCallback={false}
+          />
+
+          {/* <div className="pragya-fade-up pragya-fade-5" style={{ display: "flex", gap: "2.5rem", marginTop: "3.5rem", paddingTop: "2rem", borderTop: `0.5px solid ${T.border}` }}>
             {[["30+", "Years in print"], ["12k+", "Happy customers"], ["50+", "Product types"]].map(([val, lab]) => (
               <div key={lab}>
                 <span style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", fontWeight: 700, display: "block" }}>{val}</span>
                 <span style={{ fontSize: "0.72rem", color: T.muted, letterSpacing: "0.06em", textTransform: "uppercase" }}>{lab}</span>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Right mosaic */}
-        <div style={{ position: "relative", background: T.paper, overflow: "hidden" }}>
-          {/* diagonal overlap */}
-          <div style={{ position: "absolute", top: 0, left: -60, width: 120, height: "100%", background: T.cream, transform: "skewX(-3deg)", zIndex: 3 }} />
-          <div style={{ position: "absolute", inset: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "1rem", padding: "5rem 2rem 2rem 2rem" }}>
-            {HERO_CARDS.map((card) => (
-              <HeroCard key={card.name} card={card} onClick={() => navigate("/products")} />
-            ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* ── MARQUEE ── */}
-      <div style={{ background: T.ink, padding: "0.75rem 0", overflow: "hidden" }} aria-hidden="true">
-        <div className="pragya-marquee-track" style={{ display: "flex", whiteSpace: "nowrap" }}>
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: "1.5rem", padding: "0 2.5rem", fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: T.cream, opacity: 0.7 }}>
-              {item}
-              <span style={{ width: 4, height: 4, borderRadius: "50%", background: T.gold, display: "inline-block" }} />
-            </span>
-          ))}
-        </div>
-      </div>
+
+      <section className="mt-10 w-[90vw] h-[90vh] bg-gray-500 rounded-3xl mx-auto overflow-hidden">
+          <img src={banner} alt="Banner" className="w-full h-full object-cover" />
+
+      </section>
 
       {/* ── CATEGORIES ── */}
-      <div style={{ background: T.cream }}>
-        <div style={{ padding: "6rem 4rem", maxWidth: 1400, margin: "0 auto" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "3rem" }}>
+      <div >
+        <div style={{ padding: "5rem 4rem", maxWidth: 1600, minHeight: "100vh", margin: "0 auto"}}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              paddingBottom: "1rem",
+              marginBottom: "3rem",
+              borderBottom: "1px solid black",
+            }}
+          >
             <div>
               <SectionLabel>Browse by category</SectionLabel>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.025em" }}>
-                Find what you<br />need to <em style={{ color: T.rust, fontStyle: "italic" }}>make</em>.
+              <h2 className="font-sans text-4xl font-extrabold ">
+                Explore our {" "}
+                <em className="font-serif italic text-[#C4421A]">Categories</em>.
               </h2>
             </div>
-            <BtnGhost onClick={() => navigate("/products")} style={{ fontSize: "0.78rem", padding: "0.6rem 1.4rem" }}>View all →</BtnGhost>
+            <BtnGhost
+              onClick={() => navigate("/products")}
+              style={{ fontSize: "0.78rem", padding: "0.6rem 1.4rem" }}
+            >
+              View all →
+            </BtnGhost>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gridTemplateRows: "220px 220px", gap: "1rem" }}>
+          <div
+            style={{
+              // backgroundColor:"blue",
+              display: "grid",
+              height:"100vh",
+              gridTemplateColumns: "1fr 2fr",
+              gridTemplateRows: "",
+              gap: "0.6rem",
+            }}
+          >
             {CATEGORIES.map((cat) => (
-              <CatTile key={cat.name} cat={cat} onClick={() => navigate("/products")} />
+              <CatTile
+                key={cat.name}
+                cat={cat}
+                onClick={() => navigate("/products")}
+              />
             ))}
           </div>
         </div>
@@ -293,18 +591,51 @@ const Home = () => {
       {/* ── PRODUCTS ── */}
       <div style={{ background: T.paper }}>
         <div style={{ padding: "6rem 4rem", maxWidth: 1400, margin: "0 auto" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+            }}
+          >
             <div>
               <SectionLabel>Must-haves</SectionLabel>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.025em" }}>
-                Bestselling<br /><em style={{ color: T.rust, fontStyle: "italic" }}>products</em>.
+              <h2
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)",
+                  fontWeight: 900,
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.025em",
+                }}
+              >
+                Bestselling
+                <br />
+                <em style={{ color: T.rust, fontStyle: "italic" }}>products</em>
+                .
               </h2>
             </div>
-            <BtnGhost onClick={() => navigate("/products")} style={{ fontSize: "0.78rem", padding: "0.6rem 1.4rem" }}>All products →</BtnGhost>
+            <BtnGhost
+              onClick={() => navigate("/products")}
+              style={{ fontSize: "0.78rem", padding: "0.6rem 1.4rem" }}
+            >
+              All products →
+            </BtnGhost>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem", marginTop: "3rem" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: "1rem",
+              marginTop: "3rem",
+            }}
+          >
             {PRODUCTS.map((p) => (
-              <ProductCard key={p.name} product={p} onClick={() => navigate("/products")} />
+              <ProductCard
+                key={p.name}
+                product={p}
+                onClick={() => navigate("/products")}
+              />
             ))}
           </div>
         </div>
@@ -313,45 +644,143 @@ const Home = () => {
       {/* ── SERVICES ── */}
       <div style={{ background: T.cream }}>
         <div style={{ padding: "6rem 4rem", maxWidth: 1400, margin: "0 auto" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+            }}
+          >
             <div>
               <SectionLabel>Professional services</SectionLabel>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.025em" }}>
-                What we do<br /><em style={{ color: T.rust, fontStyle: "italic" }}>best</em>.
+              <h2
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)",
+                  fontWeight: 900,
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.025em",
+                }}
+              >
+                What we do
+                <br />
+                <em style={{ color: T.rust, fontStyle: "italic" }}>best</em>.
               </h2>
             </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginTop: "3rem" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "1rem",
+              marginTop: "3rem",
+            }}
+          >
             {SERVICES.map((s) => (
-              <ServiceItem key={s.name} service={s} onClick={() => navigate("/services")} />
+              <ServiceItem
+                key={s.name}
+                service={s}
+                onClick={() => navigate("/services")}
+              />
             ))}
           </div>
         </div>
       </div>
 
       {/* ── QUALITY STRIP ── */}
-      <div style={{ background: T.forest, color: T.cream, padding: "5rem 4rem", display: "flex", alignItems: "center", gap: "6rem" }}>
+      <div
+        style={{
+          background: T.forest,
+          color: T.cream,
+          padding: "5rem 4rem",
+          display: "flex",
+          alignItems: "center",
+          gap: "6rem",
+        }}
+      >
         <div style={{ flex: 1 }}>
-          <SectionLabel style={{ color: T.goldLight }}>Our promise</SectionLabel>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.025em", color: T.cream, marginBottom: "1.25rem" }}>
-            Quality you<br />can <em style={{ color: T.goldLight, fontStyle: "italic" }}>feel</em>.
+          <SectionLabel style={{ color: T.goldLight }}>
+            Our promise
+          </SectionLabel>
+          <h2
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)",
+              fontWeight: 900,
+              lineHeight: 1.1,
+              letterSpacing: "-0.025em",
+              color: T.cream,
+              marginBottom: "1.25rem",
+            }}
+          >
+            Quality you
+            <br />
+            can{" "}
+            <em style={{ color: T.goldLight, fontStyle: "italic" }}>feel</em>.
           </h2>
-          <p style={{ fontSize: "0.9rem", color: "rgba(247,243,236,0.6)", lineHeight: 1.7, maxWidth: "36ch" }}>
-            Three decades of refining every step of the process — from ink chemistry to paper selection — so your print always exceeds expectations.
+          <p
+            style={{
+              fontSize: "0.9rem",
+              color: "rgba(247,243,236,0.6)",
+              lineHeight: 1.7,
+              maxWidth: "36ch",
+            }}
+          >
+            Three decades of refining every step of the process — from ink
+            chemistry to paper selection — so your print always exceeds
+            expectations.
           </p>
-          <BtnPrimary onClick={() => navigate("/portfolio")} style={{ marginTop: "2rem", background: T.gold, color: T.ink }}>
+          <BtnPrimary
+            onClick={() => navigate("/portfolio")}
+            style={{ marginTop: "2rem", background: T.gold, color: T.ink }}
+          >
             View Portfolio
           </BtnPrimary>
         </div>
-        <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+        <div
+          style={{
+            flex: 1,
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "1.5rem",
+          }}
+        >
           {QUALITY_POINTS.map((qp) => (
             <div key={qp.title} style={{ display: "flex", gap: "1rem" }}>
-              <div style={{ width: 36, height: 36, flexShrink: 0, border: `1px solid rgba(200,151,58,0.4)`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", color: T.goldLight }}>
+              <div
+                style={{
+                  width: 36,
+                  height: 36,
+                  flexShrink: 0,
+                  border: `1px solid rgba(200,151,58,0.4)`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "1rem",
+                  color: T.goldLight,
+                }}
+              >
                 {qp.icon}
               </div>
               <div>
-                <div style={{ fontSize: "0.9rem", fontWeight: 500, marginBottom: 2 }}>{qp.title}</div>
-                <div style={{ fontSize: "0.75rem", color: "rgba(247,243,236,0.55)", lineHeight: 1.5 }}>{qp.desc}</div>
+                <div
+                  style={{
+                    fontSize: "0.9rem",
+                    fontWeight: 500,
+                    marginBottom: 2,
+                  }}
+                >
+                  {qp.title}
+                </div>
+                <div
+                  style={{
+                    fontSize: "0.75rem",
+                    color: "rgba(247,243,236,0.55)",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {qp.desc}
+                </div>
               </div>
             </div>
           ))}
@@ -362,19 +791,34 @@ const Home = () => {
       <div style={{ background: T.paper }}>
         <div style={{ padding: "6rem 4rem", maxWidth: 1400, margin: "0 auto" }}>
           <SectionLabel>Word on the street</SectionLabel>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)", fontWeight: 900, lineHeight: 1.1, letterSpacing: "-0.025em" }}>
-            Customers who<br /><em style={{ color: T.rust, fontStyle: "italic" }}>trust</em> our print.
+          <h2
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(2.2rem, 3.5vw, 3.2rem)",
+              fontWeight: 900,
+              lineHeight: 1.1,
+              letterSpacing: "-0.025em",
+            }}
+          >
+            Customers who
+            <br />
+            <em style={{ color: T.rust, fontStyle: "italic" }}>trust</em> our
+            print.
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginTop: "3rem" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "1rem",
+              marginTop: "3rem",
+            }}
+          >
             {TESTIMONIALS.map((t) => (
               <TestiCard key={t.name} testi={t} />
             ))}
           </div>
         </div>
       </div>
-
-
-     
     </div>
   );
 };
@@ -390,7 +834,15 @@ const NavLink = ({ label, onClick }) => {
       onClick={onClick}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      style={{ fontSize: "0.8rem", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: hov ? T.ink : T.muted, cursor: "pointer", transition: "color 0.2s" }}
+      style={{
+        fontSize: "0.8rem",
+        fontWeight: 500,
+        letterSpacing: "0.08em",
+        textTransform: "uppercase",
+        color: hov ? T.ink : T.muted,
+        cursor: "pointer",
+        transition: "color 0.2s",
+      }}
     >
       {label}
     </span>
@@ -398,35 +850,105 @@ const NavLink = ({ label, onClick }) => {
 };
 
 const HeroCard = ({ card, onClick }) => {
-  const bg = card.variant === "accent" ? T.forest : card.variant === "gold" ? T.gold : T.cream;
+  const bg =
+    card.variant === "accent"
+      ? T.forest
+      : card.variant === "gold"
+        ? T.gold
+        : T.cream;
   const textColor = card.variant === "accent" ? T.cream : T.ink;
-  const subColor = card.variant === "accent" ? "rgba(247,243,236,0.6)" : card.variant === "gold" ? "rgba(15,14,12,0.55)" : T.muted;
+  const subColor =
+    card.variant === "accent"
+      ? "rgba(247,243,236,0.6)"
+      : card.variant === "gold"
+        ? "rgba(15,14,12,0.55)"
+        : T.muted;
   return (
     <div
       className="pragya-hero-card"
       onClick={onClick}
       style={{
-        background: bg, color: textColor,
+        background: bg,
+        color: textColor,
         border: `0.5px solid ${T.border}`,
-        display: "flex", flexDirection: "column", justifyContent: "flex-end",
-        padding: "1.2rem", overflow: "hidden", position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        padding: "1.2rem",
+        overflow: "hidden",
+        position: "relative",
         gridRow: card.tall ? "span 2" : "auto",
-        cursor: "pointer", transition: "transform 0.3s",
+        cursor: "pointer",
+        transition: "transform 0.3s",
       }}
     >
-      <div className="pragya-cat-bg" style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "5rem", opacity: 0.12, transition: "opacity 0.3s, transform 0.3s", pointerEvents: "none" }}>
+      <div
+        className="pragya-cat-bg"
+        style={{
+          position: "absolute",
+          inset: 0,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "5rem",
+          opacity: 0.12,
+          transition: "opacity 0.3s, transform 0.3s",
+          pointerEvents: "none",
+        }}
+      >
         {card.icon}
       </div>
-      <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", fontWeight: 700, position: "relative", zIndex: 1 }}>{card.name}</div>
-      <div style={{ fontSize: "0.7rem", color: subColor, letterSpacing: "0.08em", textTransform: "uppercase", position: "relative", zIndex: 1, marginTop: 2 }}>{card.count}</div>
+      <div
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          fontSize: "1.1rem",
+          fontWeight: 700,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        {card.name}
+      </div>
+      <div
+        style={{
+          fontSize: "0.7rem",
+          color: subColor,
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          position: "relative",
+          zIndex: 1,
+          marginTop: 2,
+        }}
+      >
+        {card.count}
+      </div>
     </div>
   );
 };
 
 const CatTile = ({ cat, onClick }) => {
-  const bg = cat.variant === "dark" ? T.forest : cat.variant === "rust" ? T.rust : T.paper;
-  const textColor = cat.variant === "dark" || cat.variant === "rust" ? T.cream : T.ink;
-  const subColor = cat.variant === "dark" ? "rgba(247,243,236,0.5)" : cat.variant === "rust" ? "rgba(247,243,236,0.55)" : T.muted;
+  const bg =
+    cat.name === "Wall Posters"
+      ? cat.image
+      : cat.name === "Spiral Journals"
+        ? cat.image
+        : cat.name === "Notebooks"
+          ? cat.image
+          : cat.name === "Retro Prints"
+            ? cat.image
+            : cat.name === "Banners"
+              ? cat.image
+              : cat.variant === "rust"
+                ? T.rust
+                : T.paper;
+  const textColor =
+    cat.variant === "dark" || cat.variant === "rust" ? T.cream : T.ink;
+  const subColor =
+    cat.variant === "dark"
+      ? "rgba(247,243,236,0.5)"
+      : cat.variant === "rust"
+        ? "rgba(247,243,236,0.55)"
+        : T.muted;
   const arrowBg = cat.variant === "dark" ? T.gold : T.ink;
   const arrowColor = cat.variant === "dark" ? T.ink : T.cream;
   return (
@@ -434,43 +956,174 @@ const CatTile = ({ cat, onClick }) => {
       className="pragya-cat-tile"
       onClick={onClick}
       style={{
-        background: bg, color: textColor,
+    /* Stacks a bottom linear gradient OVER your background image */
+    background: `linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.85) 100%), url(${bg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        color: textColor,
         border: `0.5px solid ${T.border}`,
-        position: "relative", overflow: "hidden",
-        display: "flex", flexDirection: "column", justifyContent: "flex-end",
+        position: "relative",
+        overflow: "hidden",
+        display: "flex",
+        borderRadius:"5px",
+        flexDirection: "column",
+        justifyContent: "flex-end",
         padding: "1.5rem",
         gridRow: cat.span ? "span 2" : "auto",
-        cursor: "pointer", transition: "box-shadow 0.3s",
+        cursor: "pointer",
+    /* Note: Animating gradient transitions via inline styles is not natively smooth. */
       }}
     >
-      <div className="pragya-tile-icon" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -65%)", fontSize: "5rem", opacity: 0.1, transition: "opacity 0.3s, transform 0.3s", pointerEvents: "none" }}>
-        {cat.icon}
+
+      <div
+        className="pragya-tile-arrow"
+        style={{
+          position: "absolute",
+          top: "1.5rem",
+          right: "1.5rem",
+          width: 32,
+          height: 32,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: arrowBg,
+          color: arrowColor,
+          fontSize: "1rem",
+          opacity: 0,
+          transform: "translateX(-6px)",
+          transition: "opacity 0.25s, transform 0.25s",
+        }}
+      >
+        &rarr;
       </div>
-      <div className="pragya-tile-arrow" style={{ position: "absolute", top: "1.5rem", right: "1.5rem", width: 32, height: 32, display: "flex", alignItems: "center", justifyContent: "center", background: arrowBg, color: arrowColor, fontSize: "1rem", opacity: 0, transform: "translateX(-6px)", transition: "opacity 0.25s, transform 0.25s" }}>→</div>
-      <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.3rem", fontWeight: 700, position: "relative", zIndex: 1 }}>{cat.name}</div>
-      <div style={{ fontSize: "0.75rem", color: subColor, letterSpacing: "0.06em", textTransform: "uppercase", position: "relative", zIndex: 1, marginTop: 4 }}>{cat.sub}</div>
+      <div
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          fontSize: "1.3rem",
+          fontWeight: 700,
+          color: "white",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        {cat.name}
+      </div>
+      <div
+        style={{
+          fontSize: "0.75rem",
+          color: subColor,
+          letterSpacing: "0.06em",
+          textTransform: "uppercase",
+          position: "relative",
+          zIndex: 1,
+          marginTop: 4,
+        }}
+      >
+        {cat.sub}
+      </div>
     </div>
   );
 };
 
 const ProductCard = ({ product, onClick }) => (
-  <div className="pragya-product-card" onClick={onClick} style={{ background: T.cream, border: `0.5px solid ${T.border}`, overflow: "hidden", cursor: "pointer", transition: "transform 0.25s" }}>
-    <div style={{ width: "100%", aspectRatio: "4/3", overflow: "hidden", background: T.paper, position: "relative" }}>
-      <div className="pragya-prod-icon" style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "3.5rem", transition: "transform 0.4s" }}>
+  <div
+    className="pragya-product-card"
+    onClick={onClick}
+    style={{
+      background: T.cream,
+      border: `0.5px solid ${T.border}`,
+      overflow: "hidden",
+      cursor: "pointer",
+      transition: "transform 0.25s",
+    }}
+  >
+    <div
+      style={{
+        width: "100%",
+        aspectRatio: "4/3",
+        overflow: "hidden",
+        background: T.paper,
+        position: "relative",
+      }}
+    >
+      <div
+        className="pragya-prod-icon"
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "3.5rem",
+          transition: "transform 0.4s",
+        }}
+      >
         {product.icon}
       </div>
       {product.badge && (
-        <div style={{ position: "absolute", top: "0.75rem", left: "0.75rem", background: T.ink, color: T.cream, fontSize: "0.62rem", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", padding: "3px 8px" }}>
+        <div
+          style={{
+            position: "absolute",
+            top: "0.75rem",
+            left: "0.75rem",
+            background: T.ink,
+            color: T.cream,
+            fontSize: "0.62rem",
+            fontWeight: 500,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+            padding: "3px 8px",
+          }}
+        >
           {product.badge}
         </div>
       )}
     </div>
     <div style={{ padding: "1rem 1.2rem 1.2rem" }}>
-      <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.05rem", fontWeight: 700, marginBottom: 4 }}>{product.name}</div>
-      <div style={{ fontSize: "0.78rem", color: T.muted, marginBottom: "0.75rem", lineHeight: 1.5 }}>{product.desc}</div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div style={{ fontSize: "1rem", fontWeight: 500, fontFamily: "'Playfair Display', serif" }}>
-          {product.price} <span style={{ fontSize: "0.7rem", color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>/ {product.unit}</span>
+      <div
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          fontSize: "1.05rem",
+          fontWeight: 700,
+          marginBottom: 4,
+        }}
+      >
+        {product.name}
+      </div>
+      <div
+        style={{
+          fontSize: "0.78rem",
+          color: T.muted,
+          marginBottom: "0.75rem",
+          lineHeight: 1.5,
+        }}
+      >
+        {product.desc}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "1rem",
+            fontWeight: 500,
+            fontFamily: "'Playfair Display', serif",
+          }}
+        >
+          {product.price}{" "}
+          <span
+            style={{
+              fontSize: "0.7rem",
+              color: T.muted,
+              fontFamily: "'DM Sans', sans-serif",
+            }}
+          >
+            / {product.unit}
+          </span>
         </div>
         <AddBtn />
       </div>
@@ -484,8 +1137,22 @@ const AddBtn = () => {
     <button
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      style={{ background: hov ? T.ink : "none", border: `1px solid ${T.border}`, width: 28, height: 28, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", transition: "all 0.2s", color: hov ? T.cream : T.ink }}
-    >+</button>
+      style={{
+        background: hov ? T.ink : "none",
+        border: `1px solid ${T.border}`,
+        width: 28,
+        height: 28,
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "1rem",
+        transition: "all 0.2s",
+        color: hov ? T.cream : T.ink,
+      }}
+    >
+      +
+    </button>
   );
 };
 
@@ -496,23 +1163,108 @@ const ServiceItem = ({ service, onClick }) => {
       onClick={onClick}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      style={{ padding: "2rem 1.5rem", border: `0.5px solid ${T.border}`, position: "relative", overflow: "hidden", background: hov ? T.paper : "transparent", cursor: "pointer", transition: "background 0.3s" }}
+      style={{
+        padding: "2rem 1.5rem",
+        border: `0.5px solid ${T.border}`,
+        position: "relative",
+        overflow: "hidden",
+        background: hov ? T.paper : "transparent",
+        cursor: "pointer",
+        transition: "background 0.3s",
+      }}
     >
-      <div style={{ position: "absolute", top: "1rem", right: "1.2rem", fontFamily: "'Playfair Display', serif", fontSize: "3rem", fontWeight: 900, color: T.border, lineHeight: 1, pointerEvents: "none" }}>{service.num}</div>
-      <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>{service.icon}</div>
-      <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.5rem" }}>{service.name}</div>
-      <div style={{ fontSize: "0.82rem", color: T.muted, lineHeight: 1.6 }}>{service.desc}</div>
+      <div
+        style={{
+          position: "absolute",
+          top: "1rem",
+          right: "1.2rem",
+          fontFamily: "'Playfair Display', serif",
+          fontSize: "3rem",
+          fontWeight: 900,
+          color: T.border,
+          lineHeight: 1,
+          pointerEvents: "none",
+        }}
+      >
+        {service.num}
+      </div>
+      <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>
+        {service.icon}
+      </div>
+      <div
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          fontSize: "1.15rem",
+          fontWeight: 700,
+          marginBottom: "0.5rem",
+        }}
+      >
+        {service.name}
+      </div>
+      <div style={{ fontSize: "0.82rem", color: T.muted, lineHeight: 1.6 }}>
+        {service.desc}
+      </div>
     </div>
   );
 };
 
 const TestiCard = ({ testi }) => (
-  <div style={{ padding: "1.75rem", border: `0.5px solid ${T.border}`, background: T.cream, position: "relative" }}>
-    <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "3rem", color: T.gold, lineHeight: 1, marginBottom: "0.5rem" }}>"</div>
-    <div style={{ fontSize: "0.8rem", color: T.gold, letterSpacing: 2, marginBottom: "0.75rem" }}>★★★★★</div>
-    <p style={{ fontSize: "0.88rem", lineHeight: 1.7, color: T.ink, marginBottom: "1.25rem", fontStyle: "italic" }}>{testi.text}</p>
+  <div
+    style={{
+      padding: "1.75rem",
+      border: `0.5px solid ${T.border}`,
+      background: T.cream,
+      position: "relative",
+    }}
+  >
+    <div
+      style={{
+        fontFamily: "'Playfair Display', serif",
+        fontSize: "3rem",
+        color: T.gold,
+        lineHeight: 1,
+        marginBottom: "0.5rem",
+      }}
+    >
+      "
+    </div>
+    <div
+      style={{
+        fontSize: "0.8rem",
+        color: T.gold,
+        letterSpacing: 2,
+        marginBottom: "0.75rem",
+      }}
+    >
+      ★★★★★
+    </div>
+    <p
+      style={{
+        fontSize: "0.88rem",
+        lineHeight: 1.7,
+        color: T.ink,
+        marginBottom: "1.25rem",
+        fontStyle: "italic",
+      }}
+    >
+      {testi.text}
+    </p>
     <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-      <div style={{ width: 36, height: 36, borderRadius: "50%", background: T.paper, border: `0.5px solid ${T.border}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.75rem", fontWeight: 500, color: T.muted }}>
+      <div
+        style={{
+          width: 36,
+          height: 36,
+          borderRadius: "50%",
+          background: T.paper,
+          border: `0.5px solid ${T.border}`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "0.75rem",
+          fontWeight: 500,
+          color: T.muted,
+        }}
+      >
         {testi.initials}
       </div>
       <div>

@@ -442,7 +442,7 @@ const About = () => {
         <motion.p
           variants={fadeUp}
           transition={{ delay: 0.2 }}
-          className="text-md px-6 text-gray-600 max-w-3xl mx-auto text-justify lg:text-lg"
+          className="text-md px-6 text-gray-600 max-w-3xl mx-auto text-center lg:text-md font-serif"
         >
           Family-run Pragya Printing Press, established on 7 December 1994, has
           been delivering trusted printing solutions for over three decades.
@@ -499,7 +499,7 @@ const About = () => {
                 <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-indigo-50 text-accent mb-4 shadow-sm">
                   <Icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 font-serif">
                   {item.title}
                 </h3>
                 <p className="text-gray-600 text-sm">{item.text}</p>

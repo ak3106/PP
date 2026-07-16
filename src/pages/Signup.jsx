@@ -43,6 +43,7 @@ const Signup = () => {
   const [modalError, setModalError] = useState("");
 
   // Timer Effects
+  
   useEffect(() => {
     if (cooldown <= 0) return;
     const t = setTimeout(() => setCooldown((c) => c - 1), 1000);

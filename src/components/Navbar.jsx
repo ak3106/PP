@@ -104,7 +104,7 @@ const Navbar = ({ user, onLogout }) => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-[100] px-8 flex h-[60px] items-center justify-between backdrop-blur-md border-b border-yellow-900 transition-colors duration-300 bg-[#F5F4F0]/90`}
+        className={`fixed top-0 left-0 right-0 z-[100] px-8 flex h-[60px] items-center justify-between backdrop-blur-md border-b border-yellow-900 transition-colors duration-300 bg-[#F5F4F0]/40`}
       >
         {/* Logo / Brand */}
         <div

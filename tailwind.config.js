@@ -19,7 +19,13 @@ export default {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' },
         }
-      }
+      },
+      fontFamily: {
+        // Sets DM Sans as the default sans font
+        sans: ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Sets Playfair Display as the default serif font
+        serif: ['"Playfair Display"', 'ui-serif', 'Georgia', 'serif'],
+      },
     },
   },
   plugins: [],

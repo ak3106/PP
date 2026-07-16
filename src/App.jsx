@@ -154,7 +154,7 @@ const App = () => {
         onLogout={handleLogout}
       />
 
-      <main className="flex-grow bg-cream min-h-[90vh]">
+      <main className="flex-grow bg-cream min-h-[90vh] pt-[60px]">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />

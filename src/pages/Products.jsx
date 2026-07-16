@@ -376,11 +376,11 @@ const CategoryHubView = ({ navigate }) => {
 
   return (
     <div className="py-3 md:py-16">
-      <h1 className="text-5xl font-extrabold text-primary mb-3">
+      <h1 className="text-5xl font-extrabold text-primary mb-3 font-sans">
         Ready-Made Products
       </h1>
 
-      <p className="text-xl text-gray-900 mb-12 max-w-3xl">
+      <p className="text-xl text-gray-900 mb-12 max-w-3xl font-serif">
         Browse our curated collections of posters, stickers, and merchandise.
       </p>
 

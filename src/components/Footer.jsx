@@ -130,7 +130,7 @@ const Footer = () => {
           </div>
         </div>
         <span className="absolute hidden font-serif text-[18rem] font-bold text-[#F7F3EC]/[0.03] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none whitespace-nowrap tracking-tighter lg:block">
-          PRINT
+          PRAGYA
         </span>
         {/* Copyright */}
         <div className="mt-10 pt-6 border-t border-[#C8973A] text-center text-sm text-gray-500 flex justify-between">

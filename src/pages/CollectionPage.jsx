@@ -183,7 +183,7 @@ const CollectionsPage = () => {
               title={col}
               subtitle="Explore"
               onClick={() =>
-                navigate(`/products/${categorySlug}/${col.toLowerCase()}`)
+                navigate(`/products/${categorySlug.toLowerCase()}/${col.toLowerCase()}`)
               }
             />
           ))}

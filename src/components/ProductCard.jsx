@@ -152,15 +152,15 @@ const ProductCard = ({ product }) => {
   // --------------------------------------------------
   const detailRoute = useMemo(() => {
     if (product.category === "Journals") {
-      return `/products/journals/:collection/${product.id}`;
+      return `/products/journals/${product.collections.franchise}/${product.id}`; 
     }
     else if (product.category === "Notebooks") {
-      return `/products/notebooks/:collection/${product.id}`;
+      return `/products/notebooks/${product.collections.franchise}/${product.id}`;
     }
     else if (product.category === "Banners") {
-      return `/products/banners/:collection/${product.id}`;
+      return `/products/banners/${product.collections.franchise}/${product.id}`;
     }
-    return `/products/posters/:collection/${product.id}`;
+    return `/products/posters/${product.collections.franchise}/${product.id}`;
   }, [product]);
 
   // --------------------------------------------------

@@ -25,7 +25,7 @@ import {
 import Button from "../components/UI/Button";
 import Input from "../components/UI/Input";
 import { useCart } from "../context/CartContext";
-import { db } from "../firebase";
+import { db, functions } from "../firebase";
 import {
   doc,
   getDoc,
@@ -35,6 +35,8 @@ import {
   arrayUnion,
   serverTimestamp,
 } from "firebase/firestore";
+import { httpsCallable } from "firebase/functions";
+import { loadRazorpayScript } from "../utils/razorpayService";
 
 // ─── Indian States List ───────────────────────────────────────────────────────
 const INDIAN_STATES = [
@@ -543,16 +545,6 @@ const Checkout = ({ user }) => {
   const fmt = (n) => `₹${Math.round(n).toLocaleString("en-IN")}`;
 
   // ── Razorpay loader ──
-  const loadRazorpayScript = () =>
-    new Promise((resolve) => {
-      if (window.Razorpay) return resolve(true);
-      const s = document.createElement("script");
-      s.src = "https://checkout.razorpay.com/v1/checkout.js";
-      s.onload = () => resolve(true);
-      s.onerror = () => resolve(false);
-      document.body.appendChild(s);
-    });
-
   // ── Save order ──
   // ── Save order ──
   const saveOrderToFirestore = async (razorpayDetails = null) => {
@@ -573,6 +565,7 @@ const Checkout = ({ user }) => {
         payment: {
           method: paymentMethod,
           status: razorpayDetails ? "paid" : "pending",
+          orderId: razorpayDetails?.razorpay_order_id || null,
           transactionId: razorpayDetails?.razorpay_payment_id || "N/A",
         },
         items: cart.map((item) => ({ ...item })),
@@ -621,38 +614,84 @@ const Checkout = ({ user }) => {
     if (paymentMethod === "online") {
       const isLoaded = await loadRazorpayScript();
       if (!isLoaded) {
-        alert("Razorpay SDK failed to load. Check your connection.");
+        setOrderError("Razorpay could not be loaded. Check your connection and try again.");
         setIsPlacingOrder(false);
         return;
       }
 
-      const rzp = new window.Razorpay({
-        key: import.meta.env.VITE_RAZORPAY_KEY || "rzp_test_Sad8q1TNHn9OFA",
-        amount: Math.round(GRAND_TOTAL * 100),
-        currency: "INR",
-        name: "Pragya Print",
-        description: "Order Payment",
-        image:
-          "https://res.cloudinary.com/dal56whd6/image/upload/v1776772004/logo_pragya_print.png",
-        handler: async (response) => {
-          await saveOrderToFirestore(response);
-        },
-        prefill: {
-          name: addresses[selectedAddressIdx]?.name || user?.name || "",
-          email: user?.email || "",
-          contact: addresses[selectedAddressIdx]?.phone || "",
-        },
-        theme: { color: "#4f46e5" },
-        modal: { ondismiss: () => setIsPlacingOrder(false) },
-      });
-      rzp.on("payment.failed", (res) => {
-        alert(
-          "Payment failed: " +
-            (res.error?.description || "Something went wrong."),
-        );
+      const key = import.meta.env.VITE_RAZORPAY_KEY_ID;
+      if (!key) {
+        setOrderError("Online payments are not configured yet. Please contact support.");
         setIsPlacingOrder(false);
-      });
-      rzp.open();
+        return;
+      }
+
+      try {
+        const createOrder = httpsCallable(functions, "createRazorpayOrder");
+        const { data: order } = await createOrder({
+          amount: Math.round(GRAND_TOTAL * 100),
+          currency: "INR",
+          receipt: `order_${user.uid.slice(0, 8)}_${Date.now()}`,
+        });
+        let paymentCompleted = false;
+
+        const rzp = new window.Razorpay({
+          key,
+          order_id: order.order_id,
+          amount: order.amount,
+          currency: order.currency,
+          name: "Pragya Print",
+          description: "Order Payment",
+          image:
+            "https://res.cloudinary.com/dal56whd6/image/upload/v1776772004/logo_pragya_print.png",
+          handler: async (response) => {
+            paymentCompleted = true;
+            try {
+              const verifyPayment = httpsCallable(
+                functions,
+                "verifyRazorpayPayment",
+              );
+              const { data: verification } = await verifyPayment(response);
+
+              if (!verification.verified) {
+                throw new Error("Payment signature verification failed.");
+              }
+
+              await saveOrderToFirestore(response);
+            } catch (error) {
+              console.error("Payment verification failed:", error);
+              setOrderError("We could not verify your payment. Please contact support before retrying.");
+              setIsPlacingOrder(false);
+            }
+          },
+          prefill: {
+            name: addresses[selectedAddressIdx]?.name || user?.name || "",
+            email: user?.email || "",
+            contact: addresses[selectedAddressIdx]?.phone || "",
+          },
+          theme: { color: "#4f46e5" },
+          modal: {
+            ondismiss: () => {
+              if (!paymentCompleted) {
+                setOrderError("Payment was cancelled.");
+                setIsPlacingOrder(false);
+              }
+            },
+          },
+        });
+        rzp.on("payment.failed", (res) => {
+          setOrderError(
+            "Payment failed: " +
+              (res.error?.description || "Something went wrong. Please try again."),
+          );
+          setIsPlacingOrder(false);
+        });
+        rzp.open();
+      } catch (error) {
+        console.error("Could not start Razorpay checkout:", error);
+        setOrderError("Could not start online payment. Please try again.");
+        setIsPlacingOrder(false);
+      }
     } else {
       await saveOrderToFirestore();
     }

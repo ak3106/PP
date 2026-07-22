@@ -1,16 +1,15 @@
-import Razorpay from 'razorpay';
+const RAZORPAY_CHECKOUT_URL = "https://checkout.razorpay.com/v1/checkout.js";
 
-// NOTE: In a real app, this MUST be a backend call.
-// For now, we are setting up the structure.
-export const createRazorpayOrder = async (amount) => {
-  // Amount is in paisa (100 paisa = 1 INR)
-  const options = {
-    amount: amount * 100, 
-    currency: "INR",
-    receipt: `receipt_${Date.now()}`,
-  };
+export const loadRazorpayScript = () =>
+  new Promise((resolve) => {
+    if (window.Razorpay) {
+      resolve(true);
+      return;
+    }
 
-  // This part usually happens on your server
-  // const order = await instance.orders.create(options);
-  // return order;
-};
+    const script = document.createElement("script");
+    script.src = RAZORPAY_CHECKOUT_URL;
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });

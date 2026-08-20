@@ -1,5 +1,5 @@
 import React from "react";
-import { ICON_MAP } from "./icons";
+import { ICON_MAP } from "./Icons";
 
 const QualityPoint = ({ point }) => {
   const Icon = ICON_MAP[point.icon];

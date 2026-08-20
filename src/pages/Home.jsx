@@ -170,7 +170,7 @@ const Home = () => {
               Couldn&apos;t load products right now — please try again shortly.
             </p>
           ) : (
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
               {loading
                 ? Array.from({ length: 8 }).map((_, i) => (
                     <ProductCardSkeleton key={i} />

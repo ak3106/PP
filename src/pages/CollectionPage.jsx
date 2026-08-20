@@ -2,8 +2,6 @@ import React, { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useProducts from "../hooks/useProducts";
 
-
-
 // ─── unchanged helpers (keep your real ones) ──────────────────────────────────
 const categoryMap = {
   posters: "Posters",
@@ -57,7 +55,15 @@ function Badge({ children }) {
 }
 
 /* ─── CollectionCard ─────────────────────────────────────────────────────────── */
-function CollectionCard({ src, alt, title, subtitle, badge, onClick, featured }) {
+function CollectionCard({
+  src,
+  alt,
+  title,
+  subtitle,
+  badge,
+  onClick,
+  featured,
+}) {
   return (
     <div
       onClick={onClick}
@@ -69,7 +75,9 @@ function CollectionCard({ src, alt, title, subtitle, badge, onClick, featured })
       ].join(" ")}
     >
       {/* Image */}
-      <div className={`relative overflow-hidden ${featured ? "aspect-[3/4]" : "aspect-[3/4]"}`}>
+      <div
+        className={`relative overflow-hidden ${featured ? "aspect-[3/4]" : "aspect-[3/4]"}`}
+      >
         <img
           src={src || "/default.jpg"}
           alt={alt}
@@ -82,7 +90,9 @@ function CollectionCard({ src, alt, title, subtitle, badge, onClick, featured })
       {/* Body */}
       <div className="flex flex-col gap-1 p-4 flex-2">
         {badge && <Badge>{badge}</Badge>}
-        <h3 className="text-base font-bold tracking-tight leading-tight m-0">{title}</h3>
+        <h3 className="text-base font-bold tracking-tight leading-tight m-0">
+          {title}
+        </h3>
         <p className="text-xs text-stone-400 m-0">{subtitle}</p>
         <span className="text-sm font-bold text-amber-500 inline-block transition-transform duration-300 ease-out group-hover:translate-x-1">
           →
@@ -108,7 +118,7 @@ const CollectionsPage = () => {
         products
           .filter((p) => p.category === selectedCategory)
           .map((p) => p.collections?.franchise)
-          .filter(Boolean)
+          .filter(Boolean),
       ),
     ];
   }, [products, selectedCategory]);
@@ -116,7 +126,7 @@ const CollectionsPage = () => {
   // 🎯 Trending (isNewArrival)  (logic unchanged)
   const trendingExists = useMemo(() => {
     return products.some(
-      (p) => p.category === selectedCategory && p.isNewArrival
+      (p) => p.category === selectedCategory && p.isNewArrival,
     );
   }, [products, selectedCategory]);
 
@@ -133,7 +143,6 @@ const CollectionsPage = () => {
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-14 py-10 lg:py-16">
-
         {/* ── Header ──────────────────────────────────────────────────── */}
         <header className="flex flex-wrap items-end justify-between gap-4 pb-6 mb-8 border-b border-stone-200">
           <div>
@@ -151,8 +160,8 @@ const CollectionsPage = () => {
 
         {/* ── Grid ────────────────────────────────────────────────────── */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6">
-
           {/* ⭐ ALL PRODUCTS — featured wide card */}
+
           <CollectionCard
             featured
             src={COLLECTION_IMAGES[categorySlug]?.All}
@@ -160,6 +169,14 @@ const CollectionsPage = () => {
             title={`All ${selectedCategory}`}
             subtitle="Browse the full lineup"
             onClick={() => navigate(`/products/${categorySlug}/all`)}
+          />
+          <CollectionCard
+            key={"31313131"}
+            src={"https://res.cloudinary.com/dal56whd6/image/upload/v1787254800/custom-pop-culture-posters-collage.webp"}
+            alt={""}
+            title={"Custom"}
+            subtitle="Explore"
+            onClick={() => navigate(`/custom/poster`)}
           />
 
           {/* ⭐ TRENDING */}
@@ -183,11 +200,12 @@ const CollectionsPage = () => {
               title={col}
               subtitle="Explore"
               onClick={() =>
-                navigate(`/products/${categorySlug.toLowerCase()}/${col.toLowerCase()}`)
+                navigate(
+                  `/products/${categorySlug.toLowerCase()}/${col.toLowerCase()}`,
+                )
               }
             />
           ))}
-
         </div>
       </div>
     </div>

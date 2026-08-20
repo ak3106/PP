@@ -33,14 +33,14 @@ const Contact = () => {
   const [status, setStatus] = useState(""); // 'idle', 'submitting', 'success', 'error'
 
   const shopDetails = {
-    name: "Pragya Printing Press",
+    name: "Pragya Print",
     addressLine1: "A.B. Road, Traffic Point, Bus stand, Shajapur, ",
     addressLine2: " Agra - Mumbai Hwy, Laxmi Nagar",
     city: "Shajapur, Madhya Pradesh",
     pincode: "465001",
     // Using the number provided by the user
-    phone: "+919425083910",
-    email: "pragyaprintingpress@yahoo.com",
+    phone: "+919098863001",
+    email: "db.pragyaprint@gmail.com",
     hours: "Mon - Sat: 10:00 AM - 10:00 PM",
     // Using a reliable embed format based on the known coordinates (23.4187738, 76.2750312)
     googleMapsLink:

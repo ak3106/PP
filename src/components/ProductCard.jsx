@@ -331,8 +331,8 @@ const ProductCard = ({ product }) => {
         <button
           onClick={handleAddToCart}
           disabled={isAdding}
-          className="w-full py-2 flex items-center justify-center gap-2 
-     bg-highlight border border-gray-500 font-bold  hover:bg-gray-900 hover:text-highlight transition"
+          className="w-full py-2 flex items-center justify-center gap-2 text-cream
+     bg-[#18181B] border border-gray-500 font-semibold  hover:bg-gray-900 transition"
         >
           {isAdding ? (
             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>

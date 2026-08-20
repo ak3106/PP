@@ -263,7 +263,7 @@ const ProductCard = ({ product }) => {
   // --------------------------------------------------
   return (
     <div
-      className="min-h-[45vh] lg:min-h-[80vh] bg-highlight rounded-md 
+      className="min-h-[45vh] lg:min-h-[80vh] bg-cream rounded-md 
     hover:shadow-xl transition duration-300 
     overflow-hidden relative group border border-gray-50 
     flex flex-col justify-between"

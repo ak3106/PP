@@ -79,19 +79,19 @@ const Footer = () => {
               <li className="flex items-center">
                 <Mail className="w-4 h-4 mr-3 text-highlight" />
                 <a
-                  href="mailto:pragyaprintingpress@yahoo.com"
+                  href="mailto:db.pragyaprint@gmail.com"
                   className="text-sm hover:text-highlight font-semibold"
                 >
-                  pragyaprintingpress@yahoo.com
+                  db.pragyaprint@gmail.com
                 </a>
               </li>
               <li className="flex items-center">
                 <Phone className="w-4 h-4 mr-3 text-highlight" />
                 <a
-                  href="tel:+918269754932"
+                  href="tel:+919098863001"
                   className="text-sm hover:text-highlight font-semibold"
                 >
-                  +91 82697 54932
+                  +91 9098863001
                 </a>
               </li>
               <li className="flex items-start">

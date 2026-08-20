@@ -17,7 +17,7 @@ const PRODUCT_DATA = {
   ],
 };
 
-const CustomPoster = () => {
+const CustomJournal = () => {
   const navigate = useNavigate();
   const { dispatchCart } = useCart();
   const [selectedSize, setSelectedSize] = useState(
@@ -91,7 +91,7 @@ const CustomPoster = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 min-h-[80vh]">
       <h1 className="text-3xl sm:text-4xl font-extrabold mb-8 text-gray-900">
-        Custom Photo Poster
+        Custom Journal Book
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-gray-100">
@@ -153,7 +153,7 @@ const CustomPoster = () => {
         <div className="flex flex-col justify-between">
           <div>
             <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-              ransform your favorite photos into studio-quality physical
+              Transform your favorite photos into studio-quality physical
               posters. Printed with archival inks on premium paper stock.
             </p>
             {/* SIZE SELECTOR */}
@@ -173,7 +173,7 @@ const CustomPoster = () => {
                       onClick={() => setSelectedSize(s)}
                       className={`py-3 px-4 rounded-xl border text-center transition-all ${
                         isSelected
-                          ? "border-gray-900 bg-gray-900 text-white shadow-md"
+                          ? "border-accent bg-primary text-white shadow-md"
                           : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
                       }`}
                     >
@@ -205,7 +205,7 @@ const CustomPoster = () => {
                       onClick={() => setSelectedPaperType(paper)}
                       className={`flex-1 py-2.5 px-4 rounded-xl border text-sm font-medium transition ${
                         isSelected
-                          ? "border-gray-900 bg-gray-900 text-white"
+                          ? "border-accent bg-primary text-white"
                           : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
                       }`}
                     >
@@ -262,7 +262,7 @@ const CustomPoster = () => {
             <button
               onClick={handleAddToCart}
               disabled={loading || !imgEditor.preview}
-              className="w-full py-4 bg-gray-900 text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-black transition disabled:opacity-50"
+              className="w-full py-4 bg-zinc-950 text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-black transition disabled:opacity-50"
             >
               <ShoppingCart className="w-5 h-5" />
               {loading ? "Processing..." : "Add to Shopping Cart"}
@@ -302,4 +302,4 @@ const CustomPoster = () => {
   );
 };
 
-export default CustomPoster;
+export default CustomJournal;

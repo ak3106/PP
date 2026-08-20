@@ -332,9 +332,7 @@ const AddressCard = ({ address, selected, onSelect, onEdit, onDelete }) => (
         <div className="flex items-center gap-2 mb-1">
           <span
             className={`text-xs font-bold px-2 py-0.5 rounded-full uppercase tracking-wide ${
-              selected
-                ? "bg-primary text-white"
-                : "bg-zinc-100 text-zinc-500"
+              selected ? "bg-primary text-white" : "bg-zinc-100 text-zinc-500"
             }`}
           >
             {address.label}
@@ -421,7 +419,6 @@ const PaymentOption = ({
   </label>
 );
 
-// ─── Main Checkout Component ──────────────────────────────────────────────────
 const Checkout = ({ user }) => {
   const navigate = useNavigate();
   const { cart, dispatchCart } = useCart();
@@ -544,13 +541,12 @@ const Checkout = ({ user }) => {
   const GRAND_TOTAL = SUB_TOTAL + TAX_AMOUNT + actualShipping;
   const fmt = (n) => `₹${Math.round(n).toLocaleString("en-IN")}`;
 
-  // ── Razorpay loader ──
-  // ── Save order ──
-  // ── Save order ──
+  // ── Save order to Firestore ──
   const saveOrderToFirestore = async (razorpayDetails = null) => {
     try {
-      const selectedAddress = addresses[selectedAddressIdx];
-      
+      const selectedAddress =
+        selectedAddressIdx !== null ? addresses[selectedAddressIdx] : null;
+
       // 1. Create the order document
       const docRef = await addDoc(collection(db, "orders"), {
         userId: user.uid,
@@ -583,7 +579,7 @@ const Checkout = ({ user }) => {
       // 2. Append the new order ID to the user's orders array
       const userDocRef = doc(db, "users", user.uid);
       await updateDoc(userDocRef, {
-        orderIds: arrayUnion(docRef.id)
+        orderIds: arrayUnion(docRef.id),
       });
 
       // 3. Clear cart and update UI
@@ -614,14 +610,18 @@ const Checkout = ({ user }) => {
     if (paymentMethod === "online") {
       const isLoaded = await loadRazorpayScript();
       if (!isLoaded) {
-        setOrderError("Razorpay could not be loaded. Check your connection and try again.");
+        setOrderError(
+          "Razorpay could not be loaded. Check your connection and try again.",
+        );
         setIsPlacingOrder(false);
         return;
       }
 
       const key = import.meta.env.VITE_RAZORPAY_KEY_ID;
       if (!key) {
-        setOrderError("Online payments are not configured yet. Please contact support.");
+        setOrderError(
+          "Online payments are not configured yet. Please contact support.",
+        );
         setIsPlacingOrder(false);
         return;
       }
@@ -634,6 +634,9 @@ const Checkout = ({ user }) => {
           receipt: `order_${user.uid.slice(0, 8)}_${Date.now()}`,
         });
         let paymentCompleted = false;
+
+        const activeAddr =
+          selectedAddressIdx !== null ? addresses[selectedAddressIdx] : null;
 
         const rzp = new window.Razorpay({
           key,
@@ -653,23 +656,25 @@ const Checkout = ({ user }) => {
               );
               const { data: verification } = await verifyPayment(response);
 
-              if (!verification.verified) {
+              if (verification.status !== "success") {
                 throw new Error("Payment signature verification failed.");
               }
 
               await saveOrderToFirestore(response);
             } catch (error) {
               console.error("Payment verification failed:", error);
-              setOrderError("We could not verify your payment. Please contact support before retrying.");
+              setOrderError(
+                "We could not verify your payment. Please contact support before retrying.",
+              );
               setIsPlacingOrder(false);
             }
           },
           prefill: {
-            name: addresses[selectedAddressIdx]?.name || user?.name || "",
+            name: activeAddr?.name || user?.name || user?.displayName || "",
             email: user?.email || "",
-            contact: addresses[selectedAddressIdx]?.phone || "",
+            contact: activeAddr?.phone || "",
           },
-          theme: { color: "#4f46e5" },
+          theme: { color: "#166534" },
           modal: {
             ondismiss: () => {
               if (!paymentCompleted) {
@@ -679,13 +684,16 @@ const Checkout = ({ user }) => {
             },
           },
         });
+
         rzp.on("payment.failed", (res) => {
           setOrderError(
             "Payment failed: " +
-              (res.error?.description || "Something went wrong. Please try again."),
+              (res.error?.description ||
+                "Something went wrong. Please try again."),
           );
           setIsPlacingOrder(false);
         });
+
         rzp.open();
       } catch (error) {
         console.error("Could not start Razorpay checkout:", error);
@@ -717,7 +725,7 @@ const Checkout = ({ user }) => {
         </p>
         <button
           onClick={() => navigate("/")}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-xl font-semibold hover:bg-yellow-500 transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-colors"
         >
           <Home className="w-4 h-4" /> Go Shopping
         </button>
@@ -729,7 +737,7 @@ const Checkout = ({ user }) => {
     return (
       <div className="max-w-lg mx-auto px-4 py-24 text-center">
         <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="w-12 h-12 text-green-500" />
+          <CheckCircle className="w-12 h-12 text-green-600" />
         </div>
         <h1 className="text-3xl font-extrabold text-zinc-800 mb-3">
           Order Placed!
@@ -775,7 +783,7 @@ const Checkout = ({ user }) => {
 
         {/* Error banner */}
         {orderError && (
-          <div className="mb-6 flex items-center gap-3 px-4 py-3 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm font-medium">
+          <div className="mb-6 flex items-center gap-3 px-4 py-3 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm font-medium animate-slide-up">
             ⚠ {orderError}
           </div>
         )}
@@ -795,7 +803,7 @@ const Checkout = ({ user }) => {
                     setEditingIdx(null);
                     setShowModal(true);
                   }}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-green-900 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-green-900 transition-colors"
                 >
                   <Plus className="w-4 h-4" /> Add New
                 </button>
@@ -809,7 +817,7 @@ const Checkout = ({ user }) => {
                   </div>
                 ) : addresses.length === 0 ? (
                   <div className="text-center py-10">
-                    <div className="w-14 h-14 bg-green-50/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <div className="w-14 h-14 bg-green-50/50 rounded-full flex items-center justify-center mx-auto mb-3">
                       <MapPinned className="w-7 h-7 text-primary" />
                     </div>
                     <p className="text-zinc-900 font-semibold mb-1">
@@ -887,104 +895,145 @@ const Checkout = ({ user }) => {
 
           {/* ── Right: Order Summary ── */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl border border-zinc-200 shadow-sm sticky top-24 overflow-hidden">
-              <div className="px-6 py-4 border-b border-zinc-100">
-                <h2 className="font-bold text-zinc-800 flex items-center gap-2">
+            <div className="bg-white rounded-2xl border border-zinc-200/80 shadow-sm sticky top-24 overflow-hidden transition-all">
+              {/* Summary Header */}
+              <div className="px-6 py-4 border-b border-zinc-100 flex items-center justify-between bg-zinc-50/50">
+                <h2 className="font-bold text-zinc-900 flex items-center gap-2 text-base">
                   <Package className="w-5 h-5 text-primary" />
                   Order Summary
                 </h2>
+                <span className="text-xs font-semibold px-2.5 py-1 bg-zinc-100 text-zinc-600 rounded-full">
+                  {cart.reduce((acc, item) => acc + (item.quantity || 1), 0)}{" "}
+                  items
+                </span>
               </div>
 
-              {/* Cart items */}
-              <div className="px-6 py-4 space-y-3 border-b border-zinc-100 max-h-48 overflow-y-auto">
+              {/* Cart Items List */}
+              <div className="px-6 py-4 space-y-3.5 border-b border-zinc-100 max-h-52 overflow-y-auto divide-y divide-zinc-50">
                 {cart.map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    {item.image && (
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-10 h-10 rounded-lg object-cover border border-zinc-100 flex-shrink-0"
-                      />
-                    )}
+                  <div
+                    key={item.id || i}
+                    className="flex items-center gap-3 pt-2 first:pt-0"
+                  >
+                    <div className="relative w-12 h-12 rounded-xl bg-zinc-100 border border-zinc-200/60 overflow-hidden flex-shrink-0">
+                      {item.image ? (
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-zinc-400">
+                          <Package className="w-5 h-5" />
+                        </div>
+                      )}
+                    </div>
+
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-semibold text-zinc-700 truncate">
+                      <p className="text-xs font-semibold text-zinc-800 truncate leading-snug">
                         {item.name}
                       </p>
-                      <p className="text-xs text-zinc-400">
-                        Qty: {item.quantity}
+                      <p className="text-[11px] text-zinc-500 mt-0.5">
+                        Qty:{" "}
+                        <span className="font-medium text-zinc-700">
+                          {item.quantity}
+                        </span>
                       </p>
                     </div>
-                    <p className="text-xs font-bold text-zinc-700 flex-shrink-0">
+
+                    <p className="text-xs font-bold text-zinc-900 flex-shrink-0">
                       {fmt(item.price * item.quantity)}
                     </p>
                   </div>
                 ))}
               </div>
 
-              {/* Pricing breakdown */}
-              <div className="px-6 py-4 space-y-2.5">
-                <div className="flex justify-between text-sm text-zinc-500">
+              {/* Price Breakdown */}
+              <div className="px-6 py-4 space-y-2.5 bg-white">
+                <div className="flex justify-between text-xs text-zinc-500">
                   <span>Subtotal</span>
-                  <span className="font-medium text-zinc-700">
+                  <span className="font-semibold text-zinc-800">
                     {fmt(SUB_TOTAL)}
                   </span>
                 </div>
-                <div className="flex justify-between text-sm text-zinc-500">
+
+                <div className="flex justify-between text-xs text-zinc-500">
                   <span>Tax (5%)</span>
-                  <span className="font-medium text-zinc-700">
+                  <span className="font-semibold text-zinc-800">
                     {fmt(TAX_AMOUNT)}
                   </span>
                 </div>
-                <div className="flex justify-between text-sm text-zinc-500">
+
+                <div className="flex justify-between text-xs text-zinc-500">
                   <span>Shipping</span>
                   <span
-                    className={`font-medium ${actualShipping === 0 ? "text-green-600" : "text-zinc-700"}`}
+                    className={`font-semibold ${
+                      actualShipping === 0
+                        ? "text-emerald-600"
+                        : "text-zinc-800"
+                    }`}
                   >
                     {actualShipping === 0 ? "FREE" : fmt(actualShipping)}
                   </span>
                 </div>
-                <div className="flex justify-between text-base font-extrabold text-zinc-900 border-t border-green-900/20 pt-3 mt-1">
-                  <span>Total</span>
-                  <span>{fmt(GRAND_TOTAL)}</span>
+
+                <div className="flex justify-between items-baseline text-base font-extrabold text-zinc-900 border-t border-zinc-100 pt-3 mt-2">
+                  <span>Total Payable</span>
+                  <span className="text-lg text-primary">
+                    {fmt(GRAND_TOTAL)}
+                  </span>
                 </div>
               </div>
 
-              {/* Selected address preview */}
+              {/* Selected Address Preview */}
               {paymentMethod !== "store" &&
                 selectedAddressIdx !== null &&
                 addresses[selectedAddressIdx] && (
-                  <div className="mx-6 mb-4 p-3 bg-green-50/30 rounded-xl border border-primary">
-                    <p className="text-xs font-semibold text-zinc-900 mb-0.5 uppercase tracking-wide">
-                      Delivering to
+                  <div className="mx-6 mb-4 p-3 bg-emerald-50/40 rounded-xl border border-emerald-200/60 transition-all">
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider">
+                        Deliver To
+                      </p>
+                      <span className="text-[10px] font-medium text-emerald-700 bg-emerald-100/60 px-1.5 py-0.5 rounded">
+                        {addresses[selectedAddressIdx].type || "Home"}
+                      </span>
+                    </div>
+                    <p className="text-xs text-zinc-700 font-medium truncate">
+                      {addresses[selectedAddressIdx].name}
                     </p>
-                    <p className="text-xs text-zinc-700 leading-relaxed">
-                      {addresses[selectedAddressIdx].name} ·{" "}
+                    <p className="text-[11px] text-zinc-500 truncate">
                       {addresses[selectedAddressIdx].addressLine1},{" "}
                       {addresses[selectedAddressIdx].city}
                     </p>
                   </div>
                 )}
 
-              {/* CTA */}
-              <div className="px-6 pb-6">
+              {/* Action Area */}
+              <div className="px-6 pb-6 pt-1">
                 <button
                   onClick={handlePlaceOrder}
                   disabled={isPlacingOrder}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-primary hover:bg-green-900 disabled:bg-green-400 text-white font-bold rounded-xl transition-colors text-sm shadow-lg shadow-accent/20"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-primary hover:bg-emerald-800 active:scale-[0.99] disabled:bg-zinc-300 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all text-sm shadow-md shadow-primary/15"
                 >
                   {isPlacingOrder ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin" /> Processing...
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Processing Order...</span>
                     </>
                   ) : (
                     <>
-                      {`Pay ${fmt(GRAND_TOTAL)}`}{" "}
-                      <ChevronRight className="w-4 h-4" />
+                      <span>
+                        {paymentMethod === "store"
+                          ? "Place Pickup Order"
+                          : `Pay ${fmt(GRAND_TOTAL)}`}
+                      </span>
+                      <ChevronRight className="w-4 h-4 stroke-[2.5]" />
                     </>
                   )}
                 </button>
-                <p className="text-center text-xs text-zinc-400 mt-3">
-                  🔒 Secured with 256-bit encryption
+
+                <p className="flex items-center justify-center gap-1.5 text-[11px] text-zinc-400 mt-3 font-medium">
+                  <span>🔒</span> Safe & Secure Checkout
                 </p>
               </div>
             </div>
@@ -994,7 +1043,7 @@ const Checkout = ({ user }) => {
 
       <style>{`
         @keyframes slide-up {
-          from { opacity: 0; transform: translateY(20px); }
+          from { opacity: 0; transform: translateY(10px); }
           to   { opacity: 1; transform: translateY(0); }
         }
         .animate-slide-up { animation: slide-up 0.2s ease-out; }

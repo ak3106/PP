@@ -32,7 +32,7 @@ const cartReducer = (state, action) => {
         return state.map((i, index) =>
           index === existingIndex
             ? { ...i, quantity: i.quantity + item.quantity }
-            : i
+            : i,
         );
       }
 
@@ -42,25 +42,29 @@ const cartReducer = (state, action) => {
         name: item.name || "",
         variantId: item.variantId || "",
         variantLabel: item.variantLabel || "",
-        size: item.size ?? null,
-        pages: item.pages ?? null,
-        rulingType: item.rulingType ?? null,
-        finish: item.finish,
-        material: item.material,
-        coverType: item.coverType ?? null,
+
+        // Replace undefined with null or empty string fallback
+        size: item?.size ?? null,
+        pages: item?.pages ?? null,
+        rulingType: item?.rulingType ?? null,
+        finish: item?.finish ?? null,
+        material: item?.material ?? null,
+        coverType: item?.coverType ?? null,
+
         price: item.price || 0,
         quantity: item.quantity || 1,
         thumbnail: item.thumbnail || "",
 
+        customImage: item?.customImage ?? null,
+
         cartItemId,
       };
-
       return [...state, normalizedItem];
     }
 
     case "REMOVE_ITEM":
       return state.filter(
-        (item) => item.cartItemId !== action.payload.cartItemId
+        (item) => item.cartItemId !== action.payload.cartItemId,
       );
 
     case "UPDATE_QUANTITY":
@@ -68,7 +72,7 @@ const cartReducer = (state, action) => {
         .map((item) =>
           item.cartItemId === action.payload.cartItemId
             ? { ...item, quantity: action.payload.quantity }
-            : item
+            : item,
         )
         .filter((item) => item.quantity > 0);
 
@@ -84,7 +88,7 @@ export const CartProvider = ({ children }) => {
   // Load initial state from localStorage (or default to empty array)
   const [cart, dispatchCart] = useReducer(
     cartReducer,
-    JSON.parse(localStorage.getItem("pragya_cart")) || []
+    JSON.parse(localStorage.getItem("pragya_cart")) || [],
   );
 
   // Synchronize cart state to localStorage on every change
@@ -95,7 +99,7 @@ export const CartProvider = ({ children }) => {
   // Calculate item count (useful for Navbar)
   const cartItemCount = useMemo(
     () => cart.reduce((acc, item) => acc + item.quantity, 0),
-    [cart]
+    [cart],
   );
 
   return (

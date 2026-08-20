@@ -26,6 +26,12 @@ export default {
         // Sets Playfair Display as the default serif font
         serif: ['"Playfair Display"', 'ui-serif', 'Georgia', 'serif'],
       },
+      colors: {
+        cream: "#F5F4F0",
+        primary: "#2C4E34",
+        accent: "#C8973A",
+        highlight: "#C4421A",
+      },
     },
   },
   plugins: [],

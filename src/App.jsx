@@ -72,23 +72,28 @@ const cartReducer = (state, action) => {
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import Signup from "./pages/Signup";
-import CustomPoster from "./pages/CustomPoster";
-import SpiralDetail from "./pages/SpiralDetail";
-import NotebookDetail from "./pages/NotebookDetail";
+const Signup = lazy(() => import("./pages/Signup"));
 // import PostersCollections from "./pages/PostersCollections";
 // import SpiralCollections from "./pages/SpiralCollections";
-import CollectionsPage from "./pages/CollectionPage";
-import BannerDetail from "./pages/BannerDetail";
-import Account from "./pages/Account";
-import OrderDetail from "./pages/OrderDetail";
+const CollectionsPage = lazy(() => import("./pages/CollectionPage"));
+const NotebookDetail = lazy(() => import("./pages/NotebookDetail"));
+const BannerDetail = lazy(() => import("./pages/BannerDetail"));
+const SpiralDetail = lazy(() => import("./pages/SpiralDetail"));
+const Account = lazy(() => import("./pages/Account"));
+const OrderDetail = lazy(() => import("./pages/OrderDetail"));
 // import TestCloudinary from "./admin/TestCloudinary";
 // import AddProduct from "./admin/AddProduct";
-import SeedRunner from "./SeedRunner";
-import PrivacyPolicy from "./pages/policies/PrivacyPolicy";
-import TermsConditions from "./pages/policies/TermsConditions";
-import ShippingPolicy from "./pages/policies/ShippingPolicy";
-import RefundPolicy from "./pages/policies/RefundPolicy";
+const SeedRunner = lazy(() => import("./SeedRunner"));
+
+const PrivacyPolicy = lazy(() => import("./pages/policies/PrivacyPolicy"));
+const TermsConditions = lazy(() => import("./pages/policies/TermsConditions"));
+const ShippingPolicy = lazy(() => import("./pages/policies/ShippingPolicy"));
+const RefundPolicy = lazy(() => import("./pages/policies/RefundPolicy"));
+
+const CustomPoster = lazy(() => import("./pages/CustomPoster"));
+const CustomJournal = lazy(() => import("./pages/CustomJournal"));
+const CustomRetro = lazy(() => import("./pages/CustomBanner"));
+const CustomNotebook = lazy(() => import("./pages/CustomNotebook"));
 
 // --- Lazy Pages ---
 const Home = lazy(() => import("./pages/Home"));
@@ -114,7 +119,7 @@ const App = () => {
     const unsub = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser || null);
       setAuthLoading(false);
-    });
+    }); 
 
     return () => unsub();
   }, []);
@@ -225,13 +230,15 @@ const App = () => {
           {/* <Route path="/test-cloudinary" element={<TestCloudinary />} /> */}
           {/* <Route path="/add-product" element={<AddProduct />} /> */}
           <Route path="/seed-products" element={<SeedRunner />} />
-          <Route path="/custom/poster" element={<CustomPoster />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsConditions />} />
           <Route path="/shipping" element={<ShippingPolicy />} />
           <Route path="/refund" element={<RefundPolicy />} />
-
           <Route path="*" element={<Home />} />
+          <Route path="/custom/poster" element={<CustomPoster/>}/>
+          <Route path="/custom/journal" element={<CustomJournal/>}/>
+          <Route path="/custom/retroprints" element={<CustomRetro/>}/>
+          <Route path="/custom/notebook" element={<CustomNotebook/>}/>
         </Routes>
       </main>
 

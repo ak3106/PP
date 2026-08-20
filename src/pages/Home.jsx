@@ -8,6 +8,8 @@ import BorderGlow from "../components/BorderGlow";
 import Navbar from "../components/Navbar";
 import banner from "../assets/pexels-alphaen-31726551.jpg"
 
+import {CATEGORIES} from "../data/dummyProducts"
+
 /* ─────────────────────────────────────────────
    Inline styles as a design-token object so
    Tailwind / CSS-modules are NOT required.
@@ -126,44 +128,7 @@ const HERO_CARDS = [
   { icon: "🖨️", name: "Custom Print", count: "Any format", variant: "default" },
 ];
 
-const CATEGORIES = [
-  {
-    icon: "🗺️",
-    name: "Wall Posters",
-    sub: "A4, A3, A2 & custom sizes",
-    variant: "dark",
-    image:"https://res.cloudinary.com/dal56whd6/image/upload/v1770976295/posters_yjx4df.png",
-    span: true,
-  },
-  {
-    icon: "📔",
-    name: "Spiral Journals",
-    sub: "Ruled, dotted, blank",
-    image:"https://res.cloudinary.com/dal56whd6/image/upload/v1783584390/39207D6D-9FDC-40D4-AC0D-04FE5DFEB050.webp",
-    variant: "default",
-  },
-  {
-    icon: "📓",
-    name: "Notebooks",
-    image:"https://res.cloudinary.com/dal56whd6/image/upload/v1783584656/85.jpg",
-    sub: "Softcover & hardbound",
-    variant: "default",
-  },
-  {
-    icon: "🏷️",
-    name: "Retro Prints",
-    image:"https://res.cloudinary.com/dal56whd6/image/upload/v1783584058/61iVDoqEx8L.jpg",
-    sub: "Die-cut & sheet formats",
-    variant: "rust",
-  },
-  {
-    icon: "🎌",
-    name: "Banners",
-    sub: "Vinyl, flex & fabric",
-    image:"https://res.cloudinary.com/dal56whd6/image/upload/v1783590076/modern-minimalist-room-decor-with-framed-movie-posters.webp",
-    variant: "default",
-  },
-];
+
 
 const PRODUCTS = [
   {
@@ -367,7 +332,7 @@ const Home = () => {
     >
 
       <Aurora
-        colorStops={["#7cff67", "#B497CF", "#5227FF"]}
+        colorStops={["#2C4E34", "#C8973A", "#C4421A"]}
         blend={1}
         amplitude={1}
         speed={1}
@@ -390,7 +355,7 @@ const Home = () => {
           <SplitText
             text="Lifestyle & Decor"
             className="text-8xl font-extrabold"
-            delay={160}
+            delay={160} 
             duration={1.0}
             ease="power3.out"
             splitType="chars"
@@ -449,8 +414,8 @@ const Home = () => {
                 direction="bottom"
               />
             </div> */}
-            <p className=" mt-4">-Personalize your <b><i>Stationery</i></b> & </p>
-            <p className="pl-16">make it <b><i>yours! </i></b></p>
+            <p className=" mt-4">-Personalize your <span className="font-bold italic text-accent">Stationery</span> & </p>
+            <p className="pl-16">make it <span className="font-bold italic text-highlight">yours!</span> </p>
           </div>
         </div>
 
@@ -503,8 +468,8 @@ const Home = () => {
                 direction="bottom"
               />
             </div> */}
-            <p className=" mt-4">-Upgrade your <b><i>Lifestyle</i></b> & </p>
-            <p className="pl-16"><b><i>Decorate </i></b>your space.</p>
+            <p className=" mt-4">-Upgrade your <span className="font-bold italic text-accent">Lifestyle</span> & </p>
+            <p className="pl-16"><span className="font-bold italic text-highlight">Decorate</span> your space.</p>
           </div>
           <SplitText
             text="Stationery"
@@ -581,7 +546,7 @@ const Home = () => {
               <CatTile
                 key={cat.name}
                 cat={cat}
-                onClick={() => navigate("/products")}
+                onClick={() => navigate(`/products/${cat.slug}`)}
               />
             ))}
           </div>
@@ -928,7 +893,7 @@ const HeroCard = ({ card, onClick }) => {
 
 const CatTile = ({ cat, onClick }) => {
   const bg =
-    cat.name === "Wall Posters"
+    cat.name === "Posters"
       ? cat.image
       : cat.name === "Spiral Journals"
         ? cat.image
@@ -936,7 +901,7 @@ const CatTile = ({ cat, onClick }) => {
           ? cat.image
           : cat.name === "Retro Prints"
             ? cat.image
-            : cat.name === "Banners"
+            : cat.name === "Wall Banners"
               ? cat.image
               : cat.variant === "rust"
                 ? T.rust

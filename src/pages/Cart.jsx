@@ -31,10 +31,7 @@ const Cart = () => {
 
   // --- Calculations ---
   // FIX: cart is now guaranteed to be an array from the hook, fixing the error.
-  const SUB_TOTAL = useMemo(
-    () => cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
-    [cart]
-  );
+  const SUB_TOTAL = useMemo(() => cart.reduce((acc, item) => acc + item.price * item.quantity, 0),[cart]);
 
   // Simplified fixed calculations for Phase 1
   const SHIPPING_FEE = 100;

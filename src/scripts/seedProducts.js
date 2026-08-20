@@ -2,7 +2,7 @@
 import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 // import { cars } from "../data/poster";
-import { MOV } from "../data/poster";
+import { MOV } from "../data/posterdata";
 
 /**
  * ONE-TIME PRODUCT SEEDER

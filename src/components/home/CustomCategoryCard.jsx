@@ -1,5 +1,5 @@
 import React from "react";
-import { ICON_MAP } from "./icons";
+import { ICON_MAP } from "./Icons";
 
 /**
  * One of the 4 "start designing" cards (poster / journal / banner /
